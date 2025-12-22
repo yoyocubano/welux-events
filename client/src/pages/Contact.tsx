@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { trpc } from "@/lib/trpc";
+// import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Clock, Loader2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -33,11 +33,54 @@ export default function Contact() {
     message: "",
   });
 
-  const createInquiry = trpc.inquiries.create.useMutation({
-    onSuccess: () => {
-      toast.success("Thank you for your inquiry!", {
-        description: "We'll get back to you within 24 hours.",
+  /* 
+   * Supabase Integration via REST API
+   * Submits directly to the 'inquiries' table.
+   */
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const SUPABASE_URL = "https://obijleonxnpsgpmqcdik.supabase.co";
+    // NOTE: This should technically be the Anon Key (starts with eyJ...). 
+    // If the provided 'sb_publishable...' key fails, replace it with the 'anon' public key from Supabase Dashboard -> Settings -> API.
+    const SUPABASE_KEY = "sb_publishable_RVNxXDSzoEWQmtaxkBHUDg_DgIv0GQi";
+
+    // Transform date to ISO string if present
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone || null,
+      event_type: formData.eventType,
+      event_date: formData.eventDate || null,
+      location: formData.location || null,
+      budget: formData.budget || null,
+      guest_count: formData.guestCount ? parseInt(formData.guestCount) : null,
+      service_interest: formData.serviceInterest || null,
+      message: formData.message || null
+    };
+
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/inquiries`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": SUPABASE_KEY,
+          "Authorization": `Bearer ${SUPABASE_KEY}`,
+          "Prefer": "return=minimal"
+        },
+        body: JSON.stringify(payload)
       });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to submit");
+      }
+
+      // Success
+      toast.success(t("contact.form.success_title") || "Inquiry Sent!", {
+        description: t("contact.form.success_desc") || "We have received your message and saved it to our database.",
+      });
+
       setFormData({
         name: "",
         email: "",
@@ -50,29 +93,13 @@ export default function Contact() {
         serviceInterest: "",
         message: "",
       });
-    },
-    onError: (error) => {
-      toast.error("Failed to submit inquiry", {
-        description: error.message,
+
+    } catch (error) {
+      console.error("Supabase Error:", error);
+      toast.error("Error sending message", {
+        description: "Please check your internet connection or try again later.",
       });
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    createInquiry.mutate({
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone || undefined,
-      eventType: formData.eventType,
-      eventDate: formData.eventDate ? new Date(formData.eventDate) : undefined,
-      location: formData.location || undefined,
-      budget: formData.budget || undefined,
-      guestCount: formData.guestCount ? parseInt(formData.guestCount) : undefined,
-      serviceInterest: formData.serviceInterest || undefined,
-      message: formData.message || undefined,
-    });
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
