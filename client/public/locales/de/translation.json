@@ -333,6 +333,12 @@
     "error": {
         "unexpected": "Ein unerwarteter Fehler ist aufgetreten."
     },
+    "not_found": {
+        "title": "Seite Nicht Gefunden",
+        "desc": "Entschuldigung, die gesuchte Seite existiert nicht.",
+        "hint": "Sie wurde möglicherweise verschoben oder gelöscht.",
+        "home_button": "Zur Startseite"
+    },
     "footer": {
         "quick_links": "Schnelllinks",
         "contact": "Kontakt",

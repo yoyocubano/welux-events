@@ -458,6 +458,12 @@
     "error": {
         "unexpected": "Une erreur inattendue s'est produite."
     },
+    "not_found": {
+        "title": "Page Non Trouvée",
+        "desc": "Désolé, la page que vous recherchez n'existe pas.",
+        "hint": "Elle a peut-être été déplacée ou supprimée.",
+        "home_button": "Retour à l'Accueil"
+    },
     "footer": {
         "quick_links": "Liens Rapides",
         "contact": "Contact",

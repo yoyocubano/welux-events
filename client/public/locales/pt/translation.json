@@ -333,6 +333,12 @@
     "error": {
         "unexpected": "Ocorreu um erro inesperado."
     },
+    "not_found": {
+        "title": "Página Não Encontrada",
+        "desc": "Desculpe, a página que você procura não existe.",
+        "hint": "Ela pode ter sido movida ou excluída.",
+        "home_button": "Ir para o Início"
+    },
     "footer": {
         "quick_links": "Links Rápidos",
         "contact": "Contato",

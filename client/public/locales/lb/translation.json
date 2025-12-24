@@ -333,6 +333,12 @@
     "error": {
         "unexpected": "En onerwaarte Feeler ass geschitt."
     },
+    "not_found": {
+        "title": "Säit Net Fonnt",
+        "desc": "Pardon, d'Säit déi Dir sicht existéiert net.",
+        "hint": "Si kéint geréckelt oder geläscht ginn sinn.",
+        "home_button": "Zeréck Heem"
+    },
     "footer": {
         "quick_links": "Séier Links",
         "contact": "Kontakt",

@@ -458,6 +458,12 @@
     "error": {
         "unexpected": "An unexpected error occurred."
     },
+    "not_found": {
+        "title": "Page Not Found",
+        "desc": "Sorry, the page you are looking for doesn't exist.",
+        "hint": "It may have been moved or deleted.",
+        "home_button": "Go Home"
+    },
     "footer": {
         "quick_links": "Quick Links",
         "contact": "Contact",
