@@ -139,6 +139,12 @@ export default function Contact() {
       form.reset();
     } catch (error) {
       console.error("Submission Error:", error);
+      // Set root error for visual display
+      form.setError("root", {
+        type: "manual",
+        message: t("contact.form.error_generic") || "Unable to send message. Please try again or contact us directly via email."
+      });
+
       toast.error("Error sending message", {
         description: "Please check your internet connection or try again later.",
       });
@@ -246,6 +252,14 @@ export default function Contact() {
                     </h2>
                     <ShieldCheck className="w-6 h-6 text-green-600/80 hidden sm:block" title="Secure Form" />
                   </div>
+
+                  {/* Visual Error Message if Submission Fails */}
+                  {form.formState.errors.root && (
+                    <div className="bg-destructive/15 text-destructive text-sm p-3 rounded-md mb-4 border border-destructive/20">
+                      <p className="font-semibold">Error:</p>
+                      <p>{form.formState.errors.root.message || "Failed to submit form. Please try again."}</p>
+                    </div>
+                  )}
 
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
                     {/* Honeypot Field - Hidden */}

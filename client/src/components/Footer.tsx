@@ -90,7 +90,7 @@ export default function Footer() {
               <h3 className="font-semibold mb-4">{t("footer.follow_us")}</h3>
               <div className="flex gap-4 flex-wrap">
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/wellweddingslux"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -99,7 +99,7 @@ export default function Footer() {
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href="https://facebook.com/wellweddingslux"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -108,7 +108,7 @@ export default function Footer() {
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://youtube.com"
+                  href="https://youtube.com/@wellweddingslux"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -117,7 +117,7 @@ export default function Footer() {
                   <Youtube className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://tiktok.com"
+                  href="https://tiktok.com/@wellweddingslux"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -139,7 +139,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://linkedin.com/company/wellweddingslux"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
