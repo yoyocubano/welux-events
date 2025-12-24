@@ -26,17 +26,13 @@ export default function Contact() {
 
   // Form Schema Definition
   const contactSchema = z.object({
-    name: z.string().min(2, { message: t("contact.form.validation.name_required") }),
-    email: z.string().email({ message: t("contact.form.validation.email_invalid") }),
-    phone: z.string().optional(),
-    eventType: z.string().min(1, { message: t("contact.form.validation.event_type_required") }),
-    eventDate: z.string().optional(),
-    location: z.string().optional(),
-    budget: z.string().optional(),
-    guestCount: z.string().optional(),
-    serviceInterest: z.string().optional(),
-    message: z.string().optional(),
-    honeypot: z.string().optional() // Invisible field for spam protection
+    name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
+    email: z.string().email({ message: "Email inválido" }),
+    phone: z.string().regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, { message: "Teléfono inválido (ej: +352 123 456)" }),
+    eventType: z.string().min(1, { message: "Seleccione un tipo de evento" }),
+    eventDate: z.string().refine((date) => new Date(date) > new Date(), { message: "La fecha debe ser futura" }),
+    message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres" }),
+    honeypot: z.string().optional()
   });
 
   type ContactFormValues = z.infer<typeof contactSchema>;
@@ -255,188 +251,133 @@ export default function Contact() {
 
                   {/* Visual Error Message if Submission Fails */}
                   {form.formState.errors.root && (
-                    <div className="bg-destructive/15 text-destructive text-sm p-3 rounded-md mb-4 border border-destructive/20">
-                      <p className="font-semibold">Error:</p>
-                      <p>{form.formState.errors.root.message || "Failed to submit form. Please try again."}</p>
+                    <div className="error-message-global">
+                      {form.formState.errors.root.message || "Failed to submit form. Please try again."}
                     </div>
                   )}
 
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="luxury-form" noValidate>
                     {/* Honeypot Field - Hidden */}
                     <input
                       type="text"
                       {...form.register("honeypot")}
-                      className="hidden"
+                      style={{ display: 'none' }}
                       tabIndex={-1}
                       autoComplete="off"
                     />
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="name" className={form.formState.errors.name ? "text-destructive" : ""}>
-                          {t("contact.form.name")}
-                        </Label>
-                        <Input
-                          id="name"
-                          {...form.register("name")}
-                          placeholder="John Doe"
-                          aria-invalid={!!form.formState.errors.name}
-                          className={form.formState.errors.name ? "border-destructive focus-visible:ring-destructive" : ""}
-                        />
-                        {form.formState.errors.name && (
-                          <p className="text-sm text-destructive" role="alert">{form.formState.errors.name.message}</p>
-                        )}
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="email" className={form.formState.errors.email ? "text-destructive" : ""}>
-                          {t("contact.form.email")}
-                        </Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          {...form.register("email")}
-                          placeholder="john@example.com"
-                          aria-invalid={!!form.formState.errors.email}
-                          className={form.formState.errors.email ? "border-destructive focus-visible:ring-destructive" : ""}
-                        />
-                        {form.formState.errors.email && (
-                          <p className="text-sm text-destructive" role="alert">{form.formState.errors.email.message}</p>
-                        )}
-                      </div>
+                    {/* Name */}
+                    <div className="form-group">
+                      <label htmlFor="name">{t("contact.form.name")} *</label>
+                      <input
+                        id="name"
+                        type="text"
+                        {...form.register("name")}
+                        placeholder="John Doe"
+                        className={form.formState.errors.name ? "error" : ""}
+                      />
+                      {form.formState.errors.name && (
+                        <span className="error-message">{form.formState.errors.name.message}</span>
+                      )}
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="phone">{t("contact.form.phone")}</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          {...form.register("phone")}
-                          placeholder="+352 123 456 789"
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="eventType" className={form.formState.errors.eventType ? "text-destructive" : ""}>
-                          {t("contact.form.event_type")}
-                        </Label>
-                        <Select
-                          onValueChange={(value) => form.setValue("eventType", value, { shouldValidate: true })}
-                          defaultValue={form.getValues("eventType")}
-                        >
-                          <SelectTrigger id="eventType" className={form.formState.errors.eventType ? "border-destructive focus:ring-destructive" : ""}>
-                            <SelectValue placeholder={t("contact.form.select_event")} />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="wedding">{t("contact.form.event_types.wedding")}</SelectItem>
-                            <SelectItem value="corporate">{t("contact.form.event_types.corporate")}</SelectItem>
-                            <SelectItem value="celebration">{t("contact.form.event_types.celebration")}</SelectItem>
-                            <SelectItem value="engagement">{t("contact.form.event_types.engagement")}</SelectItem>
-                            <SelectItem value="other">{t("contact.form.event_types.other")}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        {form.formState.errors.eventType && (
-                          <p className="text-sm text-destructive" role="alert">{form.formState.errors.eventType.message}</p>
-                        )}
-                      </div>
+                    {/* Email */}
+                    <div className="form-group">
+                      <label htmlFor="email">{t("contact.form.email")} *</label>
+                      <input
+                        id="email"
+                        type="email"
+                        {...form.register("email")}
+                        placeholder="john@example.com"
+                        className={form.formState.errors.email ? "error" : ""}
+                      />
+                      {form.formState.errors.email && (
+                        <span className="error-message">{form.formState.errors.email.message}</span>
+                      )}
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="eventDate">{t("contact.form.date")}</Label>
-                        <Input
-                          id="eventDate"
-                          type="date"
-                          {...form.register("eventDate")}
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="location">{t("contact.form.location")}</Label>
-                        <Input
-                          id="location"
-                          {...form.register("location")}
-                          placeholder="Luxembourg City"
-                        />
-                      </div>
+                    {/* Phone */}
+                    <div className="form-group">
+                      <label htmlFor="phone">{t("contact.form.phone")} *</label>
+                      <input
+                        id="phone"
+                        type="tel"
+                        {...form.register("phone")}
+                        placeholder="+352 123 456 789"
+                        className={form.formState.errors.phone ? "error" : ""}
+                      />
+                      {form.formState.errors.phone && (
+                        <span className="error-message">{form.formState.errors.phone.message}</span>
+                      )}
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <Label htmlFor="budget">{t("contact.form.budget")}</Label>
-                        <Select
-                          onValueChange={(value) => form.setValue("budget", value)}
-                          defaultValue={form.getValues("budget")}
-                        >
-                          <SelectTrigger id="budget">
-                            <SelectValue placeholder={t("contact.form.select_budget")} />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="under-2000">{t("contact.form.budgets.under_2k")}</SelectItem>
-                            <SelectItem value="2000-5000">{t("contact.form.budgets.2k_5k")}</SelectItem>
-                            <SelectItem value="5000-10000">{t("contact.form.budgets.5k_10k")}</SelectItem>
-                            <SelectItem value="over-10000">{t("contact.form.budgets.over_10k")}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div className="space-y-2">
-                        <Label htmlFor="guestCount">{t("contact.form.guests")}</Label>
-                        <Input
-                          id="guestCount"
-                          type="number"
-                          {...form.register("guestCount")}
-                          placeholder="100"
-                        />
-                      </div>
+                    {/* Event Date (User requested 'future date' validation) */}
+                    <div className="form-group">
+                      <label htmlFor="eventDate">{t("contact.form.date")} *</label>
+                      <input
+                        id="eventDate"
+                        type="date"
+                        {...form.register("eventDate")}
+                        min={new Date().toISOString().split('T')[0]} // HTML5 validation for future dates
+                        className={form.formState.errors.eventDate ? "error" : ""}
+                      />
+                      {form.formState.errors.eventDate && (
+                        <span className="error-message">{form.formState.errors.eventDate.message}</span>
+                      )}
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="serviceInterest">{t("contact.form.service_interest")}</Label>
-                      <Select
-                        onValueChange={(value) => form.setValue("serviceInterest", value)}
-                        defaultValue={form.getValues("serviceInterest")}
+                    {/* Event Type & Message */}
+                    <div className="form-group">
+                      <label htmlFor="eventType">{t("contact.form.event_type")} *</label>
+                      <select
+                        id="eventType"
+                        {...form.register("eventType")}
+                        className={form.formState.errors.eventType ? "error" : ""}
                       >
-                        <SelectTrigger id="serviceInterest">
-                          <SelectValue placeholder={t("contact.form.select_service")} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="photography">{t("contact.form.services.photo")}</SelectItem>
-                          <SelectItem value="videography">{t("contact.form.services.video")}</SelectItem>
-                          <SelectItem value="both">{t("contact.form.services.both")}</SelectItem>
-                        </SelectContent>
-                      </Select>
+                        <option value="">{t("contact.form.select_event")}</option>
+                        <option value="wedding">{t("contact.form.event_types.wedding")}</option>
+                        <option value="corporate">{t("contact.form.event_types.corporate")}</option>
+                        <option value="celebration">{t("contact.form.event_types.celebration")}</option>
+                        <option value="engagement">{t("contact.form.event_types.engagement")}</option>
+                        <option value="other">{t("contact.form.event_types.other")}</option>
+                      </select>
+                      {form.formState.errors.eventType && (
+                        <span className="error-message">{form.formState.errors.eventType.message}</span>
+                      )}
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="message">{t("contact.form.message")}</Label>
-                      <Textarea
+                    <div className="form-group">
+                      <label htmlFor="message">{t("contact.form.message")} *</label>
+                      <textarea
                         id="message"
                         {...form.register("message")}
-                        placeholder={t("contact.form.placeholder_msg")}
                         rows={5}
-                      />
+                        placeholder={t("contact.form.placeholder_msg")}
+                        className={form.formState.errors.message ? "error" : ""}
+                      ></textarea>
+                      {form.formState.errors.message && (
+                        <span className="error-message">{form.formState.errors.message.message}</span>
+                      )}
                     </div>
 
-                    <Button
+                    {/* Submit Button */}
+                    <button
                       type="submit"
-                      size="lg"
-                      className="w-full"
+                      className="submit-btn"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        <span className="flex items-center justify-center gap-2">
+                          <Loader2 className="w-4 h-4 animate-spin" />
                           {t("contact.form.sending")}
-                        </>
+                        </span>
                       ) : (
                         t("contact.form.submit")
                       )}
-                    </Button>
+                    </button>
 
-                    <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-2">
-                      <Lock className="w-4 h-4" />
+                    <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-4">
+                      <Lock className="w-3 h-3" />
                       <span>{t("contact.form.privacy_note")}</span>
                     </div>
                   </form>

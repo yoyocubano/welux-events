@@ -33,7 +33,7 @@ export default function Navigation() {
             <img
               src="/logo-wel.png"
               alt="WEL Weddings & Events Luxembourg"
-              className="h-12 w-auto object-contain transition-opacity hover:opacity-90"
+              className="logo-premium"
             />
           </Link>
 
