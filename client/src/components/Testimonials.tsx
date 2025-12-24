@@ -13,7 +13,7 @@ export default function Testimonials() {
             role: t("testimonials.1.role"),
             content: t("testimonials.1.text"),
             rating: 5,
-            image: "https://images.unsplash.com/photo-1621623349694-8255dfb8242d?auto=format&fit=crop&q=80&w=150&h=150"
+            image: "/testimonial-sophie-marc.png"
         },
         {
             id: 2,
