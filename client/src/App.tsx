@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import Services from "./pages/Services";
 import About from "./pages/About";
+import Protocol from "./pages/Protocol";
 import Contact from "./pages/Contact";
 
 function Router() {
@@ -19,6 +20,7 @@ function Router() {
       <Route path={"/portfolio"} component={Portfolio} />
       <Route path={"/services"} component={Services} />
       <Route path={"/about"} component={About} />
+      <Route path={"/protocol"} component={Protocol} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
