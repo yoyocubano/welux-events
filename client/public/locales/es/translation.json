@@ -69,7 +69,8 @@
         "home": "Inicio",
         "portfolio": "Portafolio",
         "services": "Servicios",
-        "about": "Acerca de",
+        "about": "Nosotros",
+        "protocol": "El Protocolo",
         "contact": "Contacto"
     },
     "portfolio": {
