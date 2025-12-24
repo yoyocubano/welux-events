@@ -17,7 +17,7 @@ export default function Protocol() {
             <section className="relative pt-32 pb-20 px-6">
                 <div className="container max-w-4xl mx-auto text-center">
                     <span className="block font-sans text-xs tracking-[0.3em] uppercase text-primary mb-6">
-                        The WEL Standard
+                        The WE Standard
                     </span>
                     <h1 className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-8 leading-tight">
                         The Luxembourg Wedding & Event Protocol
@@ -36,7 +36,7 @@ export default function Protocol() {
                         You are embarking on a journey that should be defined by joy, not anxiety. In Luxembourg's dynamic event landscape, the difference between a chaotic gathering and a transcendent experience lies not in the budget, but in the <strong>precision of the planning</strong>.
                     </p>
                     <p>
-                        At WEL, we believe that <em>peace of mind</em> is the ultimate luxury. This protocol is distilled from over a decade of experience, designed to give you the foresight of a professional. Read it, use it, and reclaim your calm.
+                        At WE, we believe that <em>peace of mind</em> is the ultimate luxury. This protocol is distilled from over a decade of experience, designed to give you the foresight of a professional. Read it, use it, and reclaim your calm.
                     </p>
                 </div>
             </section>
@@ -148,7 +148,7 @@ export default function Protocol() {
                                 <tr>
                                     <th className="p-4 md:p-6 font-serif text-lg">Investment</th>
                                     <th className="p-4 md:p-6 font-serif text-lg">Impact</th>
-                                    <th className="p-4 md:p-6 font-serif text-lg">WEL Insight</th>
+                                    <th className="p-4 md:p-6 font-serif text-lg">WE Insight</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-border">

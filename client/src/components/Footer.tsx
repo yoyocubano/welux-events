@@ -17,7 +17,7 @@ export default function Footer() {
                 <div className="flex flex-col items-start justify-center">
                   <img
                     src="/logo-well-symbol.svg"
-                    alt="WEL"
+                    alt="WE"
                     className="h-12 w-auto object-contain transition-all duration-300"
                   />
                   <span className="mt-1 font-sans text-[10px] text-[#9F8F6A] tracking-[0.2em] uppercase text-left group-hover:text-primary transition-colors">

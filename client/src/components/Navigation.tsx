@@ -31,7 +31,7 @@ export default function Navigation() {
           <Link href="/" className="flex flex-col items-center group cursor-pointer">
             <img
               src="/logo-well-symbol.svg"
-              alt="WEL"
+              alt="WE"
               className="h-12 md:h-16 w-auto object-contain transition-all duration-300 group-hover:opacity-80"
             />
             <span className="mt-1 font-sans text-[10px] md:text-xs text-[#9F8F6A] tracking-[0.2em] uppercase text-center">
