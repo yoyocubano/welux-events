@@ -1,27 +1,46 @@
 {
     "hero": {
-        "title_start": "Capturing Your",
-        "title_highlight": "Perfect Moments",
-        "subtitle": "Enjoy your special day while we capture every emotion. Professional photography and videography in Luxembourg for timeless memories.",
-        "view_work": "View Gallery",
-        "get_quote": "Plan My Wedding",
-        "award_winning": "Your Trust",
-        "studio": "Our Best Award"
+        "title_start": "Your Love Story,",
+        "title_highlight": "Immortalized.",
+        "subtitle": "Experience your special day fully while we capture the moments that matter. Stress-free, elegant, and timeless photography & videography in Luxembourg.",
+        "view_work": "View Real Weddings",
+        "get_quote": "Request Free Quote",
+        "award_winning": "Trusted by",
+        "studio": "500+ Couples"
     },
     "why_choose": {
-        "title": "Why Choose Us",
-        "subtitle": "We combine passion, expertise, and a personal touch to make your event unforgettable.",
+        "title": "A Stress-Free Experience",
+        "subtitle": "We don’t just take photos; we ensure your day flows effortlessly so you can focus on celebrating.",
         "team": {
-            "title": "Award Winning Team",
-            "desc": "Recognized excellence in photography and videography."
+            "title": "Peace of Mind",
+            "desc": "With an award-winning team, you can relax knowing every detail is being captured by experts."
         },
         "service": {
-            "title": "Passionate Service",
-            "desc": "Dedicated to capturing every emotion with heart."
+            "title": "Authentic Emotion",
+            "desc": "No awkward posing. We capture the genuine laughter, tears, and joy of your celebration."
         },
         "local": {
-            "title": "Local Expertise",
-            "desc": "Deep knowledge of Luxembourg's best venues."
+            "title": "Hidden Gems",
+            "desc": "As locals, we know the most breathtaking, secret locations in Luxembourg for your portraits."
+        }
+    },
+    "testimonials": {
+        "title": "Success Stories",
+        "subtitle": "Don't just take our word for it. Hear from couples who trusted us with their memories.",
+        "1": {
+            "text": "They made us feel so comfortable! The photos are breathtaking and we didn't even notice the cameras.",
+            "author": "Sophie & Marc",
+            "location": "Luxembourg City"
+        },
+        "2": {
+            "text": "Professional, kind, and the video made everyone cry. Best investment of our wedding.",
+            "author": "Elena & Thomas",
+            "location": "Esch-sur-Alzette"
+        },
+        "3": {
+            "text": "We were worried about posing, but they made it fun. The results are natural and stunning.",
+            "author": "Claire & Louis",
+            "location": "Mondorf-les-Bains"
         }
     },
     "services": {
@@ -29,27 +48,27 @@
         "subtitle": "Comprehensive photography and videography solutions tailored to your needs",
         "wedding": {
             "title": "Wedding Photography",
-            "desc": "Capture every precious moment of your special day with our expert wedding photography services."
+            "desc": "Capturing the soul of your celebration with a timeless, elegant style."
         },
         "video": {
-            "title": "Event Videography",
-            "desc": "Professional video production that tells your story in a cinematic and engaging way."
+            "title": "Cinematic Video",
+            "desc": "Relive the movement, sounds, and vows of your day with a high-end cinematic film."
         },
         "full": {
-            "title": "Full Event Coverage",
-            "desc": "Complete coverage combining photography and videography for a comprehensive memory collection."
+            "title": "Full Coverage",
+            "desc": "The complete story. Both photo and video working in perfect harmony from start to finish."
         },
         "view_all": "View All Services"
     },
     "featured": {
-        "title": "Featured Work",
-        "subtitle": "A glimpse into our portfolio of beautiful weddings and events",
+        "title": "Real Love Stories",
+        "subtitle": "A glimpse into the beautiful weddings we've had the honor to capture.",
         "view_full": "View Full Portfolio"
     },
     "cta": {
-        "title": "Ready to Capture Your Story?",
-        "subtitle": "Let's discuss your upcoming event and create something beautiful together",
-        "button": "Get in Touch"
+        "title": "Dates for 2025 are Filling Fast",
+        "subtitle": "Don't risk losing your date. Let's discuss your wedding and secure your peace of mind today.",
+        "button": "Check Availability"
     },
     "nav": {
         "home": "Home",

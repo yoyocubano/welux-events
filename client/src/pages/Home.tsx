@@ -185,6 +185,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Social Proof / Testimonials (New Section) */}
+      <section className="py-20 bg-muted/30">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+              {t('testimonials.title')}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              {t('testimonials.subtitle')}
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <Card key={i} className="bg-background border-none shadow-sm h-full">
+                <CardContent className="p-8 flex flex-col h-full">
+                  <div className="mb-4 flex">
+                    {[...Array(5)].map((_, star) => (
+                      <Award key={star} className="w-4 h-4 text-primary fill-primary" />
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground italic mb-6 flex-grow">"{t(`testimonials.${i}.text`)}"</p>
+                  <div>
+                    <p className="font-semibold text-foreground">{t(`testimonials.${i}.author`)}</p>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider">{t(`testimonials.${i}.location`)}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Featured Portfolio */}
       <section className="py-20 bg-background">
         <div className="container">
