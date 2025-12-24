@@ -17,13 +17,13 @@ export default function Protocol() {
             <section className="relative pt-32 pb-20 px-6">
                 <div className="container max-w-4xl mx-auto text-center">
                     <span className="block font-sans text-xs tracking-[0.3em] uppercase text-primary mb-6">
-                        The WE Standard
+                        {t('protocol_page.hero.eyebrow')}
                     </span>
                     <h1 className="text-5xl md:text-7xl font-serif font-bold text-foreground mb-8 leading-tight">
-                        The Luxembourg Wedding & Event Protocol
+                        {t('protocol_page.hero.title')}
                     </h1>
                     <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-2xl mx-auto italic">
-                        "A Guide to Effortless Planning"
+                        {t('protocol_page.hero.subtitle')}
                     </p>
                     <div className="mt-12 w-24 h-1 bg-primary mx-auto opacity-50"></div>
                 </div>
@@ -33,10 +33,10 @@ export default function Protocol() {
             <section className="py-16 px-6">
                 <div className="container max-w-3xl mx-auto space-y-6 text-lg text-muted-foreground leading-relaxed">
                     <p className="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left text-foreground">
-                        You are embarking on a journey that should be defined by joy, not anxiety. In Luxembourg's dynamic event landscape, the difference between a chaotic gathering and a transcendent experience lies not in the budget, but in the <strong>precision of the planning</strong>.
+                        {t('protocol_page.intro.p1').replace(/\{\{strong\}\}/g, '').replace(/\{\{\/strong\}\}/g, '')}
                     </p>
                     <p>
-                        At WE, we believe that <em>peace of mind</em> is the ultimate luxury. This protocol is distilled from over a decade of experience, designed to give you the foresight of a professional. Read it, use it, and reclaim your calm.
+                        {t('protocol_page.intro.p2').replace(/\{\{em\}\}/g, '').replace(/\{\{\/em\}\}/g, '')}
                     </p>
                 </div>
             </section>
@@ -45,7 +45,7 @@ export default function Protocol() {
             <section className="py-20 bg-card border-y border-border">
                 <div className="container max-w-5xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-serif text-center mb-16">
-                        1. Timeline & Etiquette <span className="block text-lg font-sans text-muted-foreground mt-2 tracking-wide uppercase">The Sage Advice</span>
+                        {t('protocol_page.timeline.title')} <span className="block text-lg font-sans text-muted-foreground mt-2 tracking-wide uppercase">{t('protocol_page.timeline.subtitle')}</span>
                     </h2>
 
                     <div className="grid md:grid-cols-2 gap-12">
@@ -55,8 +55,8 @@ export default function Protocol() {
                                     <Clock className="w-6 h-6 text-primary" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold font-serif mb-2">12-18 Months Out: The Foundation</h3>
-                                    <p className="text-muted-foreground">In Luxembourg, premium locations (chateaux, Moselle estates) are booked well in advance. Do not secure dates before securing the space.</p>
+                                    <h3 className="text-xl font-bold font-serif mb-2">{t('protocol_page.timeline.foundation.title')}</h3>
+                                    <p className="text-muted-foreground">{t('protocol_page.timeline.foundation.desc')}</p>
                                 </div>
                             </div>
 
@@ -65,8 +65,8 @@ export default function Protocol() {
                                     <Users className="w-6 h-6 text-primary" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold font-serif mb-2">The Guest List</h3>
-                                    <p className="text-muted-foreground">Define your numbers now. A "Sage" knows that 150 guests require a different logistical beast than 80.</p>
+                                    <h3 className="text-xl font-bold font-serif mb-2">{t('protocol_page.timeline.guests.title')}</h3>
+                                    <p className="text-muted-foreground">{t('protocol_page.timeline.guests.desc')}</p>
                                 </div>
                             </div>
                         </div>
@@ -76,19 +76,19 @@ export default function Protocol() {
                             <ul className="space-y-4">
                                 <li className="flex items-center gap-4">
                                     <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-serif font-bold">1</div>
-                                    <span className="text-lg">Catering</span>
+                                    <span className="text-lg">{t('protocol_page.timeline.triad.1')}</span>
                                 </li>
                                 <li className="flex items-center gap-4">
                                     <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-serif font-bold">2</div>
-                                    <span className="text-lg">Photography</span>
+                                    <span className="text-lg">{t('protocol_page.timeline.triad.2')}</span>
                                 </li>
                                 <li className="flex items-center gap-4">
                                     <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-serif font-bold">3</div>
-                                    <span className="text-lg">Atmosphere (Music/Lights)</span>
+                                    <span className="text-lg">{t('protocol_page.timeline.triad.3')}</span>
                                 </li>
                             </ul>
                             <p className="mt-8 text-sm italic text-muted-foreground text-center">
-                                "Who" matters more than "How Much". A vendor who knows the venue's restrictions is worth their weight in gold.
+                                {t('protocol_page.timeline.triad.insight')}
                             </p>
                         </div>
                     </div>

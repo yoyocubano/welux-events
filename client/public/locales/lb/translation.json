@@ -75,6 +75,82 @@
         "protocol": "De Protokoll",
         "contact": "Kontakt"
     },
+    "protocol_page": {
+        "hero": {
+            "eyebrow": "De WE Standard",
+            "title": "Den Lëtzebuerger Wedding & Event Protokoll",
+            "subtitle": "\"E Guide fir Stress-fräi Planung\""
+        },
+        "intro": {
+            "p1": "Dir start op eng Rees, déi vu Freed definéiert soll sinn, net vun Angscht. An der dynamescher Eventlandschaft vu Lëtzebuerg läit den Ënnerscheed tëscht enger chaotescher Versammlung an enger aussergewéinlecher Erfarung net am Budget, mee an der {{strong}}Präzisioun vun der Planung{{/strong}}.",
+            "p2": "Bei WE gleewe mir, datt {{em}}Séilenfridden{{/em}} dee gréisste Luxus ass. Dëse Protokoll gouf aus iwwer engem Joerzéngt Erfarung entwéckelt, fir Iech d'Viraussiicht vun engem Profi ze ginn. Liest e, benotzt e a fannt Är Rou erëm."
+        },
+        "timeline": {
+            "title": "1. Zäitplang & Etikett",
+            "subtitle": "De Rot vum Weisen",
+            "foundation": {
+                "title": "12-18 Méint am Viraus: D'Basis",
+                "desc": "Zu Lëtzebuerg si Premium Locationen (Schlässer, Musel-Wéngerten) laang am Viraus gebucht. Reservéiert keen Datum, ier Dir d'Plaz net sécher hutt."
+            },
+            "guests": {
+                "title": "D'Gäschtrelëscht",
+                "desc": "Definéiert Är Zuelen elo. E \"Weisen\" weess, datt 150 Gäscht eng aner logistesch Erausfuerderung sinn wéi 80."
+            },
+            "triad": {
+                "title": "D'Verkeefer Prioritéits-Triad",
+                "1": "Catering",
+                "2": "Fotografie",
+                "3": "Atmosphär (Musek/Luucht)",
+                "insight": "\"Wien\" ass méi wichteg wéi \"Wéi vill\". En Ubidder, deen d'Restriktioune vun der Location kennt, ass Gold wäert."
+            }
+        },
+        "caregiver": {
+            "title": "2. D'Checklëschte vum Fleeger",
+            "subtitle": "Wat Anerer Vergiessen",
+            "rain": {
+                "title": "De Reen-Plang",
+                "desc": "Lëtzebuerger Realitéit: Gitt ni vu Sonn aus. Mir plangen fir Reen, sou datt wann e kënnt, et gewollt wierkt (z.B. kloer Zelter, gemittlech Banneluuchten)."
+            },
+            "gap": {
+                "title": "Kirchberg-Musel Distanz",
+                "desc": "Wann Är Zeremonie an der Stad ass an d'Receptioun um Land, suergt fir Navetten. Et erlaabt de Gäscht ze genéissen a garantéiert, datt jiddereen no {{em}}Ärem{{/em}} Zäitplang ukënnt."
+            },
+            "diet": {
+                "title": "Diät Dignitéit",
+                "desc": "Vegetaresch/Vegan Optioune sollen esou visuell beandrockend sinn wéi den Haaptmenü. E Gaascht, dee mat Suergfalt behandelt gëtt, ass e Gaascht, deen iwwer Äert Event schwëermt."
+            }
+        },
+        "budget": {
+            "title": "3. Budgetéierung fir Séilenfridden",
+            "headers": {
+                "investment": "Investitioun",
+                "impact": "Impakt",
+                "insight": "WE Abléck"
+            },
+            "rows": {
+                "coord": {
+                    "item": "Koordinatioun",
+                    "impact": "Héich",
+                    "desc": "E Koordinator ze kafen heescht, Är eege Presenz ze kafen. Sidd Gaascht op Ärem eegenen Event."
+                },
+                "light": {
+                    "item": "Beliichtung",
+                    "impact": "Héich",
+                    "desc": "Beliichtung transforméiert e Raum méi effektiv wéi Blummen, fir d'Halschent vum Präis."
+                },
+                "favors": {
+                    "item": "Kaddoen",
+                    "impact": "Niddereg",
+                    "desc": "Gäscht vergiessen \"Saachen\". Si erënnere sech dorun, wéi si sech {{em}}gefillt{{/em}} hunn (Musek, Iessen, Oflaf)."
+                }
+            }
+        },
+        "cta": {
+            "title": "Fänkt Är Rees Gutt Un",
+            "text": "Dëse Protokoll ass d'Kaart. Awer eng Kaart ass kee Guide. Fir eng Visioun vun dëser Gréisst ëmzesetzen, braucht Dir e Partner, deen den Horizont am Aen hält, wärend Dir d'Vue genéisst.",
+            "button": "Bucht Är Gratis Berodung"
+        }
+    },
     "portfolio": {
         "title": "Eise Portfolio",
         "subtitle": "Entdeckt eis Sammlung vu schéine Hochzäiten an Eventer, déi zu Lëtzebuerg festgehale goufen",
