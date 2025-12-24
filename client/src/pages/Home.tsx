@@ -4,13 +4,29 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Camera, Video, Heart, Award, Users, MapPin } from "lucide-react";
-import { trpc } from "@/lib/trpc";
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
-  const { data: featuredProjects, isLoading: loadingProjects } = trpc.portfolio.getFeatured.useQuery({ limit: 6 });
-  const { data: services, isLoading: loadingServices } = trpc.services.getAll.useQuery();
   const { t } = useTranslation();
+
+  const featuredProjects = [
+    {
+      id: 1,
+      title: t("portfolio.projects.chateau.title"),
+      description: t("portfolio.projects.chateau.desc"),
+      location: t("portfolio.projects.chateau.location"),
+      coverImageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+    },
+    {
+      id: 2,
+      title: t("portfolio.projects.city.title"),
+      description: t("portfolio.projects.city.desc"),
+      location: t("portfolio.projects.city.location"),
+      coverImageUrl: "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?w=800&h=600&fit=crop",
+    },
+  ];
+
+  const loadingProjects = false;
 
   return (
     <div className="min-h-screen flex flex-col">

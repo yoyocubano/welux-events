@@ -63,7 +63,24 @@
         "subtitle": "Explore our collection of beautiful weddings and events captured throughout Luxembourg",
         "all_projects": "All Projects",
         "view_photos": "View {{count}} photos",
-        "no_projects": "No projects found in this category yet."
+        "no_projects": "No projects found in this category yet.",
+        "categories": {
+            "weddings": "Weddings",
+            "engagements": "Engagements",
+            "events": "Events"
+        },
+        "projects": {
+            "chateau": {
+                "title": "Chateau Wedding",
+                "desc": "A beautiful summer wedding at the Grand Chateau.",
+                "location": "Vianden, Luxembourg"
+            },
+            "city": {
+                "title": "City Engagement",
+                "desc": "Romantic engagement shoot in Luxembourg City.",
+                "location": "Luxembourg City"
+            }
+        }
     },
     "services_page": {
         "title": "Our Services",
@@ -96,6 +113,42 @@
             "title": "Ready to Book Your Event?",
             "subtitle": "Contact us today for a personalized quote and consultation",
             "button": "Request a Quote"
+        },
+        "packages": {
+            "essential": {
+                "name": "Essential Collection",
+                "desc": "Perfect for intimate weddings and elopements",
+                "price_label": "Starting from",
+                "features": {
+                    "0": "6 Hours Coverage",
+                    "1": "300+ Edited Photos",
+                    "2": "Online Gallery",
+                    "3": "USB Drive"
+                }
+            },
+            "premium": {
+                "name": "Premium Collection",
+                "desc": "Our most popular package for full day coverage",
+                "price_label": "Full Day",
+                "features": {
+                    "0": "10 Hours Coverage",
+                    "1": "500+ Edited Photos",
+                    "2": "Engagement Session",
+                    "3": "Fine Art Album",
+                    "4": "Second Photographer"
+                }
+            },
+            "cinema": {
+                "name": "Cinema Package",
+                "desc": "Cinematic storytelling of your special day",
+                "price_label": "Video Only",
+                "features": {
+                    "0": "8 Hours Coverage",
+                    "1": "4-5 Minute Highlight Film",
+                    "2": "Drone Footage",
+                    "3": "Full Ceremony Edit"
+                }
+            }
         }
     },
     "about": {
@@ -126,6 +179,23 @@
             "title": "Meet Our Team",
             "subtitle": "The talented professionals behind every beautiful moment",
             "coming_soon": "Team information coming soon."
+        },
+        "team_members": {
+            "sarah": {
+                "name": "Sarah Miller",
+                "role": "Lead Photographer",
+                "bio": "With 10 years of experience capturing love stories across Europe."
+            },
+            "marc": {
+                "name": "Marc Weber",
+                "role": "Cinematographer",
+                "bio": "Passionate about storytelling through movement and light."
+            },
+            "elena": {
+                "name": "Elena Costa",
+                "role": "Event Coordinator",
+                "bio": "Ensuring every moment runs smoothly so you can focus on enjoying it."
+            }
         },
         "experience": {
             "title": "Our Experience",
@@ -195,6 +265,13 @@
             },
             "message": "Additional Details",
             "placeholder_msg": "Tell us more about your event and any specific requirements...",
+            "validation": {
+                "name_required": "Full name is required",
+                "email_required": "Email is required",
+                "email_invalid": "Please enter a valid email address",
+                "event_type_required": "Please select an event type"
+            },
+            "privacy_note": "Your data is secure. We never share your information with third parties.",
             "submit": "Send Inquiry",
             "sending": "Sending..."
         },

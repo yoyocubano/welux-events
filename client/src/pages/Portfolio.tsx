@@ -3,11 +3,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { trpc } from "@/lib/trpc";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { MOCK_PROJECTS, MOCK_CATEGORIES } from "@/lib/mockData";
 
 export default function Portfolio() {
   const { t } = useTranslation();
@@ -15,14 +13,39 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const { data: categoriesData } = trpc.portfolio.getCategories.useQuery();
-  const { data: projectsData, isLoading: isLoadingProjects } = trpc.portfolio.getProjects.useQuery({
-    categoryId: selectedCategory,
-  });
+  const categories = [
+    { id: 1, name: t("portfolio.categories.weddings") },
+    { id: 2, name: t("portfolio.categories.engagements") },
+    { id: 3, name: t("portfolio.categories.events") },
+  ];
 
-  const categories = categoriesData || MOCK_CATEGORIES;
-  const projects = projectsData || MOCK_PROJECTS.filter(p => !selectedCategory || p.categoryId === selectedCategory);
-  const isLoading = false; // Force loading off since we have mock data
+  const allProjects = [
+    {
+      id: 1,
+      title: t("portfolio.projects.chateau.title"),
+      description: t("portfolio.projects.chateau.desc"),
+      location: t("portfolio.projects.chateau.location"),
+      coverImageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+      imageUrls: [
+        "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?w=800&h=600&fit=crop",
+      ],
+      categoryId: 1,
+    },
+    {
+      id: 2,
+      title: t("portfolio.projects.city.title"),
+      description: t("portfolio.projects.city.desc"),
+      location: t("portfolio.projects.city.location"),
+      coverImageUrl: "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?w=800&h=600&fit=crop",
+      imageUrls: [
+        "https://images.unsplash.com/photo-1511285560982-1351cdeb9821?w=800&h=600&fit=crop",
+      ],
+      categoryId: 2,
+    },
+  ];
+
+  const projects = allProjects.filter(p => !selectedCategory || p.categoryId === selectedCategory);
 
   const openGallery = (project: any, imageIndex: number = 0) => {
     setSelectedProject(project);
@@ -36,14 +59,14 @@ export default function Portfolio() {
 
   const nextImage = () => {
     if (selectedProject) {
-      const images = JSON.parse(selectedProject.imageUrls);
+      const images = selectedProject.imageUrls;
       setCurrentImageIndex((prev) => (prev + 1) % images.length);
     }
   };
 
   const prevImage = () => {
     if (selectedProject) {
-      const images = JSON.parse(selectedProject.imageUrls);
+      const images = selectedProject.imageUrls;
       setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
     }
   };
@@ -75,7 +98,7 @@ export default function Portfolio() {
             >
               {t("portfolio.all_projects")}
             </Button>
-            {categories?.map((category) => (
+            {categories.map((category) => (
               <Button
                 key={category.id}
                 variant={selectedCategory === category.id ? "default" : "outline"}
@@ -92,62 +115,44 @@ export default function Portfolio() {
       {/* Portfolio Grid */}
       <section className="py-16 bg-background">
         <div className="container">
-          {isLoading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="space-y-4">
-                  <div className="aspect-[4/3] bg-muted animate-pulse rounded-lg" />
-                  <div className="h-6 bg-muted animate-pulse rounded w-3/4" />
-                  <div className="h-4 bg-muted animate-pulse rounded w-1/2" />
-                </div>
-              ))}
-            </div>
-          ) : projects && projects.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project) => {
-                const images = JSON.parse(project.imageUrls);
-                return (
-                  <Card
-                    key={project.id}
-                    className="group cursor-pointer overflow-hidden border-border hover:shadow-xl transition-shadow"
-                    onClick={() => openGallery(project, 0)}
-                  >
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={project.coverImageUrl}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-serif font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      {project.location && (
-                        <p className="text-sm text-muted-foreground mb-2">
-                          📍 {project.location}
-                        </p>
-                      )}
-                      {project.description && (
-                        <p className="text-sm text-muted-foreground line-clamp-2">
-                          {project.description}
-                        </p>
-                      )}
-                      <p className="text-sm text-primary mt-3 font-medium">
-                        {t("portfolio.view_photos", { count: images.length })} →
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => {
+              const images = project.imageUrls;
+              return (
+                <Card
+                  key={project.id}
+                  className="group cursor-pointer overflow-hidden border-border hover:shadow-xl transition-shadow"
+                  onClick={() => openGallery(project, 0)}
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={project.coverImageUrl}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-serif font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    {project.location && (
+                      <p className="text-sm text-muted-foreground mb-2">
+                        📍 {project.location}
                       </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="text-center py-20">
-              <p className="text-lg text-muted-foreground">
-                {t("portfolio.no_projects")}
-              </p>
-            </div>
-          )}
+                    )}
+                    {project.description && (
+                      <p className="text-sm text-muted-foreground line-clamp-2">
+                        {project.description}
+                      </p>
+                    )}
+                    <p className="text-sm text-primary mt-3 font-medium">
+                      {t("portfolio.view_photos", { count: images.length })} →
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </div>
       </section>
 

@@ -63,7 +63,24 @@
         "subtitle": "Explore nuestra colección de hermosas bodas y eventos capturados en todo Luxemburgo",
         "all_projects": "Todos los Proyectos",
         "view_photos": "Ver {{count}} foto(s)",
-        "no_projects": "Aún no se encontraron proyectos en esta categoría."
+        "no_projects": "Aún no se encontraron proyectos en esta categoría.",
+        "categories": {
+            "weddings": "Bodas",
+            "engagements": "Compromisos",
+            "events": "Eventos"
+        },
+        "projects": {
+            "chateau": {
+                "title": "Boda en Castillo",
+                "desc": "Una hermosa boda de verano en el Gran Castillo.",
+                "location": "Vianden, Luxemburgo"
+            },
+            "city": {
+                "title": "Sesión en la Ciudad",
+                "desc": "Sesión romántica de compromiso en la ciudad de Luxemburgo.",
+                "location": "Ciudad de Luxemburgo"
+            }
+        }
     },
     "services_page": {
         "title": "Nuestros Servicios",
@@ -96,6 +113,42 @@
             "title": "¿Listo para Reservar su Evento?",
             "subtitle": "Contáctenos hoy para un presupuesto personalizado y consulta",
             "button": "Solicitar Presupuesto"
+        },
+        "packages": {
+            "essential": {
+                "name": "Colección Esencial",
+                "desc": "Perfecto para bodas íntimas y elopements",
+                "price_label": "Desde",
+                "features": {
+                    "0": "6 Horas de Cobertura",
+                    "1": "300+ Fotos Editadas",
+                    "2": "Galería Online",
+                    "3": "Memoria USB"
+                }
+            },
+            "premium": {
+                "name": "Colección Premium",
+                "desc": "Nuestro paquete más popular para cobertura de día completo",
+                "price_label": "Día Completo",
+                "features": {
+                    "0": "10 Horas de Cobertura",
+                    "1": "500+ Fotos Editadas",
+                    "2": "Sesión de Compromiso",
+                    "3": "Álbum Fine Art",
+                    "4": "Segundo Fotógrafo"
+                }
+            },
+            "cinema": {
+                "name": "Paquete Cinema",
+                "desc": "Narrativa cinematográfica de su día especial",
+                "price_label": "Solo Video",
+                "features": {
+                    "0": "8 Horas de Cobertura",
+                    "1": "Video Resumen de 4-5 Minutos",
+                    "2": "Tomas Aéreas (Dron)",
+                    "3": "Edición Completa de Ceremonia"
+                }
+            }
         }
     },
     "about": {
@@ -126,6 +179,23 @@
             "title": "Conozca a Nuestro Equipo",
             "subtitle": "Los talentosos profesionales detrás de cada hermoso momento",
             "coming_soon": "Información del equipo próximamente."
+        },
+        "team_members": {
+            "sarah": {
+                "name": "Sarah Miller",
+                "role": "Fotógrafa Principal",
+                "bio": "Con 10 años de experiencia capturando historias de amor en toda Europa."
+            },
+            "marc": {
+                "name": "Marc Weber",
+                "role": "Cinematógrafo",
+                "bio": "Apasionado por contar historias a través del movimiento y la luz."
+            },
+            "elena": {
+                "name": "Elena Costa",
+                "role": "Coordinadora de Eventos",
+                "bio": "Asegurando que cada momento transcurra sin problemas para que pueda concentrarse en disfrutarlo."
+            }
         },
         "experience": {
             "title": "Nuestra Experiencia",
@@ -195,6 +265,13 @@
             },
             "message": "Detalles Adicionales",
             "placeholder_msg": "Cuéntenos más sobre su evento...",
+            "validation": {
+                "name_required": "Se requiere el nombre completo",
+                "email_required": "Se requiere el correo electrónico",
+                "email_invalid": "Por favor, introduzca una dirección de correo válida",
+                "event_type_required": "Por favor seleccione un tipo de evento"
+            },
+            "privacy_note": "Sus datos están seguros. Nunca compartimos su información con terceros.",
             "submit": "Enviar Consulta",
             "sending": "Enviando..."
         },

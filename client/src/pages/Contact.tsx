@@ -13,37 +13,64 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-// import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin, Clock, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Loader2, ShieldCheck, Lock } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 
 export default function Contact() {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    eventType: "",
-    eventDate: "",
-    location: "",
-    budget: "",
-    guestCount: "",
-    serviceInterest: "",
-    message: "",
-  });
-
-  /* 
-   * Supabase Integration via REST API
-   * Submits directly to the 'inquiries' table.
-   */
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // Form Schema Definition
+  const contactSchema = z.object({
+    name: z.string().min(2, { message: t("contact.form.validation.name_required") }),
+    email: z.string().email({ message: t("contact.form.validation.email_invalid") }),
+    phone: z.string().optional(),
+    eventType: z.string().min(1, { message: t("contact.form.validation.event_type_required") }),
+    eventDate: z.string().optional(),
+    location: z.string().optional(),
+    budget: z.string().optional(),
+    guestCount: z.string().optional(),
+    serviceInterest: z.string().optional(),
+    message: z.string().optional(),
+    honeypot: z.string().optional() // Invisible field for spam protection
+  });
+
+  type ContactFormValues = z.infer<typeof contactSchema>;
+
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      eventType: "",
+      eventDate: "",
+      location: "",
+      budget: "",
+      guestCount: "",
+      serviceInterest: "",
+      message: "",
+      honeypot: ""
+    }
+  });
+
+  const onSubmit = async (data: ContactFormValues) => {
+    // Spam Check: If honeypot is filled, silently reject (simulated success)
+    if (data.honeypot) {
+      console.log("Spam detected: Honeypot filled");
+      toast.success(t("contact.form.success_title") || "Inquiry Sent!", {
+        description: t("contact.form.success_desc") || "We have received your message and saved it to our database.",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Environment Variables (Must be set in .env or Netlify Dashboard)
+    // Environment Variables
     const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
     const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
@@ -53,18 +80,17 @@ export default function Contact() {
       return;
     }
 
-    // Transform date to ISO string if present
     const payload = {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone || null,
-      event_type: formData.eventType,
-      event_date: formData.eventDate || null,
-      location: formData.location || null,
-      budget: formData.budget || null,
-      guest_count: formData.guestCount ? parseInt(formData.guestCount) : null,
-      service_interest: formData.serviceInterest || null,
-      message: formData.message || null
+      name: data.name,
+      email: data.email,
+      phone: data.phone || null,
+      event_type: data.eventType,
+      event_date: data.eventDate || null,
+      location: data.location || null,
+      budget: data.budget || null,
+      guest_count: data.guestCount ? parseInt(data.guestCount) : null,
+      service_interest: data.serviceInterest || null,
+      message: data.message || null
     };
 
     try {
@@ -80,28 +106,14 @@ export default function Contact() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to submit");
+        throw new Error("Failed to submit");
       }
 
-      // Success
       toast.success(t("contact.form.success_title") || "Inquiry Sent!", {
         description: t("contact.form.success_desc") || "We have received your message and saved it to our database.",
       });
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        eventType: "",
-        eventDate: "",
-        location: "",
-        budget: "",
-        guestCount: "",
-        serviceInterest: "",
-        message: "",
-      });
-
+      form.reset();
     } catch (error) {
       console.error("Supabase Error:", error);
       toast.error("Error sending message", {
@@ -110,10 +122,6 @@ export default function Contact() {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
@@ -148,6 +156,9 @@ export default function Contact() {
                       <h3 className="font-semibold mb-1">{t("contact.info.email")}</h3>
                       <p className="text-sm text-muted-foreground">info@weddingslux.com</p>
                       <p className="text-sm text-muted-foreground">bookings@weddingslux.com</p>
+                      <a href="mailto:weddingeventslux@gmail.com" className="text-sm text-muted-foreground hover:text-primary transition-colors block">
+                        weddingeventslux@gmail.com
+                      </a>
                     </div>
                   </div>
                 </CardContent>
@@ -204,34 +215,57 @@ export default function Contact() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="border-border">
+              <Card className="border-border shadow-md">
                 <CardContent className="p-8">
-                  <h2 className="text-3xl font-serif font-bold text-foreground mb-6">
-                    {t("contact.form.title")}
-                  </h2>
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="flex justify-between items-start mb-6">
+                    <h2 className="text-3xl font-serif font-bold text-foreground">
+                      {t("contact.form.title")}
+                    </h2>
+                    <ShieldCheck className="w-6 h-6 text-green-600/80 hidden sm:block" title="Secure Form" />
+                  </div>
+
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" noValidate>
+                    {/* Honeypot Field - Hidden */}
+                    <input
+                      type="text"
+                      {...form.register("honeypot")}
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <Label htmlFor="name">{t("contact.form.name")}</Label>
+                        <Label htmlFor="name" className={form.formState.errors.name ? "text-destructive" : ""}>
+                          {t("contact.form.name")}
+                        </Label>
                         <Input
                           id="name"
-                          value={formData.name}
-                          onChange={(e) => handleInputChange("name", e.target.value)}
-                          required
+                          {...form.register("name")}
                           placeholder="John Doe"
+                          aria-invalid={!!form.formState.errors.name}
+                          className={form.formState.errors.name ? "border-destructive focus-visible:ring-destructive" : ""}
                         />
+                        {form.formState.errors.name && (
+                          <p className="text-sm text-destructive" role="alert">{form.formState.errors.name.message}</p>
+                        )}
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="email">{t("contact.form.email")}</Label>
+                        <Label htmlFor="email" className={form.formState.errors.email ? "text-destructive" : ""}>
+                          {t("contact.form.email")}
+                        </Label>
                         <Input
                           id="email"
                           type="email"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange("email", e.target.value)}
-                          required
+                          {...form.register("email")}
                           placeholder="john@example.com"
+                          aria-invalid={!!form.formState.errors.email}
+                          className={form.formState.errors.email ? "border-destructive focus-visible:ring-destructive" : ""}
                         />
+                        {form.formState.errors.email && (
+                          <p className="text-sm text-destructive" role="alert">{form.formState.errors.email.message}</p>
+                        )}
                       </div>
                     </div>
 
@@ -241,20 +275,20 @@ export default function Contact() {
                         <Input
                           id="phone"
                           type="tel"
-                          value={formData.phone}
-                          onChange={(e) => handleInputChange("phone", e.target.value)}
+                          {...form.register("phone")}
                           placeholder="+352 123 456 789"
                         />
                       </div>
 
                       <div className="space-y-2">
-                        <Label htmlFor="eventType">{t("contact.form.event_type")}</Label>
+                        <Label htmlFor="eventType" className={form.formState.errors.eventType ? "text-destructive" : ""}>
+                          {t("contact.form.event_type")}
+                        </Label>
                         <Select
-                          value={formData.eventType}
-                          onValueChange={(value) => handleInputChange("eventType", value)}
-                          required
+                          onValueChange={(value) => form.setValue("eventType", value, { shouldValidate: true })}
+                          defaultValue={form.getValues("eventType")}
                         >
-                          <SelectTrigger id="eventType">
+                          <SelectTrigger id="eventType" className={form.formState.errors.eventType ? "border-destructive focus:ring-destructive" : ""}>
                             <SelectValue placeholder={t("contact.form.select_event")} />
                           </SelectTrigger>
                           <SelectContent>
@@ -265,6 +299,9 @@ export default function Contact() {
                             <SelectItem value="other">{t("contact.form.event_types.other")}</SelectItem>
                           </SelectContent>
                         </Select>
+                        {form.formState.errors.eventType && (
+                          <p className="text-sm text-destructive" role="alert">{form.formState.errors.eventType.message}</p>
+                        )}
                       </div>
                     </div>
 
@@ -274,8 +311,7 @@ export default function Contact() {
                         <Input
                           id="eventDate"
                           type="date"
-                          value={formData.eventDate}
-                          onChange={(e) => handleInputChange("eventDate", e.target.value)}
+                          {...form.register("eventDate")}
                         />
                       </div>
 
@@ -283,8 +319,7 @@ export default function Contact() {
                         <Label htmlFor="location">{t("contact.form.location")}</Label>
                         <Input
                           id="location"
-                          value={formData.location}
-                          onChange={(e) => handleInputChange("location", e.target.value)}
+                          {...form.register("location")}
                           placeholder="Luxembourg City"
                         />
                       </div>
@@ -294,8 +329,8 @@ export default function Contact() {
                       <div className="space-y-2">
                         <Label htmlFor="budget">{t("contact.form.budget")}</Label>
                         <Select
-                          value={formData.budget}
-                          onValueChange={(value) => handleInputChange("budget", value)}
+                          onValueChange={(value) => form.setValue("budget", value)}
+                          defaultValue={form.getValues("budget")}
                         >
                           <SelectTrigger id="budget">
                             <SelectValue placeholder={t("contact.form.select_budget")} />
@@ -314,8 +349,7 @@ export default function Contact() {
                         <Input
                           id="guestCount"
                           type="number"
-                          value={formData.guestCount}
-                          onChange={(e) => handleInputChange("guestCount", e.target.value)}
+                          {...form.register("guestCount")}
                           placeholder="100"
                         />
                       </div>
@@ -324,8 +358,8 @@ export default function Contact() {
                     <div className="space-y-2">
                       <Label htmlFor="serviceInterest">{t("contact.form.service_interest")}</Label>
                       <Select
-                        value={formData.serviceInterest}
-                        onValueChange={(value) => handleInputChange("serviceInterest", value)}
+                        onValueChange={(value) => form.setValue("serviceInterest", value)}
+                        defaultValue={form.getValues("serviceInterest")}
                       >
                         <SelectTrigger id="serviceInterest">
                           <SelectValue placeholder={t("contact.form.select_service")} />
@@ -342,8 +376,7 @@ export default function Contact() {
                       <Label htmlFor="message">{t("contact.form.message")}</Label>
                       <Textarea
                         id="message"
-                        value={formData.message}
-                        onChange={(e) => handleInputChange("message", e.target.value)}
+                        {...form.register("message")}
                         placeholder={t("contact.form.placeholder_msg")}
                         rows={5}
                       />
@@ -364,6 +397,11 @@ export default function Contact() {
                         t("contact.form.submit")
                       )}
                     </Button>
+
+                    <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-2">
+                      <Lock className="w-4 h-4" />
+                      <span>{t("contact.form.privacy_note")}</span>
+                    </div>
                   </form>
                 </CardContent>
               </Card>

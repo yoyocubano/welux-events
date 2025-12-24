@@ -3,16 +3,35 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { trpc } from "@/lib/trpc";
 import { Award, Heart, Camera, Users } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { MOCK_TEAM } from "@/lib/mockData";
 
 export default function About() {
   const { t } = useTranslation();
-  const { data: teamData } = trpc.team.getAll.useQuery();
-  const team = teamData || MOCK_TEAM;
-  const isLoading = false;
+
+  const team = [
+    {
+      id: 1,
+      name: t("about.team_members.sarah.name"),
+      role: t("about.team_members.sarah.role"),
+      bio: t("about.team_members.sarah.bio"),
+      imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+    },
+    {
+      id: 2,
+      name: t("about.team_members.marc.name"),
+      role: t("about.team_members.marc.role"),
+      bio: t("about.team_members.marc.bio"),
+      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+    },
+    {
+      id: 3,
+      name: t("about.team_members.elena.name"),
+      role: t("about.team_members.elena.role"),
+      bio: t("about.team_members.elena.bio"),
+      imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+    }
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -112,50 +131,32 @@ export default function About() {
             </p>
           </div>
 
-          {isLoading ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...Array(3)].map((_, i) => (
-                <div key={i} className="space-y-4">
-                  <div className="aspect-square bg-muted animate-pulse rounded-lg" />
-                  <div className="h-6 bg-muted animate-pulse rounded w-3/4" />
-                  <div className="h-4 bg-muted animate-pulse rounded w-1/2" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {team.map((member) => (
+              <Card key={member.id} className="border-border hover:shadow-lg transition-shadow">
+                <div className="aspect-square overflow-hidden rounded-t-lg">
+                  <img
+                    src={member.imageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              ))}
-            </div>
-          ) : team && team.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {team.map((member) => (
-                <Card key={member.id} className="border-border hover:shadow-lg transition-shadow">
-                  <div className="aspect-square overflow-hidden rounded-t-lg">
-                    <img
-                      src={member.imageUrl || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"}
-                      alt={member.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-6 text-center">
-                    <h3 className="text-xl font-serif font-semibold text-foreground mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-primary font-medium mb-3">
-                      {member.role}
+                <CardContent className="p-6 text-center">
+                  <h3 className="text-xl font-serif font-semibold text-foreground mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-primary font-medium mb-3">
+                    {member.role}
+                  </p>
+                  {member.bio && (
+                    <p className="text-sm text-muted-foreground">
+                      {member.bio}
                     </p>
-                    {member.bio && (
-                      <p className="text-sm text-muted-foreground">
-                        {member.bio}
-                      </p>
-                    )}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-lg text-muted-foreground">
-                {t("about.team.coming_soon")}
-              </p>
-            </div>
-          )}
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
