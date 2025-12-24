@@ -25,13 +25,14 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Form Schema Definition
+  // Form Schema Definition
   const contactSchema = z.object({
-    name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
-    email: z.string().email({ message: "Email inválido" }),
-    phone: z.string().regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, { message: "Teléfono inválido (ej: +352 123 456)" }),
-    eventType: z.string().min(1, { message: "Seleccione un tipo de evento" }),
-    eventDate: z.string().refine((date) => new Date(date) > new Date(), { message: "La fecha debe ser futura" }),
-    message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres" }),
+    name: z.string().min(2, { message: t("contact.form.validation.name_min") }),
+    email: z.string().email({ message: t("contact.form.validation.email_invalid") }),
+    phone: z.string().regex(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, { message: t("contact.form.validation.phone_invalid") }),
+    eventType: z.string().min(1, { message: t("contact.form.validation.event_type_required") }),
+    eventDate: z.string().refine((date) => new Date(date) > new Date(), { message: t("contact.form.validation.future_date") }),
+    message: z.string().min(10, { message: t("contact.form.validation.message_min") }),
     honeypot: z.string().optional()
   });
 

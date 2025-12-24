@@ -271,7 +271,11 @@
                 "name_required": "Se requiere el nombre completo",
                 "email_required": "Se requiere el correo electrónico",
                 "email_invalid": "Por favor, introduzca una dirección de correo válida",
-                "event_type_required": "Por favor seleccione un tipo de evento"
+                "event_type_required": "Por favor seleccione un tipo de evento",
+                "phone_invalid": "Teléfono inválido (ej: +352 123 456 789)",
+                "name_min": "El nombre debe tener al menos 2 caracteres",
+                "message_min": "El mensaje debe tener al menos 10 caracteres",
+                "future_date": "La fecha debe ser futura"
             },
             "privacy_note": "Sus datos están seguros. Nunca compartimos su información con terceros.",
             "submit": "Enviar Consulta",
@@ -284,7 +288,7 @@
         }
     },
     "brand": {
-        "name": "Bodas y Eventos"
+        "name": "WEL Weddings & Events Luxembourg"
     },
     "common": {
         "whatsapp": "WhatsApp"

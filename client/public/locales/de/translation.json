@@ -160,63 +160,40 @@
             "hours": "Öffnungszeiten",
             "hours_val": "Mo - Fr: 9:00 - 18:00 Uhr\nSa: 10:00 - 16:00 Uhr\nSo: Nach Vereinbarung"
         },
-        "form": {
-            "title": "Senden Sie uns eine Nachricht",
-            "name": "Vollständiger Name *",
-            "email": "E-Mail *",
-            "phone": "Telefonnummer",
-            "event_type": "Art des Events *",
-            "select_event": "Typ auswählen",
-            "event_types": {
-                "wedding": "Hochzeit",
-                "corporate": "Firmenevent",
-                "celebration": "Feier",
-                "engagement": "Verlobung",
-                "other": "Sonstiges"
-            },
-            "date": "Datum des Events",
-            "location": "Ort des Events",
-            "budget": "Budget",
-            "select_budget": "Budget auswählen",
-            "budgets": {
-                "under_2k": "Unter 2.000 €",
-                "2k_5k": "2.000 € - 5.000 €",
-                "5k_10k": "5.000 € - 10.000 €",
-                "over_10k": "Über 10.000 €"
-            },
-            "guests": "Erwartete Gäste",
-            "service_interest": "Interesse an",
-            "select_service": "Service auswählen",
-            "services": {
-                "photo": "Nur Fotografie",
-                "video": "Nur Videografie",
-                "both": "Fotografie & Videografie"
-            },
-            "message": "Zusätzliche Details",
-            "placeholder_msg": "Erzählen Sie uns mehr über Ihr Event...",
-            "submit": "Anfrage senden",
-            "sending": "Wird gesendet..."
+        "validation": {
+            "name_required": "Vollständiger Name ist erforderlich",
+            "email_required": "E-Mail ist erforderlich",
+            "email_invalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+            "event_type_required": "Bitte wählen Sie eine Veranstaltungsart",
+            "phone_invalid": "Ungültige Telefonnummer (z.B. +352 123 456 789)",
+            "name_min": "Name muss mindestens 2 Zeichen lang sein",
+            "message_min": "Nachricht muss mindestens 10 Zeichen lang sein",
+            "future_date": "Das Datum muss in der Zukunft liegen"
         },
-        "areas": {
-            "title": "Servicegebiete in Luxemburg",
-            "subtitle": "Wir bieten Fotografie- und Videografiedienstleistungen in ganz Luxemburg und Umgebung an",
-            "primary": "Hauptservicegebiete:"
-        }
+        "privacy_note": "Ihre Daten sind sicher. Wir geben Ihre Informationen niemals weiter.",
+        "submit": "Anfrage senden",
+        "sending": "Wird gesendet..."
     },
-    "brand": {
-        "name": "Hochzeiten & Events"
-    },
-    "common": {
-        "whatsapp": "WhatsApp"
-    },
-    "error": {
-        "unexpected": "Ein unerwarteter Fehler ist aufgetreten."
-    },
-    "footer": {
-        "quick_links": "Schnelllinks",
-        "contact": "Kontakt",
-        "follow_us": "Folgen Sie uns",
-        "rights": "Alle Rechte vorbehalten.",
-        "text": "Wir halten Ihre kostbarsten Momente mit Eleganz und Kunstfertigkeit in Luxemburg fest."
+    "areas": {
+        "title": "Servicegebiete in Luxemburg",
+        "subtitle": "Wir bieten Fotografie- und Videografiedienstleistungen in ganz Luxemburg und Umgebung an",
+        "primary": "Hauptservicegebiete:"
     }
+},
+"brand": {
+    "name": "WEL Weddings & Events Luxembourg"
+},
+"common": {
+    "whatsapp": "WhatsApp"
+},
+"error": {
+    "unexpected": "Ein unerwarteter Fehler ist aufgetreten."
+},
+"footer": {
+    "quick_links": "Schnelllinks",
+    "contact": "Kontakt",
+    "follow_us": "Folgen Sie uns",
+    "rights": "Alle Rechte vorbehalten.",
+    "text": "Wir halten Ihre kostbarsten Momente mit Eleganz und Kunstfertigkeit in Luxemburg fest."
+}
 }

@@ -160,63 +160,40 @@
             "hours": "Horário de Funcionamento",
             "hours_val": "Seg - Sex: 9:00 - 18:00\nSáb: 10:00 - 16:00\nDom: Com hora marcada"
         },
-        "form": {
-            "title": "Envie-nos uma Mensagem",
-            "name": "Nome Completo *",
-            "email": "E-mail *",
-            "phone": "Número de Telefone",
-            "event_type": "Tipo de Evento *",
-            "select_event": "Selecione o tipo",
-            "event_types": {
-                "wedding": "Casamento",
-                "corporate": "Evento Corporativo",
-                "celebration": "Celebração",
-                "engagement": "Noivado",
-                "other": "Outro"
-            },
-            "date": "Data do Evento",
-            "location": "Local do Evento",
-            "budget": "Orçamento",
-            "select_budget": "Selecione o orçamento",
-            "budgets": {
-                "under_2k": "Abaixo de 2.000 €",
-                "2k_5k": "2.000 € - 5.000 €",
-                "5k_10k": "5.000 € - 10.000 €",
-                "over_10k": "Acima de 10.000 €"
-            },
-            "guests": "Convidados Esperados",
-            "service_interest": "Interesse no Serviço",
-            "select_service": "Selecione o serviço",
-            "services": {
-                "photo": "Apenas Fotografia",
-                "video": "Apenas Videografia",
-                "both": "Fotografia e Videografia"
-            },
-            "message": "Detalhes Adicionais",
-            "placeholder_msg": "Conte-nos mais sobre o seu evento...",
-            "submit": "Enviar Pedido",
-            "sending": "Enviando..."
+        "validation": {
+            "name_required": "O nome completo é obrigatório",
+            "email_required": "O e-mail é obrigatório",
+            "email_invalid": "Por favor, insira um endereço de e-mail válido",
+            "event_type_required": "Por favor, selecione um tipo de evento",
+            "phone_invalid": "Número de telefone inválido (ex: +352 123 456 789)",
+            "name_min": "O nome deve ter pelo menos 2 caracteres",
+            "message_min": "A mensagem deve ter pelo menos 10 caracteres",
+            "future_date": "A data deve ser futura"
         },
-        "areas": {
-            "title": "Áreas de Serviço em Luxemburgo",
-            "subtitle": "Fornecemos serviços de fotografia e videografia em todo o Luxemburgo e regiões vizinhas",
-            "primary": "Principais Áreas de Atuação:"
-        }
+        "privacy_note": "Seus dados estão seguros. Nunca compartilhamos suas informações.",
+        "submit": "Enviar Pedido",
+        "sending": "Enviando..."
     },
-    "brand": {
-        "name": "Casamentos & Eventos"
-    },
-    "common": {
-        "whatsapp": "WhatsApp"
-    },
-    "error": {
-        "unexpected": "Ocorreu um erro inesperado."
-    },
-    "footer": {
-        "quick_links": "Links Rápidos",
-        "contact": "Contato",
-        "follow_us": "Siga-nos",
-        "rights": "Todos os direitos reservados.",
-        "text": "Capturando seus momentos mais preciosos com elegância e arte em Luxemburgo."
+    "areas": {
+        "title": "Áreas de Serviço em Luxemburgo",
+        "subtitle": "Fornecemos serviços de fotografia e videografia em todo o Luxemburgo e regiões vizinhas",
+        "primary": "Principais Áreas de Atuação:"
     }
+},
+"brand": {
+    "name": "WEL Weddings & Events Luxembourg"
+},
+"common": {
+    "whatsapp": "WhatsApp"
+},
+"error": {
+    "unexpected": "Ocorreu um erro inesperado."
+},
+"footer": {
+    "quick_links": "Links Rápidos",
+    "contact": "Contato",
+    "follow_us": "Siga-nos",
+    "rights": "Todos os direitos reservados.",
+    "text": "Capturando seus momentos mais preciosos com elegância e arte em Luxemburgo."
+}
 }

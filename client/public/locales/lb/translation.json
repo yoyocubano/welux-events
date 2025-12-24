@@ -160,63 +160,40 @@
             "hours": "Ouvertureszäiten",
             "hours_val": "Mé - Fr: 9:00 - 18:00\nSa: 10:00 - 16:00\nSo: Op Rendez-vous"
         },
-        "form": {
-            "title": "Schéckt eis eng Noriicht",
-            "name": "Vollständegen Numm *",
-            "email": "Email *",
-            "phone": "Telefonsnummer",
-            "event_type": "Typ vum Event *",
-            "select_event": "Typ wielen",
-            "event_types": {
-                "wedding": "Hochzäit",
-                "corporate": "Firmenevent",
-                "celebration": "Feier",
-                "engagement": "Verlobung",
-                "other": "Aneres"
-            },
-            "date": "Datum vum Event",
-            "location": "Plaz vum Event",
-            "budget": "Budget",
-            "select_budget": "Budget wielen",
-            "budgets": {
-                "under_2k": "Ënner 2.000 €",
-                "2k_5k": "2.000 € - 5.000 €",
-                "5k_10k": "5.000 € - 10.000 €",
-                "over_10k": "Iwwer 10.000 €"
-            },
-            "guests": "Erwaart Gäscht",
-            "service_interest": "Interesse un",
-            "select_service": "Service wielen",
-            "services": {
-                "photo": "Nëmmen Fotografie",
-                "video": "Nëmmen Videografie",
-                "both": "Fotografie & Videografie"
-            },
-            "message": "Zousätzlech Detailer",
-            "placeholder_msg": "Erzielt eis méi iwwer Äert Event...",
-            "submit": "Ufro schécken",
-            "sending": "Gëtt geschéckt..."
+        "validation": {
+            "name_required": "Vollständegen Numm ass erfuerderlech",
+            "email_required": "Email ass erfuerderlech",
+            "email_invalid": "Gitt w.e.g. eng gëlteg Email-Adress un",
+            "event_type_required": "Wielt w.e.g. en Event-Typ",
+            "phone_invalid": "Ongülteg Telefonsnummer (z.B. +352 123 456 789)",
+            "name_min": "Den Numm muss op d'mannst 2 Zeechen hunn",
+            "message_min": "De Message muss op d'mannst 10 Zeechen hunn",
+            "future_date": "Den Datum muss an der Zukunft leien"
         },
-        "areas": {
-            "title": "Servicegebidder zu Lëtzebuerg",
-            "subtitle": "Mir bidden Fotografie- a Videografieservicer uechter Lëtzebuerg an Ëmgéigend un",
-            "primary": "Haaptservicegebidder:"
-        }
+        "privacy_note": "Är Donnéeë si sécher. Mir deelen Är Informatiounen ni mat Drëtten.",
+        "submit": "Ufro schécken",
+        "sending": "Gëtt geschéckt..."
     },
-    "brand": {
-        "name": "Hochzäiten & Eventer"
-    },
-    "common": {
-        "whatsapp": "WhatsApp"
-    },
-    "error": {
-        "unexpected": "En onerwaarte Feeler ass geschitt."
-    },
-    "footer": {
-        "quick_links": "Séier Links",
-        "contact": "Kontakt",
-        "follow_us": "Follegt eis",
-        "rights": "All Rechter virbehalen.",
-        "text": "Mir halen Är wäertvollst Momenter mat Eleganz a Konscht zu Lëtzebuerg fest."
+    "areas": {
+        "title": "Servicegebidder zu Lëtzebuerg",
+        "subtitle": "Mir bidden Fotografie- a Videografieservicer uechter Lëtzebuerg an Ëmgéigend un",
+        "primary": "Haaptservicegebidder:"
     }
+},
+"brand": {
+    "name": "WEL Weddings & Events Luxembourg"
+},
+"common": {
+    "whatsapp": "WhatsApp"
+},
+"error": {
+    "unexpected": "En onerwaarte Feeler ass geschitt."
+},
+"footer": {
+    "quick_links": "Séier Links",
+    "contact": "Kontakt",
+    "follow_us": "Follegt eis",
+    "rights": "All Rechter virbehalen.",
+    "text": "Mir halen Är wäertvollst Momenter mat Eleganz a Konscht zu Lëtzebuerg fest."
+}
 }

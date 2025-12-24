@@ -288,7 +288,11 @@
                 "name_required": "Full name is required",
                 "email_required": "Email is required",
                 "email_invalid": "Please enter a valid email address",
-                "event_type_required": "Please select an event type"
+                "event_type_required": "Please select an event type",
+                "phone_invalid": "Invalid phone number (e.g. +352 123 456 789)",
+                "name_min": "Name must have at least 2 characters",
+                "message_min": "Message must have at least 10 characters",
+                "future_date": "Date must be in the future"
             },
             "privacy_note": "Your data is secure. We never share your information with third parties.",
             "submit": "Send Inquiry",
