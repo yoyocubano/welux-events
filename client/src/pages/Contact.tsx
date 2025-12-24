@@ -279,7 +279,7 @@ export default function Contact() {
                     </div>
                   )}
 
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="luxury-form" noValidate>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="luxury-form" noValidate aria-labelledby="form-title">
                     {/* Honeypot Field - Hidden */}
                     <input
                       type="text"
@@ -287,108 +287,146 @@ export default function Contact() {
                       style={{ display: 'none' }}
                       tabIndex={-1}
                       autoComplete="off"
+                      aria-hidden="true"
                     />
 
                     {/* Name */}
                     <div className="form-group">
-                      <label htmlFor="name">{t("contact.form.name")} *</label>
-                      <input
+                      <Label htmlFor="name" className="text-foreground font-medium mb-1.5 block">
+                        {t("contact.form.name")} <span className="text-primary" aria-hidden="true">*</span>
+                      </Label>
+                      <Input
                         id="name"
                         type="text"
                         {...form.register("name")}
-                        placeholder="John Doe"
-                        className={form.formState.errors.name ? "error" : ""}
+                        placeholder="e.g. Marie & Jean"
+                        aria-invalid={!!form.formState.errors.name}
+                        aria-describedby={form.formState.errors.name ? "name-error" : undefined}
+                        className={form.formState.errors.name ? "border-red-500 focus-visible:ring-red-500" : ""}
                       />
                       {form.formState.errors.name && (
-                        <span className="error-message">{form.formState.errors.name.message}</span>
+                        <p id="name-error" className="text-sm text-red-600 mt-1 flex items-center gap-1" role="alert">
+                          <span aria-hidden="true">⚠️</span> {form.formState.errors.name.message}
+                        </p>
                       )}
                     </div>
 
                     {/* Email */}
                     <div className="form-group">
-                      <label htmlFor="email">{t("contact.form.email")} *</label>
-                      <input
+                      <Label htmlFor="email" className="text-foreground font-medium mb-1.5 block">
+                        {t("contact.form.email")} <span className="text-primary" aria-hidden="true">*</span>
+                      </Label>
+                      <Input
                         id="email"
                         type="email"
                         {...form.register("email")}
-                        placeholder="john@example.com"
-                        className={form.formState.errors.email ? "error" : ""}
+                        placeholder="name@example.com"
+                        aria-invalid={!!form.formState.errors.email}
+                        aria-describedby={form.formState.errors.email ? "email-error" : undefined}
+                        className={form.formState.errors.email ? "border-red-500 focus-visible:ring-red-500" : ""}
                       />
                       {form.formState.errors.email && (
-                        <span className="error-message">{form.formState.errors.email.message}</span>
+                        <p id="email-error" className="text-sm text-red-600 mt-1 flex items-center gap-1" role="alert">
+                          <span aria-hidden="true">⚠️</span> {form.formState.errors.email.message}
+                        </p>
                       )}
                     </div>
 
-                    {/* Phone - Updated with specific Placeholder/Pattern */}
+                    {/* Phone */}
                     <div className="form-group">
-                      <label htmlFor="phone">{t("contact.form.phone")} *</label>
-                      <input
+                      <Label htmlFor="phone" className="text-foreground font-medium mb-1.5 block">
+                        {t("contact.form.phone")} <span className="text-primary" aria-hidden="true">*</span>
+                      </Label>
+                      <Input
                         id="phone"
                         type="tel"
                         {...form.register("phone")}
-                        placeholder="+352 621 430 283"
-                        pattern="^(\+352|00352|352)?\s?[0-9]{3}\s?[0-9]{3}\s?[0-9]{3}$"
-                        className={`bg-white/50 border-stone-200 focus:border-[#D4AF37] focus:ring-[#D4AF37]/20 ${form.formState.errors.phone ? 'error' : ''}`}
+                        placeholder="+352 600 000 000"
+                        aria-invalid={!!form.formState.errors.phone}
+                        aria-describedby={form.formState.errors.phone ? "phone-error" : undefined}
+                        className={form.formState.errors.phone ? "border-red-500 focus-visible:ring-red-500" : ""}
                       />
                       {form.formState.errors.phone && (
-                        <span className="error-message">{form.formState.errors.phone.message}</span>
+                        <p id="phone-error" className="text-sm text-red-600 mt-1 flex items-center gap-1" role="alert">
+                          <span aria-hidden="true">⚠️</span> {form.formState.errors.phone.message}
+                        </p>
                       )}
                     </div>
 
                     {/* Event Date */}
                     <div className="form-group">
-                      <label htmlFor="eventDate">{t("contact.form.date")} *</label>
-                      <input
+                      <Label htmlFor="eventDate" className="text-foreground font-medium mb-1.5 block">
+                        {t("contact.form.date")} <span className="text-primary" aria-hidden="true">*</span>
+                      </Label>
+                      <Input
                         id="eventDate"
                         type="date"
                         {...form.register("eventDate")}
-                        min={new Date().toISOString().split('T')[0]} // HTML5 validation
-                        className={form.formState.errors.eventDate ? "error" : ""}
+                        min={new Date().toISOString().split('T')[0]}
+                        aria-invalid={!!form.formState.errors.eventDate}
+                        aria-describedby={form.formState.errors.eventDate ? "date-error" : undefined}
+                        className={form.formState.errors.eventDate ? "border-red-500 focus-visible:ring-red-500" : ""}
                       />
                       {form.formState.errors.eventDate && (
-                        <span className="error-message">{form.formState.errors.eventDate.message}</span>
+                        <p id="date-error" className="text-sm text-red-600 mt-1 flex items-center gap-1" role="alert">
+                          <span aria-hidden="true">⚠️</span> {form.formState.errors.eventDate.message}
+                        </p>
                       )}
                     </div>
 
                     {/* Event Type */}
                     <div className="form-group">
-                      <label htmlFor="eventType">{t("contact.form.event_type")} *</label>
-                      <select
-                        id="eventType"
-                        {...form.register("eventType")}
-                        className={form.formState.errors.eventType ? "error" : ""}
-                      >
-                        <option value="">{t("contact.form.select_event")}</option>
-                        <option value="wedding">{t("contact.form.event_types.wedding")}</option>
-                        <option value="corporate">{t("contact.form.event_types.corporate")}</option>
-                        <option value="celebration">{t("contact.form.event_types.celebration")}</option>
-                        <option value="engagement">{t("contact.form.event_types.engagement")}</option>
-                        <option value="other">{t("contact.form.event_types.other")}</option>
-                      </select>
+                      <Label htmlFor="eventType" className="text-foreground font-medium mb-1.5 block">
+                        {t("contact.form.event_type")} <span className="text-primary" aria-hidden="true">*</span>
+                      </Label>
+                      <div className="relative">
+                        <select
+                          id="eventType"
+                          {...form.register("eventType")}
+                          className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${form.formState.errors.eventType ? "border-red-500" : ""}`}
+                          aria-invalid={!!form.formState.errors.eventType}
+                          aria-describedby={form.formState.errors.eventType ? "type-error" : undefined}
+                        >
+                          <option value="">{t("contact.form.select_event")}</option>
+                          <option value="wedding">{t("contact.form.event_types.wedding")}</option>
+                          <option value="corporate">{t("contact.form.event_types.corporate")}</option>
+                          <option value="celebration">{t("contact.form.event_types.celebration")}</option>
+                          <option value="engagement">{t("contact.form.event_types.engagement")}</option>
+                          <option value="other">{t("contact.form.event_types.other")}</option>
+                        </select>
+                      </div>
                       {form.formState.errors.eventType && (
-                        <span className="error-message">{form.formState.errors.eventType.message}</span>
+                        <p id="type-error" className="text-sm text-red-600 mt-1 flex items-center gap-1" role="alert">
+                          <span aria-hidden="true">⚠️</span> {form.formState.errors.eventType.message}
+                        </p>
                       )}
                     </div>
 
                     {/* Message */}
                     <div className="form-group">
-                      <label htmlFor="message">{t("contact.form.message")} *</label>
-                      <textarea
+                      <Label htmlFor="message" className="text-foreground font-medium mb-1.5 block">
+                        {t("contact.form.message")} <span className="text-primary" aria-hidden="true">*</span>
+                      </Label>
+                      <Textarea
                         id="message"
                         {...form.register("message")}
                         rows={5}
                         placeholder={t("contact.form.placeholder_msg")}
-                        className={form.formState.errors.message ? "error" : ""}
-                      ></textarea>
+                        aria-invalid={!!form.formState.errors.message}
+                        aria-describedby={form.formState.errors.message ? "message-error" : undefined}
+                        className={form.formState.errors.message ? "border-red-500 focus-visible:ring-red-500" : ""}
+                      />
                       {form.formState.errors.message && (
-                        <span className="error-message">{form.formState.errors.message.message}</span>
+                        <p id="message-error" className="text-sm text-red-600 mt-1 flex items-center gap-1" role="alert">
+                          <span aria-hidden="true">⚠️</span> {form.formState.errors.message.message}
+                        </p>
                       )}
                     </div>
 
                     {/* Submit Button */}
-                    <button
+                    <Button
                       type="submit"
-                      className="submit-btn"
+                      className="w-full text-base font-semibold py-6 shadow-lg hover:shadow-xl transition-all"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
@@ -397,13 +435,14 @@ export default function Contact() {
                           {t("contact.form.sending")}
                         </span>
                       ) : (
-                        t("contact.form.submit")
+                        // Changed CTA as requested
+                        "Enviar Consulta"
                       )}
-                    </button>
+                    </Button>
 
-                    <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground pt-4">
-                      <Lock className="w-3 h-3" />
-                      <span>{t("contact.form.privacy_note")}</span>
+                    <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-4 bg-muted/20 p-2 rounded mt-4">
+                      <ShieldCheck className="w-4 h-4 text-green-600" />
+                      <span>Sus datos están seguros. Protected by <strong>SSL 256-bit encryption</strong>.</span>
                     </div>
                   </form>
                 </CardContent>
