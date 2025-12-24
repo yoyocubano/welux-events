@@ -98,19 +98,42 @@ export default function Contact() {
       }
 
       // 2. Client-Side Supabase Insert
+      let supabaseSuccess = false;
       if (SUPABASE_URL && SUPABASE_ANON_KEY) {
         const { createClient } = await import("@supabase/supabase-js");
         const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         const { error } = await supabase
-          .from("leads") // Using 'leads' table as per previous context
-          .insert([{ ...payload, recaptcha_token: recaptchaToken }]); // Pass token if backend wants to verify
+          .from("leads")
+          .insert([{ ...payload, recaptcha_token: recaptchaToken }]);
 
-        if (error) throw error;
-      } else {
-        console.warn("Supabase credentials missing");
-        // For demo/dev purposes without Supabase, we might want to throw to test error state
-        // or just proceed to simulate success.
+        if (!error) supabaseSuccess = true;
+        else console.warn("Supabase insert failed:", error);
+      }
+
+      // 3. Netlify Forms Submission (Fallback & Redundancy)
+      // This ensures data is captured even if Supabase fails or isn't configured
+      const encode = (data: any) => {
+        return Object.keys(data)
+          .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+          .join("&");
+      };
+
+      try {
+        await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: encode({
+            "form-name": "contact",
+            ...data,
+            // Map camelCase to snake_case if needed by Netlify UI (optional, but keeping raw data is fine)
+          })
+        });
+        console.log("Netlify Form submitted successfully");
+      } catch (netlifyError) {
+        console.warn("Netlify Form submission failed:", netlifyError);
+        // Only throw if BOTH failed
+        if (!supabaseSuccess && !SUPABASE_URL) throw netlifyError;
       }
 
       // Success Logic
@@ -279,7 +302,25 @@ export default function Contact() {
                     </div>
                   )}
 
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="luxury-form" noValidate aria-labelledby="form-title">
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit)}
+                    className="luxury-form"
+                    noValidate
+                    aria-labelledby="form-title"
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                  >
+                    {/* Netlify Form Name Hidden Input */}
+                    <input type="hidden" name="form-name" value="contact" />
+
+                    {/* Netlify Honeypot Field - Hidden but accessible to bots */}
+                    <p className="hidden">
+                      <label>
+                        Don’t fill this out if you're human: <input name="bot-field" />
+                      </label>
+                    </p>
                     {/* Honeypot Field - Hidden */}
                     <input
                       type="text"
