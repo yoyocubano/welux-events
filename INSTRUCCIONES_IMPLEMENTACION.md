@@ -30,11 +30,14 @@ Todos los cambios se han propagado a los 6 idiomas soportados (EN, ES, FR, DE, L
 Para activar la protección reCAPTCHA completa en producción:
 
 1.  Obtener claves de Google reCAPTCHA v3.
-2.  Configurar variables de entorno en Netlify:
-    *   `VITE_RECAPTCHA_SITE_KEY`
-    *   `RECAPTCHA_SECRET_KEY` (si se usa backend serverless) de momento el frontend solo tiene el placeholder en `index.html`.
+2. Configurar variables de entorno en Netlify:
+    *   `VITE_RECAPTCHA_SITE_KEY`: (Público) Site Key de Google reCAPTCHA v3.
+    *   `VITE_ANALYTICS_ENDPOINT`: (Opcional) URL de tu instancia de Umami (ej: https://cloud.umami.is).
+    *   `VITE_ANALYTICS_WEBSITE_ID`: (Opcional) ID del sitio en Umami.
+    *   `RECAPTCHA_SECRET_KEY`: (Opcional) Para validación en backend serverless futuro.
 
 ## 5. Verificación
 El despliegue debe realizarse automáticamente al hacer push a la rama `main`.
-*   Verificar que no haya errores de build (se corrigió `Footer.tsx`).
-*   Probar el formulario en inglés y español para confirmar las validaciones localizadas.
+*   **Formulario:** Verificar que aparezca el banner verde de éxito al enviar.
+*   **Teléfono:** Probar validación con el formato `+352 621 123 456`.
+*   **reCAPTCHA:** Verificar en la consola del navegador que se genera el token (si la key es válida).
