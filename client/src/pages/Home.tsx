@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Testimonials from "@/components/Testimonials";
 import { Camera, Video, Heart, Award, Users, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -15,14 +16,14 @@ export default function Home() {
       title: t("portfolio.projects.chateau.title"),
       description: t("portfolio.projects.chateau.desc"),
       location: t("portfolio.projects.chateau.location"),
-      coverImageUrl: "/renovation-placeholder.png",
+      coverImageUrl: "/couple-balcony-luxury.png",
     },
     {
       id: 2,
       title: t("portfolio.projects.city.title"),
       description: t("portfolio.projects.city.desc"),
       location: t("portfolio.projects.city.location"),
-      coverImageUrl: "/renovation-placeholder.png",
+      coverImageUrl: "/table-details-gold.png",
     },
   ];
 
@@ -33,101 +34,42 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-20 min-h-screen flex items-center bg-gradient-to-br from-background via-secondary/30 to-background">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center py-20">
-            <div className="space-y-8 animate-fade-in-up">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-foreground leading-tight">
-                {t('hero.title_start')}
-                <span className="text-primary block">{t('hero.title_highlight')}</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-                {t('hero.subtitle')}
-              </p>
-
-              {/* Team Credits / SEO Text */}
-              <div className="text-sm font-medium text-muted-foreground/80 space-y-1">
-                <p>Planeamos tu boda</p>
-                <p>Fotógrafo: Joan | Cinematógrafo: Abel | Marketing y Redes: Yusmel</p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-                <Link href="/contact">
-                  <Button size="lg" className="text-base font-semibold shadow-lg hover:shadow-xl transition-all">
-                    {t('hero.get_quote')}
-                  </Button>
-                </Link>
-                <Link href="/portfolio">
-                  <Button size="lg" variant="outline" className="text-base bg-transparent border-foreground/20 hover:bg-background/50">
-                    {t('hero.view_work')}
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="relative animate-fade-in">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="/renovation-placeholder.png"
-                  alt="Wedding photography - Under Renovation"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-card p-6 rounded-xl shadow-xl border border-border">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Award className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">{t('hero.award_winning')}</p>
-                    <p className="text-sm text-muted-foreground">{t('hero.studio')}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section id="main-content" className="relative pt-20 min-h-screen flex items-center">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/hero-chateau-sunset.png"
+            alt="Luxury Wedding in Luxembourg Chateau"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
-      </section>
 
-      {/* Social Proof / Why Choose Us */}
-      <section className="py-16 bg-muted/30">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-              {t('why_choose.title')}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t('why_choose.subtitle')}
+        <div className="container relative z-10">
+          <div className="max-w-3xl mx-auto text-center text-white space-y-8 animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight">
+              {t('hero.title')}
+              <span className="block text-3xl md:text-4xl lg:text-5xl font-sans font-light mt-4 tracking-widest uppercase text-primary-foreground/90">
+                {t('hero.subtitle')}
+              </span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-white/90 font-light tracking-wide max-w-2xl mx-auto">
+              {t('hero.description')}
             </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-background border-none shadow-sm">
-              <CardContent className="p-6 text-center pt-8">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Award className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{t('why_choose.team.title')}</h3>
-                <p className="text-muted-foreground">{t('why_choose.team.desc')}</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-none shadow-sm">
-              <CardContent className="p-6 text-center pt-8">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{t('why_choose.service.title')}</h3>
-                <p className="text-muted-foreground">{t('why_choose.service.desc')}</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-none shadow-sm">
-              <CardContent className="p-6 text-center pt-8">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{t('why_choose.local.title')}</h3>
-                <p className="text-muted-foreground">{t('why_choose.local.desc')}</p>
-              </CardContent>
-            </Card>
+
+            <div className="pt-8">
+              <Link href="/contact">
+                <Button size="lg" className="bg-white text-black hover:bg-white/90 text-lg px-8 py-6 h-auto tracking-widest uppercase font-sans">
+                  {t('hero.cta_primary')}
+                </Button>
+              </Link>
+            </div>
+
+            {/* Trust Badge */}
+            <div className="pt-12 flex flex-col items-center space-y-2 opacity-80">
+              <span className="text-xs tracking-[0.2em] uppercase font-sans">{t('hero.trust_badge')}</span>
+            </div>
           </div>
         </div>
       </section>
@@ -188,38 +130,6 @@ export default function Home() {
                 {t('services.view_all')}
               </Button>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof / Testimonials (New Section) */}
-      <section className="py-20 bg-muted/30">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-              {t('testimonials.title')}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t('testimonials.subtitle')}
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((i) => (
-              <Card key={i} className="bg-background border-none shadow-sm h-full">
-                <CardContent className="p-8 flex flex-col h-full">
-                  <div className="mb-4 flex">
-                    {[...Array(5)].map((_, star) => (
-                      <Award key={star} className="w-4 h-4 text-primary fill-primary" />
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground italic mb-6 flex-grow">"{t(`testimonials.${i}.text`)}"</p>
-                  <div>
-                    <p className="font-semibold text-foreground">{t(`testimonials.${i}.author`)}</p>
-                    <p className="text-xs text-muted-foreground uppercase tracking-wider">{t(`testimonials.${i}.location`)}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
@@ -321,6 +231,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10">

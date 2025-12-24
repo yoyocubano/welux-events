@@ -1,10 +1,12 @@
 {
     "hero": {
-        "title_start": "Votre Histoire,",
-        "title_highlight": "Immortalisée.",
-        "subtitle": "Vivez pleinement votre journée spéciale pendant que nous capturons les moments qui comptent. Photographie et vidéographie élégantes et sans stress au Luxembourg.",
-        "view_work": "Vrais Mariages",
-        "get_quote": "Devis Gratuit",
+        "title": "Organisez Votre Mariage Parfait au Luxembourg",
+        "subtitle": "Photographie et Vidéo de Luxe pour Votre Jour Spécial",
+        "description": "Nous capturons chaque moment unique de votre mariage avec une élégance artistique. Plus de 10 ans créant des souvenirs inoubliables.",
+        "team_credits": "Nous planifions votre mariage | Photographe : Joan | Cinéaste : Abel | Marketing & Réseaux : Yusmel | Coordinatrice : Rebeca",
+        "cta_primary": "Réservez votre sérénité",
+        "cta_secondary": "Parler à un organisateur",
+        "trust_badge": "Établi au Luxembourg • 10 Ans d'Excellence",
         "award_winning": "Confiance de",
         "studio": "500+ Couples"
     },
@@ -25,27 +27,36 @@
         }
     },
     "testimonials": {
-        "title": "Histoires de Réussite",
-        "subtitle": "Ne nous croyez pas sur parole. Écoutez les couples qui nous ont confié leurs souvenirs.",
+        "title": "Ce que disent nos couples",
+        "subtitle": "Notre plus grande satisfaction est de voir le bonheur de nos clients revivre leurs moments les plus précieux.",
+        "badge": "Témoignages",
+        "stats": {
+            "weddings": "Mariages Capturés",
+            "clients": "Clients Heureux",
+            "rating": "Note Moyenne"
+        },
         "1": {
-            "text": "Ils nous ont mis tellement à l'aise ! Les photos sont époustouflantes et nous n'avons même pas remarqué les caméras.",
+            "text": "Expérience incroyable ! Ils ont capturé chaque émotion de notre journée spéciale. Les photos sont des œuvres d'art que nous chérirons pour toujours. L'attention aux détails était exquise.",
             "author": "Sophie & Marc",
+            "role": "Mariage au Château d'Urspelt",
             "location": "Luxembourg Ville"
         },
         "2": {
-            "text": "Professionnels, gentils, et la vidéo a fait pleurer tout le monde. Le meilleur investissement de notre mariage.",
+            "text": "Une équipe vraiment professionnelle. Ils nous ont mis très à l'aise devant la caméra et le résultat final a dépassé toutes nos attentes. Fortement recommandé.",
             "author": "Elena & Thomas",
+            "role": "Mariage à Luxembourg Ville",
             "location": "Esch-sur-Alzette"
         },
         "3": {
-            "text": "Nous avions peur de poser, mais ils ont rendu cela amusant. Les résultats sont naturels et magnifiques.",
-            "author": "Claire & Louis",
+            "text": "La créativité et la passion qu'ils mettent dans leur travail sont évidentes. Les photos ont une lumière et une composition magiques. Nous sommes amoureux de notre album !",
+            "author": "Isabella & Lucas",
+            "role": "Séance de Fiançailles",
             "location": "Mondorf-les-Bains"
         }
     },
     "services": {
-        "title": "Nos Services",
-        "subtitle": "Solutions complètes de photographie et vidéographie adaptées à vos besoins",
+        "title": "Événements, Bien Faits",
+        "subtitle": "Des solutions sur mesure pour chaque occasion.",
         "wedding": {
             "title": "Photographie de Mariage",
             "desc": "Capturez chaque moment précieux de votre journée spéciale avec nos services experts."
@@ -66,9 +77,9 @@
         "view_full": "Voir le Portfolio Complet"
     },
     "cta": {
-        "title": "Les dates pour 2025 se remplissent vite",
-        "subtitle": "Ne risquez pas de perdre votre date. Discutons de votre mariage et assurez votre tranquillité d'esprit.",
-        "button": "Vérifier la Disponibilité"
+        "title": "Prêt pour une expérience sereine ?",
+        "subtitle": "Votre tranquillité d'esprit commence ici.",
+        "button": "Engager la Conversation"
     },
     "nav": {
         "home": "Accueil",
@@ -82,7 +93,24 @@
         "subtitle": "Explorez notre collection de magnifiques mariages et événements capturés au Luxembourg",
         "all_projects": "Tous les Projets",
         "view_photos": "Voir {{count}} photos",
-        "no_projects": "Aucun projet trouvé dans cette catégorie pour le moment."
+        "no_projects": "Aucun projet trouvé dans cette catégorie pour le moment.",
+        "categories": {
+            "weddings": "Mariages",
+            "engagements": "Fiançailles",
+            "events": "Événements"
+        },
+        "projects": {
+            "chateau": {
+                "title": "Mariage au Château",
+                "desc": "Un magnifique mariage d'été au Grand Château.",
+                "location": "Vianden, Luxembourg"
+            },
+            "city": {
+                "title": "Fiançailles en Ville",
+                "desc": "Séance photo romantique à Luxembourg Ville.",
+                "location": "Luxembourg Ville"
+            }
+        }
     },
     "services_page": {
         "title": "Nos Services",
@@ -115,6 +143,42 @@
             "title": "Prêt à Réserver ?",
             "subtitle": "Contactez-nous aujourd'hui pour un devis personnalisé",
             "button": "Demander un Devis"
+        },
+        "packages": {
+            "essential": {
+                "name": "Collection Essentielle",
+                "desc": "Parfait pour les mariages intimes et les fugues amoureuses",
+                "price_label": "À partir de",
+                "features": {
+                    "0": "6 Heures de Couverture",
+                    "1": "300+ Photos Retouchées",
+                    "2": "Galerie en Ligne",
+                    "3": "Clé USB"
+                }
+            },
+            "premium": {
+                "name": "Collection Premium",
+                "desc": "Notre forfait le plus populaire pour une couverture d'une journée complète",
+                "price_label": "Journée Complète",
+                "features": {
+                    "0": "10 Heures de Couverture",
+                    "1": "500+ Photos Retouchées",
+                    "2": "Séance de Fiançailles",
+                    "3": "Album d'Art",
+                    "4": "Deuxième Photographe"
+                }
+            },
+            "cinema": {
+                "name": "Paquet Cinéma",
+                "desc": "Récit cinématographique de votre journée spéciale",
+                "price_label": "Vidéo Uniquement",
+                "features": {
+                    "0": "8 Heures de Couverture",
+                    "1": "Film Résumé de 4-5 Minutes",
+                    "2": "Prises de Vue par Drone",
+                    "3": "Montage Complet de la Cérémonie"
+                }
+            }
         }
     },
     "about": {
@@ -146,36 +210,59 @@
             "subtitle": "Les professionnels talentueux derrière chaque beau moment",
             "coming_soon": "Information sur l'équipe bientôt disponible."
         },
+        "team_members": {
+            "joan": {
+                "name": "Joan",
+                "role": "Photographe Principal",
+                "bio": "Capturer de vraies émotions avec un œil artistique."
+            },
+            "abel": {
+                "name": "Abel",
+                "role": "Cinéaste",
+                "bio": "Des récits visuels qui racontent votre histoire d'amour."
+            },
+            "yusmel": {
+                "name": "Yusmel",
+                "role": "Marketing & Réseaux",
+                "bio": "Connecter notre passion à vos rêves."
+            },
+            "rebeca": {
+                "name": "Rebeca",
+                "role": "Coordinatrice d'Événements",
+                "bio": "Organiser chaque détail pour votre tranquillité d'esprit."
+            }
+        },
         "experience": {
             "title": "Notre Expérience",
             "subtitle": "Années d'expertise au service des clients à travers le Luxembourg",
             "years": {
-                "value": "10+",
+                "value": "10",
                 "label": "Années d'Expérience"
             },
             "events": {
-                "value": "500+",
+                "value": "49",
                 "label": "Événements Couverts"
             },
             "satisfaction": {
-                "value": "100%",
+                "value": "99%",
                 "label": "Satisfaction Client"
             }
         },
         "cta": {
-            "title": "Créons Quelque Chose de Beau",
-            "subtitle": "Nous aimerions entendre parler de votre événement et discuter de la façon dont nous pouvons aider",
-            "button": "Contactez-nous"
+            "title": "Prêt pour une expérience sereine ?",
+            "subtitle": "Votre tranquillité d'esprit commence ici.",
+            "button": "Engager la Conversation"
         }
     },
     "contact": {
-        "title": "Contactez-nous",
-        "subtitle": "Discutons de votre prochain événement ensemble",
+        "title": "Commencez Bien Votre Voyage",
+        "subtitle": "Partagez votre vision. Nous nous occupons du reste.",
         "info": {
             "email": "Email",
             "phone": "Téléphone",
             "whatsapp": "WhatsApp Disponible",
             "location": "Lieu",
+            "location_val": "Luxembourg Ville, Luxembourg",
             "hours": "Heures d'Ouverture",
             "hours_val": "Lun - Ven: 9h00 - 18h00\nSam: 10h00 - 16h00\nDim: Sur rendez-vous"
         },
@@ -213,6 +300,17 @@
             },
             "message": "Détails Supplémentaires",
             "placeholder_msg": "Parlez-nous de votre événement...",
+            "validation": {
+                "name_required": "Le nom complet est requis",
+                "email_required": "L'email est requis",
+                "email_invalid": "Veuillez entrer une adresse email valide",
+                "event_type_required": "Veuillez sélectionner un type d'événement",
+                "phone_invalid": "Numéro de téléphone invalide (ex: +352 123 456 789)",
+                "name_min": "Le nom doit avoir au moins 2 caractères",
+                "message_min": "Le message doit avoir au moins 10 caractères",
+                "future_date": "La date doit être dans le futur"
+            },
+            "privacy_note": "Vos données sont sécurisées. Nous ne partageons jamais vos informations avec des tiers.",
             "submit": "Envoyer la Demande",
             "sending": "Envoi en cours..."
         },
@@ -223,7 +321,7 @@
         }
     },
     "brand": {
-        "name": "Mariages & Événements"
+        "name": "WEL Mariages & Événements Luxembourg"
     },
     "common": {
         "whatsapp": "WhatsApp"

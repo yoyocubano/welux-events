@@ -29,12 +29,16 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-28">
           {/* Logo */}
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
+          {/* Logo */}
+          <Link href="/" className="flex flex-col items-center justify-center group h-full py-2">
             <img
-              src="/logo-wel.png"
-              alt="WEL Weddings & Events Luxembourg"
-              className="logo-premium"
+              src="/logo-well-symbol.svg"
+              alt="WEL"
+              className="h-12 md:h-16 w-auto object-contain transition-all duration-300"
             />
+            <span className="mt-1 font-sans text-[10px] md:text-xs text-[#9F8F6A] tracking-[0.2em] uppercase text-center">
+              Weddings & Events
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -43,6 +47,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
                 className={`text-sm font-medium transition-colors hover:text-primary ${isActive(link.href)
                   ? "text-primary"
                   : "text-foreground/80"

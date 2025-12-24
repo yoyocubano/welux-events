@@ -1,10 +1,12 @@
 {
     "hero": {
-        "title_start": "Tu Historia de Amor,",
-        "title_highlight": "Inmortalizada.",
-        "subtitle": "Disfruta de tu día especial mientras capturamos los momentos que importan. Fotografía y video elegantes y sin estrés en Luxemburgo.",
-        "view_work": "Ver Bodas Reales",
-        "get_quote": "Solicitar Presupuesto",
+        "title": "Organiza Tu Boda Perfecta en Luxemburgo",
+        "subtitle": "Fotografía y Video de Lujo para Tu Día Especial",
+        "description": "Capturamos cada momento único de tu boda con elegancia artística. Más de 10 años creando recuerdos inolvidables.",
+        "team_credits": "Planeamos tu boda | Fotógrafo: Joan | Cinematógrafo: Abel | Marketing y Redes: Yusmel | Coordinadora: Rebeca",
+        "cta_primary": "Reserva tu tranquilidad",
+        "cta_secondary": "Hablar con un planner",
+        "trust_badge": "Establecidos en Luxemburgo • 10 Años de Excelencia",
         "award_winning": "Confianza de",
         "studio": "500+ Parejas"
     },
@@ -25,21 +27,30 @@
         }
     },
     "testimonials": {
-        "title": "Historias de Éxito",
-        "subtitle": "No solo confíes en nuestra palabra. Escucha a las parejas que nos confiaron sus recuerdos.",
+        "title": "Lo que dicen nuestras parejas",
+        "subtitle": "Nuestra mayor satisfacción es ver la felicidad de nuestros clientes reviviendo sus momentos más preciados.",
+        "badge": "Testimonios",
+        "stats": {
+            "weddings": "Bodas Capturadas",
+            "clients": "Clientes Satisfechos",
+            "rating": "Valoración Media"
+        },
         "1": {
-            "text": "¡Nos hicieron sentir muy cómodos! Las fotos son impresionantes y ni notamos las cámaras.",
+            "text": "¡Increíble experiencia! Capturaron cada emoción de nuestro día especial. Las fotos son obras de arte que atesoraremos por siempre. La atención al detalle fue exquisita.",
             "author": "Sophie & Marc",
+            "role": "Boda en Chateau d'Urspelt",
             "location": "Luxemburgo Ciudad"
         },
         "2": {
-            "text": "Profesionales, amables, y el video hizo llorar a todos. La mejor inversión de nuestra boda.",
+            "text": "Un equipo verdaderamente profesional. Nos hicieron sentir muy cómodos frente a la cámara y el resultado final superó todas nuestras expectativas. Altamente recomendados.",
             "author": "Elena & Thomas",
+            "role": "Boda en Luxemburgo Ciudad",
             "location": "Esch-sur-Alzette"
         },
         "3": {
-            "text": "Nos preocupaba posar, pero lo hicieron divertido. Los resultados son naturales y hermosos.",
-            "author": "Claire & Louis",
+            "text": "La creatividad y la pasión que ponen en su trabajo es evidente. Las fotos tienen una luz y una composición mágica. ¡Estamos enamorados de nuestro álbum!",
+            "author": "Isabella & Lucas",
+            "role": "Sesión de Compromiso",
             "location": "Mondorf-les-Bains"
         }
     },
@@ -49,9 +60,9 @@
         "view_full": "Ver Portafolio Completo"
     },
     "cta": {
-        "title": "Las fechas para 2025 se llenan rápido",
-        "subtitle": "No arriesgues tu fecha. Hablemos de tu boda y asegura tu tranquilidad hoy.",
-        "button": "Verificar Disponibilidad"
+        "title": "¿Listo para una experiencia sin estrés?",
+        "subtitle": "Tu tranquilidad está a una conversación de distancia.",
+        "button": "Iniciar la Conversación"
     },
     "nav": {
         "home": "Inicio",
@@ -112,9 +123,9 @@
             }
         },
         "cta": {
-            "title": "¿Listo para Reservar su Evento?",
-            "subtitle": "Contáctenos hoy para un presupuesto personalizado y consulta",
-            "button": "Solicitar Presupuesto"
+            "title": "¿Listo para una experiencia sin estrés?",
+            "subtitle": "Tu tranquilidad está a una conversación de distancia.",
+            "button": "Iniciar la Conversación"
         },
         "packages": {
             "essential": {
@@ -153,6 +164,23 @@
             }
         }
     },
+    "services": {
+        "title": "Eventos, Bien Hechos",
+        "subtitle": "Soluciones a medida para cada ocasión.",
+        "wedding": {
+            "title": "Fotografía de Boda",
+            "desc": "Capturando el alma de tu celebración con un estilo atemporal y elegante."
+        },
+        "video": {
+            "title": "Video Cinematográfico",
+            "desc": "Revive el movimiento, los sonidos y los votos de tu día con una película de alta gama."
+        },
+        "full": {
+            "title": "Cobertura Completa",
+            "desc": "La historia completa. Fotografía y video trabajando en perfecta armonía de principio a fin."
+        },
+        "view_all": "Ver Todos los Servicios"
+    },
     "about": {
         "title": "Sobre Nosotros",
         "p1": "Somos un equipo apasionado de fotógrafos y videógrafos dedicados a capturar los momentos más preciosos de su vida. Con sede en Luxemburgo, nos especializamos en bodas y eventos especiales.",
@@ -183,35 +211,40 @@
             "coming_soon": "Información del equipo próximamente."
         },
         "team_members": {
-            "sarah": {
-                "name": "Sarah Miller",
-                "role": "Fotógrafa Principal",
-                "bio": "Con 10 años de experiencia capturando historias de amor en toda Europa."
+            "joan": {
+                "name": "Joan",
+                "role": "Fotógrafo",
+                "bio": "Capturando emociones reales con una mirada artística."
             },
-            "marc": {
-                "name": "Marc Weber",
+            "abel": {
+                "name": "Abel",
                 "role": "Cinematógrafo",
-                "bio": "Apasionado por contar historias a través del movimiento y la luz."
+                "bio": "Narrativas visuales que cuentran tu historia de amor."
             },
-            "elena": {
-                "name": "Elena Costa",
+            "yusmel": {
+                "name": "Yusmel",
+                "role": "Marketing y Redes",
+                "bio": "Conectando nuestra pasión con tus sueños."
+            },
+            "rebeca": {
+                "name": "Rebeca",
                 "role": "Coordinadora de Eventos",
-                "bio": "Asegurando que cada momento transcurra sin problemas para que pueda concentrarse en disfrutarlo."
+                "bio": "Organizando cada detalle para tu tranquilidad."
             }
         },
         "experience": {
             "title": "Nuestra Experiencia",
             "subtitle": "Años de experiencia sirviendo a clientes en todo Luxemburgo",
             "years": {
-                "value": "10+",
+                "value": "10",
                 "label": "Años de Experiencia"
             },
             "events": {
-                "value": "500+",
-                "label": "Eventos Cubiertos"
+                "value": "49",
+                "label": "Eventos"
             },
             "satisfaction": {
-                "value": "100%",
+                "value": "99%",
                 "label": "Satisfacción del Cliente"
             }
         },
@@ -222,8 +255,8 @@
         }
     },
     "contact": {
-        "title": "Contáctenos",
-        "subtitle": "Discutamos su próximo evento juntos",
+        "title": "Comienza Bien Tu Viaje",
+        "subtitle": "Cuéntanos tu visión. Nosotros nos encargamos del resto.",
         "info": {
             "email": "Correo",
             "phone": "Teléfono",

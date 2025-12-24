@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
-Sitemap: https://weddingseventslux.netlify.app/sitemap.xml
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://weddings-events-luxembourg.com/sitemap.xml

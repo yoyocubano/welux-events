@@ -1,10 +1,12 @@
 {
     "hero": {
-        "title_start": "Your Love Story,",
-        "title_highlight": "Immortalized.",
-        "subtitle": "Experience your special day fully while we capture the moments that matter. Stress-free, elegant, and timeless photography & videography in Luxembourg.",
-        "view_work": "View Real Weddings",
-        "get_quote": "Request Free Quote",
+        "title": "Organise Your Perfect Wedding in Luxembourg",
+        "subtitle": "Luxury Photography and Video for Your Special Day",
+        "description": "We capture every unique moment of your wedding with artistic elegance. Over 10 years creating unforgettable memories.",
+        "team_credits": "We plan your wedding | Photographer: Joan | Cinematographer: Abel | Marketing & Socials: Yusmel | Coordinator: Rebeca",
+        "cta_primary": "Reserve your peace of mind",
+        "cta_secondary": "Speak with a planner",
+        "trust_badge": "Established in Luxembourg • 10 Years of Excellence",
         "award_winning": "Trusted by",
         "studio": "500+ Couples"
     },
@@ -25,27 +27,36 @@
         }
     },
     "testimonials": {
-        "title": "Success Stories",
-        "subtitle": "Don't just take our word for it. Hear from couples who trusted us with their memories.",
+        "title": "What our couples say",
+        "subtitle": "Our greatest satisfaction is seeing the happiness of our clients reliving their most precious moments.",
+        "badge": "Testimonials",
+        "stats": {
+            "weddings": "Weddings Captured",
+            "clients": "Happy Clients",
+            "rating": "Average Rating"
+        },
         "1": {
-            "text": "They made us feel so comfortable! The photos are breathtaking and we didn't even notice the cameras.",
+            "text": "Incredible experience! They captured every emotion of our special day. The photos are works of art we will treasure forever. The attention to detail was exquisite.",
             "author": "Sophie & Marc",
+            "role": "Wedding at Chateau d'Urspelt",
             "location": "Luxembourg City"
         },
         "2": {
-            "text": "Professional, kind, and the video made everyone cry. Best investment of our wedding.",
+            "text": "A truly professional team. They made us feel very comfortable in front of the camera and the final result exceeded all our expectations. Highly recommended.",
             "author": "Elena & Thomas",
+            "role": "Wedding in Luxembourg City",
             "location": "Esch-sur-Alzette"
         },
         "3": {
-            "text": "We were worried about posing, but they made it fun. The results are natural and stunning.",
-            "author": "Claire & Louis",
+            "text": "The creativity and passion they put into their work is evident. The photos have magical light and composition. We are in love with our album!",
+            "author": "Isabella & Lucas",
+            "role": "Engagement Session",
             "location": "Mondorf-les-Bains"
         }
     },
     "services": {
-        "title": "Our Services",
-        "subtitle": "Comprehensive photography and videography solutions tailored to your needs",
+        "title": "Events, Well Crafted",
+        "subtitle": "Bespoke solutions for every occasion.",
         "wedding": {
             "title": "Wedding Photography",
             "desc": "Capturing the soul of your celebration with a timeless, elegant style."
@@ -66,9 +77,9 @@
         "view_full": "View Full Portfolio"
     },
     "cta": {
-        "title": "Dates for 2025 are Filling Fast",
-        "subtitle": "Don't risk losing your date. Let's discuss your wedding and secure your peace of mind today.",
-        "button": "Check Availability"
+        "title": "Ready for a seamless experience?",
+        "subtitle": "Your peace of mind is just a conversation away.",
+        "button": "Begin the Conversation"
     },
     "nav": {
         "home": "Home",
@@ -129,8 +140,8 @@
             }
         },
         "cta": {
-            "title": "Ready to Book Your Event?",
-            "subtitle": "Contact us today for a personalized quote and consultation",
+            "title": "Start Your Journey Well",
+            "subtitle": "Tell us about your vision. We handle the rest.",
             "button": "Request a Quote"
         },
         "packages": {
@@ -200,42 +211,47 @@
             "coming_soon": "Team information coming soon."
         },
         "team_members": {
-            "sarah": {
-                "name": "Sarah Miller",
+            "joan": {
+                "name": "Joan",
                 "role": "Lead Photographer",
-                "bio": "With 10 years of experience capturing love stories across Europe."
+                "bio": "Capturing real emotions with an artistic eye."
             },
-            "marc": {
-                "name": "Marc Weber",
+            "abel": {
+                "name": "Abel",
                 "role": "Cinematographer",
-                "bio": "Passionate about storytelling through movement and light."
+                "bio": "Visual narratives that tell your love story."
             },
-            "elena": {
-                "name": "Elena Costa",
+            "yusmel": {
+                "name": "Yusmel",
+                "role": "Marketing & Socials",
+                "bio": "Connecting our passion with your dreams."
+            },
+            "rebeca": {
+                "name": "Rebeca",
                 "role": "Event Coordinator",
-                "bio": "Ensuring every moment runs smoothly so you can focus on enjoying it."
+                "bio": "Organizing every detail for your peace of mind."
             }
         },
         "experience": {
             "title": "Our Experience",
             "subtitle": "Years of expertise serving clients throughout Luxembourg",
             "years": {
-                "value": "10+",
+                "value": "10",
                 "label": "Years Experience"
             },
             "events": {
-                "value": "500+",
+                "value": "49",
                 "label": "Events Covered"
             },
             "satisfaction": {
-                "value": "100%",
+                "value": "99%",
                 "label": "Client Satisfaction"
             }
         },
         "cta": {
-            "title": "Let's Create Something Beautiful",
-            "subtitle": "We'd love to hear about your upcoming event and discuss how we can help",
-            "button": "Get in Touch"
+            "title": "Ready for a seamless experience?",
+            "subtitle": "Your peace of mind is just a conversation away.",
+            "button": "Begin the Conversation"
         }
     },
     "contact": {

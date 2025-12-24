@@ -12,24 +12,31 @@ export default function About() {
   const team = [
     {
       id: 1,
-      name: t("about.team_members.sarah.name"),
-      role: t("about.team_members.sarah.role"),
-      bio: t("about.team_members.sarah.bio"),
-      imageUrl: "/under_renovation_staff.png"
+      name: t("about.team_members.joan.name"),
+      role: t("about.team_members.joan.role"),
+      bio: t("about.team_members.joan.bio"),
+      imageUrl: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=400&h=400"
     },
     {
       id: 2,
-      name: t("about.team_members.marc.name"),
-      role: t("about.team_members.marc.role"),
-      bio: t("about.team_members.marc.bio"),
-      imageUrl: "/under_renovation_staff.png"
+      name: t("about.team_members.abel.name"),
+      role: t("about.team_members.abel.role"),
+      bio: t("about.team_members.abel.bio"),
+      imageUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400&h=400"
     },
     {
       id: 3,
-      name: t("about.team_members.elena.name"),
-      role: t("about.team_members.elena.role"),
-      bio: t("about.team_members.elena.bio"),
-      imageUrl: "/under_renovation_staff.png"
+      name: t("about.team_members.yusmel.name"),
+      role: t("about.team_members.yusmel.role"),
+      bio: t("about.team_members.yusmel.bio"),
+      imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400"
+    },
+    {
+      id: 4,
+      name: t("about.team_members.rebeca.name"),
+      role: t("about.team_members.rebeca.role"),
+      bio: t("about.team_members.rebeca.bio"),
+      imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400"
     }
   ];
 
