@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -6,12 +6,29 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 
 export default function Portfolio() {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<number | undefined>(undefined);
   const [selectedProject, setSelectedProject] = useState<any>(null);
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+
+  // Preload next image logic
+  useEffect(() => {
+    if (!selectedProject || !Array.isArray(selectedProject.media)) return;
+
+    const nextIndex = (currentMediaIndex + 1) % selectedProject.media.length;
+    const nextItem = selectedProject.media[nextIndex];
+
+    if (nextItem && nextItem.type === 'image') {
+      const img = new Image();
+      img.src = nextItem.url;
+    } else if (nextItem && nextItem.type === 'video' && nextItem.thumbnail) {
+      const img = new Image();
+      img.src = nextItem.thumbnail;
+    }
+  }, [currentMediaIndex, selectedProject]);
 
   const categories = [
     { id: 1, name: t("portfolio.categories.weddings") },
@@ -241,14 +258,15 @@ export default function Portfolio() {
                   className="group cursor-pointer overflow-hidden border-border hover:shadow-xl transition-shadow"
                   onClick={() => openGallery(project, 0)}
                 >
-                  <div className="aspect-[4/3] overflow-hidden relative">
-                    <img
+                  <div className="overflow-hidden relative">
+                    <OptimizedImage
                       src={project.coverImageUrl}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="group-hover:scale-105 transition-transform duration-300"
+                      aspectRatio="aspect-[4/3]"
                     />
                     {videoCount > 0 && (
-                      <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-full">
+                      <div className="absolute top-2 right-2 bg-black/50 p-1 rounded-full z-10">
                         <div className="w-0 h-0 border-t-[6px] border-t-transparent border-l-[10px] border-l-white border-b-[6px] border-b-transparent ml-0.5" />
                       </div>
                     )}
