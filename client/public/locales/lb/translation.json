@@ -331,9 +331,9 @@
         "next": "Weider"
     },
     "chat": {
-        "greeting": "Moien! Ech sinn d'Rebeca, är Event-Koordinatrice. Wéi kann ech hëllefen?",
+        "greeting": "Moien! Ech sinn d'Rebeca AI, är virtuell Assistentin. Wéi kann ech hëllefen?",
         "title": "Rebeca AI",
-        "subtitle": "Event-Koordinatrice",
+        "subtitle": "Virtuell Assistentin",
         "placeholder": "Frot eis...",
         "error": "Pardon, ech sinn offline.",
         "connecting": "Verbindungsproblemer."

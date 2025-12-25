@@ -331,9 +331,9 @@
         "next": "Weiter"
     },
     "chat": {
-        "greeting": "Hallo! Ich bin Rebeca, Ihre Veranstaltungskoordinatorin. Wie kann ich helfen?",
+        "greeting": "Hallo! Ich bin Rebeca AI, Ihre virtuelle Assistentin. Wie kann ich helfen?",
         "title": "Rebeca KI",
-        "subtitle": "Veranstaltungskoordinatorin",
+        "subtitle": "Virtuelle Assistentin",
         "placeholder": "Fragen Sie uns...",
         "error": "Entschuldigung, ich bin offline.",
         "connecting": "Verbindungsprobleme."

@@ -456,9 +456,9 @@
         "next": "Suivant"
     },
     "chat": {
-        "greeting": "Bonjour ! Je suis Rebeca, votre Coordinatrice d'Événements. Comment puis-je vous aider ?",
+        "greeting": "Bonjour ! Je suis Rebeca IA, votre Assistante Virtuelle. Comment puis-je vous aider ?",
         "title": "Rebeca IA",
-        "subtitle": "Coordinatrice d'Événements",
+        "subtitle": "Assistante Virtuelle",
         "placeholder": "Posez des questions...",
         "error": "Désolé, je suis hors ligne.",
         "connecting": "Problème de connexion."
