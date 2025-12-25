@@ -24,6 +24,16 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "wouter"],
+          ui: ["@radix-ui/react-slot", "class-variance-authority", "clsx", "tailwind-merge"],
+          animation: ["framer-motion"],
+          i18n: ["i18next", "react-i18next"],
+        },
+      },
+    },
   },
   server: {
     host: true,
