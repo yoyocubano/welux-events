@@ -186,47 +186,43 @@ export default function ChatWidget() {
                     {/* Messages */}
                     <ScrollArea className="flex-1 p-4" ref={scrollRef}>
                         <div className="flex flex-col gap-4">
-                        </ReactMarkdown>
+                            {messages.map((msg, idx) => renderMessage(msg, idx))}
+                            {isLoading && (
+                                <div className="flex justify-start">
+                                    <div className="bg-muted text-muted-foreground rounded-2xl rounded-bl-none px-4 py-3 text-sm flex items-center gap-2">
+                                        <Loader2 className="w-4 h-4 animate-spin" />
+                                        Typing...
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </ScrollArea>
+
+                    {/* Input */}
+                    <div className="p-4 border-t border-border bg-background rounded-b-lg">
+                        <form onSubmit={handleSubmit} className="flex gap-2">
+                            <Input
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
+                                placeholder="Ask about our services..."
+                                className="flex-1"
+                                disabled={isLoading}
+                            />
+                            <Button type="submit" size="icon" disabled={isLoading || !inputValue.trim()}>
+                                <Send className="w-4 h-4" />
+                            </Button>
+                        </form>
                     </div>
-                </div>
-            ))}
-            {isLoading && (
-                <div className="flex justify-start">
-                    <div className="bg-muted text-muted-foreground rounded-2xl rounded-bl-none px-4 py-3 text-sm flex items-center gap-2">
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                        Typing...
-                    </div>
-                </div>
+                </Card>
             )}
+
+            <Button
+                onClick={() => setIsOpen(!isOpen)}
+                size="lg"
+                className="h-14 w-14 rounded-full shadow-xl bg-primary text-primary-foreground hover:scale-105 transition-transform"
+            >
+                {isOpen ? <X className="w-8 h-8" /> : <MessageCircle className="w-8 h-8" />}
+            </Button>
         </div>
-                    </ScrollArea >
-
-        {/* Input */ }
-        < div className = "p-4 border-t border-border bg-background rounded-b-lg" >
-            <form onSubmit={handleSubmit} className="flex gap-2">
-                <Input
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Ask about our services..."
-                    className="flex-1"
-                    disabled={isLoading}
-                />
-                <Button type="submit" size="icon" disabled={isLoading || !inputValue.trim()}>
-                    <Send className="w-4 h-4" />
-                </Button>
-            </form>
-                    </div >
-                </Card >
-            )
-}
-
-<Button
-    onClick={() => setIsOpen(!isOpen)}
-    size="lg"
-    className="h-14 w-14 rounded-full shadow-xl bg-primary text-primary-foreground hover:scale-105 transition-transform"
->
-    {isOpen ? <X className="w-8 h-8" /> : <MessageCircle className="w-8 h-8" />}
-</Button>
-        </div >
     );
 }

@@ -34,6 +34,11 @@ export default function Portfolio() {
         { type: "image", url: "/chateau-wedding.png" },
         { type: "image", url: "/chateau-detail.png" },
         { type: "image", url: "/couple-balcony-luxury.png" },
+        {
+          type: "video",
+          url: "/videos/castle-wedding.mp4",
+          thumbnail: "/chateau-wedding.png"
+        }
       ],
       categoryId: 1,
     },
@@ -70,7 +75,12 @@ export default function Portfolio() {
       media: [
         { type: "image", url: "/corp-meeting.png" },
         { type: "image", url: "/corp-woman.png" },
-        { type: "image", url: "/corp-presentation.png" }
+        { type: "image", url: "/corp-presentation.png" },
+        {
+          type: "video",
+          url: "/videos/corp-meeting.mp4",
+          thumbnail: "/corp-meeting.png"
+        }
       ],
       categoryId: 5,
     },
@@ -96,7 +106,12 @@ export default function Portfolio() {
       media: [
         { type: "image", url: "/private-bday.png" },
         { type: "image", url: "/private-reveal.png" },
-        { type: "image", url: "/private-dinner.png" }
+        { type: "image", url: "/private-dinner.png" },
+        {
+          type: "video",
+          url: "/videos/private-dinner.mp4",
+          thumbnail: "/private-dinner.png"
+        }
       ],
       categoryId: 7,
     },
@@ -112,11 +127,14 @@ export default function Portfolio() {
         { type: "image", url: "/sbk-diverse-crowd.png" },
         { type: "image", url: "/sbk-bachata-sensual.png" },
         { type: "image", url: "/sbk-detail-feet.png" },
-        // EXAMPLE LOOPS: Replace 'url' with your Google Drive direct link (ending in .mp4 or use a proxy)
-        // Note: Google Drive "view" links don't work in <video> tags. You need a direct download link.
         {
           type: "video",
-          url: "https://www.w3schools.com/html/mov_bbb.mp4", // REPLACE THIS
+          url: "/videos/sbk-caribbean.mp4",
+          thumbnail: "/sbk-caribbean-teachers.png"
+        },
+        {
+          type: "video",
+          url: "/videos/sbk-dance-1.mp4",
           thumbnail: "/sbk-dance-cover.png"
         }
       ],
@@ -130,7 +148,12 @@ export default function Portfolio() {
       coverImageUrl: "/winter-wedding-cover.png",
       media: [
         { type: "image", url: "/winter-wedding-cover.png" },
-        { type: "image", url: "/winter-detail-decor.png" }
+        { type: "image", url: "/winter-detail-decor.png" },
+        {
+          type: "video",
+          url: "/videos/winter-snow.mp4",
+          thumbnail: "/winter-wedding-cover.png"
+        }
       ],
       categoryId: 1,
     },
@@ -281,6 +304,17 @@ export default function Portfolio() {
                       playsInline
                       className="max-w-full max-h-full"
                       poster={selectedProject.media[currentMediaIndex].thumbnail}
+                      onError={(e) => {
+                        console.warn("Video failed to load, falling back to thumbnail.");
+                        // Hide video, show poster/thumbnail as image
+                        e.currentTarget.style.display = 'none';
+                        if (e.currentTarget.parentElement) {
+                          const img = document.createElement('img');
+                          img.src = selectedProject.media[currentMediaIndex].thumbnail || selectedProject.media[currentMediaIndex].url;
+                          img.className = "max-w-full max-h-full object-contain";
+                          e.currentTarget.parentElement.appendChild(img);
+                        }
+                      }}
                     >
                       <source src={selectedProject.media[currentMediaIndex].url} type="video/mp4" />
                       Your browser does not support the video tag.
