@@ -3,6 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
+import { createClient } from '@supabase/supabase-js';
+import { Resend } from 'resend';
 
 dotenv.config();
 
@@ -12,8 +14,13 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
+// --- CONFIGURATION ---
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
+// --- REBECA AI SYSTEM PROMPT ---
 const SYSTEM_PROMPT = `
 You are "Rebeca" - the Event Coordinator for "WE Weddings & Events Luxembourg". 
 You are calm, professional, and very knowledgeable.
@@ -38,6 +45,7 @@ You are calm, professional, and very knowledgeable.
 **TONE:** Warm, reassuring, "Luxury Service".
 `;
 
+// --- ROUTE: CHAT (Rebeca AI) ---
 app.post('/.netlify/functions/chat', async (req, res) => {
     if (!GOOGLE_API_KEY) {
         console.error("Missing GOOGLE_API_KEY");
@@ -51,7 +59,6 @@ app.post('/.netlify/functions/chat', async (req, res) => {
             return res.status(400).json({ error: "Invalid request body" });
         }
 
-        // Determine language name for the prompt
         let langName = "English";
         if (language && language.startsWith("es")) langName = "Spanish";
         else if (language && language.startsWith("fr")) langName = "French";
@@ -65,7 +72,6 @@ app.post('/.netlify/functions/chat', async (req, res) => {
         });
         fullPrompt += "Assistant:";
 
-        // Call Google Gemini API (REST)
         const response = await fetch(
             `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GOOGLE_API_KEY}`,
             {
@@ -93,7 +99,10 @@ app.post('/.netlify/functions/chat', async (req, res) => {
                 });
             }
 
-            return res.status(response.status).json({ error: "Error communicating with AI provider" });
+            return res.status(200).json({ // Fail softly for UI
+                role: "assistant",
+                content: "I'm having trouble connecting to my brain right now. Please try again in a moment."
+            });
         }
 
         const data = await response.json();
@@ -114,7 +123,88 @@ app.post('/.netlify/functions/chat', async (req, res) => {
     }
 });
 
+// --- ROUTE: SUBMIT INQUIRY (Forms) ---
+app.post('/.netlify/functions/submit-inquiry', async (req, res) => {
+    if (!SUPABASE_URL || !SUPABASE_KEY || !RESEND_API_KEY) {
+        console.error("Missing SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, or RESEND_API_KEY");
+        return res.status(500).json({ error: "Server configuration error: Missing Database/Email Keys" });
+    }
+
+    try {
+        const data = req.body || {};
+        const { name, email, message, phone, event_type, event_date, location, budget, guest_count, service_interest } = data;
+
+        // 1. Initialize Clients
+        const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+        const resend = new Resend(RESEND_API_KEY);
+
+        // 2. Insert into Supabase
+        const { error: dbError } = await supabase
+            .from("inquiries")
+            .insert([
+                {
+                    name,
+                    email,
+                    phone,
+                    event_type,
+                    event_date,
+                    location,
+                    budget,
+                    guest_count,
+                    service_interest,
+                    message,
+                },
+            ]);
+
+        if (dbError) {
+            console.error("Supabase Error:", dbError);
+            throw new Error("Database insertion failed");
+        }
+
+        // 3. Send Email to Admin
+        await resend.emails.send({
+            from: "Weddings Lux <onboarding@resend.dev>", // Only works if domain verified or testing
+            to: ["weddingeventslux@gmail.com"],
+            subject: `New Inquiry: ${name} - ${event_type}`,
+            html: `
+        <h1>New Web Inquiry</h1>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || "N/A"}</p>
+        <p><strong>Event Type:</strong> ${event_type}</p>
+        <p><strong>Date:</strong> ${event_date || "N/A"}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message || "No message"}</p>
+      `,
+        });
+
+        // 4. Send Confirmation to Client
+        if (email) {
+            await resend.emails.send({
+                from: "Weddings Lux <onboarding@resend.dev>",
+                to: [email],
+                subject: "We received your inquiry - Weddings & Events Luxembourg",
+                html: `
+            <h1>Thank you, ${name}!</h1>
+            <p>We have received your inquiry regarding <strong>${event_type}</strong> photography/videography.</p>
+            <p>Our team will review your details and get back to you shortly.</p>
+            <br>
+            <p>Best regards,</p>
+            <p><strong>The Weddings & Events Luxembourg Team</strong></p>
+          `,
+            });
+        }
+
+        return res.status(200).json({ message: "Success" });
+
+    } catch (error) {
+        console.error("Submit Inquiry Error:", error);
+        return res.status(500).json({ error: error.message || "Internal Server Error" });
+    }
+});
+
 app.listen(PORT, () => {
-    console.log(`Local AI Proxy Server running on http://localhost:${PORT}`);
-    console.log(`- Endpoint: http://localhost:${PORT}/.netlify/functions/chat`);
+    console.log(`Local AI & Backend Server running on http://localhost:${PORT}`);
+    console.log(`- Chat Endpoint: http://localhost:${PORT}/.netlify/functions/chat`);
+    console.log(`- Form Endpoint: http://localhost:${PORT}/.netlify/functions/submit-inquiry`);
 });
