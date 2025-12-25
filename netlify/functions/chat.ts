@@ -91,6 +91,22 @@ export const handler: Handler = async (event) => {
         if (!response.ok) {
             const errorText = await response.text();
             console.error("Gemini API Error:", errorText);
+
+            // Circuit Breaker: Handle Overload/Quota limits gracefully
+            if (response.status === 429 || response.status === 503) {
+                return {
+                    statusCode: 200, // Return 200 to client so it doesn't "crash", but with a specific fallback content
+                    headers,
+                    body: JSON.stringify({
+                        role: "assistant",
+                        content: language?.startsWith("es")
+                            ? "⚠️ **Sistema Saturado:** Estoy recibiendo muchas consultas ahora mismo. Por favor, usa el formulario de contacto para una respuesta prioritaria."
+                            : "⚠️ **System Busy:** I am receiving high traffic right now. Please use the contact form for priority service.",
+                        isOverloaded: true
+                    }),
+                };
+            }
+
             return {
                 statusCode: response.status,
                 headers,

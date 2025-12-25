@@ -45,8 +45,15 @@ export default function ChatWidget() {
         }
     }, [messages, isOpen]);
 
+    const lastMessageTime = useRef<number>(0);
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        // Rate Limiting: Prevent more than 1 message every 2 seconds
+        const now = Date.now();
+        if (now - lastMessageTime.current < 2000) return;
+        lastMessageTime.current = now;
+
         if (!inputValue.trim() || isLoading) return;
 
         const userMsg: Message = { role: "user", content: inputValue };
@@ -72,6 +79,12 @@ export default function ChatWidget() {
             if (!response.ok) throw new Error("Network response was not ok");
 
             const data = await response.json();
+
+            // Circuit Breaker UI: If server reports overload, we can optionally disable further chat input or show a form button
+            if (data.isOverloaded) {
+                // Optionally auto-open contact form or just show the message
+            }
+
             const assistantText = data.content || data.role === "assistant" ? data.content : t("chat.connecting");
 
             setMessages((prev) => [...prev, { role: "assistant", content: assistantText }]);
