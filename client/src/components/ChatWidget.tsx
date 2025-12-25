@@ -16,6 +16,12 @@ export default function ChatWidget() {
     const { t, i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([]);
+    const [sessionId, setSessionId] = useState("");
+
+    // Initialize Session ID
+    useEffect(() => {
+        setSessionId(Math.random().toString(36).substring(2, 15));
+    }, []);
 
     // Initialize or update greeting when language changes
     useEffect(() => {
