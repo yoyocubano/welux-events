@@ -369,137 +369,159 @@
   .dark .form-group select:focus {
     border-color: #C2A46D;
   }
-}/* CTA PRINCIPAL - Debe ser IMPOSIBLE de ignorar */
+}
+
+/* CTA PRINCIPAL - Debe ser IMPOSIBLE de ignorar */
 .cta-primary-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 20px 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 40px;
 
-    /* Colores de lujo - Dorado prominente */
-    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
-    color: #000000;
+  /* Colores de lujo - Dorado prominente */
+  background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+  color: #000000;
 
-    font-size: 20px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 
-    border: none;
-    border-radius: 50px;
+  border: none;
+  border-radius: 50px;
 
-    /* Sombra dramática */
-    box-shadow:
-        0 8px 24px rgba(212, 175, 55, 0.4),
-        0 4px 12px rgba(0, 0, 0, 0.2);
+  /* Sombra dramática */
+  box-shadow:
+    0 8px 24px rgba(212, 175, 55, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2);
 
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Animación sutil de pulso */
-    animation: subtle-pulse 3s ease-in-out infinite;
+  /* Animación sutil de pulso */
+  animation: subtle-pulse 3s ease-in-out infinite;
 }
 
 @keyframes subtle-pulse {
 
-    0%,
-    100% {
-        transform: scale(1);
-    }
+  0%,
+  100% {
+    transform: scale(1);
+  }
 
-    50% {
-        transform: scale(1.02);
-    }
+  50% {
+    transform: scale(1.02);
+  }
 }
 
 .cta-primary-button:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow:
-        0 12px 32px rgba(212, 175, 55, 0.5),
-        0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 12px 32px rgba(212, 175, 55, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .cta-primary-button:active {
-    transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px) scale(1.03);
 }
 
 /* CTA Secundario - Menos prominente pero visible */
 .cta-secondary-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
 
-    background: transparent;
-    color: #D4AF37;
-    border: 2px solid #D4AF37;
+  background: transparent;
+  color: #D4AF37;
+  border: 2px solid #D4AF37;
 
-    font-size: 16px;
-    font-weight: 600;
+  font-size: 16px;
+  font-weight: 600;
 
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .cta-secondary-button:hover {
-    background: rgba(212, 175, 55, 0.1);
-    transform: translateY(-2px);
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
 }
 
 /* Container de CTAs */
 .cta-primary-container {
-    display: flex;
-    gap: 20px;
-    margin: 40px 0;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* Centered by default as per request context, usually hero is centered */
+  display: flex;
+  gap: 20px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* Centered by default as per request context, usually hero is centered */
 }
 
 /* Badge de confianza */
 .trust-badge {
-    margin-top: 24px;
-    font-size: 14px;
-    color: #666;
-    font-weight: 500;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .cta-primary-button {
-        width: 100%;
-        justify-content: center;
-        font-size: 18px;
-        padding: 18px 32px;
-    }
+  .cta-primary-button {
+    width: 100%;
+    justify-content: center;
+    font-size: 18px;
+    padding: 18px 32px;
+  }
 
-    .cta-secondary-button {
-        width: 100%;
-        justify-content: center;
-    }
+  .cta-secondary-button {
+    width: 100%;
+    justify-content: center;
+  }
 
-    .cta-primary-container {
-        flex-direction: column;
-    }
+  .cta-primary-container {
+    flex-direction: column;
+  }
 }
+
 /* TESTIMONIALS SECTION */
 #testimonials .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #testimonials .card:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 /* Logos de clientes - Efecto de hover */
 #testimonials .grayscale {
-    transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 #testimonials .grayscale:hover {
-    filter: grayscale(0%);
-    opacity: 1;
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* PREMIUM CHAT WIDGET FAB */
+.chat-widget-fab {
+  background-color: #1E1E1E !important;
+  /* Luxury Black */
+  color: #D4AF37 !important;
+  /* Luxury Gold */
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.chat-widget-fab:hover {
+  background-color: #000000 !important;
+  color: #F4D03F !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 8px 16px rgba(212, 175, 55, 0.4) !important;
+  border-color: #D4AF37 !important;
 }
 
 /* ACCESSIBILITY UTILITIES */
@@ -536,26 +558,28 @@
 
 /* TOUCH TARGETS & ACCESSIBILITY */
 @media (pointer: coarse) {
-    button, 
-    a, 
-    input, 
-    select, 
-    textarea,
-    [role="button"] {
-        min-height: 44px;
-        min-width: 44px;
-    }
+
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 /* Base Responsive Adjustments */
 @media (max-width: 640px) {
-    h1 {
-        font-size: 2.25rem !important; /* Prevent overflowing headers on small mobile */
-        line-height: 1.2 !important;
-    }
-    
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+  h1 {
+    font-size: 2.25rem !important;
+    /* Prevent overflowing headers on small mobile */
+    line-height: 1.2 !important;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

@@ -238,9 +238,9 @@ export default function ChatWidget() {
             <Button
                 onClick={() => setIsOpen(!isOpen)}
                 size="lg"
-                className="h-14 w-14 rounded-full shadow-xl bg-primary text-primary-foreground hover:scale-105 transition-transform"
+                className="h-14 w-14 rounded-full chat-widget-fab"
             >
-                {isOpen ? <X className="w-8 h-8" /> : <MessageCircle className="w-8 h-8" />}
+                {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
             </Button>
         </div>
     );

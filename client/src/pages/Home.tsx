@@ -51,7 +51,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center text-white space-y-8 animate-fade-in-up">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight tracking-tight">
               {t('hero.title')}
-              <span className="block text-3xl md:text-4xl lg:text-5xl font-sans font-light mt-4 tracking-widest uppercase text-primary-foreground/90">
+              <span className="block text-3xl md:text-4xl lg:text-5xl font-sans font-light mt-4 tracking-wider uppercase text-primary-foreground/90">
                 {t('hero.subtitle')}
               </span>
             </h1>
@@ -62,9 +62,9 @@ export default function Home() {
 
             <div className="pt-8">
               <Link href="/contact">
-                <Button size="lg" className="bg-white text-black hover:bg-white/90 text-lg px-8 py-6 h-auto tracking-widest uppercase font-sans">
+                <button className="cta-primary-button">
                   {t('hero.cta_primary')}
-                </Button>
+                </button>
               </Link>
             </div>
 
@@ -88,7 +88,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 animate-fade-in-up delay-200">
             <Card className="border-border hover:shadow-lg transition-shadow">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
@@ -101,7 +101,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="border-border hover:shadow-lg transition-shadow">
+            <Card className="border-border hover:shadow-lg transition-shadow delay-100">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <Video className="w-8 h-8 text-primary" />
@@ -113,7 +113,7 @@ export default function Home() {
               </CardContent>
             </Card>
 
-            <Card className="border-border hover:shadow-lg transition-shadow">
+            <Card className="border-border hover:shadow-lg transition-shadow delay-200">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
                   <Heart className="w-8 h-8 text-primary" />

@@ -1,8 +1,8 @@
 {
     "hero": {
-        "title": "Organise Your Perfect Event in Luxembourg",
-        "subtitle": "Luxury Photography and Video for Special Moments",
-        "description": "We capture every unique moment of your event with artistic elegance. Over 10 years creating unforgettable memories.",
+        "title": "Luxury Weddings & Exclusive Events",
+        "subtitle": "The Art of Celebration in Luxembourg",
+        "description": "Specializing in Luxembourg, The French Chateaus, and Italian Villas.",
         "team_credits": "We plan your event | Photographer: Joan | Cinematographer: Abel | Marketing & Socials: Yusmel | Coordinator: Rebeca",
         "cta_primary": "Reserve your peace of mind",
         "cta_secondary": "Speak with a planner",
@@ -57,7 +57,7 @@
     },
     "services": {
         "title": "Events, Well Crafted",
-        "subtitle": "Bespoke solutions for every occasion.",
+        "subtitle": "The Precision of Corporate. The Emotion of Weddings.",
         "wedding": {
             "title": "Event & Wedding Photography",
             "desc": "Capturing the soul of your celebration with a timeless, elegant style."
@@ -467,8 +467,8 @@
     },
     "chat": {
         "greeting": "Hello! I am Rebeca AI, your Virtual Assistant. How can I help you plan your perfect event?",
-        "title": "Rebeca AI",
-        "subtitle": "Virtual Assistant",
+        "title": "Ask Rebeca - 24/7 Concierge",
+        "subtitle": "Don't wait. Plan instantly.",
         "placeholder": "Ask about our services...",
         "error": "Sorry, I am offline at the moment. Please try again later.",
         "connecting": "I apologize, I am having trouble connecting right now."

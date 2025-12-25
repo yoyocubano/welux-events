@@ -56,7 +56,11 @@ export default function Navigation() {
             ))}
             <LanguageSwitcher />
             <Link href="/contact">
-              <Button variant="default" size="sm">
+              <Button
+                variant="default"
+                size="sm"
+                className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-black hover:opacity-90 transition-opacity font-semibold"
+              >
                 {t("hero.get_quote")}
               </Button>
             </Link>
