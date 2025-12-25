@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useTranslation } from "react-i18next";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
     role: "user" | "assistant";
@@ -60,7 +61,9 @@ export default function ChatWidget() {
             setMessages((prev) => [...prev, { role: "assistant", content: assistantText }]);
 
         } catch (error) {
-            console.error("Chat error:", error);
+            console.error("Chat error details:", error);
+            // Optionally, we could show the specific error in the UI for debugging:
+            // const errorMessage = error instanceof Error ? error.message : "Connection failed";
             setMessages((prev) => [...prev, { role: "assistant", content: "Sorry, I am offline at the moment. Please try again later." }]);
         } finally {
             setIsLoading(false);
@@ -97,12 +100,23 @@ export default function ChatWidget() {
                                         }`}
                                 >
                                     <div
-                                        className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm ${msg.role === "user"
+                                        className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm overflow-hidden ${msg.role === "user"
                                             ? "bg-primary text-primary-foreground rounded-br-none"
                                             : "bg-muted text-foreground rounded-bl-none border border-border"
                                             }`}
                                     >
-                                        {msg.content}
+                                        <ReactMarkdown
+                                            className="prose prose-sm dark:prose-invert max-w-none break-words"
+                                            components={{
+                                                p: ({ node, ...props }) => <p className="mb-2 last:mb-0" {...props} />,
+                                                ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2" {...props} />,
+                                                ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2" {...props} />,
+                                                li: ({ node, ...props }) => <li className="mb-1" {...props} />,
+                                                strong: ({ node, ...props }) => <span className="font-bold text-primary/90" {...props} />
+                                            }}
+                                        >
+                                            {msg.content}
+                                        </ReactMarkdown>
                                     </div>
                                 </div>
                             ))}

@@ -106,12 +106,16 @@ export const handler: Handler = async (event) => {
             }),
         };
 
-    } catch (error) {
+    } catch (error: any) {
         console.error("Function error:", error);
         return {
             statusCode: 500,
             headers,
-            body: JSON.stringify({ error: "Internal Server Error" }),
+            body: JSON.stringify({
+                error: "Internal Server Error",
+                details: error.message || String(error),
+                stack: error.stack
+            }),
         };
     }
 };
