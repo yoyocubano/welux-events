@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -52,9 +52,9 @@ export default function ChatWidget() {
         // Rate Limiting: Prevent more than 1 message every 2 seconds
         const now = Date.now();
         if (now - lastMessageTime.current < 2000) return;
-        lastMessageTime.current = now;
 
         if (!inputValue.trim() || isLoading) return;
+        lastMessageTime.current = now;
 
         const userMsg: Message = { role: "user", content: inputValue };
         setMessages((prev) => [...prev, userMsg]);
@@ -67,6 +67,10 @@ export default function ChatWidget() {
                 content: m.content
             }));
 
+            // Safety Timeout: 15 seconds max
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 15000);
+
             const response = await fetch("/.netlify/functions/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -74,26 +78,41 @@ export default function ChatWidget() {
                     messages: apiMessages,
                     language: i18n.language || "en"
                 }),
+                signal: controller.signal
             });
 
-            if (!response.ok) throw new Error("Network response was not ok");
+            clearTimeout(timeoutId);
 
-            const data = await response.json();
-
-            // Circuit Breaker UI: If server reports overload, we can optionally disable further chat input or show a form button
-            if (data.isOverloaded) {
-                // Optionally auto-open contact form or just show the message
+            if (!response.ok) {
+                if (response.status === 429 || response.status === 503) {
+                    const errorMsg = i18n.language?.startsWith("es")
+                        ? "⏳ Estoy recibiendo muchas consultas. Por favor, espera unos segundos."
+                        : "⏳ High traffic. Please wait a few seconds.";
+                    setMessages((prev) => [...prev, { role: "assistant", content: errorMsg }]);
+                    return;
+                }
+                throw new Error("Network response was not ok");
             }
 
-            const assistantText = data.content || data.role === "assistant" ? data.content : t("chat.connecting");
+            const data = await response.json();
+            const assistantText = data.content || (data.role === "assistant" ? data.content : t("chat.connecting"));
 
             setMessages((prev) => [...prev, { role: "assistant", content: assistantText }]);
 
         } catch (error: any) {
             console.error("Chat error:", error);
-            setMessages((prev) => [...prev, { role: "assistant", content: t("chat.error") }]);
+            let errorMsg = t("chat.error");
+            if (error.name === 'AbortError') {
+                errorMsg = i18n.language?.startsWith("es") ? "La respuesta tarda demasiado. Intenta de nuevo." : "Response timed out. Please try again.";
+            }
+            setMessages((prev) => [...prev, { role: "assistant", content: errorMsg }]);
         } finally {
             setIsLoading(false);
+            // Autofocus input
+            setTimeout(() => {
+                const input = document.querySelector('input[name="chat-input"]') as HTMLInputElement;
+                if (input) input.focus();
+            }, 100);
         }
     };
 
@@ -105,8 +124,10 @@ export default function ChatWidget() {
             const { submitInquiry } = await import("@/lib/api");
             const res = await submitInquiry({
                 name: data.name,
-                email: data.email || "provided-in-chat@example.com", // Fallback if AI didn't catch email
+                email: data.email || "provided-in-chat@example.com",
                 eventType: data.eventType || "other",
+                eventDate: data.eventDate || null,
+                phone: data.phone || null,
                 message: "From Chat: " + (data.message || "No details")
             });
 
@@ -129,23 +150,54 @@ export default function ChatWidget() {
             const match = msg.content.match(/\[\[SUBMIT_INQUIRY: (.*?)\]\]/);
             if (match) {
                 const jsonStr = match[1];
-                let inquiries = {};
+                let inquiries: any = {};
                 try { inquiries = JSON.parse(jsonStr); } catch (e) { }
 
                 return (
-                    <div key={idx} className="flex justify-start">
-                        <div className="bg-secondary/20 p-4 rounded-lg mb-2 text-sm border border-primary/20 max-w-[85%]">
-                            <p className="font-bold mb-2 text-primary">Confirm Inquiry Details?</p>
-                            <pre className="text-xs bg-white/50 p-2 rounded mb-2 overflow-x-auto">
-                                {JSON.stringify(inquiries, null, 2)}
-                            </pre>
+                return (
+                    <div key={idx} className="flex justify-start w-full">
+                        <div className="bg-card text-card-foreground p-4 rounded-xl mb-4 text-sm border border-border shadow-md w-[85%]">
+                            <h4 className="font-semibold mb-3 flex items-center gap-2 text-primary">
+                                <span>📋</span> {t("inquiry.confirm_details", "Confirm Details")}
+                            </h4>
+
+                            <div className="space-y-2 mb-4">
+                                <div className="grid grid-cols-[80px_1fr] gap-2 items-start">
+                                    <span className="text-muted-foreground text-xs uppercase tracking-wider font-medium mt-0.5">{t("form.name", "Name")}:</span>
+                                    <span className="font-medium">{inquiries.name || "N/A"}</span>
+                                </div>
+
+                                {inquiries.email && (
+                                    <div className="grid grid-cols-[80px_1fr] gap-2 items-start">
+                                        <span className="text-muted-foreground text-xs uppercase tracking-wider font-medium mt-0.5">Email:</span>
+                                        <span className="break-all">{inquiries.email}</span>
+                                    </div>
+                                )}
+
+                                <div className="grid grid-cols-[80px_1fr] gap-2 items-start">
+                                    <span className="text-muted-foreground text-xs uppercase tracking-wider font-medium mt-0.5">{t("form.event_type", "Event")}:</span>
+                                    <span className="capitalize">{inquiries.eventType || "Wedding"}</span>
+                                </div>
+
+                                {inquiries.eventDate && (
+                                    <div className="grid grid-cols-[80px_1fr] gap-2 items-start">
+                                        <span className="text-muted-foreground text-xs uppercase tracking-wider font-medium mt-0.5">{t("form.date", "Date")}:</span>
+                                        <span>{inquiries.eventDate}</span>
+                                    </div>
+                                )}
+                            </div>
+
                             <Button
                                 size="sm"
                                 onClick={() => handleConfirmInquiry(jsonStr)}
                                 disabled={isLoading}
-                                className="w-full"
+                                className="w-full font-semibold shadow-sm"
                             >
-                                {isLoading ? "Sending..." : "Confirm & Send"}
+                                {isLoading ? (
+                                    <><Loader2 className="w-4 h-4 mr-2 animate-spin" /> {t("common.sending", "Sending...")}</>
+                                ) : (
+                                    <><Send className="w-4 h-4 mr-2" /> {t("inquiry.send", "Confirm & Send Request")}</>
+                                )}
                             </Button>
                         </div>
                     </div>
@@ -156,11 +208,10 @@ export default function ChatWidget() {
         return (
             <div
                 key={idx}
-                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"
-                    }`}
+                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
             >
                 <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm overflow-hidden ${msg.role === "user"
+                    className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm overflow-hidden break-words ${msg.role === "user"
                         ? "bg-primary text-primary-foreground rounded-br-none"
                         : "bg-muted text-foreground rounded-bl-none border border-border"
                         }`}
@@ -168,7 +219,7 @@ export default function ChatWidget() {
                     <ReactMarkdown
                         className="prose prose-sm dark:prose-invert max-w-none break-words whitespace-pre-wrap"
                         components={{
-                            p: ({ node, ...props }) => <p className="mb-2 last:mb-0 break-words" {...props} />,
+                            p: ({ node, ...props }) => <p className="mb-2 last:mb-0 break-words w-full" {...props} />,
                             ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2" {...props} />,
                             ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2" {...props} />,
                             li: ({ node, ...props }) => <li className="mb-1" {...props} />,
@@ -183,9 +234,9 @@ export default function ChatWidget() {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+        <div className="fixed bottom-24 right-6 z-50 flex flex-col items-end gap-2 sm:bottom-6 sm:right-24">
             {isOpen && (
-                <Card className="w-[350px] h-[500px] flex flex-col shadow-2xl border-primary/20 animate-in slide-in-from-bottom-5 fade-in duration-300">
+                <Card className="w-[300px] sm:w-[350px] h-[450px] sm:h-[500px] flex flex-col shadow-2xl border-primary/20 animate-in slide-in-from-bottom-5 fade-in duration-300 bg-background/95 backdrop-blur-sm">
                     {/* Header */}
                     <div className="bg-primary text-primary-foreground p-4 rounded-t-lg flex justify-between items-center">
                         <div>
@@ -221,11 +272,13 @@ export default function ChatWidget() {
                     <div className="p-4 border-t border-border bg-background rounded-b-lg">
                         <form onSubmit={handleSubmit} className="flex gap-2">
                             <Input
+                                name="chat-input"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 placeholder="Ask about our services..."
                                 className="flex-1"
                                 disabled={isLoading}
+                                autoComplete="off"
                             />
                             <Button type="submit" size="icon" disabled={isLoading || !inputValue.trim()}>
                                 <Send className="w-4 h-4" />

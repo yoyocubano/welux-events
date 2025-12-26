@@ -44,7 +44,7 @@ export async function submitInquiry(data: ContactFormData): Promise<SubmitResult
         try {
             const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             const { error } = await supabase
-                .from("leads")
+                .from("inquiries")
                 .insert([payload]);
 
             if (!error) supabaseSuccess = true;
