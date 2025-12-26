@@ -357,7 +357,7 @@ export default function ChatWidget() {
                                         return (
                                             <div
                                                 key={idx}
-                                                className={`flex w-full animate-message-in ${isUser ? 'justify-end' : 'justify-start'} ${isSameAuthor ? 'mt-2' : 'mt-6'}`}
+                                                className={`flex w-full animate-message-in ${isUser ? 'justify-end' : 'justify-start'} ${isSameAuthor ? 'mt-2' : 'mt-6'} bg-red-800`}
                                             >
                                                 <div className={`flex gap-3 max-w-[85%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
                                                     {!isUser && (
