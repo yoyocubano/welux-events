@@ -53,12 +53,11 @@ export default function ChatWidget() {
     }, [isOpen, t]);
 
     // Smart Auto-Scroll (Antigravity Engine 2.0)
+    // Smart Auto-Scroll (Antigravity Engine 2.0)
     const scrollToBottom = (instant = false) => {
-        if (!messagesContainerRef.current) return;
-        const { scrollHeight, clientHeight } = messagesContainerRef.current;
-        messagesContainerRef.current.scrollTo({
-            top: scrollHeight - clientHeight,
-            behavior: instant ? 'auto' : 'smooth'
+        messagesEndRef.current?.scrollIntoView({
+            behavior: instant ? 'auto' : 'smooth',
+            block: 'end' // Ensures the bottom of the element aligns with the bottom of the container
         });
     };
 
