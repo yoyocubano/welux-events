@@ -64,11 +64,9 @@ export default function ChatWidget() {
 
     // Scroll effect when messages change
     useEffect(() => {
-        // Only auto-scroll if user hasn't scrolled up manually
-        if (!userScrolledRef.current || messages[messages.length - 1]?.role === 'user') {
-            // Use RAF for smoothness guarantees
-            requestAnimationFrame(() => scrollToBottom());
-        }
+        // Always auto-scroll on new messages or loading state change
+        // Added a small delay to ensure DOM is fully rendered
+        setTimeout(() => requestAnimationFrame(() => scrollToBottom()), 50);
     }, [messages, isLoading, isOpen]);
 
     // Scroll Handler to detect user intent
