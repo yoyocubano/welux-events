@@ -47,10 +47,14 @@ You are calm, professional, and very knowledgeable.
 
 // --- ROUTE: CHAT (Rebeca AI) ---
 // --- ROUTE: CHAT (Rebeca AI) ---
+// --- DEEPSEEK CONFIG ---
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
+
+// --- ROUTE: CHAT (Rebeca AI) ---
 const chatHandler = async (req, res) => {
-    if (!GOOGLE_API_KEY) {
-        console.error("Missing GOOGLE_API_KEY");
-        return res.status(500).json({ error: "Server configuration error: Missing Google API Key" });
+    if (!DEEPSEEK_API_KEY) {
+        console.error("Missing DEEPSEEK_API_KEY");
+        return res.status(500).json({ error: "Server configuration error: Missing DeepSeek API Key" });
     }
 
     try {
@@ -72,68 +76,40 @@ const chatHandler = async (req, res) => {
         console.log(`[Rebeca AI] Generating response in: ${langName}`); // DEBUG LOG
 
         // Enhanced System Instruction
-        let fullPrompt = SYSTEM_PROMPT + `\n\n*** CRITICAL INSTRUCTION ***\nThe user is speaking in ${langName} (Browsing Language: ${language}).\nYOU MUST REPLY IN ${langName} ONLY.\nDo not switch languages unless explicitly asked.\n**************************\n\nConversation History:\n`;
-        messages.forEach((msg) => {
-            fullPrompt += `${msg.role === 'user' ? 'User' : 'Assistant'} (${langName}): ${msg.content}\n`;
+        const systemMessage = {
+            role: "system",
+            content: SYSTEM_PROMPT + `\n\n*** CRITICAL INSTRUCTION ***\nThe user is speaking in ${langName} (Browsing Language: ${language}).\nYOU MUST REPLY IN ${langName} ONLY.\nDo not switch languages unless explicitly asked.`
+        };
+
+        const conversationHistory = [systemMessage, ...messages];
+
+        console.log(`[Rebeca AI] Calling DeepSeek...`);
+
+        const response = await fetch("https://api.deepseek.com/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${DEEPSEEK_API_KEY}`
+            },
+            body: JSON.stringify({
+                model: "deepseek-chat",
+                messages: conversationHistory,
+                temperature: 0.7,
+                max_tokens: 500
+            })
         });
-        fullPrompt += `Assistant (${langName}):`;
 
-        if (!GOOGLE_API_KEY) {
-            console.error("❌ CRITICAL ERROR: GOOGLE_API_KEY is missing/undefined in .env");
-            return res.status(500).json({ error: "Server Configuration Error: Missing API Key" });
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error(`DeepSeek API Error: ${response.status} - ${errorText}`);
+            throw new Error(`DeepSeek API Error: ${response.status}`);
         }
 
-        const modelsToTry = [
-            "gemini-1.5-flash",
-            "gemini-1.5-pro",
-            "gemini-1.0-pro"
-        ];
-
-        let generatedText = null;
-        let lastError = null;
-
-        for (const model of modelsToTry) {
-            try {
-                console.log(`🤖 Attempting to connect to Brain (${model})...`);
-                const response = await fetch(
-                    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GOOGLE_API_KEY}`,
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            contents: [{ parts: [{ text: fullPrompt }] }]
-                        }),
-                    }
-                );
-
-                if (!response.ok) {
-                    const errorStatus = response.status;
-                    const errorText = await response.text();
-                    console.warn(`⚠️ Model ${model} failed with status ${errorStatus}: ${errorText}`);
-
-                    if (errorStatus === 429 || errorStatus === 503) {
-                        // Rate limited on this model, try next
-                        continue;
-                    }
-                    throw new Error(`Google API Error: ${errorStatus} - ${errorText}`);
-                }
-
-                const data = await response.json();
-                generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                if (generatedText) {
-                    console.log(`✅ Success with ${model}!`);
-                    break; // Success!
-                }
-
-            } catch (e) {
-                console.error(`❌ Error with ${model}:`, e.message);
-                lastError = e;
-            }
-        }
+        const data = await response.json();
+        const generatedText = data.choices?.[0]?.message?.content;
 
         if (!generatedText) {
-            console.error("🔥 ALL MODELS FAILED. Returning overload message.");
+            console.error("🔥 DeepSeek returned empty content.");
             return res.status(200).json({
                 role: "assistant",
                 content: language?.startsWith("es")
