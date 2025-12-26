@@ -694,38 +694,46 @@
 
 /* Chat Messages Area - The Heart */
 .chat-messages-area {
-  overscroll-behavior: contain;
-  will-change: scroll-position;
+  touch-action: pan-y;
+  /* Permite scroll táctil en móviles */
   -webkit-overflow-scrolling: touch;
+  overflow-y: auto !important;
+  pointer-events: auto !important;
+  /* Asegura que el mouse funcione */
+  scroll-behavior: auto;
+  /* Dejar que JS controle el smooth scroll */
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   min-height: 0;
 }
 
-/* Luxury Scrollbar */
-.chat-messages-area::-webkit-scrollbar {
+/* Custom Scrollbar for Pro Chat */
+.custom-scrollbar::-webkit-scrollbar {
   width: 6px;
 }
 
-.chat-messages-area::-webkit-scrollbar-track {
+.custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
   margin: 4px 0;
 }
 
-.chat-messages-area::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  /* Gold tint base */
   border-radius: 10px;
-  transition: background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.chat-messages-area::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
+  /* Gold hover */
 }
 
 /* Firefox */
-.chat-messages-area {
+.custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  scrollbar-color: rgba(212, 175, 55, 0.3) transparent;
 }
 
 /* PRO ANIMATION: Apple/Intercom Spring Bezier */
@@ -742,10 +750,8 @@
 }
 
 .animate-message-in {
-  /* cubic-bezier(0.16, 1, 0.3, 1) is the 'Eased Spring' standard */
   animation: messageSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform: translateZ(0);
-  /* Hardware accel */
   backface-visibility: hidden;
 }
 
@@ -798,5 +804,4 @@
 
 .chat-messages-area>div {
   max-width: 100% !important;
-  overflow: hidden;
 }

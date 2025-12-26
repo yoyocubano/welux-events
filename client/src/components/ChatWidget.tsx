@@ -89,40 +89,33 @@ export default function ChatWidget() {
         };
     }, [isOpen]);
 
-    // Smart Auto-Scroll (Antigravity Engine 2.0)
-    const scrollToBottom = (instant = false, force = false) => {
-        // Only scroll if we are allowed to (user is at bottom OR we force instance scroll)
-        if (!userScrolledRef.current || instant || force) {
-            // Método 1: scrollIntoView del elemento final
-            messagesEndRef.current?.scrollIntoView({
-                behavior: instant ? 'auto' : 'smooth',
-                block: 'end'
+    // Smart Auto-Scroll (Antigravity Engine 2.0 - Strict Mode)
+    const scrollToBottom = (behavior: "smooth" | "auto" = "smooth") => {
+        if (messagesContainerRef.current) {
+            const container = messagesContainerRef.current;
+            // Use requestAnimationFrame to wait for the next render cycle guarantees layout is ready
+            requestAnimationFrame(() => {
+                container.scrollTo({
+                    top: container.scrollHeight,
+                    behavior: behavior
+                });
             });
-
-            // Método 2: Fallback usando scrollTop (más confiable)
-            // EJECUTAR SIEMPRE para garantizar que se vea el mensaje, aunque sacrifique suavidad en algunos navegadores
-            if (messagesContainerRef.current) {
-                messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
-            }
         }
     };
 
     // Scroll effect when messages change
     useEffect(() => {
-        // Auto-scroll on new messages if user isn't reviewing history
-        // Use a timeout to ensure DOM render before scrolling
-        const timer = setTimeout(() => {
-            requestAnimationFrame(() => scrollToBottom(false, true)); // Force scroll on new message
-        }, 100);
-        return () => clearTimeout(timer);
+        if (messages.length > 0) {
+            scrollToBottom("smooth");
+        }
     }, [messages, isLoading, isOpen]);
 
     // Force scroll when chat opens
     useEffect(() => {
         if (isOpen) {
             setTimeout(() => {
-                scrollToBottom(true, true); // Instant force scroll on open
-            }, 200);
+                scrollToBottom("auto"); // Instant force scroll on open
+            }, 100);
         }
     }, [isOpen]);
 
@@ -153,7 +146,7 @@ export default function ChatWidget() {
         setInputValue("");
         setIsLoading(true);
         // Explicitly trigger scroll for user message
-        setTimeout(() => scrollToBottom(false, true), 50);
+        setTimeout(() => scrollToBottom("smooth"), 50);
 
         try {
             // Filter out system markers for API
@@ -192,7 +185,7 @@ export default function ChatWidget() {
                 }]);
                 setIsLoading(false);
                 // Explicitly trigger scroll for assistant message
-                setTimeout(() => scrollToBottom(false, true), 50);
+                setTimeout(() => scrollToBottom("smooth"), 50);
             }, typingSpeed);
 
         } catch (error) {
@@ -326,97 +319,106 @@ export default function ChatWidget() {
                                 </Button>
                             </div>
 
-                            {/* Messages Area - Core Engine */}
+                            {/* Messages Area - Core Engine (Strict Architecture) */}
                             <div
-                                className="chat-messages-area flex-1 overflow-y-auto overflow-x-hidden p-4 bg-[#0F0F0F]"
+                                className="chat-messages-area flex-1 overflow-y-auto overflow-x-hidden relative bg-[#0F0F0F] custom-scrollbar"
                                 ref={messagesContainerRef}
                                 onScroll={handleScroll}
+                                style={{
+                                    height: '100%', // Obliga al contenedor a tener un límite
+                                    display: 'flex',
+                                    flexDirection: 'column'
+                                }}
                             >
-                                <div className="flex flex-col justify-end min-h-full pb-4">
-                                    <div className="flex flex-col"> {/* Removido gap global para controlarlo por mensaje */}
-                                        {messages.length === 0 && !isLoading && (
-                                            <div className="text-center text-gray-700 text-xs py-10 mt-auto uppercase tracking-widest opacity-50 select-none">
-                                                Start a conversation
-                                            </div>
-                                        )}
+                                {/* CONTENEDOR INTERNO (EL QUE CRECE) */}
+                                <div className="flex flex-col min-h-full p-4 w-full">
 
-                                        {messages.map((msg, idx) => {
-                                            const isUser = msg.role === "user";
-                                            const prevMsg = messages[idx - 1];
-                                            const isSameAuthor = prevMsg && prevMsg.role === msg.role;
+                                    {/* SPACER: Empuja los mensajes al fondo, pero permite scroll manual */}
+                                    <div className="flex-grow" style={{ minHeight: '10px' }} />
 
-                                            const isInquiry = msg.content.includes("[[SUBMIT_INQUIRY:");
+                                    {messages.length === 0 && !isLoading && (
+                                        <div className="text-center text-gray-700 text-xs py-10 uppercase tracking-widest opacity-50 select-none">
+                                            Start a conversation
+                                        </div>
+                                    )}
 
-                                            if (isInquiry && !isUser) return <InquiryCard key={idx} jsonStr={msg.content.match(/\[\[SUBMIT_INQUIRY: (.*?)\]\]/)?.[1] || "{}"} />;
+                                    {messages.map((msg, idx) => {
+                                        const isUser = msg.role === "user";
+                                        const prevMsg = messages[idx - 1];
+                                        const isSameAuthor = prevMsg && prevMsg.role === msg.role;
 
-                                            return (
-                                                <div
-                                                    key={idx}
-                                                    className={`flex w-full animate-message-in ${isUser ? 'justify-end' : 'justify-start'} ${isSameAuthor ? 'mt-2' : 'mt-6'}`}
-                                                >
-                                                    <div className={`flex gap-3 max-w-[85%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
-                                                        {!isUser && (
-                                                            <div className={`w-8 h-8 shrink-0 flex items-start ${isSameAuthor ? 'h-0' : ''}`}>
-                                                                {!isSameAuthor && (
-                                                                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shadow-md border border-white/5 select-none text-[10px] font-bold text-black font-sans mt-1">
-                                                                        AI
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                        )}
+                                        const isInquiry = msg.content.includes("[[SUBMIT_INQUIRY:");
 
-                                                        <div className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}>
-                                                            <div
-                                                                className={`px-4 py-3 text-[14.5px] leading-relaxed shadow-sm break-words border border-white/5
-                                                                ${isUser
-                                                                        ? `${THEME.userBubble} rounded-[20px] ${isSameAuthor ? 'rounded-tr-[4px] rounded-br-[4px]' : 'rounded-br-[4px]'}`
-                                                                        : `${THEME.botBubble} rounded-[20px] ${isSameAuthor ? 'rounded-tl-[4px] rounded-bl-[4px]' : 'rounded-bl-[4px]'}`
-                                                                    }
-                                                            `}
-                                                                style={{
-                                                                    wordBreak: 'break-word',
-                                                                    overflowWrap: 'anywhere',
-                                                                    hyphens: 'auto'
-                                                                }}
-                                                            >
-                                                                <ReactMarkdown
-                                                                    className="prose prose-invert max-w-none"
-                                                                    components={{
-                                                                        a: ({ node, ...props }) => (
-                                                                            <a {...props} className="break-all underline" />
-                                                                        ),
-                                                                        p: ({ node, ...props }) => (
-                                                                            <p {...props} style={{ margin: 0, wordBreak: 'break-word' }} />
-                                                                        )
-                                                                    }}
-                                                                >
-                                                                    {msg.content}
-                                                                </ReactMarkdown>
-                                                            </div>
-                                                            {/* Timestamp only on last message of group? Or hover? For mobile lux, maybe only last. */}
-                                                            {(!messages[idx + 1] || messages[idx + 1].role !== msg.role) && (
-                                                                <span className={`text-[10px] text-gray-600 mt-1 select-none ${isUser ? 'mr-1' : 'ml-1'}`}>
-                                                                    {msg.timestamp}
-                                                                </span>
+                                        if (isInquiry && !isUser) return <InquiryCard key={idx} jsonStr={msg.content.match(/\[\[SUBMIT_INQUIRY: (.*?)\]\]/)?.[1] || "{}"} />;
+
+                                        return (
+                                            <div
+                                                key={idx}
+                                                className={`flex w-full animate-message-in ${isUser ? 'justify-end' : 'justify-start'} ${isSameAuthor ? 'mt-2' : 'mt-6'}`}
+                                            >
+                                                <div className={`flex gap-3 max-w-[85%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
+                                                    {!isUser && (
+                                                        <div className={`w-8 h-8 shrink-0 flex items-start ${isSameAuthor ? 'h-0' : ''}`}>
+                                                            {!isSameAuthor && (
+                                                                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shadow-md border border-white/5 select-none text-[10px] font-bold text-black font-sans mt-1">
+                                                                    AI
+                                                                </div>
                                                             )}
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            );
-                                        })}
+                                                    )}
 
-                                        {isLoading && (
-                                            <div className="flex justify-start mt-6 animate-message-in">
-                                                <div className="flex gap-3 items-end">
-                                                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shrink-0 border border-white/5 text-[10px] font-bold text-black font-sans">
-                                                        AI
+                                                    <div className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}>
+                                                        <div
+                                                            className={`px-4 py-3 text-[14.5px] leading-relaxed shadow-sm break-words border border-white/5
+                                                                ${isUser
+                                                                    ? `${THEME.userBubble} rounded-[20px] ${isSameAuthor ? 'rounded-tr-[4px] rounded-br-[4px]' : 'rounded-br-[4px]'}`
+                                                                    : `${THEME.botBubble} rounded-[20px] ${isSameAuthor ? 'rounded-tl-[4px] rounded-bl-[4px]' : 'rounded-bl-[4px]'}`
+                                                                }
+                                                            `}
+                                                            style={{
+                                                                wordBreak: 'break-word',
+                                                                overflowWrap: 'anywhere',
+                                                                hyphens: 'auto'
+                                                            }}
+                                                        >
+                                                            <ReactMarkdown
+                                                                className="prose prose-invert max-w-none"
+                                                                components={{
+                                                                    a: ({ node, ...props }) => (
+                                                                        <a {...props} className="break-all underline" />
+                                                                    ),
+                                                                    p: ({ node, ...props }) => (
+                                                                        <p {...props} style={{ margin: 0, wordBreak: 'break-word' }} />
+                                                                    )
+                                                                }}
+                                                            >
+                                                                {msg.content}
+                                                            </ReactMarkdown>
+                                                        </div>
+                                                        {(!messages[idx + 1] || messages[idx + 1].role !== msg.role) && (
+                                                            <span className={`text-[10px] text-gray-600 mt-1 select-none ${isUser ? 'mr-1' : 'ml-1'}`}>
+                                                                {msg.timestamp}
+                                                            </span>
+                                                        )}
                                                     </div>
-                                                    <TypingIndicator />
                                                 </div>
                                             </div>
-                                        )}
-                                    </div>
-                                    <div ref={messagesEndRef} />
+                                        );
+                                    })}
+
+                                    {isLoading && (
+                                        <div className="flex justify-start mt-6 animate-message-in">
+                                            <div className="flex gap-3 items-end">
+                                                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shrink-0 border border-white/5 text-[10px] font-bold text-black font-sans">
+                                                    AI
+                                                </div>
+                                                <TypingIndicator />
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* ESTE DIV ES TU ANCLA DE SCROLL FINAL */}
+                                    <div ref={messagesEndRef} className="h-2 w-full shrink-0" />
                                 </div>
                             </div>
 
