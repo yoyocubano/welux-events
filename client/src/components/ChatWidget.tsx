@@ -64,8 +64,8 @@ export default function ChatWidget() {
             });
 
             // Método 2: Fallback usando scrollTop (más confiable)
-            // Solo lo usamos si es instantáneo o para correcciones, para no matar la animación suave
-            if (instant && messagesContainerRef.current) {
+            // EJECUTAR SIEMPRE para garantizar que se vea el mensaje, aunque sacrifique suavidad en algunos navegadores
+            if (messagesContainerRef.current) {
                 messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
             }
         }
