@@ -25,7 +25,17 @@ const THEME = {
 export default function ChatWidget() {
     const { t, i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState<Message[]>([]);
+    // --- State with Persistence ---
+    const [messages, setMessages] = useState<Message[]>(() => {
+        try {
+            const saved = localStorage.getItem("rebeca_chat_history");
+            return saved ? JSON.parse(saved) : [];
+        } catch (e) {
+            console.error("Failed to load chat history", e);
+            return [];
+        }
+    });
+
     const [inputValue, setInputValue] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -36,7 +46,16 @@ export default function ChatWidget() {
 
     // --- Effects ---
 
-    // Initial Greeting
+    // Save to LocalStorage
+    useEffect(() => {
+        try {
+            localStorage.setItem("rebeca_chat_history", JSON.stringify(messages));
+        } catch (e) {
+            console.error("Failed to save chat history", e);
+        }
+    }, [messages]);
+
+    // Initial Greeting (Only if no history)
     useEffect(() => {
         if (messages.length === 0 && isOpen) {
             setIsLoading(true);
@@ -50,7 +69,7 @@ export default function ChatWidget() {
             }, 800);
             return () => clearTimeout(timer);
         }
-    }, [isOpen, t]);
+    }, [isOpen, t, messages.length]); // Added messages.length to dependency array
 
     // Freeze body scroll when open
     useEffect(() => {
@@ -70,7 +89,6 @@ export default function ChatWidget() {
         };
     }, [isOpen]);
 
-    // Smart Auto-Scroll (Antigravity Engine 2.0)
     // Smart Auto-Scroll (Antigravity Engine 2.0)
     const scrollToBottom = (instant = false, force = false) => {
         // Only scroll if we are allowed to (user is at bottom OR we force instance scroll)
@@ -134,6 +152,7 @@ export default function ChatWidget() {
         setMessages((prev) => [...prev, userMsg]);
         setInputValue("");
         setIsLoading(true);
+        // Explicitly trigger scroll for user message
         setTimeout(() => scrollToBottom(false, true), 50);
 
         try {
@@ -161,23 +180,31 @@ export default function ChatWidget() {
             const data = await response.json();
             const assistantText = data.content || t("chat.connecting");
 
-            setMessages((prev) => [...prev, {
-                role: "assistant",
-                content: assistantText,
-                timestamp: getCurrentTime()
-            }]);
-            setTimeout(() => scrollToBottom(false, true), 50);
+            // Calculate "Human-like" typing delay
+            // Min 1.5s, Max 4s, roughly 20ms per character
+            const typingSpeed = Math.min(Math.max(assistantText.length * 20, 1500), 4000);
+
+            setTimeout(() => {
+                setMessages((prev) => [...prev, {
+                    role: "assistant",
+                    content: assistantText,
+                    timestamp: getCurrentTime()
+                }]);
+                setIsLoading(false);
+                // Explicitly trigger scroll for assistant message
+                setTimeout(() => scrollToBottom(false, true), 50);
+            }, typingSpeed);
 
         } catch (error) {
             console.error("Chat error:", error);
+            setIsLoading(false); // Immediate fail
             setMessages((prev) => [...prev, {
                 role: "assistant",
                 content: t("chat.error"),
                 timestamp: getCurrentTime()
             }]);
         } finally {
-            setIsLoading(false);
-            // Re-focus input on desktop, maybe skip for mobile to prevent keyboard flash
+            // Input focus logic moved to after message appears
             setTimeout(() => {
                 const input = document.querySelector('input[name="chat-input"]') as HTMLInputElement;
                 if (input && window.matchMedia("(min-width: 768px)").matches) input.focus();
@@ -198,18 +225,22 @@ export default function ChatWidget() {
                 phone: data.phone || null,
                 message: "From Chat: " + (data.message || "No details")
             });
-            setMessages(prev => [...prev, {
-                role: "assistant",
-                content: "✅ " + t("inquiry.success", "Request sent!"),
-                timestamp: getCurrentTime()
-            }]);
+
+            setTimeout(() => {
+                setMessages(prev => [...prev, {
+                    role: "assistant",
+                    content: "✅ " + t("inquiry.success", "Request sent!"),
+                    timestamp: getCurrentTime()
+                }]);
+                setIsLoading(false);
+            }, 1000); // Small fixed delay for success message
+
         } catch (e) {
             setMessages(prev => [...prev, {
                 role: "assistant",
                 content: "❌ " + t("chat.error", "Error sending request."),
                 timestamp: getCurrentTime()
             }]);
-        } finally {
             setIsLoading(false);
         }
     };
@@ -217,19 +248,19 @@ export default function ChatWidget() {
     // --- Sub-components ---
 
     const TypingIndicator = () => (
-        <div className="flex gap-1.5 p-4 bg-[#2A2A2A] rounded-[24px] rounded-tl-sm w-fit animate-in fade-in slide-in-from-left-2 items-center h-[42px] border border-white/5">
-            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+        <div className="flex gap-1.5 p-4 bg-[#2A2A2A] rounded-[24px] rounded-tl-sm w-fit animate-in fade-in slide-in-from-left-2 items-center h-[42px] border border-white/5 shadow-md">
+            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
         </div>
     );
 
     const InquiryCard = ({ jsonStr }: { jsonStr: string }) => {
         let inquiries: any = {};
-        try { inquiries = JSON.parse(jsonStr); } catch (e) { }
+        try { inquiries = JSON.parse(jsonStr); } catch (e) { /* silent fail */ }
 
         return (
-            <div className="flex gap-3 max-w-[90%] mb-4 animate-in slide-in-from-left-2">
+            <div className="flex gap-3 max-w-[90%] mb-6 animate-in slide-in-from-left-2">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shrink-0 shadow-lg border border-white/10 mt-auto">
                     <span className="text-[10px] font-bold text-black font-sans">AI</span>
                 </div>
@@ -278,7 +309,7 @@ export default function ChatWidget() {
                                         <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center border-2 border-[#141414] shadow-md">
                                             <span className="text-sm font-bold text-black font-sans">AI</span>
                                         </div>
-                                        <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#141414] rounded-full"></span>
+                                        <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#141414] rounded-full shadow-[0_0_8px_#22c55e]"></span>
                                     </div>
                                     <div>
                                         <h3 className="font-sans font-bold text-white text-base tracking-tight">Rebeca AI</h3>
@@ -296,14 +327,13 @@ export default function ChatWidget() {
                             </div>
 
                             {/* Messages Area - Core Engine */}
-                            {/* Messages Area - Core Engine */}
                             <div
                                 className="chat-messages-area flex-1 overflow-y-auto overflow-x-hidden p-4 bg-[#0F0F0F]"
                                 ref={messagesContainerRef}
                                 onScroll={handleScroll}
                             >
                                 <div className="flex flex-col justify-end min-h-full pb-4">
-                                    <div className="flex flex-col gap-3"> {/* Increased gap */}
+                                    <div className="flex flex-col"> {/* Removido gap global para controlarlo por mensaje */}
                                         {messages.length === 0 && !isLoading && (
                                             <div className="text-center text-gray-700 text-xs py-10 mt-auto uppercase tracking-widest opacity-50 select-none">
                                                 Start a conversation
@@ -312,8 +342,9 @@ export default function ChatWidget() {
 
                                         {messages.map((msg, idx) => {
                                             const isUser = msg.role === "user";
-                                            const nextMsg = messages[idx + 1];
-                                            const isLastInGroup = !nextMsg || nextMsg.role !== msg.role;
+                                            const prevMsg = messages[idx - 1];
+                                            const isSameAuthor = prevMsg && prevMsg.role === msg.role;
+
                                             const isInquiry = msg.content.includes("[[SUBMIT_INQUIRY:");
 
                                             if (isInquiry && !isUser) return <InquiryCard key={idx} jsonStr={msg.content.match(/\[\[SUBMIT_INQUIRY: (.*?)\]\]/)?.[1] || "{}"} />;
@@ -321,14 +352,16 @@ export default function ChatWidget() {
                                             return (
                                                 <div
                                                     key={idx}
-                                                    className={`flex w-full animate-message-in ${isUser ? 'justify-end' : 'justify-start'} ${isLastInGroup ? 'mb-6' : 'mb-2'}`}
+                                                    className={`flex w-full animate-message-in ${isUser ? 'justify-end' : 'justify-start'} ${isSameAuthor ? 'mt-2' : 'mt-6'}`}
                                                 >
-                                                    <div className={`flex gap-2 max-w-[85%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
+                                                    <div className={`flex gap-3 max-w-[85%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
                                                         {!isUser && (
-                                                            <div className={`w-8 h-8 shrink-0 flex items-end ${!isLastInGroup && 'invisible'}`}>
-                                                                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shadow-md border border-white/5 select-none text-[10px] font-bold text-black font-sans">
-                                                                    AI
-                                                                </div>
+                                                            <div className={`w-8 h-8 shrink-0 flex items-start ${isSameAuthor ? 'h-0' : ''}`}>
+                                                                {!isSameAuthor && (
+                                                                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shadow-md border border-white/5 select-none text-[10px] font-bold text-black font-sans mt-1">
+                                                                        AI
+                                                                    </div>
+                                                                )}
                                                             </div>
                                                         )}
 
@@ -336,11 +369,9 @@ export default function ChatWidget() {
                                                             <div
                                                                 className={`px-4 py-3 text-[14.5px] leading-relaxed shadow-sm break-words border border-white/5
                                                                 ${isUser
-                                                                        ? `${THEME.userBubble} rounded-[20px] rounded-br-[4px]`
-                                                                        : `${THEME.botBubble} rounded-[20px] rounded-bl-[4px]`
+                                                                        ? `${THEME.userBubble} rounded-[20px] ${isSameAuthor ? 'rounded-tr-[4px] rounded-br-[4px]' : 'rounded-br-[4px]'}`
+                                                                        : `${THEME.botBubble} rounded-[20px] ${isSameAuthor ? 'rounded-tl-[4px] rounded-bl-[4px]' : 'rounded-bl-[4px]'}`
                                                                     }
-                                                                ${!isLastInGroup && isUser ? 'rounded-br-[20px]' : ''} 
-                                                                ${!isLastInGroup && !isUser ? 'rounded-bl-[20px]' : ''}
                                                             `}
                                                                 style={{
                                                                     wordBreak: 'break-word',
@@ -362,7 +393,8 @@ export default function ChatWidget() {
                                                                     {msg.content}
                                                                 </ReactMarkdown>
                                                             </div>
-                                                            {isLastInGroup && (
+                                                            {/* Timestamp only on last message of group? Or hover? For mobile lux, maybe only last. */}
+                                                            {(!messages[idx + 1] || messages[idx + 1].role !== msg.role) && (
                                                                 <span className={`text-[10px] text-gray-600 mt-1 select-none ${isUser ? 'mr-1' : 'ml-1'}`}>
                                                                     {msg.timestamp}
                                                                 </span>
@@ -374,8 +406,8 @@ export default function ChatWidget() {
                                         })}
 
                                         {isLoading && (
-                                            <div className="flex justify-start mb-4 animate-message-in mt-2">
-                                                <div className="flex gap-2 items-end">
+                                            <div className="flex justify-start mt-6 animate-message-in">
+                                                <div className="flex gap-3 items-end">
                                                     <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shrink-0 border border-white/5 text-[10px] font-bold text-black font-sans">
                                                         AI
                                                     </div>
