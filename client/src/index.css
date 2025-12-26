@@ -233,20 +233,7 @@
   /* ============================================
      OPTIMIZED CHAT MESSAGES AREA
      ============================================ */
-  .chat-messages-area {
-    /* Scroll Behavior */
-    scroll-behavior: smooth;
-    overscroll-behavior: contain;
 
-    /* Performance */
-    will-change: scroll-position;
-    -webkit-overflow-scrolling: touch;
-
-    /* Critical for flex */
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-  }
 
   /* Luxury Scrollbar - Light Mode */
   .chat-messages-area::-webkit-scrollbar {

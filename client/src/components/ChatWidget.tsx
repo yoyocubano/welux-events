@@ -89,33 +89,41 @@ export default function ChatWidget() {
         };
     }, [isOpen]);
 
-    // Smart Auto-Scroll (Antigravity Engine 2.0 - Strict Mode)
+    // Smart Auto-Scroll (Antigravity Engine 3.0 - Robust)
     const scrollToBottom = (behavior: "smooth" | "auto" = "smooth") => {
         if (messagesContainerRef.current) {
             const container = messagesContainerRef.current;
-            // Use requestAnimationFrame to wait for the next render cycle guarantees layout is ready
-            requestAnimationFrame(() => {
+            const scroll = () => {
                 container.scrollTo({
                     top: container.scrollHeight,
                     behavior: behavior
                 });
+            };
+
+            // Double reference for robustness against layout shifts (Markdown rendering)
+            requestAnimationFrame(() => {
+                scroll();
+                // Backup scroll for slower renders
+                setTimeout(scroll, 50);
+                setTimeout(scroll, 150);
             });
         }
     };
 
-    // Scroll effect when messages change
+    // Scroll effect when messages change or loading state changes
     useEffect(() => {
-        if (messages.length > 0) {
+        // If loading (Typing indicator appears) or new message -> Scroll
+        if (messages.length > 0 || isLoading) {
             scrollToBottom("smooth");
         }
-    }, [messages, isLoading, isOpen]);
+    }, [messages.length, isLoading, isOpen]);
 
     // Force scroll when chat opens
     useEffect(() => {
         if (isOpen) {
-            setTimeout(() => {
-                scrollToBottom("auto"); // Instant force scroll on open
-            }, 100);
+            // Instant scroll followed by smooth adjustment
+            setTimeout(() => scrollToBottom("auto"), 0);
+            setTimeout(() => scrollToBottom("smooth"), 100);
         }
     }, [isOpen]);
 
