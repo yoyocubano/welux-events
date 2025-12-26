@@ -112,9 +112,8 @@ export default function ChatWidget() {
     const handleScroll = () => {
         if (!messagesContainerRef.current) return;
         const { scrollTop, scrollHeight, clientHeight } = messagesContainerRef.current;
-        // If user is within 50px of bottom, we consider them "at the bottom" -> Auto-scroll enabled
-        // Otherwise, they are "scrolling up" -> Auto-scroll disabled
-        const isNearBottom = scrollHeight - scrollTop - clientHeight < 50;
+        // If user is within 30px of bottom, we consider them "at the bottom" -> Auto-scroll enabled
+        const isNearBottom = scrollHeight - scrollTop - clientHeight < 30;
         userScrolledRef.current = !isNearBottom;
     };
 
@@ -135,6 +134,7 @@ export default function ChatWidget() {
         setMessages((prev) => [...prev, userMsg]);
         setInputValue("");
         setIsLoading(true);
+        setTimeout(() => scrollToBottom(false, true), 50);
 
         try {
             // Filter out system markers for API
@@ -166,6 +166,7 @@ export default function ChatWidget() {
                 content: assistantText,
                 timestamp: getCurrentTime()
             }]);
+            setTimeout(() => scrollToBottom(false, true), 50);
 
         } catch (error) {
             console.error("Chat error:", error);
