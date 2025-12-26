@@ -253,7 +253,7 @@ export default function ChatWidget() {
                             ref={messagesContainerRef}
                             onScroll={handleScroll}
                         >
-                            <div className="flex flex-col justify-end min-h-0 gap-1 pb-2">
+                            <div className="flex flex-col flex-grow justify-start min-h-0 gap-4 pb-4">
                                 {messages.length === 0 && !isLoading && (
                                     <div className="text-center text-gray-700 text-xs py-10 mt-auto uppercase tracking-widest opacity-50 select-none">
                                         Start a conversation
