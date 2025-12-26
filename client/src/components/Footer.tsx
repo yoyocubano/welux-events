@@ -99,7 +99,7 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">{t("footer.follow_us")}</h3>
             <div className="flex gap-4 flex-wrap">
               <a
-                href="https://instagram.com/welweddingslux"
+                href="https://www.instagram.com/weddingeventslux?igsh=YW1zMzJnbnM4ajAw&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -108,7 +108,7 @@ export default function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                href="https://facebook.com/welweddingslux"
+                href="https://www.facebook.com/share/17ymwsPfDK/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -117,7 +117,7 @@ export default function Footer() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://youtube.com/@welweddingslux"
+                href="https://www.youtube.com/@weddingeventslux"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -126,7 +126,7 @@ export default function Footer() {
                 <Youtube className="w-5 h-5" />
               </a>
               <a
-                href="https://tiktok.com/@welweddingslux"
+                href="https://www.tiktok.com/@wedding.events.lu?_r=1&_t=ZN-92UWTZaVNlm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
