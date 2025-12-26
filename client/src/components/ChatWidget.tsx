@@ -112,8 +112,8 @@ export default function ChatWidget() {
 
     // Scroll effect when messages change or loading state changes
     useEffect(() => {
-        // If loading (Typing indicator appears) or new message -> Scroll
-        if (messages.length > 0 || isLoading) {
+        // Only auto-scroll if user hasn't scrolled up to read history
+        if (!userScrolledRef.current) {
             scrollToBottom("smooth");
         }
     }, [messages.length, isLoading, isOpen]);
