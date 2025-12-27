@@ -1,8 +1,8 @@
 {
     "hero": {
         "title": "Bodas de Lujo y Eventos Exclusivos",
-        "subtitle": "El Arte de Celebrar en Luxemburgo",
-        "description": "Especialistas en Luxemburgo, Chateaus Franceses y Villas Italianas.",
+        "subtitle": "Video, Fotografía y Broadcasting para Eventos en Luxemburgo",
+        "description": "Capturamos cada momento con calidad cinematográfica. Desde bodas íntimas hasta grandes eventos corporativos y transmisiones en vivo.",
         "team_credits": "Planeamos tu evento | Fotógrafo: Joan | Cinematógrafo: Abel | Marketing y Redes: Yusmel | Coordinadora: Rebeca",
         "cta_primary": "Reserva tu tranquilidad",
         "cta_secondary": "Hablar con un planner",
@@ -271,11 +271,15 @@
         "subtitle": "La Precisión Corporativa. La Emoción de las Bodas.",
         "wedding": {
             "title": "Fotografía de Eventos y Bodas",
-            "desc": "Capturando el alma de tu celebración con un estilo atemporal y elegante."
+            "desc": "Cobertura fotográfica completa con estilo documental y editorial. Capturamos emociones reales sin posados forzados."
         },
         "video": {
             "title": "Video Cinematográfico",
-            "desc": "Revive el movimiento, los sonidos y los mejores momentos de tu día con una película de alta gama."
+            "desc": "Producción cinematográfica 4K con múltiples cámaras y audio profesional."
+        },
+        "broadcasting": {
+            "title": "Broadcasting en Vivo",
+            "desc": "Transmisión en vivo multicámara para conferencias y bodas. Lleva tu evento a audiencias globales en tiempo real."
         },
         "full": {
             "title": "Cobertura Completa",

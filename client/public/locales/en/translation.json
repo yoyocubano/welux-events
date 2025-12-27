@@ -1,8 +1,8 @@
 {
     "hero": {
         "title": "Luxury Weddings & Exclusive Events",
-        "subtitle": "The Art of Celebration in Luxembourg",
-        "description": "Specializing in Luxembourg, The French Chateaus, and Italian Villas.",
+        "subtitle": "Video, Photo & Broadcasting for Events in Luxembourg",
+        "description": "We capture every moment with cinematic quality. From intimate weddings to large corporate events and live broadcasts.",
         "team_credits": "We plan your event | Photographer: Joan | Cinematographer: Abel | Marketing & Socials: Yusmel | Coordinator: Rebeca",
         "cta_primary": "Reserve your peace of mind",
         "cta_secondary": "Speak with a planner",
@@ -60,11 +60,15 @@
         "subtitle": "The Precision of Corporate. The Emotion of Weddings.",
         "wedding": {
             "title": "Event & Wedding Photography",
-            "desc": "Capturing the soul of your celebration with a timeless, elegant style."
+            "desc": "Complete photographic coverage with a documentary and editorial style. We capture real emotions without forced poses."
         },
         "video": {
             "title": "Cinematic Video",
-            "desc": "Relive the movement, sounds, and highlights of your day with a high-end cinematic film."
+            "desc": "Cinematic 4K production with multiple cameras and professional audio."
+        },
+        "broadcasting": {
+            "title": "Live Broadcasting",
+            "desc": "Multi-camera live streaming for conferences and weddings. Bring your event to global audiences in real-time."
         },
         "full": {
             "title": "Full Coverage",

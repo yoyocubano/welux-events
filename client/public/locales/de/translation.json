@@ -1,8 +1,8 @@
 {
     "hero": {
         "title_start": "Fangen Sie Ihr",
-        "title_highlight": "Perfektes Event ein",
-        "subtitle": "Professionelle Foto- und Videografiedienstleistungen für Hochzeiten und Events in ganz Luxemburg. Wir verwandeln Ihren besonderen Tag in zeitlose Erinnerungen.",
+        "subtitle": "Video, Foto & Broadcasting für Events in Luxemburg",
+        "description": "Wir fangen jeden Moment in kinoreifer Qualität ein. Von intimen Hochzeiten bis hin zu großen Firmenveranstaltungen und Live-Übertragungen.",
         "view_work": "Galerie Ansehen",
         "get_quote": "Lassen Sie uns Ihr Event planen",
         "award_winning": "Ihr Vertrauen",
@@ -29,15 +29,19 @@
         "subtitle": "Umfassende Foto- und Videografielösungen, zugeschnitten auf Ihre Bedürfnisse",
         "wedding": {
             "title": "Event- und Hochzeitsfotografie",
-            "desc": "Halten Sie jeden kostbaren Moment Ihres besonderen Anlasses mit unseren erfahrenen Fotografen fest."
+            "desc": "Komplette fotografische Begleitung im dokumentarischen und redaktionellen Stil. Wir fangen echte Emotionen ohne gestellte Posen ein."
         },
         "video": {
-            "title": "Event-Videografie",
-            "desc": "Professionelle Videoproduktion, die Ihre Geschichte auf filmische und fesselnde Weise erzählt."
+            "title": "Filmische Videografie",
+            "desc": "Filmische 4K-Produktion mit mehreren Kameras und professionellem Audio."
+        },
+        "broadcasting": {
+            "title": "Live-Broadcasting",
+            "desc": "Multi-Kamera-Live-Streaming für Konferenzen und Hochzeiten. Bringen Sie Ihr Event in Echtzeit zu einem weltweiten Publikum."
         },
         "full": {
             "title": "Komplettabdeckung",
-            "desc": "Vollständige Abdeckung durch Kombination von Foto- und Videografie für eine umfassende Erinnerungssammlung."
+            "desc": "Die ganze Geschichte. Foto und Video arbeiten von Anfang bis Ende in perfekter Harmonie zusammen."
         },
         "view_all": "Alle Dienstleistungen ansehen",
         "pets": {

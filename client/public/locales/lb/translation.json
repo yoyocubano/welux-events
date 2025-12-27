@@ -1,8 +1,8 @@
 {
     "hero": {
         "title_start": "Mir halen Äert",
-        "title_highlight": "Perfekt Event fest",
-        "subtitle": "Professionell Foto- a Videografie Servicer fir Eventer an Hochzäiten uechter Lëtzebuerg. Mir verwandelen Ären Ulass an zäitlos Erënnerungen.",
+        "subtitle": "Video, Fotoen & Broadcasting fir Eventer zu Lëtzebuerg",
+        "description": "Mir fänken all Moment mat kinematescher Qualitéit an. Vun intime Hochzäiten bis zu grousse Firmeneventer a Live-Sendungen.",
         "view_work": "Galerie Kucken",
         "get_quote": "Loosst eis Äert Event plangen",
         "award_winning": "Äert Vertrauen",
@@ -29,15 +29,19 @@
         "subtitle": "Ëmfangräich Foto- a Videoléisungen ugepasst un Är Besoinen",
         "wedding": {
             "title": "Event an Hochzäitsfotografie",
-            "desc": "Halt all wäertvolle Moment vun Ärem Event mat eise Experten fest."
+            "desc": "Komplett fotografesch Begleedung am dokumentaleschen an redaktionellen Stil. Mir fänken richteg Emotiounen ouni gezwonge Posen an."
         },
         "video": {
-            "title": "Event Videografie",
-            "desc": "Professionell Videoproduktioun déi Är Geschicht op eng cinematesch a fesselnd Aart erzielt."
+            "title": "Cinematesch Videoen",
+            "desc": "Cinematesch 4K Produktioun mat méi Kameraen a professionellem Audio."
+        },
+        "broadcasting": {
+            "title": "Live Broadcasting",
+            "desc": "Multi-Kamera Live-Streaming fir Konferenzen an Hochzäiten. Bréngt Äert Event an Echtzäit un e weltwäite Publikum."
         },
         "full": {
             "title": "Komplett Ofdeckung",
-            "desc": "Vollstänneg Ofdeckung duerch Kombinatioun vu Foto a Video fir eng ëmfangräich Erënnerungssammlung."
+            "desc": "Déi ganz Geschicht. Foto a Video schaffen vun Ufank bis Enn an perfekter Harmonie zesummen."
         },
         "view_all": "All Servicer kucken",
         "pets": {

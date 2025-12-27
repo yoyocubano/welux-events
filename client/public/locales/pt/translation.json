@@ -1,8 +1,8 @@
 {
     "hero": {
         "title_start": "Eternizando Seus",
-        "title_highlight": "Eventos Perfeitos",
-        "subtitle": "Serviços profissionais de fotografia e videografia para eventos e casamentos em todo o Luxemburgo. Transformamos a sua ocasião em memórias intemporais.",
+        "subtitle": "Vídeo, Foto e Broadcasting para Eventos no Luxemburgo",
+        "description": "Capturamos cada momento com qualidade cinematográfica. Desde casamentos íntimos a grandes eventos corporativos e transmissões ao vivo.",
         "view_work": "Ver Galeria",
         "get_quote": "Vamos Planejar Seu Evento",
         "award_winning": "Sua Confiança",
@@ -29,15 +29,19 @@
         "subtitle": "Soluções completas de fotografia e videografia adaptadas às suas necessidades",
         "wedding": {
             "title": "Fotografia de Eventos e Casamentos",
-            "desc": "Capture cada momento precioso do seu evento com os nossos serviços especializados."
+            "desc": "Cobertura fotográfica completa com estilo documental e editorial. Capturamos emoções reais sem poses forçadas."
         },
         "video": {
-            "title": "Videografia de Eventos",
-            "desc": "Produção de vídeo profissional que conta a sua história de uma forma cinematográfica e envolvente."
+            "title": "Vídeo Cinematográfico",
+            "desc": "Produção cinematográfica 4K com múltiplas câmeras e áudio profissional."
+        },
+        "broadcasting": {
+            "title": "Transmissão ao Vivo",
+            "desc": "Transmissão ao vivo multicâmera para conferências e casamentos. Leve seu evento para audiências globais em tempo real."
         },
         "full": {
             "title": "Cobertura Completa",
-            "desc": "Cobertura total combinando fotografia e videografia para uma coleção de memórias abrangente."
+            "desc": "A história completa. Fotografia e vídeo trabalhando em perfeita harmonia do início ao fim."
         },
         "view_all": "Ver Todos os Serviços",
         "pets": {

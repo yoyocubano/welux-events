@@ -1,8 +1,8 @@
 {
     "hero": {
         "title": "Organisez Votre Événement Parfait au Luxembourg",
-        "subtitle": "Photographie et Vidéo de Luxe pour Vos Moments Spéciaux",
-        "description": "Nous capturons chaque moment unique de votre événement avec une élégance artistique. Plus de 10 ans créant des souvenirs inoubliables.",
+        "subtitle": "Vidéo, Photo et Broadcasting pour Événements au Luxembourg",
+        "description": "Nous capturons chaque instant avec une qualité cinématographique. Des mariages intimes aux grands événements d'entreprise et diffusions en direct.",
         "team_credits": "Nous planifions votre événement | Photographe : Joan | Cinéaste : Abel | Marketing & Réseaux : Yusmel | Coordinatrice : Rebeca",
         "cta_primary": "Réservez votre sérénité",
         "cta_secondary": "Parler à un organisateur",
@@ -60,11 +60,15 @@
         "subtitle": "Des solutions sur mesure pour chaque occasion.",
         "wedding": {
             "title": "Photographie d'Événements et Mariages",
-            "desc": "Capturez chaque moment précieux de votre journée spéciale avec nos services experts."
+            "desc": "Couverture photographique complète avec un style documentaire et éditorial. Nous capturons de vraies émotions sans poses forcées."
         },
         "video": {
-            "title": "Vidéographie d'Événement",
-            "desc": "Production vidéo professionnelle qui raconte votre histoire de manière cinématographique."
+            "title": "Vidéo Cinématographique",
+            "desc": "Production cinématographique 4K avec plusieurs caméras et audio professionnel."
+        },
+        "broadcasting": {
+            "title": "Diffusion en Direct",
+            "desc": "Diffusion en direct multi-caméras pour conférences et mariages. Partagez votre événement avec un public mondial en temps réel."
         },
         "full": {
             "title": "Couverture Complète",

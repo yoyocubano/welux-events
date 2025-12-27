@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials";
-import { Camera, Video, Heart, Award, Users, MapPin } from "lucide-react";
+import { Camera, Video, Heart, Award, Users, MapPin, Radio } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
@@ -88,7 +88,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 animate-fade-in-up delay-200">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up delay-200">
             <Card className="border-border hover:shadow-lg transition-shadow">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
@@ -109,6 +109,18 @@ export default function Home() {
                 <h3 className="text-xl lg:text-2xl font-serif font-semibold mb-3 break-words hyphens-auto">{t('services.video.title')}</h3>
                 <p className="text-muted-foreground">
                   {t('services.video.desc')}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border hover:shadow-lg transition-shadow delay-150">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                  <Radio className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-xl lg:text-2xl font-serif font-semibold mb-3 break-words hyphens-auto">{t('services.broadcasting.title')}</h3>
+                <p className="text-muted-foreground">
+                  {t('services.broadcasting.desc')}
                 </p>
               </CardContent>
             </Card>
