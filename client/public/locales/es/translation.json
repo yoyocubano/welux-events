@@ -330,18 +330,18 @@
         },
         "team_members": {
             "joan": {
-                "name": "Joan",
-                "role": "Fotógrafo",
+                "name": "Joan Valdés",
+                "role": "Fotógrafo y Productor",
                 "bio": "Capturando emociones reales con una mirada artística."
             },
             "abel": {
-                "name": "Abel",
-                "role": "Cinematógrafo",
+                "name": "Abel Rhodes",
+                "role": "Creación de Videos y Dirección Creativa",
                 "bio": "Narrativas visuales que cuentran tu historia de amor."
             },
             "yusmel": {
-                "name": "Yusmel",
-                "role": "Marketing y Redes",
+                "name": "Yusmel Colombo",
+                "role": "Relaciones Públicas y Diseño Web",
                 "bio": "Conectando nuestra pasión con tus sueños."
             },
             "rebeca": {
