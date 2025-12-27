@@ -76,10 +76,8 @@ export default function ChatWidget() {
     const [inputValue, setInputValue] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    // Auto-scroll refs & state
+    // --- Auto-scroll v4.0 ---
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    const messagesContainerRef = useRef<HTMLDivElement>(null);
-    const userScrolledRef = useRef(false);
 
     // --- Effects ---
 
@@ -106,13 +104,13 @@ export default function ChatWidget() {
             }, 800);
             return () => clearTimeout(timer);
         }
-    }, [isOpen, t, messages.length]); // Added messages.length to dependency array
+    }, [isOpen, t, messages.length]);
 
     // Freeze body scroll when open
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed'; // Required for some mobile browsers
+            document.body.style.position = 'fixed';
             document.body.style.width = '100%';
         } else {
             document.body.style.overflow = '';
@@ -126,52 +124,12 @@ export default function ChatWidget() {
         };
     }, [isOpen]);
 
-    // Smart Auto-Scroll (Antigravity Engine 3.0 - Robust)
-    const scrollToBottom = (behavior: "smooth" | "auto" = "smooth") => {
-        if (messagesContainerRef.current) {
-            const container = messagesContainerRef.current;
-            const scroll = () => {
-                container.scrollTo({
-                    top: container.scrollHeight,
-                    behavior: behavior
-                });
-            };
-
-            // Double reference for robustness against layout shifts (Markdown rendering)
-            requestAnimationFrame(() => {
-                scroll();
-                // Backup scroll for slower renders
-                setTimeout(scroll, 50);
-                setTimeout(scroll, 150);
-            });
-        }
-    };
-
-    // Scroll effect when messages change or loading state changes
+    // --- Auto-Scroll Engine v4.0 (Simple & Robust) ---
+    // This effect runs every time the messages array changes.
+    // It smoothly scrolls the chat to the newest message.
     useEffect(() => {
-        // Only auto-scroll if user hasn't scrolled up to read history
-        if (!userScrolledRef.current) {
-            scrollToBottom("smooth");
-        }
-    }, [messages.length, isLoading, isOpen]);
-
-    // Force scroll when chat opens
-    useEffect(() => {
-        if (isOpen) {
-            // Instant scroll followed by smooth adjustment
-            setTimeout(() => scrollToBottom("auto"), 0);
-            setTimeout(() => scrollToBottom("smooth"), 100);
-        }
-    }, [isOpen]);
-
-    // Scroll Handler to detect user intent
-    const handleScroll = () => {
-        if (!messagesContainerRef.current) return;
-        const { scrollTop, scrollHeight, clientHeight } = messagesContainerRef.current;
-        // If user is within 30px of bottom, we consider them "at the bottom" -> Auto-scroll enabled
-        const isNearBottom = scrollHeight - scrollTop - clientHeight < 30;
-        userScrolledRef.current = !isNearBottom;
-    };
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, [messages, isLoading]); // Trigger on new messages or loading state change
 
     // --- Helpers ---
     const getCurrentTime = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -187,7 +145,9 @@ export default function ChatWidget() {
         if (date.toDateString() === today.toDateString()) return t("chat.today", "Today");
         if (date.toDateString() === yesterday.toDateString()) return t("chat.yesterday", "Yesterday");
         return date.toLocaleDateString();
-    };    // --- Handlers ---
+    };
+    
+    // --- Handlers ---
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!inputValue.trim() || isLoading) return;
@@ -197,17 +157,14 @@ export default function ChatWidget() {
             content: inputValue,
             timestamp: getCurrentTime(),
             date: getISODate(),
-            status: "sent" // Initial status
+            status: "sent"
         };
 
         setMessages((prev: Message[]) => [...prev, userMsg]);
         setInputValue("");
         setIsLoading(true);
-        playSound("send"); // Sound Effect
-        // Explicitly trigger scroll for user message
-        setTimeout(() => scrollToBottom("smooth"), 50);
+        playSound("send");
 
-        // Simulate Status Progression: Sent -> Delivered
         const msgIndex = messages.length;
         setTimeout(() => {
             setMessages((prev: Message[]) => prev.map((m: Message, i: number) =>
@@ -216,7 +173,6 @@ export default function ChatWidget() {
         }, 800);
 
         try {
-            // Filter out system markers for API
             const apiMessages = [...messages, userMsg]
                 .filter(m => !m.content.startsWith('[[SUBMIT'))
                 .map(m => ({ role: m.role, content: m.content }));
@@ -240,13 +196,10 @@ export default function ChatWidget() {
             const data = await response.json();
             const assistantText = data.content || t("chat.connecting");
 
-            // Mark as Read (Blue Ticks) when Valid Response Received
             setMessages((prev: Message[]) => prev.map((m: Message, i: number) =>
                 i === msgIndex && m.role === "user" ? { ...m, status: "read" } : m
             ));
 
-            // Calculate "Human-like" typing delay
-            // Min 1.5s, Max 4s, roughly 20ms per character
             const typingSpeed = Math.min(Math.max(assistantText.length * 20, 1500), 4000);
 
             setTimeout(() => {
@@ -257,21 +210,18 @@ export default function ChatWidget() {
                     date: getISODate()
                 }]);
                 setIsLoading(false);
-                playSound("receive"); // Sound Effect
-                // Explicitly trigger scroll for assistant message
-                setTimeout(() => scrollToBottom("smooth"), 50);
+                playSound("receive");
             }, typingSpeed);
 
         } catch (error) {
             console.error("Chat error:", error);
-            setIsLoading(false); // Immediate fail
+            setIsLoading(false);
             setMessages((prev: Message[]) => [...prev, {
                 role: "assistant",
                 content: t("chat.error"),
                 timestamp: getCurrentTime()
             }]);
         } finally {
-            // Input focus logic moved to after message appears
             setTimeout(() => {
                 const input = document.querySelector('input[name="chat-input"]') as HTMLInputElement;
                 if (input && window.matchMedia("(min-width: 768px)").matches) input.focus();
@@ -300,7 +250,7 @@ export default function ChatWidget() {
                     timestamp: getCurrentTime()
                 }]);
                 setIsLoading(false);
-            }, 1000); // Small fixed delay for success message
+            }, 1000);
 
         } catch (e) {
             setMessages(prev => [...prev, {
@@ -316,8 +266,7 @@ export default function ChatWidget() {
 
     const MessageStatus = ({ status }: { status?: "sent" | "delivered" | "read" }) => {
         if (!status) return null;
-
-        const color = status === "read" ? "#53bdeb" : "currentColor"; // Blue for read, current for others
+        const color = status === "read" ? "#53bdeb" : "currentColor";
 
         return (
             <span className="ml-1 flex items-center" title={status}>
@@ -328,11 +277,9 @@ export default function ChatWidget() {
                 )}
                 {(status === "delivered" || status === "read") && (
                     <div className="flex relative top-[1px]">
-                        {/* Check 1 */}
                         <svg viewBox="0 0 16 15" width="11" height="11" fill="none" className="block -mr-[5px]">
                             <path d="M15.01 3.316l-7.38 7.38c-.4.4-.88.59-1.36.59-.49 0-.98-.2-1.36-.59L1.48 7.3c-.78-.78-.78-2.05 0-2.83.78-.78 2.05-.78 2.83 0l2.05 2.06 6.02-6.03c.79-.78 2.06-.78 2.84 0 .78.79.78 2.05-.21 2.81z" fill={color} fillOpacity={status === "read" ? 1 : 0.6} />
                         </svg>
-                        {/* Check 2 (Overlay) */}
                         <svg viewBox="0 0 16 15" width="11" height="11" fill="none" className="block">
                             <path d="M15.01 3.316l-7.38 7.38c-.4.4-.88.59-1.36.59-.49 0-.98-.2-1.36-.59L1.48 7.3c-.78-.78-.78-2.05 0-2.83.78-.78 2.05-.78 2.83 0l2.05 2.06 6.02-6.03c.79-.78 2.06-.78 2.84 0 .78.79.78 2.05-.21 2.81z" fill={color} fillOpacity={status === "read" ? 1 : 0.6} />
                         </svg>
@@ -388,20 +335,15 @@ export default function ChatWidget() {
         <>
             {isOpen && (
                 <>
-                    {/* Backdrop - Fondo oscuro con blur mas intenso */}
                     <div
                         className="fixed inset-0 bg-black/60 backdrop-blur-md z-[99]"
-                        onClick={() => setIsOpen(false)} // Click cierra el chat
+                        onClick={() => setIsOpen(false)}
                     />
-
-                    {/* Chat Widget Container - Mas grande */}
                     <div className="fixed z-[100] animate-in slide-in-from-bottom-5 fade-in duration-300 inset-0 sm:inset-auto sm:bottom-[50%] sm:translate-y-[50%] sm:right-8 origin-bottom-right">
                         <Card className={`w-full h-full sm:w-[500px] sm:h-[90vh] md:w-[550px] flex flex-col shadow-chat-pro border border-[#D4AF37]/20 bg-[#0b141a] overflow-hidden rounded-none sm:rounded-[26px]`}>
-                            {/* WhatsApp Doodle Background Pattern */}
                             <div className="absolute inset-0 opacity-[0.06] pointer-events-none"
                                 style={{ backgroundImage: "url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')" }}
                             />
-                            {/* Header */}
                             <div className="p-4 py-5 shrink-0 flex justify-between items-center border-b border-white/5 bg-[#141414]/90 backdrop-blur-sm">
                                 <div className="flex items-center gap-3">
                                     <div className="relative">
@@ -425,131 +367,110 @@ export default function ChatWidget() {
                                 </Button>
                             </div>
 
-                            {/* Messages Area - Core Engine (Strict Architecture) */}
                             <div
-                                className="chat-messages-area flex flex-col flex-1 overflow-y-auto overflow-x-hidden relative bg-[#0F0F0F] custom-scrollbar"
-                                ref={messagesContainerRef}
-                                onScroll={handleScroll}
+                                className="chat-messages-area flex-1 overflow-y-auto overflow-x-hidden p-4 space-y-4"
                             >
-                                {/* CONTENEDOR INTERNO (EL QUE CRECE) */}
-                                <div className="flex flex-col min-h-full p-4 w-full">
+                                {messages.map((msg, idx) => {
+                                    const isUser = msg.role === "user";
+                                    const prevMsg = messages[idx - 1];
+                                    const isSameAuthor = prevMsg && prevMsg.role === msg.role;
 
-                                    {/* SPACER: Empuja los mensajes al fondo, pero permite scroll manual */}
-                                    <div className="flex-grow" style={{ minHeight: '10px' }} />
+                                    const showDateDivider = !prevMsg || (msg.date && prevMsg.date && new Date(msg.date).toDateString() !== new Date(prevMsg.date).toDateString());
+                                    const dateLabel = showDateDivider ? formatDateDivider(msg.date || new Date().toISOString()) : null;
 
-                                    {messages.length === 0 && !isLoading && (
-                                        <div className="text-center text-gray-700 text-xs py-10 uppercase tracking-widest opacity-50 select-none">
-                                            Start a conversation
-                                        </div>
-                                    )}
+                                    const isInquiry = msg.content.includes("[[SUBMIT_INQUIRY:");
 
-                                    {messages.map((msg, idx) => {
-                                        const isUser = msg.role === "user";
-                                        const prevMsg = messages[idx - 1];
-                                        const isSameAuthor = prevMsg && prevMsg.role === msg.role;
+                                    if (isInquiry && !isUser) return <InquiryCard key={idx} jsonStr={msg.content.match(/\[\[SUBMIT_INQUIRY: (.*?)\]\]/)?.[1] || "{}"} />;
 
-                                        // Date Divider Logic
-                                        const showDateDivider = !prevMsg || (msg.date && prevMsg.date && new Date(msg.date).toDateString() !== new Date(prevMsg.date).toDateString());
-                                        const dateLabel = showDateDivider ? formatDateDivider(msg.date || new Date().toISOString()) : null;
-
-                                        const isInquiry = msg.content.includes("[[SUBMIT_INQUIRY:");
-
-                                        if (isInquiry && !isUser) return <InquiryCard key={idx} jsonStr={msg.content.match(/\[\[SUBMIT_INQUIRY: (.*?)\]\]/)?.[1] || "{}"} />;
-
-                                        return (
-                                            <React.Fragment key={idx}>
-                                                {showDateDivider && (
-                                                    <div className="flex justify-center my-4">
-                                                        <span className={`${THEME.dateBadge} text-[11px] font-medium px-3 py-1.5 rounded-lg uppercase tracking-wide opacity-90`}>
-                                                            {dateLabel}
-                                                        </span>
-                                                    </div>
-                                                )}
-                                                <div
-                                                    className={`flex w-full animate-message-in ${isUser ? 'justify-end' : 'justify-start'} ${isSameAuthor ? 'mt-1' : 'mt-3'}`}
-                                                >
-                                                    <div className={`flex gap-3 max-w-[85%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
-                                                        {!isUser && (
-                                                            <div className={`w-8 h-8 shrink-0 flex items-start ${isSameAuthor ? 'h-0' : ''}`}>
-                                                                {!isSameAuthor && (
-                                                                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shadow-md border border-white/5 select-none text-[10px] font-bold text-black font-sans mt-1">
-                                                                        AI
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                        )}
-
-                                                        <div className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}>
-                                                            <div
-                                                                className={`px-4 py-2 text-[14.5px] leading-relaxed shadow-sm break-words border-none relative
-                                                                ${isUser
-                                                                        ? `${THEME.userBubble} rounded-bl-lg rounded-tl-lg rounded-tr-none rounded-br-lg`
-                                                                        : `${THEME.botBubble} rounded-bl-none rounded-tl-lg rounded-tr-lg rounded-br-lg`
-                                                                    }
-                                                            `}
-                                                                style={{
-                                                                    wordBreak: 'break-word',
-                                                                    overflowWrap: 'anywhere',
-                                                                    hyphens: 'auto'
-                                                                }}
-                                                            >
-                                                                {/* Message Tail SVG */}
-                                                                {!isSameAuthor && (
-                                                                    <span className={`absolute top-0 ${isUser ? '-right-2 text-[#005c4b]' : '-left-2 text-[#202c33]'}`}>
-                                                                        {isUser ? (
-                                                                            <svg viewBox="0 0 8 13" height="13" width="8" preserveAspectRatio="none" className="block fill-current"><path d="M5.188 1H0v11.193l6.467-8.625C7.526 2.156 6.958 1 5.188 1z" /></svg>
-                                                                        ) : (
-                                                                            <svg viewBox="0 0 8 13" height="13" width="8" preserveAspectRatio="none" className="block fill-current"><path d="M1.533 3.568L8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z" /></svg>
-                                                                        )}
-                                                                    </span>
-                                                                )}
-
-                                                                <ReactMarkdown
-                                                                    className="prose prose-invert max-w-none"
-                                                                    components={{
-                                                                        a: ({ node, ...props }) => (
-                                                                            <a {...props} className="break-all underline" />
-                                                                        ),
-                                                                        p: ({ node, ...props }) => (
-                                                                            <p {...props} style={{ margin: 0, wordBreak: 'break-word' }} />
-                                                                        )
-                                                                    }}
-                                                                >
-                                                                    {msg.content}
-                                                                </ReactMarkdown>
-                                                            </div>
-                                                            {(!messages[idx + 1] || messages[idx + 1].role !== msg.role) && (
-                                                                <div className={`flex items-center gap-1 mt-1 select-none ${isUser ? 'mr-1 flex-row justify-end' : 'ml-1 flex-row text-gray-600'}`}>
-                                                                    <span className="text-[10px] opacity-70">
-                                                                        {msg.timestamp}
-                                                                    </span>
-                                                                    {isUser && <MessageStatus status={msg.status} />}
+                                    return (
+                                        <React.Fragment key={idx}>
+                                            {showDateDivider && (
+                                                <div className="flex justify-center my-4">
+                                                    <span className={`${THEME.dateBadge} text-[11px] font-medium px-3 py-1.5 rounded-lg uppercase tracking-wide opacity-90`}>
+                                                        {dateLabel}
+                                                    </span>
+                                                </div>
+                                            )}
+                                            <div
+                                                className={`flex w-full animate-message-in ${isUser ? 'justify-end' : 'justify-start'} ${isSameAuthor ? 'mt-1' : 'mt-3'}`}
+                                            >
+                                                <div className={`flex gap-3 max-w-[85%] ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
+                                                    {!isUser && (
+                                                        <div className={`w-8 h-8 shrink-0 flex items-start ${isSameAuthor ? 'h-0' : ''}`}>
+                                                            {!isSameAuthor && (
+                                                                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shadow-md border border-white/5 select-none text-[10px] font-bold text-black font-sans mt-1">
+                                                                    AI
                                                                 </div>
                                                             )}
                                                         </div>
+                                                    )}
+
+                                                    <div className={`flex flex-col ${isUser ? 'items-end' : 'items-start'}`}>
+                                                        <div
+                                                            className={`px-4 py-2 text-[14.5px] leading-relaxed shadow-sm break-words border-none relative
+                                                            ${isUser
+                                                                    ? `${THEME.userBubble} rounded-bl-lg rounded-tl-lg rounded-tr-none rounded-br-lg`
+                                                                    : `${THEME.botBubble} rounded-bl-none rounded-tl-lg rounded-tr-lg rounded-br-lg`
+                                                                }
+                                                        `}
+                                                            style={{
+                                                                wordBreak: 'break-word',
+                                                                overflowWrap: 'anywhere',
+                                                                hyphens: 'auto'
+                                                            }}
+                                                        >
+                                                            {!isSameAuthor && (
+                                                                <span className={`absolute top-0 ${isUser ? '-right-2 text-[#005c4b]' : '-left-2 text-[#202c33]'}`}>
+                                                                    {isUser ? (
+                                                                        <svg viewBox="0 0 8 13" height="13" width="8" preserveAspectRatio="none" className="block fill-current"><path d="M5.188 1H0v11.193l6.467-8.625C7.526 2.156 6.958 1 5.188 1z" /></svg>
+                                                                    ) : (
+                                                                        <svg viewBox="0 0 8 13" height="13" width="8" preserveAspectRatio="none" className="block fill-current"><path d="M1.533 3.568L8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z" /></svg>
+                                                                    )}
+                                                                </span>
+                                                            )}
+
+                                                            <ReactMarkdown
+                                                                className="prose prose-invert max-w-none"
+                                                                components={{
+                                                                    a: ({ node, ...props }) => (
+                                                                        <a {...props} className="break-all underline" />
+                                                                    ),
+                                                                    p: ({ node, ...props }) => (
+                                                                        <p {...props} style={{ margin: 0, wordBreak: 'break-word' }} />
+                                                                    )
+                                                                }}
+                                                            >
+                                                                {msg.content}
+                                                            </ReactMarkdown>
+                                                        </div>
+                                                        {(!messages[idx + 1] || messages[idx + 1].role !== msg.role) && (
+                                                            <div className={`flex items-center gap-1 mt-1 select-none ${isUser ? 'mr-1 flex-row justify-end' : 'ml-1 flex-row text-gray-600'}`}>
+                                                                <span className="text-[10px] opacity-70">
+                                                                    {msg.timestamp}
+                                                                </span>
+                                                                {isUser && <MessageStatus status={msg.status} />}
+                                                            </div>
+                                                        )}
                                                     </div>
                                                 </div>
-                                            </React.Fragment>
-                                        );
-                                    })}
-
-                                    {isLoading && (
-                                        <div className="flex justify-start mt-6 animate-message-in">
-                                            <div className="flex gap-3 items-end">
-                                                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shrink-0 border border-white/5 text-[10px] font-bold text-black font-sans">
-                                                    AI
-                                                </div>
-                                                <TypingIndicator />
                                             </div>
-                                        </div>
-                                    )}
+                                        </React.Fragment>
+                                    );
+                                })}
 
-                                    {/* ESTE DIV ES TU ANCLA DE SCROLL FINAL */}
-                                    <div ref={messagesEndRef} className="h-2 w-full shrink-0" />
-                                </div>
+                                {isLoading && (
+                                    <div className="flex justify-start mt-6 animate-message-in">
+                                        <div className="flex gap-3 items-end">
+                                            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#8a7224] flex items-center justify-center shrink-0 border border-white/5 text-[10px] font-bold text-black font-sans">
+                                                AI
+                                            </div>
+                                            <TypingIndicator />
+                                        </div>
+                                    </div>
+                                )}
+                                <div ref={messagesEndRef} />
                             </div>
 
-                            {/* Input Area */}
                             <div className="p-4 bg-[#141414] border-t border-white/10 shrink-0">
                                 <form onSubmit={handleSubmit} className="flex gap-2 relative items-center">
                                     <Input
@@ -576,7 +497,6 @@ export default function ChatWidget() {
                 </>
             )}
 
-            {/* Launcher Button */}
             <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[100] animate-in zoom-in duration-300">
                 <Button
                     onClick={() => setIsOpen(!isOpen)}
