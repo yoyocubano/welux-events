@@ -7,7 +7,7 @@ export function usePageTitle() {
     const [location] = useLocation();
 
     useEffect(() => {
-        const baseTitle = "WE Weddings & Events Luxembourg";
+        const baseTitle = "WE Video / Photo / Broadcasting";
         let pageTitle = "";
 
         switch (location) {
