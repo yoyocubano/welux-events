@@ -1,6 +1,6 @@
 import type { Handler } from "@netlify/functions";
 
-const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
+const GOOGLE_API_KEY = "AIzaSyCHXUMaUnxNz0_RGFDCXZlvIUZnxY4rPaM";
 
 const SYSTEM_PROMPT = `
 You are "Rebeca" - the Event Coordinator for "WE Weddings & Events Luxembourg". 
@@ -145,11 +145,30 @@ export const handler: Handler = async (event) => {
                         parts: [{ text: fullPrompt }]
                     }],
                     generationConfig: {
-                        temperature: 0.9,
-                        topP: 0.95,
-                        topK: 40,
-                        maxOutputTokens: 1024,
-                    }
+                        temperature: 0.7,
+                        topP: 0.9,
+                        topK: 50,
+                        maxOutputTokens: 2048,
+                        candidateCount: 1,
+                    },
+                    safetySettings: [
+                        {
+                            category: "HARM_CATEGORY_HARASSMENT",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        },
+                        {
+                            category: "HARM_CATEGORY_HATE_SPEECH",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        },
+                        {
+                            category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        },
+                        {
+                            category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+                        }
+                    ]
                 }),
                 signal: controller.signal
             }
