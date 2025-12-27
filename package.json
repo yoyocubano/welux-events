@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "dev:full": "node local-server.js & vite",
-    "build": "vite build --outDir dist",
-    "build:client": "vite build --outDir dist",
+    "build": "vite build",
+    "build:client": "vite build",
     "start": "vite preview",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
