@@ -22,29 +22,23 @@ You are calm, professional, and very knowledgeable.
    - **Honesty:** If asked if you are AI, say YES. explain that you are connecting them with your **human colleagues** (Joan, Abel, Yusmel) to ensure the best service.
    - **Conciseness:** Keep answers **short, concise, and direct**. Avoid long paragraphs.
    - **Role:** You gather details so the human team can take over seamlessly.
-
-**TONE:** Warm, reassuring, "Luxury Service".
+5. **SAFETY & ETHICS:**
+   - **Reject Inappropriate Requests:** Immediately and politely decline any request that is illegal, unethical, sexually explicit, or could harm the "WE Weddings & Events" brand.
+   - **Provide a Reason:** Do not lecture, but state clearly that you cannot assist with requests of that nature. For example: "Lo siento, no puedo asistir con esa solicitud..."
+   - **Do NOT Proceed:** Do not ask for details or try to gather leads for any inappropriate request. Terminate that line of conversation.
 `;
 
 // Language map for better detection
 const LANGUAGE_MAP: { [key: string]: string } = {
-  'es': 'Spanish',
-  'es-ES': 'Spanish',
-  'es-MX': 'Spanish',
-  'fr': 'French',
-  'fr-FR': 'French',
-  'de': 'German',
-  'de-DE': 'German',
-  'pt': 'Portuguese',
-  'pt-PT': 'Portuguese',
-  'pt-BR': 'Portuguese',
+  'es': 'Spanish', 'es-ES': 'Spanish', 'es-MX': 'Spanish',
+  'fr': 'French', 'fr-FR': 'French',
+  'de': 'German', 'de-DE': 'German',
+  'pt': 'Portuguese', 'pt-PT': 'Portuguese', 'pt-BR': 'Portuguese',
   'lb': 'Luxembourgish',
-  'en': 'English',
-  'en-US': 'English',
-  'en-GB': 'English'
+  'en': 'English', 'en-US': 'English', 'en-GB': 'English'
 };
 
-// Error messages by language
+// Generic error messages by language
 const ERROR_MESSAGES: { [key: string]: string } = {
   'Spanish': 'Lo siento, experimenté un problema técnico. ¿Podrías intentar de nuevo?',
   'English': 'I apologize, I experienced a technical issue. Could you try again?',
@@ -54,86 +48,59 @@ const ERROR_MESSAGES: { [key: string]: string } = {
   'Luxembourgish': 'Entschëllegt, ech hat en technescht Problem. Kënnt Dir et nach eng Kéier probéieren?'
 };
 
+// Safety block messages by language
+const SAFETY_BLOCK_MESSAGES: { [key: string]: string } = {
+  'Spanish': 'Lo siento, no puedo procesar esa solicitud. Por favor, intenta reformular tu pregunta.',
+  'English': 'I'm sorry, I cannot process that request. Please try rephrasing your question.',
+  'French': 'Je suis désolé, je ne peux pas traiter cette demande. Veuillez essayer de reformuler votre question.',
+  'German': 'Es tut mir leid, ich kann diese Anfrage nicht bearbeiten. Bitte versuchen Sie, Ihre Frage umzuformulieren.',
+  'Portuguese': 'Desculpe, não consigo processar esse pedido. Por favor, tente reformular sua pergunta.',
+  'Luxembourgish': 'Et deet mir Leed, ech kann dës Ufro net veraarbechten. Probéiert w.e.g. Är Fro ëmzeformuléieren.'
+};
+
+
 export const handler: Handler = async (event) => {
     // CORS Headers
     const headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
-        "Pragma": "no-cache",
-        "Expires": "0",
     };
 
-    // Handle OPTIONS for CORS preflight
     if (event.httpMethod === "OPTIONS") {
         return { statusCode: 200, headers, body: "" };
     }
 
-    // Only accept POST
     if (event.httpMethod !== "POST") {
-        return { 
-            statusCode: 405, 
-            headers, 
-            body: JSON.stringify({ error: "Method Not Allowed" }) 
-        };
+        return { statusCode: 405, headers, body: JSON.stringify({ error: "Method Not Allowed" }) };
     }
 
-    // Validate API key
     if (!GOOGLE_API_KEY) {
-        console.error("[Chat API] Missing GOOGLE_API_KEY");
-        return {
-            statusCode: 500,
-            headers,
-            body: JSON.stringify({ 
-                error: "Server configuration error: Missing Google API Key" 
-            }),
-        };
+        return { statusCode: 500, headers, body: JSON.stringify({ error: "Server configuration error" }) };
     }
+
+    let detectedLanguage = 'English'; // Default language
 
     try {
-        // Parse and validate request body
         const { messages, language } = JSON.parse(event.body || "{}");
 
-        if (!messages || !Array.isArray(messages)) {
-            return { 
-                statusCode: 400, 
-                headers, 
-                body: JSON.stringify({ error: "Invalid request body: messages array required" }) 
-            };
+        if (!messages || !Array.isArray(messages) || messages.length === 0) {
+            return { statusCode: 400, headers, body: JSON.stringify({ error: "Invalid request body" }) };
         }
 
-        if (messages.length === 0) {
-            return { 
-                statusCode: 400, 
-                headers, 
-                body: JSON.stringify({ error: "Messages array cannot be empty" }) 
-            };
-        }
-
-        // Detect language with fallback
-        const detectedLanguage = LANGUAGE_MAP[language] || 
-                                LANGUAGE_MAP[language?.split('-')[0]] || 
-                                'English';
+        detectedLanguage = LANGUAGE_MAP[language] || LANGUAGE_MAP[language?.split('-')[0]] || 'English';
 
         console.log(`[Chat API] Processing - Language: ${detectedLanguage}, Messages: ${messages.length}`);
 
-        // Build enhanced prompt
-        let fullPrompt = SYSTEM_PROMPT + 
+        const fullPrompt = SYSTEM_PROMPT + 
             `\n\n*** CRITICAL LANGUAGE INSTRUCTION ***\n` +
-            `The user is communicating in ${detectedLanguage}.\n` +
-            `YOU MUST respond EXCLUSIVELY in ${detectedLanguage}.\n` +
-            `DO NOT mix languages or respond in any other language.\n\n` +
-            `Conversation History:\n`;
+            `The user is communicating in ${detectedLanguage}. YOU MUST respond EXCLUSIVELY in ${detectedLanguage}.\n\n` +
+            `Conversation History:\n` +
+            messages.map((msg: any) => `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`).join('\n') +
+            "\nAssistant:";
 
-        messages.forEach((msg: any) => {
-            fullPrompt += `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}\n`;
-        });
-        fullPrompt += "Assistant:";
-
-        // Call Google Gemini API with timeout
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+        const timeoutId = setTimeout(() => controller.abort(), 30000);
 
         const response = await fetch(
             `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GOOGLE_API_KEY}`,
@@ -141,33 +108,18 @@ export const handler: Handler = async (event) => {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    contents: [{
-                        parts: [{ text: fullPrompt }]
-                    }],
+                    contents: [{ parts: [{ text: fullPrompt }] }],
                     generationConfig: {
                         temperature: 0.7,
                         topP: 0.9,
                         topK: 50,
                         maxOutputTokens: 2048,
-                        candidateCount: 1,
                     },
                     safetySettings: [
-                        {
-                            category: "HARM_CATEGORY_HARASSMENT",
-                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                        },
-                        {
-                            category: "HARM_CATEGORY_HATE_SPEECH",
-                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                        },
-                        {
-                            category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                        },
-                        {
-                            category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-                            threshold: "BLOCK_MEDIUM_AND_ABOVE"
-                        }
+                        { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
+                        { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_MEDIUM_AND_ABOVE" },
+                        { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_LOW_AND_ABOVE" },
+                        { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_MEDIUM_AND_ABOVE" }
                     ]
                 }),
                 signal: controller.signal
@@ -178,47 +130,37 @@ export const handler: Handler = async (event) => {
 
         if (!response.ok) {
             const errorText = await response.text();
-            console.error("[Chat API] Gemini API Error:", errorText);
-
-            // Circuit Breaker: Handle Overload/Quota limits gracefully
-            if (response.status === 429 || response.status === 503) {
-                const overloadMsg = language?.startsWith("es")
-                    ? "⚠️ **Sistema Saturado:** Estoy recibiendo muchas consultas ahora mismo. Por favor, usa el formulario de contacto para una respuesta prioritaria."
-                    : "⚠️ **System Busy:** I am receiving high traffic right now. Please use the contact form for priority service.";
-                
-                return {
-                    statusCode: 200,
-                    headers,
-                    body: JSON.stringify({
-                        role: "assistant",
-                        content: overloadMsg,
-                        text: overloadMsg,
-                        isOverloaded: true
-                    }),
-                };
-            }
-
-            return {
-                statusCode: response.status,
-                headers,
-                body: JSON.stringify({ error: "Error communicating with AI provider" }),
-            };
+            console.error("[Chat API] Gemini API Error:", response.status, errorText);
+            throw new Error(`API Error: ${response.status}`);
         }
 
         const data = await response.json();
 
-        // Parse Gemini Response
-        const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text || 
-                             ERROR_MESSAGES[detectedLanguage] || 
-                             ERROR_MESSAGES['English'];
+        // Ladrillo 3: Handle Safety Block from API
+        if (data.promptFeedback?.blockReason === 'SAFETY') {
+            console.warn('[Chat API] Safety block triggered by Gemini API.');
+            const safetyMessage = SAFETY_BLOCK_MESSAGES[detectedLanguage] || SAFETY_BLOCK_MESSAGES['English'];
+            return {
+                statusCode: 200,
+                headers,
+                body: JSON.stringify({
+                    role: "assistant",
+                    content: safetyMessage,
+                    text: safetyMessage,
+                    isBlocked: true
+                }),
+            };
+        }
+
+        const generatedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
         if (!generatedText) {
+            console.error("[Chat API] Empty response from AI. Data:", JSON.stringify(data));
             throw new Error('Empty response from AI');
         }
 
         console.log(`[Chat API] Success - Response length: ${generatedText.length} chars`);
 
-        // Return in a format compatible with frontend
         return {
             statusCode: 200,
             headers,
@@ -226,51 +168,22 @@ export const handler: Handler = async (event) => {
                 role: "assistant",
                 content: generatedText,
                 text: generatedText,
-                language: detectedLanguage,
-                timestamp: new Date().toISOString()
             }),
         };
 
     } catch (error: any) {
-        console.error("[Chat API] Function error:", {
-            message: error.message,
-            stack: error.stack,
-            name: error.name
-        });
-
-        // Determine error type
-        let statusCode = 500;
-        let errorMessage = "Internal Server Error";
+        console.error("[Chat API] Function error:", { message: error.message, name: error.name });
         
-        if (error.name === 'AbortError') {
-            statusCode = 504;
-            errorMessage = "Request timeout";
-        } else if (error.message?.includes('API key')) {
-            statusCode = 401;
-            errorMessage = "Authentication failed";
-        } else if (error.message?.includes('quota')) {
-            statusCode = 429;
-            errorMessage = "Rate limit exceeded";
-        }
-
-        // Try to get language-specific error message
-        const requestBody = JSON.parse(event.body || "{}");
-        const requestLanguage = requestBody.language;
-        const detectedLang = LANGUAGE_MAP[requestLanguage] || 
-                            LANGUAGE_MAP[requestLanguage?.split('-')[0]] || 
-                            'English';
-        
-        const userMessage = ERROR_MESSAGES[detectedLang] || ERROR_MESSAGES['English'];
+        const userMessage = ERROR_MESSAGES[detectedLanguage] || ERROR_MESSAGES['English'];
 
         return {
-            statusCode: statusCode,
+            statusCode: 500,
             headers,
             body: JSON.stringify({
-                error: errorMessage,
+                error: "Internal Server Error",
                 role: "assistant",
                 content: userMessage,
                 text: userMessage,
-                timestamp: new Date().toISOString()
             }),
         };
     }
