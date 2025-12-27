@@ -15,60 +15,18 @@ export type Message = {
 };
 
 export type AIChatBoxProps = {
-  /**
-   * Messages array to display in the chat.
-   * Should match the format used by invokeLLM on the server.
-   */
   messages: Message[];
-
-  /**
-   * Callback when user sends a message.
-   * Typically you'll call a tRPC mutation here to invoke the LLM.
-   */
   onSendMessage: (content: string) => void;
-
-  /**
-   * Whether the AI is currently generating a response
-   */
   isLoading?: boolean;
-
-  /**
-   * Placeholder text for the input field
-   */
   placeholder?: string;
-
-  /**
-   * Custom className for the container
-   */
   className?: string;
-
-  /**
-   * Height of the chat box (default: 600px)
-   */
   height?: string | number;
-
-  /**
-   * Empty state message to display when no messages
-   */
   emptyStateMessage?: string;
-
-  /**
-   * Suggested prompts to display in empty state
-   * Click to send directly
-   */
   suggestedPrompts?: string[];
 };
 
 /**
  * A ready-to-use AI chat box component that integrates with the LLM system.
- *
- * Features:
- * - Matches server-side Message interface for seamless integration
- * - Markdown rendering with Streamdown
- * - Auto-scrolls to latest message
- * - Loading states
- * - Uses global theme colors from index.css
- *
  */
 export function AIChatBox({
   messages,
@@ -84,35 +42,27 @@ export function AIChatBox({
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Filter out system messages
+  // Filter out system messages for display
   const displayMessages = messages.filter((msg) => msg.role !== "system");
 
   // --- Auto-scrolling Logic ---
-  
-  // Helper function to scroll the chat to the latest message
   const scrollToBottom = () => {
     const viewport = scrollAreaRef.current?.querySelector(
       '[data-radix-scroll-area-viewport]'
     ) as HTMLDivElement;
 
     if (viewport) {
-      // Use requestAnimationFrame to wait for next paint before scrolling
       requestAnimationFrame(() => {
-        viewport.scrollTo({
-          top: viewport.scrollHeight,
-          behavior: 'smooth'
-        });
+        viewport.scrollTo({ top: viewport.scrollHeight, behavior: 'smooth' });
       });
     }
   };
 
-  // useEffect hook to scroll down whenever the messages or loading state change
   useEffect(() => {
     scrollToBottom();
   }, [displayMessages, isLoading]);
 
   // --- Input Handling ---
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const trimmedInput = input.trim();
@@ -120,12 +70,9 @@ export function AIChatBox({
 
     onSendMessage(trimmedInput);
     setInput("");
-
-    // Keep focus on the input field after sending
     textareaRef.current?.focus();
   };
 
-  // Allow sending with Enter key, but new line with Shift+Enter
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
@@ -141,7 +88,7 @@ export function AIChatBox({
       )}
       style={{ height }}
     >
-      {/* Messages Area - flex-1 makes it take up available space */}
+      {/* Messages Area */}
       <div ref={scrollAreaRef} className="flex-1 overflow-hidden">
         {displayMessages.length === 0 ? (
           // Empty State
@@ -151,7 +98,6 @@ export function AIChatBox({
                 <Sparkles className="size-12 opacity-20" />
                 <p className="text-sm">{emptyStateMessage}</p>
               </div>
-
               {suggestedPrompts && suggestedPrompts.length > 0 && (
                 <div className="flex max-w-2xl flex-wrap justify-center gap-2">
                   {suggestedPrompts.map((prompt, index) => (
@@ -175,21 +121,13 @@ export function AIChatBox({
               {displayMessages.map((message, index) => (
                   <div
                     key={index}
-                    className={cn(
-                      "flex gap-3",
-                      message.role === "user"
-                        ? "justify-end items-start"
-                        : "justify-start items-start"
-                    )}
+                    className={cn("flex gap-3", message.role === "user" ? "justify-end" : "justify-start")}
                   >
-                    {/* Assistant Avatar */}
                     {message.role === "assistant" && (
                       <div className="size-8 shrink-0 mt-1 rounded-full bg-primary/10 flex items-center justify-center">
                         <Sparkles className="size-4 text-primary" />
                       </div>
                     )}
-
-                    {/* Message Content */}
                     <div
                       className={cn(
                         "max-w-[80%] rounded-lg px-4 py-2.5",
@@ -203,13 +141,9 @@ export function AIChatBox({
                           <Streamdown>{message.content}</Streamdown>
                         </div>
                       ) : (
-                        <p className="whitespace-pre-wrap text-sm">
-                          {message.content}
-                        </p>
+                        <p className="whitespace-pre-wrap text-sm">{message.content}</p>
                       )}
                     </div>
-
-                    {/* User Avatar */}
                     {message.role === "user" && (
                       <div className="size-8 shrink-0 mt-1 rounded-full bg-secondary flex items-center justify-center">
                         <User className="size-4 text-secondary-foreground" />
@@ -219,14 +153,17 @@ export function AIChatBox({
                 )
               )}
 
-              {/* Loading Indicator */}
+              {/* Typing Indicator */}
               {isLoading && (
                 <div className="flex items-start gap-3">
                   <div className="size-8 shrink-0 mt-1 rounded-full bg-primary/10 flex items-center justify-center">
                     <Sparkles className="size-4 text-primary" />
                   </div>
-                  <div className="rounded-lg bg-muted px-4 py-2.5">
-                    <Loader2 className="size-4 animate-spin text-muted-foreground" />
+                  <div className="rounded-lg bg-muted px-4 py-2.5 flex items-center gap-2">
+                    <Loader2 className="size-4 shrink-0 animate-spin" />
+                    <p className="text-sm text-muted-foreground animate-pulse">
+                      Rebeca is typing...
+                    </p>
                   </div>
                 </div>
               )}
