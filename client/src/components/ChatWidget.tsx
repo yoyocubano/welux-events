@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useTranslation } from "react-i18next";
 import ReactMarkdown from "react-markdown";
 
-// --- Types ---
+// --- Types -- -
 interface Message {
     role: "user" | "assistant";
     content: string;
@@ -189,9 +189,9 @@ export default function ChatWidget() {
             const res = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ messages: apiMessages, language: i18n.language || "en" }) });
             if (!res.ok) throw new Error("Network error");
             const data = await res.json();
-
+            
             setMessages(prev => prev.map(m => m === userMsg ? { ...m, status: "read" } : m));
-
+            
             setTimeout(() => {
                 setMessages(prev => [...prev, { role: "assistant", content: data.content || t("chat.error"), timestamp: getCurrentTime(), date: getISODate() }]);
                 setIsLoading(false);
