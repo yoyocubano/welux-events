@@ -1,0 +1,8 @@
+## Resumen de problemas y próximos pasos:
+
+1.  **Autenticación de Firebase:** El principal problema es que el entorno de desarrollo no está autenticado con una cuenta de Google que tenga acceso al proyecto `welux-events` en Firebase.
+    *   **Solución:** Es necesario ejecutar el comando `firebase login`, que abrirá una ventana en el navegador para iniciar sesión con la cuenta de Google correcta.
+
+2.  **Permisos del proyecto de Firebase:** Una vez autenticado, es fundamental asegurarse de que la cuenta tenga los permisos necesarios para desplegar en el proyecto (por ejemplo, el rol de "Firebase Hosting Admin").
+
+3.  **Despliegue final:** Con la autenticación y los permisos correctos, el despliegue se puede realizar ejecutando el comando: `firebase deploy --only hosting`.
