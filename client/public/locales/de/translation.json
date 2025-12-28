@@ -265,6 +265,28 @@
             "subtitle": "Die talentierten Profis hinter jedem schönen Moment",
             "coming_soon": "Team-Informationen folgen bald."
         },
+        "team_members": {
+            "joan": {
+                "name": "Joan Valdés",
+                "role": "Fotograf und Produzent",
+                "bio": "Echte Emotionen mit künstlerischem Blick einfangen."
+            },
+            "abel": {
+                "name": "Abel Rhodes",
+                "role": "Videoproduktion und Kreativdirektion",
+                "bio": "Visuelle Erzählungen, die Ihre Liebesgeschichte erzählen."
+            },
+            "yusmel": {
+                "name": "Yusmel Colombo",
+                "role": "PR und Webdesign",
+                "bio": "Verbindet unsere Leidenschaft mit Ihren Träumen."
+            },
+            "rebeca": {
+                "name": "Rebeca Valdés",
+                "role": "Organisation und Koordination von Veranstaltungen",
+                "bio": "Wir erledigen jedes Detail für Ihre innere Ruhe."
+            }
+        },
         "experience": {
             "title": "Unsere Erfahrung",
             "subtitle": "Jahre an Expertise im Dienste von Kunden in ganz Luxemburg",

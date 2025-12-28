@@ -265,6 +265,28 @@
             "subtitle": "Déi talentéiert Profien hannert all schéinem Moment",
             "coming_soon": "Team Informatiounen kommen geschwënn."
         },
+        "team_members": {
+            "joan": {
+                "name": "Joan Valdés",
+                "role": "Fotograf a Produzent",
+                "bio": "Echt Emotiounen mat engem kënschtleresche Bléck afänken."
+            },
+            "abel": {
+                "name": "Abel Rhodes",
+                "role": "Video Kreatioun a Kreativ Direktioun",
+                "bio": "Visuell Erzielungen, déi Är Liebesgeschicht erzielen."
+            },
+            "yusmel": {
+                "name": "Yusmel Colombo",
+                "role": "PR a Web Design",
+                "bio": "Verbënnt eis Leidenschaft mat Ären Dreem."
+            },
+            "rebeca": {
+                "name": "Rebeca Valdés",
+                "role": "Organisatioun a Koordinatioun vun Eventer",
+                "bio": "Mir organiséieren all Detail fir Är Rou."
+            }
+        },
         "experience": {
             "title": "Eis Erfarung",
             "subtitle": "Jorelaang Expertise am Déngscht vu Clienten uechter Lëtzebuerg",
