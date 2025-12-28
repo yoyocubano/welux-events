@@ -16,14 +16,14 @@ export default function Home() {
       title: t("portfolio.projects.chateau.title"),
       description: t("portfolio.projects.chateau.desc"),
       location: t("portfolio.projects.chateau.location"),
-      coverImageUrl: "/couple-balcony-luxury.webp",
+      coverImageUrl: "/couple-balcony-luxury.png",
     },
     {
       id: 2,
       title: t("portfolio.projects.city.title"),
       description: t("portfolio.projects.city.desc"),
       location: t("portfolio.projects.city.location"),
-      coverImageUrl: "/city-engagement.webp",
+      coverImageUrl: "/city-engagement.png",
     },
   ];
 
@@ -38,7 +38,7 @@ export default function Home() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/hero-chateau-sunset.webp"
+            src="/chateau-wedding.png"
             alt="Luxury Event in Luxembourg Chateau"
             className="w-full h-full object-cover"
             loading="eager"
