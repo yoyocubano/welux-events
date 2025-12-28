@@ -365,15 +365,15 @@
     "legal": {
         "title": "Privacy Policy & Legal Notice",
         "controller_title": "Data Controller",
-        "controller_text": "WE Weddings & Events Luxembourg is the controller of your personal data. We are committed to protecting your privacy in accordance with the GDPR.",
-        "data_title": "Data Collection",
-        "data_text": "We collect information you provide directly to us via our contact forms (Name, Email, Phone, Event Details) for the sole purpose of responding to your inquiry and providing our services.",
-        "purpose_title": "Purpose of Processing",
-        "purpose_text": "Your data is used to manage bookings, communicate regarding your event, and issue invoices. We do not sell your data to third parties.",
-        "rights_title": "Your Rights",
-        "rights_text": "You have the right to access, rectify, or request deletion of your data at any time by contacting us at info@welweddingslux.com.",
+        "controller_text": "Weddings & Events Luxembourg ist der Verantwortliche für Ihre personenbezogenen Daten. Wir verpflichten uns, Ihre Privatsphäre gemäß der DSGVO zu schützen.",
+        "data_title": "Datenerfassung",
+        "data_text": "Wir erfassen Informationen, die Sie uns direkt über unsere Kontaktformulare zur Verfügung stellen (Name, E-Mail, Telefon, Veranstaltungsdetails), ausschließlich zu dem Zweck, Ihre Anfrage zu beantworten und unsere Dienstleistungen zu erbringen.",
+        "purpose_title": "Zweck der Verarbeitung",
+        "purpose_text": "Ihre Daten werden verwendet, um Buchungen zu verwalten, bezüglich Ihrer Veranstaltung zu kommunizieren und Rechnungen auszustellen. Wir verkaufen Ihre Daten nicht an Dritte.",
+        "rights_title": "Ihre Rechte",
+        "rights_text": "Sie haben das Recht, jederzeit Zugang zu Ihren Daten zu verlangen, diese zu berichtigen oder deren Löschung zu beantragen, indem Sie uns unter info@welweddingslux.com kontaktieren.",
         "image_rights_title": "Bildrechte und Haftung",
         "image_rights_text": "Weddings & Events Luxembourg fungiert ausschließlich als technischer Dienstleister für Bildaufnahmen. Der Kunde ist allein dafür verantwortlich, seine Gäste zu informieren und die erforderliche Zustimmung für die Aufnahme und Verbreitung ihres Bildes gemäß den geltenden Gesetzen in Luxemburg einzuholen. Der Kunde stellt Weddings & Events ausdrücklich von jeglicher Haftung oder Ansprüchen Dritter im Zusammenhang mit Bildrechten frei.",
-        "disclaimer": "This website is provided for informational purposes. While we strive for accuracy, we cannot guarantee the completeness of the information."
+        "disclaimer": "Diese Website dient zu Informationszwecken. Obwohl wir uns um Genauigkeit bemühen, können wir die Vollständigkeit der Informationen nicht garantieren."
     }
 }

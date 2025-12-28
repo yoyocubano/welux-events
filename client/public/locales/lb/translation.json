@@ -365,15 +365,15 @@
     "legal": {
         "title": "Privacy Policy & Legal Notice",
         "controller_title": "Data Controller",
-        "controller_text": "WE Weddings & Events Luxembourg is the controller of your personal data. We are committed to protecting your privacy in accordance with the GDPR.",
-        "data_title": "Data Collection",
-        "data_text": "We collect information you provide directly to us via our contact forms (Name, Email, Phone, Event Details) for the sole purpose of responding to your inquiry and providing our services.",
-        "purpose_title": "Purpose of Processing",
-        "purpose_text": "Your data is used to manage bookings, communicate regarding your event, and issue invoices. We do not sell your data to third parties.",
-        "rights_title": "Your Rights",
-        "rights_text": "You have the right to access, rectify, or request deletion of your data at any time by contacting us at info@welweddingslux.com.",
+        "controller_text": "Weddings & Events Luxembourg ass de verantwortleche fir Är perséinlech Donnéeën. Mir verpflichte eis Är Privatsphär am Aklang mat der DSGVO ze schützen.",
+        "data_title": "Datesammlung",
+        "data_text": "Mir sammelen Informatiounen, déi Dir eis direkt iwwer eis Kontaktformulairen zur Verfügung stellt (Numm, E-Mail, Telefon, Eventdetailer), ausschliisslech fir Är Ufro ze beäntweren an eis Servicer ze bidden.",
+        "purpose_title": "Zweck vun der Veraarbechtung",
+        "purpose_text": "Är Donnéeë gi benotzt fir Reservatiounen ze geréieren, iwwer Äert Event ze kommunizéieren an Rechnungen auszestellen. Mir verkafen Är Donnéeën net un Drëttubidder.",
+        "rights_title": "Är Rechter",
+        "rights_text": "Dir hutt d'Recht, zu all Moment Zougang, Rectifikatioun oder Läschung vun Ären Donnéeën ze froen andeems Dir eis op info@welweddingslux.com kontaktéiert.",
         "image_rights_title": "Bildrechter & Haftung",
         "image_rights_text": "Weddings & Events Luxembourg agéiert ausschliisslech als techneschen Déngschtleeschter fir Bildopnamen. De Client ass eleng verantwortlech dofir z'informéieren an d'Zoustëmmung vun hire Gäscht ze kréien fir d'Opnam an d'Verbreedung vun hirem Bild, entspriechend de geltende Gesetzer zu Lëtzebuerg. De Client stellt Weddings & Events ausdrécklech vun all Haftung oder Ufuerderunge vun Drëtten am Zesummenhang mat Bildrechter fräi.",
-        "disclaimer": "This website is provided for informational purposes. While we strive for accuracy, we cannot guarantee the completeness of the information."
+        "disclaimer": "Dës Websäit gëtt fir Informatiounszwecker zur Verfügung gestallt. Och wa mir eis fir Genauegkeet ustrengen, kënne mir net d'Vollständegkeet vun den Informatiounen garantéieren."
     }
 }

@@ -366,14 +366,14 @@
         "title": "Privacy Policy & Legal Notice",
         "controller_title": "Data Controller",
         "controller_text": "Weddings & Events Luxembourg is the controller of your personal data. We are committed to protecting your privacy in accordance with the GDPR.",
-        "data_title": "Data Collection",
-        "data_text": "We collect information you provide directly to us via our contact forms (Name, Email, Phone, Event Details) for the sole purpose of responding to your inquiry and providing our services.",
-        "purpose_title": "Purpose of Processing",
-        "purpose_text": "Your data is used to manage bookings, communicate regarding your event, and issue invoices. We do not sell your data to third parties.",
-        "rights_title": "Your Rights",
-        "rights_text": "You have the right to access, rectify, or request deletion of your data at any time by contacting us at info@welweddingslux.com.",
+        "data_title": "Recolha de Dados",
+        "data_text": "Recolhemos informações que nos fornece diretamente através dos nossos formulários de contacto (Nome, Email, Telefone, Detalhes do Evento) com o único objetivo de responder à sua consulta e fornecer os nossos serviços.",
+        "purpose_title": "Finalidade do Tratamento",
+        "purpose_text": "Os seus dados são utilizados para gerir reservas, comunicar sobre o seu evento e emitir faturas. Não vendemos os seus dados a terceiros.",
+        "rights_title": "Os Seus Direitos",
+        "rights_text": "Tem o direito de aceder, retificar ou solicitar a eliminação dos seus dados a qualquer momento, contactando-nos através de info@welweddingslux.com.",
         "image_rights_title": "Direitos de Imagem e Responsabilidade",
         "image_rights_text": "Weddings & Events Luxembourg atua exclusivamente como prestadora de serviços técnicos de captação de imagem. O Cliente é o único responsável por informar os seus convidados e obter o consentimento necessário para a captação e divulgação da sua imagem, de acordo com a legislação em vigor no Luxemburgo. O Cliente isenta expressamente a Weddings & Events de qualquer responsabilidade ou reclamação de terceiros relacionada com direitos de imagem.",
-        "disclaimer": "This website is provided for informational purposes. While we strive for accuracy, we cannot guarantee the completeness of the information."
+        "disclaimer": "Este site é fornecido para fins informativos. Embora nos esforcemos pela precisão, não podemos garantir a integridade das informações."
     }
 }
