@@ -15,7 +15,6 @@ app.use(cors());
 app.use(express.json());
 
 // --- CONFIGURATION ---
-const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
@@ -45,8 +44,6 @@ You are calm, professional, and very knowledgeable.
 **TONE:** Warm, reassuring, "Luxury Service".
 `;
 
-// --- ROUTE: CHAT (Rebeca AI) ---
-// --- ROUTE: CHAT (Rebeca AI) ---
 // --- DEEPSEEK CONFIG ---
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 
@@ -64,7 +61,7 @@ const chatHandler = async (req, res) => {
             return res.status(400).json({ error: "Invalid request body" });
         }
 
-        console.log(`[Rebeca AI] Request received. Language: ${language}`); // DEBUG LOG
+        console.log(`[Rebeca AI] Request received. Language: ${language}`);
 
         let langName = "English";
         if (language && language.startsWith("es")) langName = "Spanish";
@@ -73,9 +70,8 @@ const chatHandler = async (req, res) => {
         else if (language && language.startsWith("pt")) langName = "Portuguese";
         else if (language && language.startsWith("lb")) langName = "Luxembourgish";
 
-        console.log(`[Rebeca AI] Generating response in: ${langName}`); // DEBUG LOG
+        console.log(`[Rebeca AI] Generating response in: ${langName}`);
 
-        // Enhanced System Instruction
         const systemMessage = {
             role: "system",
             content: SYSTEM_PROMPT + `\n\n*** CRITICAL INSTRUCTION ***\nThe user is speaking in ${langName} (Browsing Language: ${language}).\nYOU MUST REPLY IN ${langName} ONLY.\nDo not switch languages unless explicitly asked.`
@@ -114,7 +110,7 @@ const chatHandler = async (req, res) => {
                 role: "assistant",
                 content: language?.startsWith("es")
                     ? "⚠️ **Sistema Saturado:** Mis servidores neuronales están al máximo de capacidad. Por favor intenta de nuevo en 30 segundos."
-                    : "⚠️ **System Overload:** All my AI models are currently busy. Please try again in 30 seconds.",
+                    : "⚠️ **System Overload:** All my models are busy. Please try again in 30 seconds.",
                 isOverloaded: true
             });
         }
@@ -152,33 +148,36 @@ const inquiryHandler = async (req, res) => {
         const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
         const resend = new Resend(RESEND_API_KEY);
 
-        // 2. Insert into Supabase
+        // 2. Map to DB Schema (snake_case)
+        const dbPayload = {
+            name,
+            email,
+            phone,
+            event_type,
+            event_date: event_date ? new Date(event_date) : null,
+            location,
+            budget,
+            guest_count: guest_count ? Number(guest_count) : null,
+            service_interest,
+            message,
+            created_at: new Date().toISOString(),
+            status: 'new'
+        };
+
+        // 3. Insert into Supabase (inquiries)
         const { error: dbError } = await supabase
             .from("inquiries")
-            .insert([
-                {
-                    name,
-                    email,
-                    phone,
-                    event_type,
-                    event_date,
-                    location,
-                    budget,
-                    guest_count,
-                    service_interest,
-                    message,
-                },
-            ]);
+            .insert([dbPayload]);
 
         if (dbError) {
             console.error("Supabase Error:", dbError);
             throw new Error("Database insertion failed");
         }
 
-        // 3. Send Email to Admin
+        // 4. Send Email to Admin
         await resend.emails.send({
-            from: "Weddings Lux <onboarding@resend.dev>", // Only works if domain verified or testing
-            to: ["weddingeventslux@gmail.com"],
+            from: "Weddings Lux <onboarding@resend.dev>",
+            to: ["info@welweddingslux.com"],
             subject: `New Inquiry: ${name} - ${event_type}`,
             html: `
         <h1>New Web Inquiry</h1>
@@ -192,7 +191,7 @@ const inquiryHandler = async (req, res) => {
       `,
         });
 
-        // 4. Send Confirmation to Client
+        // 5. Send Confirmation to Client
         if (email) {
             await resend.emails.send({
                 from: "Weddings Lux <onboarding@resend.dev>",

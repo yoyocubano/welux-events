@@ -25,38 +25,6 @@ const THEME = {
     dateBadge: "bg-[#1f2c34] text-[#8696a0] shadow-sm", // Date divider
 };
 
-// --- Sound Effects (Web Audio API) ---
-const playSound = (type: "send" | "receive") => {
-    try {
-        const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
-        if (!AudioContext) return;
-        const ctx = new AudioContext();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        if (type === "send") {
-            osc.frequency.setValueAtTime(800, ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.1);
-            gain.gain.setValueAtTime(0.1, ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
-            osc.start();
-            osc.stop(ctx.currentTime + 0.1);
-        } else {
-            osc.frequency.setValueAtTime(600, ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(1000, ctx.currentTime + 0.1);
-            gain.gain.setValueAtTime(0.1, ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
-            osc.start();
-            osc.stop(ctx.currentTime + 0.2);
-        }
-    } catch (e) {
-        console.error("Audio play failed", e);
-    }
-};
-
 export default function ChatWidget() {
     const { t, i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
@@ -77,6 +45,54 @@ export default function ChatWidget() {
 
     // --- Auto-scroll v4.0 ---
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    // --- Audio Context Ref ---
+    const audioContextRef = useRef<AudioContext | null>(null);
+
+    // --- Sound Effects (Web Audio API) ---
+    const initAudio = () => {
+        if (!audioContextRef.current) {
+            const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
+            if (AudioContext) {
+                audioContextRef.current = new AudioContext();
+            }
+        }
+        if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+            audioContextRef.current.resume();
+        }
+    };
+
+    const playSound = (type: "send" | "receive") => {
+        try {
+            if (!audioContextRef.current) initAudio();
+            const ctx = audioContextRef.current;
+            if (!ctx) return;
+
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            if (type === "send") {
+                osc.frequency.setValueAtTime(800, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.1);
+            } else {
+                osc.frequency.setValueAtTime(600, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1000, ctx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.2);
+            }
+        } catch (e) {
+            console.error("Audio play failed", e);
+        }
+    };
 
     // --- Effects ---
 
@@ -109,17 +125,12 @@ export default function ChatWidget() {
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed'; // Prevent bounce
-            document.body.style.width = '100%';
+            // Simple lock for mobile to prevent background scroll
         } else {
             document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
         }
         return () => {
             document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
         };
     }, [isOpen]);
 
@@ -145,9 +156,17 @@ export default function ChatWidget() {
     };
 
     // --- Handlers ---
+    const handleOpen = () => {
+        setIsOpen(!isOpen);
+        if (!isOpen) initAudio(); // Initialize audio on user gesture
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!inputValue.trim() || isLoading) return;
+
+        // Ensure audio context is ready (in case user clicked input then enter)
+        initAudio();
 
         const userMsg: Message = {
             role: "user",
@@ -171,8 +190,10 @@ export default function ChatWidget() {
         }, 800);
 
         try {
+            // Filter messages to avoid sending too much context or internal commands
             const apiMessages = [...messages, userMsg]
                 .filter(m => !m.content.startsWith('[[SUBMIT'))
+                .slice(-10) // Limit context window
                 .map(m => ({ role: m.role, content: m.content }));
 
             const controller = new AbortController();
@@ -191,7 +212,7 @@ export default function ChatWidget() {
 
             if (!response.ok) throw new Error("Network error");
 
-            const data = await response.json();
+            const data: any = await response.json();
             const assistantText = data.content || t("chat.connecting");
 
             // Mark Read
@@ -221,6 +242,7 @@ export default function ChatWidget() {
                 timestamp: getCurrentTime()
             }]);
         } finally {
+            // Keep focus on input for desktop
             setTimeout(() => {
                 const input = document.querySelector('input[name="chat-input"]') as HTMLInputElement;
                 if (input && window.matchMedia("(min-width: 768px)").matches) input.focus();
@@ -231,9 +253,11 @@ export default function ChatWidget() {
     const handleConfirmInquiry = async (dataStr: string) => {
         setIsLoading(true);
         try {
-            const data = JSON.parse(dataStr);
+            const data: any = JSON.parse(dataStr);
             const { submitInquiry } = await import("@/lib/api");
-            await submitInquiry({
+
+            // Map chat fields to API fields
+            const result = await submitInquiry({
                 name: data.name,
                 email: data.email || "provided-in-chat@example.com",
                 eventType: data.eventType || "other",
@@ -242,19 +266,24 @@ export default function ChatWidget() {
                 message: "From Chat: " + (data.message || "No details")
             });
 
-            setTimeout(() => {
-                setMessages(prev => [...prev, {
-                    role: "assistant",
-                    content: "✅ " + t("inquiry.success", "Request sent!"),
-                    timestamp: getCurrentTime()
-                }]);
-                setIsLoading(false);
-            }, 1000);
+            if (result.success) {
+                setTimeout(() => {
+                    setMessages(prev => [...prev, {
+                        role: "assistant",
+                        content: "✅ " + t("inquiry.success", "Request sent! Our team will contact you shortly."),
+                        timestamp: getCurrentTime()
+                    }]);
+                    setIsLoading(false);
+                    playSound("receive");
+                }, 1000);
+            } else {
+                 throw new Error(result.message);
+            }
 
         } catch (e) {
             setMessages(prev => [...prev, {
                 role: "assistant",
-                content: "❌ " + t("chat.error", "Error sending request."),
+                content: "❌ " + t("chat.error", "Error sending request. Please try again or use our contact form."),
                 timestamp: getCurrentTime()
             }]);
             setIsLoading(false);
@@ -307,7 +336,7 @@ export default function ChatWidget() {
                 </div>
                 <div className="bg-[#1A1A1A] p-5 rounded-[20px] rounded-tl-sm border border-[#D4AF37]/30 shadow-2xl w-full">
                     <h4 className="font-semibold mb-3 flex items-center gap-2 text-[#D4AF37] text-sm tracking-wide uppercase">
-                        <span>📋</span> {t("inquiry.confirm_details")}
+                        <span>📋</span> {t("inquiry.confirm_details", "Confirm Details")}
                     </h4>
                     <div className="space-y-2 mb-5 text-gray-300 text-sm">
                         <div className="flex justify-between border-b border-gray-800 pb-1">
@@ -323,7 +352,7 @@ export default function ChatWidget() {
                         onClick={() => handleConfirmInquiry(jsonStr)}
                         className="w-full bg-[#D4AF37] hover:bg-[#b5952f] text-black font-bold tracking-wide transition-all active:scale-95 h-10 rounded-xl"
                     >
-                        {t("inquiry.send")}
+                        {t("inquiry.send", "Send Request")}
                     </Button>
                 </div>
             </div>
@@ -498,7 +527,7 @@ export default function ChatWidget() {
 
             <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-[100] animate-in zoom-in duration-300">
                 <Button
-                    onClick={() => setIsOpen(!isOpen)}
+                    onClick={handleOpen}
                     size="lg"
                     className="h-16 w-16 rounded-full shadow-[0_4px_25px_rgba(212,175,55,0.3)] hover:scale-110 hover:shadow-[0_8px_35px_rgba(212,175,55,0.4)] transition-all duration-300 bg-gradient-to-tr from-[#D4AF37] to-[#b5952f] text-black border border-white/20"
                 >

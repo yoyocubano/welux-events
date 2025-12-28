@@ -44,7 +44,7 @@ export async function submitInquiry(data: ContactFormData): Promise<SubmitResult
         });
 
         if (!res.ok) {
-            const err = await res.json();
+            const err: any = await res.json();
             throw new Error(err.error || "Server submission failed");
         }
 
