@@ -1,48 +1,50 @@
 
 interface Env {
-  DEEPSEEK_API_KEY: string;
+    DEEPSEEK_API_KEY: string;
 }
 
 export const onRequestPost: PagesFunction<Env> = async (context) => {
-  try {
     const { request, env } = context;
-    const { message } = await request.json();
 
-    if (!message) {
-      return new Response(JSON.stringify({ error: "Message is required" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
-      });
+    if (!env.DEEPSEEK_API_KEY) {
+        return new Response(JSON.stringify({ error: 'API Key not configured' }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+        });
     }
 
-    // NOTE: DeepSeek API call logic would go here.
-    // Since I don't have the API key, I'll simulate a response.
-    //
-    // const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Authorization": `Bearer ${env.DEEPSEEK_API_KEY}`
-    //   },
-    //   body: JSON.stringify({ model: "deepseek-chat", messages: [{ role: "user", content: message }] })
-    // });
-    //
-    // const data = await response.json();
-    // const reply = data.choices[0].message.content;
+    try {
+        const { messages } = await request.json() as { messages: any[] };
 
-    const simulatedReply = "This is a simulated response from Rebeca AI. The real chatbot is currently under maintenance, but I'll be back soon!";
+        const payload = {
+            model: "deepseek-chat",
+            messages: [
+                {
+                    role: "system",
+                    content: "You are Rebeca, the efficient and warm virtual assistant for Welux Events (Weddings & Events Luxembourg). Your goal is to help clients with inquiries about photography, video, and broadcasting services. Be concise, professional, and friendly. Answer in the language the user speaks."
+                },
+                ...messages
+            ],
+            stream: false // Keep it simple for now, can upgrade to stream later
+        };
 
-    return new Response(JSON.stringify({ reply: simulatedReply }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+        const response = await fetch('https://api.deepseek.com/chat/completions', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${env.DEEPSEEK_API_KEY}`
+            },
+            body: JSON.stringify(payload)
+        });
 
-  } catch (e) {
-    const error = e instanceof Error ? e.message : "An unexpected error occurred.";
-    console.error("Error in chat function:", error);
-    return new Response(JSON.stringify({ error }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
+        const data = await response.json();
+
+        return new Response(JSON.stringify(data), {
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+    } catch (err) {
+        console.error('DeepSeek Proxy Error:', err);
+        return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
+    }
 };
