@@ -36,7 +36,7 @@ export default function About() {
       name: t("about.team_members.rebeca.name"),
       role: t("about.team_members.rebeca.role"),
       bio: t("about.team_members.rebeca.bio"),
-      imageUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400&h=400"
+      imageUrl: "/rebeca-team.jpg"
     }
   ];
 

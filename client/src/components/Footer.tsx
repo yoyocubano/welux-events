@@ -115,7 +115,7 @@ export default function Footer() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://www.youtube.com/@weddingeventslux"
+                href="https://youtube.com/@weddingeventslux?si=E5ahuprszYIr06Fx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
