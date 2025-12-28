@@ -33,6 +33,11 @@ export default function Privacy() {
                         <p>{t('legal.rights_text')}</p>
                     </section>
 
+                    <section>
+                        <h2 className="text-2xl font-serif text-foreground mb-4">5. {t('legal.image_rights_title')}</h2>
+                        <p>{t('legal.image_rights_text')}</p>
+                    </section>
+
                     <div className="border-t border-border pt-8 mt-12 text-sm">
                         <p>{t('legal.disclaimer')}</p>
                     </div>

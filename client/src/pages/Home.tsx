@@ -77,7 +77,7 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-card">
+      <section className="py-12 md:py-20 bg-card">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
@@ -88,7 +88,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up delay-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up delay-200">
             <Card className="border-border hover:shadow-lg transition-shadow">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
@@ -149,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* Featured Portfolio */}
-      <section className="py-20 bg-background">
+      <section className="py-12 md:py-20 bg-background">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
@@ -202,7 +202,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-card">
+      <section className="py-12 md:py-20 bg-card">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">
@@ -250,7 +250,7 @@ export default function Home() {
       <Testimonials />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10">
+      <section className="py-12 md:py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10">
         <div className="container text-center">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
             {t('cta.title')}

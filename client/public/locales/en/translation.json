@@ -454,7 +454,7 @@
         }
     },
     "brand": {
-        "name": "WE Weddings & Events Luxembourg",
+        "name": "Weddings & Events Luxembourg",
         "tagline": "Video / Photo / Broadcasting"
     },
     "auth": {
@@ -471,7 +471,7 @@
     },
     "chat": {
         "greeting": "Hello! I am Rebeca AI, your Virtual Assistant. How can I help you plan your perfect event?",
-        "title": "Ask Rebeca - 24/7 Concierge",
+        "title": "Ask Rebeca - 24/7 Virtual Assistant",
         "subtitle": "Don't wait. Plan instantly.",
         "placeholder": "Ask about our services...",
         "error": "Sorry, I am offline at the moment. Please try again later.",
@@ -497,13 +497,15 @@
     "legal": {
         "title": "Privacy Policy & Legal Notice",
         "controller_title": "Data Controller",
-        "controller_text": "WE Weddings & Events Luxembourg is the controller of your personal data. We are committed to protecting your privacy in accordance with the GDPR.",
+        "controller_text": "Weddings & Events Luxembourg is the controller of your personal data. We are committed to protecting your privacy in accordance with the GDPR.",
         "data_title": "Data Collection",
         "data_text": "We collect information you provide directly to us via our contact forms (Name, Email, Phone, Event Details) for the sole purpose of responding to your inquiry and providing our services.",
         "purpose_title": "Purpose of Processing",
         "purpose_text": "Your data is used to manage bookings, communicate regarding your event, and issue invoices. We do not sell your data to third parties.",
         "rights_title": "Your Rights",
         "rights_text": "You have the right to access, rectify, or request deletion of your data at any time by contacting us at info@welweddingslux.com.",
+        "image_rights_title": "Image Rights & Liability",
+        "image_rights_text": "Weddings & Events Luxembourg acts exclusively as a technical service provider for image capture. The Client is solely responsible for informing their guests and obtaining the necessary consent for image capture and dissemination, in accordance with applicable laws in Luxembourg. The Client explicitly releases Weddings & Events from any liability or third-party claims related to image rights.",
         "disclaimer": "This website is provided for informational purposes. While we strive for accuracy, we cannot guarantee the completeness of the information."
     },
     "inquiry": {

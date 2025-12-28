@@ -319,7 +319,7 @@
         "list": "Luxemburg Stadt, Esch-sur-Alzette, Differdingen, Düdelingen, Ettelbrück, Diekirch, Wiltz und umliegende Gemeinden"
     },
     "brand": {
-        "name": "WE Weddings & Events Luxembourg",
+        "name": "Weddings & Events Luxembourg",
         "tagline": "Video / Foto / Broadcasting"
     },
     "auth": {
@@ -372,6 +372,8 @@
         "purpose_text": "Your data is used to manage bookings, communicate regarding your event, and issue invoices. We do not sell your data to third parties.",
         "rights_title": "Your Rights",
         "rights_text": "You have the right to access, rectify, or request deletion of your data at any time by contacting us at info@welweddingslux.com.",
+        "image_rights_title": "Bildrechte und Haftung",
+        "image_rights_text": "Weddings & Events Luxembourg fungiert ausschließlich als technischer Dienstleister für Bildaufnahmen. Der Kunde ist allein dafür verantwortlich, seine Gäste zu informieren und die erforderliche Zustimmung für die Aufnahme und Verbreitung ihres Bildes gemäß den geltenden Gesetzen in Luxemburg einzuholen. Der Kunde stellt Weddings & Events ausdrücklich von jeglicher Haftung oder Ansprüchen Dritter im Zusammenhang mit Bildrechten frei.",
         "disclaimer": "This website is provided for informational purposes. While we strive for accuracy, we cannot guarantee the completeness of the information."
     }
 }
