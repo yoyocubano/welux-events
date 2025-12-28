@@ -1,27 +1,30 @@
 {
     "hero": {
-        "title_start": "Mir halen Äert",
-        "subtitle": "Video, Fotoen & Broadcasting fir Eventer zu Lëtzebuerg",
-        "description": "Mir fänken all Moment mat kinematescher Qualitéit an. Vun intime Hochzäiten bis zu grousse Firmeneventer a Live-Sendungen.",
-        "view_work": "Galerie Kucken",
-        "get_quote": "Loosst eis Äert Event plangen",
-        "award_winning": "Äert Vertrauen",
-        "studio": "Eis Bescht Auszeechnung"
+        "title": "Är Geschicht, mat Séil erzielt",
+        "subtitle": "Kino, Fotografie a Live-Sendungen, déi Momenter éiweg maachen",
+        "description": "Mir dokumentéieren net nëmmen en Event. Mir schafen de visuellen Ierfschaft vun Ärem glécklechsten Dag, fir datt Dir en haut an an zwanzeg Joer mat därselwechter Tréin vu Freed erëm erliewe kënnt.",
+        "team_credits": "Är Alliéiert | Joan: Fotografie | Abel: Kino | Yusmel: Design | Rebeca: Äre Séilenfridden",
+        "cta_primary": "Loosst eis iwwer Ären Dag schwätzen",
+        "cta_secondary": "D'Team begéinen",
+        "get_quote": "Erzielt eis Är Visioun",
+        "trust_badge": "Vu Lëtzebuerg an d'Welt • +10 Joer Erënnerunge schafen",
+        "award_winning": "Gewielt vun iwwer",
+        "studio": "500 Gléckleche Koppelen"
     },
     "why_choose": {
-        "title": "Firwat Mir",
-        "subtitle": "Mir verbannen Leidenschaft, Expertise an eng perséinlech Note fir Äert Event onvergiesslech ze maachen.",
+        "title": "Äre Séilenfridden ass eis Prioritéit",
+        "subtitle": "Mir wëssen, datt dësen Dag sech net widderhëlt. Dofir këmmere mir eis ëm d'Technik, fir datt Dir Iech op d'Gefiller konzentréiere kënnt.",
         "team": {
-            "title": "Präisgekréint Team",
-            "desc": "Unerkannt Exzellenz an der Foto- a Videografie."
+            "title": "Onsiichtbar Presenz",
+            "desc": "Mir sinn do, fir déi spontan Ëmarmung an dee wëssenden Bléck anzefänken, ouni d'Magie vum Moment ze ënnerbriechen."
         },
         "service": {
-            "title": "Leidenschaftleche Service",
-            "desc": "Mat Häerz dobäi, fir all Emotioun festzehalen."
+            "title": "Reng & Echt Emotioun",
+            "desc": "Vergiesst steif Pose. Mir sichen dat onkontrolléierbar Laachen, déi verstoppten Tréin an d'Schéinheet vun der Authentizitéit."
         },
         "local": {
-            "title": "Lokal Expertise",
-            "desc": "Déift Wëssen iwwer déi bescht Plazen zu Lëtzebuerg."
+            "title": "Lokal Experten",
+            "desc": "Mir kennen d'Liicht vu Lëtzebuerg a seng geheim Ecker. Loosst eis Iech op déi perfekt Kulisse fir Är Geschicht féieren."
         }
     },
     "services": {
@@ -237,27 +240,27 @@
         }
     },
     "about": {
-        "title": "Iwwer Uns",
-        "p1": "Mir sinn e passionéiert Team vu Fotografen a Videografen, déi sech drop spezialiséiert hunn, déi wäertvollst Momenter vun Ärem Liewen festzehalen. Mat Sëtz zu Lëtzebuerg si mir op Hochzäiten a speziell Eventer spezialiséiert.",
-        "p2": "Eis Approche kombinéiert technesch Exzellenz mat reeller Emotioun a stellt sécher, datt all Foto a Video Är eenzegaarteg Geschicht op déi schéinstméiglech Manéier erzielt.",
+        "title": "Méi wéi nëmmen Fotografen",
+        "p1": "Moien. Mir sinn d'Team vu Welux Events. Mir si kee gesichtslosen Konzern; mir si passionéiert Kënschtler, déi un d'Kraaft vun den Erënnerunge gleewen.",
+        "p2": "Mir verstinn d'Verantwortung, déi Dir an eis Hänn leet. Dir bucht keen Déngschtleeschter; Dir vertraut Är zerbriechlechst a wäertvollst Momenter Aen un, déi wësse wéi een se fir ëmmer mat Respekt a Schéinheet bewahrt.",
         "values": {
-            "title": "Eis Wäerter",
-            "subtitle": "Wat eis undreift fir aussergewéinlech Aarbecht fir all Client ze liwweren",
+            "title": "Wat eis undreift",
+            "subtitle": "Well Technik wichteg ass, awer d'Häerz essenziell ass.",
             "passion": {
-                "title": "Passioun",
-                "desc": "Mir hunn eis Aarbecht gären an dat gesäit een an all Bild"
+                "title": "Ongebremst Leidenschaft",
+                "desc": "Et ass net nëmmen eng Aarbecht. Et ass de Privileg, Zeie vun Ärem Gléck ze sinn."
             },
             "excellence": {
-                "title": "Exzellenz",
-                "desc": "Verflicht fir déi héchst Qualitéit an all Projet"
+                "title": "Handwierklech Meeschterschaft",
+                "desc": "Mir poléieren all Bild an all Sekonn Video, bis et an engem eegene Liicht erstraalt."
             },
             "creativity": {
-                "title": "Kreativitéit",
-                "desc": "Kënschtleresch Visioun an Innovatioun bei all Shooting"
+                "title": "Den Auteursbléck",
+                "desc": "Mir lafe virum Genereschen fort, fir de Wénkel ze fannen, deen Iech eenzegaarteg mécht."
             },
             "connection": {
-                "title": "Verbindung",
-                "desc": "Bezéiungen opbauen an Är eenzegaarteg Geschicht verstoen"
+                "title": "Mënschlech Proximitéit",
+                "desc": "Mir wëllen Är Frënn mat Kamerae sinn, keng Friem op Ärer Party."
             }
         },
         "team": {

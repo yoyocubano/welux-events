@@ -1,30 +1,30 @@
 {
     "hero": {
-        "title": "Luxury Weddings & Exclusive Events",
-        "subtitle": "Video, Photo & Broadcasting for Events in Luxembourg",
-        "description": "We capture every moment with cinematic quality. From intimate weddings to large corporate events and live broadcasts.",
-        "team_credits": "We plan your event | Photographer: Joan | Cinematographer: Abel | Marketing & Socials: Yusmel | Coordinator: Rebeca",
-        "cta_primary": "Reserve your peace of mind",
-        "cta_secondary": "Speak with a planner",
-        "get_quote": "Let's Plan Your Event",
-        "trust_badge": "Established in Luxembourg • 10 Years of Excellence",
-        "award_winning": "Trusted by",
-        "studio": "500+ Couples"
+        "title": "Your Story, Told with Soul",
+        "subtitle": "Cinema, Photography & Live Broadcasting that Immortalize Moments",
+        "description": "We don’t just document an event. We create the visual legacy of your happiest day, so you can relive it with the same tear of emotion, today and twenty years from now.",
+        "team_credits": "Your Allies | Joan: Photography | Abel: Cinema | Yusmel: Design | Rebeca: Your Peace of Mind",
+        "cta_primary": "Let's Talk About Your Day",
+        "cta_secondary": "Meet the Team",
+        "get_quote": "Tell Us Your Vision",
+        "trust_badge": "From Luxembourg to the World • +10 Years Creating Memories",
+        "award_winning": "Chosen by over",
+        "studio": "500 Happy Couples"
     },
     "why_choose": {
-        "title": "A Stress-Free Experience",
-        "subtitle": "We don’t just take photos; we ensure your event flows effortlessly so you can focus on celebrating.",
+        "title": "Your Peace of Mind is Our Priority",
+        "subtitle": "We know this day doesn't repeat. That's why we handle the technique so you can focus on feeling.",
         "team": {
-            "title": "Peace of Mind",
-            "desc": "With an award-winning team, you can relax knowing every detail is being captured by experts."
+            "title": "Invisible Presence",
+            "desc": "We will be there to capture that spontaneous hug and knowing glance, without interrupting the magic of the moment."
         },
         "service": {
-            "title": "Authentic Emotion",
-            "desc": "No awkward posing. We capture the genuine laughter, tears, and joy of your celebration."
+            "title": "Raw & Real Emotion",
+            "desc": "Forget stiff poses. We seek uncontrollable laughter, the furtive tear, and the beauty of authenticity."
         },
         "local": {
-            "title": "Hidden Gems",
-            "desc": "As locals, we know the most breathtaking, secret locations in Luxembourg for your portraits."
+            "title": "Local Experts",
+            "desc": "We know Luxembourg's light and secret corners. Let us guide you to the perfect backdrops for your story."
         }
     },
     "testimonials": {
@@ -314,27 +314,27 @@
         }
     },
     "about": {
-        "title": "About Us",
-        "p1": "We are a passionate team of photographers and videographers dedicated to capturing the most precious moments of your life. Based in Luxembourg, we specialize in weddings and special events, bringing years of experience and artistic vision to every project.",
-        "p2": "Our approach combines technical excellence with genuine emotion, ensuring that every photograph and video tells your unique story in the most beautiful way possible.",
+        "title": "More Than Photographers",
+        "p1": "Hello. We are the Welux Events team. We are not a faceless corporation; we are passionate artists who believe in the power of memories.",
+        "p2": "We understand the responsibility you place in our hands. You are not hiring a service; you are entrusting your most fragile and precious moments to eyes that will know how to keep them forever with respect and beauty.",
         "values": {
-            "title": "Our Values",
-            "subtitle": "What drives us to create exceptional work for every client",
+            "title": "What Drives Us",
+            "subtitle": "Because technique is important, but heart is essential.",
             "passion": {
-                "title": "Passion",
-                "desc": "We love what we do and it shows in every frame we capture"
+                "title": "Unbridled Passion",
+                "desc": "It's not just a job. It's the privilege of witnessing your happiness."
             },
             "excellence": {
-                "title": "Excellence",
-                "desc": "Committed to delivering the highest quality in every project"
+                "title": "Artisan Mastery",
+                "desc": "We polish every image and every second of video until it shines with its own light."
             },
             "creativity": {
-                "title": "Creativity",
-                "desc": "Bringing artistic vision and innovation to every shoot"
+                "title": "Author's Eye",
+                "desc": "Fleeing the generic to find the angle that makes you unique."
             },
             "connection": {
-                "title": "Connection",
-                "desc": "Building relationships and understanding your unique story"
+                "title": "Human Closeness",
+                "desc": "We want to be your friends with cameras, not strangers at your party."
             }
         },
         "team": {

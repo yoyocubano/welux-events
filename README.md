@@ -27,8 +27,8 @@ For a detailed explanation of the frontend, backend, and database structure, ple
 ## 🚀 Technology Stack
 
 -   **Frontend**: React 19, Vite, Tailwind CSS, Wouter (Routing)
--   **Deployment**: Cloudflare Pages (Static Site + Functions)
--   **Backend**: Cloudflare Functions (compatible with Node.js/Serverless)
+-   **Deployment**: Cloudflare Pages (Primary). Ready for Vercel, Netlify, or Hostinger.
+-   **Backend**: Cloudflare Functions (Primary). Adaptable to standard Node.js.
 -   **Database**: MySQL-compatible (via PlanetScale, TiDB, etc.)
 -   **ORM**: Drizzle ORM
 -   **AI Chat**: DeepSeek API

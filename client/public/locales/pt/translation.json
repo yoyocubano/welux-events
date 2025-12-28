@@ -1,27 +1,30 @@
 {
     "hero": {
-        "title_start": "Eternizando Seus",
-        "subtitle": "Vídeo, Foto e Broadcasting para Eventos no Luxemburgo",
-        "description": "Capturamos cada momento com qualidade cinematográfica. Desde casamentos íntimos a grandes eventos corporativos e transmissões ao vivo.",
-        "view_work": "Ver Galeria",
-        "get_quote": "Vamos Planejar Seu Evento",
-        "award_winning": "Sua Confiança",
-        "studio": "Nosso Melhor Prêmio"
+        "title": "A Sua História, Contada com Alma",
+        "subtitle": "Cinema, Fotografia e Transmissões ao Vivo que Eternizam Momentos",
+        "description": "Não documentamos apenas um evento. Criamos o legado visual do seu dia mais feliz, para que o possa reviver com a mesma lágrima de emoção, hoje e daqui a vinte anos.",
+        "team_credits": "Os Seus Aliados | Joan: Fotografia | Abel: Cinema | Yusmel: Design | Rebeca: A Sua Paz de Espírito",
+        "cta_primary": "Vamos Falar Sobre o Seu Dia",
+        "cta_secondary": "Conhecer a Equipa",
+        "get_quote": "Conte-nos a Sua Visão",
+        "trust_badge": "Do Luxemburgo para o Mundo • +10 Anos a Criar Memórias",
+        "award_winning": "Escolhido por mais de",
+        "studio": "500 Casais Felizes"
     },
     "why_choose": {
-        "title": "Por Que Nos Escolher",
-        "subtitle": "Combinamos paixão, experiência e um toque pessoal para tornar seu evento inesquecível.",
+        "title": "A Sua Paz de Espírito é a Nossa Prioridade",
+        "subtitle": "Sabemos que este dia não se repete. É por isso que tratamos da técnica para que se possa concentrar em sentir.",
         "team": {
-            "title": "Equipe Premiada",
-            "desc": "Excelência reconhecida em fotografia e videografia."
+            "title": "Presença Invisível",
+            "desc": "Estaremos lá para capturar aquele abraço espontâneo e o olhar cúmplice, sem interromper a magia do momento."
         },
         "service": {
-            "title": "Serviço Apaixonado",
-            "desc": "Dedicados a capturar cada emoção com o coração."
+            "title": "Emoção Crua e Real",
+            "desc": "Esqueça as poses rígidas. Procuramos o riso incontrolável, a lágrima furtiva e a beleza da autenticidade."
         },
         "local": {
-            "title": "Experiência Local",
-            "desc": "Conhecimento profundo dos melhores locais de Luxemburgo."
+            "title": "Especialistas Locais",
+            "desc": "Conhecemos a luz do Luxemburgo e os seus recantos secretos. Deixe-nos guiá-lo para os cenários perfeitos para a sua história."
         }
     },
     "services": {
@@ -237,27 +240,27 @@
         }
     },
     "about": {
-        "title": "Sobre Nós",
-        "p1": "Somos uma equipe apaixonada de fotógrafos e cinegrafistas dedicados a capturar os momentos mais preciosos da sua vida. Com sede em Luxemburgo, somos especializados em casamentos e eventos especiais.",
-        "p2": "Nossa abordagem combina excelência técnica com emoção genuína, garantindo que cada foto e vídeo conte a sua história única da maneira mais bonita possível.",
+        "title": "Mais do que Fotógrafos",
+        "p1": "Olá. Nós somos a equipa da Welux Events. Não somos uma grande empresa sem rosto; somos artistas apaixonados que acreditam no poder das memórias.",
+        "p2": "Compreendemos a responsabilidade que coloca nas nossas mãos. Não está a contratar um serviço; está a confiar os seus momentos mais frágeis e preciosos a olhos que saberão guardá-los para sempre com respeito e beleza.",
         "values": {
-            "title": "Nossos Valores",
-            "subtitle": "O que nos impulsiona a criar um trabalho excepcional para cada cliente",
+            "title": "O Que Nos Move",
+            "subtitle": "Porque a técnica é importante, mas o coração é essencial.",
             "passion": {
-                "title": "Paixão",
-                "desc": "Amamos o que fazemos e isso transparece em cada imagem"
+                "title": "Paixão Desenfreada",
+                "desc": "Não é apenas um trabalho. É o privilégio de testemunhar a sua felicidade."
             },
             "excellence": {
-                "title": "Excelência",
-                "desc": "Comprometidos com a entrega da mais alta qualidade em cada projeto"
+                "title": "Maestria Artesanal",
+                "desc": "Polimos cada imagem e cada segundo de vídeo até que brilhe com a sua própria luz."
             },
             "creativity": {
-                "title": "Criatividade",
-                "desc": "Trazendo visão artística e inovação para cada sessão"
+                "title": "O Olhar do Autor",
+                "desc": "Fugir do genérico para encontrar o ângulo que o torna único."
             },
             "connection": {
-                "title": "Conexão",
-                "desc": "Construindo relacionamentos e entendendo a sua história única"
+                "title": "Proximidade Humana",
+                "desc": "Queremos ser os seus amigos com câmaras, não estranhos na sua festa."
             }
         },
         "team": {
