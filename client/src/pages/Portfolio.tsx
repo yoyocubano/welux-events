@@ -46,15 +46,15 @@ export default function Portfolio() {
       title: t("portfolio.projects.chateau.title"),
       description: t("portfolio.projects.chateau.desc"),
       location: t("portfolio.projects.chateau.location"),
-      coverImageUrl: "/chateau-wedding.png",
+      coverImageUrl: "/chateau-wedding.webp",
       media: [
-        { type: "image", url: "/chateau-wedding.png" },
-        { type: "image", url: "/chateau-detail.png" },
-        { type: "image", url: "/couple-balcony-luxury.png" },
+        { type: "image", url: "/chateau-wedding.webp" },
+        { type: "image", url: "/chateau-detail.webp" },
+        { type: "image", url: "/couple-balcony-luxury.webp" },
         {
           type: "video",
           url: "/videos/castle-wedding.mp4",
-          thumbnail: "/chateau-wedding.png"
+          thumbnail: "/chateau-wedding.webp"
         }
       ],
       categoryId: 1,
@@ -64,9 +64,9 @@ export default function Portfolio() {
       title: t("portfolio.projects.city.title"),
       description: t("portfolio.projects.city.desc"),
       location: t("portfolio.projects.city.location"),
-      coverImageUrl: "/city-engagement.png",
+      coverImageUrl: "/city-engagement.webp",
       media: [
-        { type: "image", url: "/city-engagement.png" },
+        { type: "image", url: "/city-engagement.webp" },
       ],
       categoryId: 2,
     },
@@ -75,11 +75,11 @@ export default function Portfolio() {
       title: t("portfolio.projects.pets_park.title"),
       description: t("portfolio.projects.pets_park.desc"),
       location: t("portfolio.projects.pets_park.location"),
-      coverImageUrl: "/pet-dog.png",
+      coverImageUrl: "/pet-dog.webp",
       media: [
-        { type: "image", url: "/pet-dog.png" },
-        { type: "image", url: "/pet-cat.png" },
-        { type: "image", url: "/pet-walk.png" }
+        { type: "image", url: "/pet-dog.webp" },
+        { type: "image", url: "/pet-cat.webp" },
+        { type: "image", url: "/pet-walk.webp" }
       ],
       categoryId: 4,
     },
@@ -88,15 +88,15 @@ export default function Portfolio() {
       title: t("portfolio.projects.corporate_summit.title"),
       description: t("portfolio.projects.corporate_summit.desc"),
       location: t("portfolio.projects.corporate_summit.location"),
-      coverImageUrl: "/corp-meeting.png",
+      coverImageUrl: "/corp-meeting.webp",
       media: [
-        { type: "image", url: "/corp-meeting.png" },
-        { type: "image", url: "/corp-woman.png" },
-        { type: "image", url: "/corp-presentation.png" },
+        { type: "image", url: "/corp-meeting.webp" },
+        { type: "image", url: "/corp-woman.webp" },
+        { type: "image", url: "/corp-presentation.webp" },
         {
           type: "video",
           url: "/videos/corp-meeting.mp4",
-          thumbnail: "/corp-meeting.png"
+          thumbnail: "/corp-meeting.webp"
         }
       ],
       categoryId: 5,
@@ -106,11 +106,11 @@ export default function Portfolio() {
       title: t("portfolio.projects.dance_studio.title"),
       description: t("portfolio.projects.dance_studio.desc"),
       location: t("portfolio.projects.dance_studio.location"),
-      coverImageUrl: "/dance-ballet.png",
+      coverImageUrl: "/dance-ballet.webp",
       media: [
-        { type: "image", url: "/dance-ballet.png" },
-        { type: "image", url: "/dance-hiphop.png" },
-        { type: "image", url: "/dance-duo.png" }
+        { type: "image", url: "/dance-ballet.webp" },
+        { type: "image", url: "/dance-hiphop.webp" },
+        { type: "image", url: "/dance-duo.webp" }
       ],
       categoryId: 6,
     },
@@ -119,15 +119,15 @@ export default function Portfolio() {
       title: t("portfolio.projects.private_celebration.title"),
       description: t("portfolio.projects.private_celebration.desc"),
       location: t("portfolio.projects.private_celebration.location"),
-      coverImageUrl: "/private-bday.png",
+      coverImageUrl: "/private-bday.webp",
       media: [
-        { type: "image", url: "/private-bday.png" },
-        { type: "image", url: "/private-reveal.png" },
-        { type: "image", url: "/private-dinner.png" },
+        { type: "image", url: "/private-bday.webp" },
+        { type: "image", url: "/private-reveal.webp" },
+        { type: "image", url: "/private-dinner.webp" },
         {
           type: "video",
           url: "/videos/private-dinner.mp4",
-          thumbnail: "/private-dinner.png"
+          thumbnail: "/private-dinner.webp"
         }
       ],
       categoryId: 7,
@@ -137,22 +137,22 @@ export default function Portfolio() {
       title: t("portfolio.projects.sbk.title"),
       description: t("portfolio.projects.sbk.desc"),
       location: t("portfolio.projects.sbk.location"),
-      coverImageUrl: "/sbk-dance-cover.png",
+      coverImageUrl: "/sbk-dance-cover.webp",
       media: [
-        { type: "image", url: "/sbk-dance-cover.png" },
-        { type: "image", url: "/sbk-caribbean-teachers.png" },
-        { type: "image", url: "/sbk-diverse-crowd.png" },
-        { type: "image", url: "/sbk-bachata-sensual.png" },
-        { type: "image", url: "/sbk-detail-feet.png" },
+        { type: "image", url: "/sbk-dance-cover.webp" },
+        { type: "image", url: "/sbk-caribbean-teachers.webp" },
+        { type: "image", url: "/sbk-diverse-crowd.webp" },
+        { type: "image", url: "/sbk-bachata-sensual.webp" },
+        { type: "image", url: "/sbk-detail-feet.webp" },
         {
           type: "video",
           url: "/videos/sbk-caribbean.mp4",
-          thumbnail: "/sbk-caribbean-teachers.png"
+          thumbnail: "/sbk-caribbean-teachers.webp"
         },
         {
           type: "video",
           url: "/videos/sbk-dance-1.mp4",
-          thumbnail: "/sbk-dance-cover.png"
+          thumbnail: "/sbk-dance-cover.webp"
         }
       ],
       categoryId: 6,
@@ -162,14 +162,14 @@ export default function Portfolio() {
       title: t("portfolio.projects.winter.title"),
       description: t("portfolio.projects.winter.desc"),
       location: t("portfolio.projects.winter.location"),
-      coverImageUrl: "/winter-wedding-cover.png",
+      coverImageUrl: "/winter-wedding-cover.webp",
       media: [
-        { type: "image", url: "/winter-wedding-cover.png" },
-        { type: "image", url: "/winter-detail-decor.png" },
+        { type: "image", url: "/winter-wedding-cover.webp" },
+        { type: "image", url: "/winter-detail-decor.webp" },
         {
           type: "video",
           url: "/videos/winter-snow.mp4",
-          thumbnail: "/winter-wedding-cover.png"
+          thumbnail: "/winter-wedding-cover.webp"
         }
       ],
       categoryId: 1,

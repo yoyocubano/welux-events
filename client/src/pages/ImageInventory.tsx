@@ -7,15 +7,15 @@ import { Copy, Check } from "lucide-react";
 
 export default function ImageInventory() {
     const images = [
-        { name: "City Engagement", path: "/city-engagement.png" },
-        { name: "Couple Balcony Luxury", path: "/couple-balcony-luxury.png" },
-        { name: "Hero Chateau Sunset", path: "/hero-chateau-sunset.png" },
-        { name: "Table Details Gold", path: "/table-details-gold.png" },
-        { name: "Testimonial Sophie & Marc", path: "/testimonial-sophie-marc.png" },
-        { name: "Under Renovation Staff", path: "/under_renovation_staff.png" },
-        { name: "Logo WEL", path: "/logo-wel.png" },
-        { name: "Logo WEL (Variant)", path: "/logo-well.png" },
-        { name: "Renovation Placeholder", path: "/renovation-placeholder.png" },
+        { name: "City Engagement", path: "/city-engagement.webp" },
+        { name: "Couple Balcony Luxury", path: "/couple-balcony-luxury.webp" },
+        { name: "Hero Chateau Sunset", path: "/hero-chateau-sunset.webp" },
+        { name: "Table Details Gold", path: "/table-details-gold.webp" },
+        { name: "Testimonial Sophie & Marc", path: "/testimonial-sophie-marc.webp" },
+        { name: "Under Renovation Staff", path: "/under_renovation_staff.webp" },
+        { name: "Logo WEL", path: "/logo-wel.webp" },
+        { name: "Logo WEL (Variant)", path: "/logo-well.webp" },
+        { name: "Renovation Placeholder", path: "/renovation-placeholder.webp" },
     ];
 
     const [copied, setCopied] = useState<string | null>(null);

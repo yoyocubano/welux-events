@@ -13,7 +13,7 @@ export default function Testimonials() {
             role: t("testimonials.1.role"),
             content: t("testimonials.1.text"),
             rating: 5,
-            image: "/testimonial-sophie-marc.png"
+            image: "/testimonial-sophie-marc.webp"
         },
         {
             id: 2,

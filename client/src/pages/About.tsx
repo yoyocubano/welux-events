@@ -15,28 +15,28 @@ export default function About() {
       name: t("about.team_members.joan.name"),
       role: t("about.team_members.joan.role"),
       bio: t("about.team_members.joan.bio"),
-      imageUrl: "/images/team/joan.png"
+      imageUrl: "/images/team/joan.webp"
     },
     {
       id: 2,
       name: t("about.team_members.abel.name"),
       role: t("about.team_members.abel.role"),
       bio: t("about.team_members.abel.bio"),
-      imageUrl: "/images/team/abel.png"
+      imageUrl: "/images/team/abel.webp"
     },
     {
       id: 3,
       name: t("about.team_members.yusmel.name"),
       role: t("about.team_members.yusmel.role"),
       bio: t("about.team_members.yusmel.bio"),
-      imageUrl: "/images/team/yusmel.png"
+      imageUrl: "/images/team/yusmel.webp"
     },
     {
       id: 4,
       name: t("about.team_members.rebeca.name"),
       role: t("about.team_members.rebeca.role"),
       bio: t("about.team_members.rebeca.bio"),
-      imageUrl: "/rebeca-team.jpg"
+      imageUrl: "/rebeca-team.webp"
     }
   ];
 
