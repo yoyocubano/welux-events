@@ -15,7 +15,7 @@ export default function Footer() {
             <Link href="/">
               <a className="block group">
                 <div className="flex flex-col items-start justify-center">
-                  <img src="/logo-brand.png" alt="Weddings & Events Luxembourg" className="h-12 w-auto transition-opacity duration-300 group-hover:opacity-80" />
+                  <img src="/logo-brand-v2.png" alt="Weddings & Events Luxembourg" className="h-12 w-auto transition-opacity duration-300 group-hover:opacity-80" />
                   <span className="mt-1 font-sans text-[10px] text-[#9F8F6A] tracking-[0.2em] uppercase text-left group-hover:text-primary transition-colors">
                     {t('brand.tagline')}
                   </span>
@@ -75,7 +75,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <Mail className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
-                <span>info@welweddingslux.com</span>
+                <span>info@weluxevents.com</span>
               </li>
               <li className="flex items-start gap-2 text-sm text-muted-foreground">
                 <Mail className="w-4 h-4 mt-0.5 text-primary flex-shrink-0" />
