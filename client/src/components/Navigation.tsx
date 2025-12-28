@@ -31,7 +31,7 @@ export default function Navigation() {
           <Link href="/" className="flex flex-col items-center group cursor-pointer lg:pb-0">
             <div className="relative flex items-center justify-center">
               <img src="/logo.png" alt="Weddings & Events Luxembourg" className="h-16 w-auto transition-transform duration-300 group-hover:scale-105" />
-            </span>
+            </div>
         </div>
         <span className="mt-1 font-sans text-[10px] md:text-xs text-[#9F8F6A] tracking-[0.2em] uppercase text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 -translate-y-2 group-hover:translate-y-0">
           {t('brand.tagline')}
