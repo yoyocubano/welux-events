@@ -61,7 +61,7 @@ export default function About() {
             </div>
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop"
+                src="/rebeca-team.jpg"
                 alt="Our team at work"
                 className="w-full h-full object-cover"
               />
