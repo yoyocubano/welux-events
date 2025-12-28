@@ -216,7 +216,7 @@ export default function Contact() {
                     <h2 className="text-3xl font-serif font-bold text-foreground">
                       {t("contact.form.title")}
                     </h2>
-                    <ShieldCheck className="w-6 h-6 text-green-600/80 hidden sm:block" title="Secure Form" />
+                    <ShieldCheck className="w-6 h-6 text-green-600/80 hidden sm:block" />
                   </div>
 
                   {/* Visual Error Message if Submission Fails (Fallback) */}
