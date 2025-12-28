@@ -237,6 +237,53 @@
             "title": "Pronto para Reservar seu Evento?",
             "subtitle": "Contacte-nos hoje para um orçamento personalizado e consultoria",
             "button": "Solicitar Orçamento"
+        },
+        "packages": {
+            "essential": {
+                "name": "Coleção Esencial",
+                "desc": "Perfecto para bodas íntimas e elopements",
+                "price_label": "A partir de",
+                "features": {
+                    "0": "6 Horas de Cobertura",
+                    "1": "300+ Fotos Editadas",
+                    "2": "Galería Online",
+                    "3": "Memoria USB"
+                }
+            },
+            "premium": {
+                "name": "Coleção Premium",
+                "desc": "Nosso pacote mais popular para cobertura de dia inteiro",
+                "price_label": "Dia Inteiro",
+                "features": {
+                    "0": "10 Horas de Cobertura",
+                    "1": "500+ Fotos Editadas",
+                    "2": "Sessão de Noivado",
+                    "3": "Álbum Fine Art",
+                    "4": "Segundo Fotógrafo"
+                }
+            },
+            "broadcast": {
+                "name": "Transmissão ao Vivo",
+                "desc": "Partilhe o seu momento com o mundo em tempo real",
+                "price_label": "A partir de",
+                "features": {
+                    "0": "Streaming HD Profissional",
+                    "1": "Suporte Multi-Plataforma",
+                    "2": "Espectadores Ilimitados",
+                    "3": "Gravação Incluída"
+                }
+            },
+            "cinema": {
+                "name": "Paquete Cinema",
+                "desc": "Narrativa cinematográfica de su día especial",
+                "price_label": "Solo Video",
+                "features": {
+                    "0": "8 Horas de Cobertura",
+                    "1": "Video Resumen de 4-5 Minutos",
+                    "2": "Tomas Aéreas (Dron)",
+                    "3": "Edición Completa de Ceremonia"
+                }
+            }
         }
     },
     "about": {

@@ -40,6 +40,20 @@ export default function Services() {
       popular: 1,
     },
     {
+      id: 4,
+      name: t("services_page.packages.broadcast.name"),
+      description: t("services_page.packages.broadcast.desc"),
+      price: 1450,
+      priceLabel: t("services_page.packages.broadcast.price_label"),
+      features: [
+        t("services_page.packages.broadcast.features.0"),
+        t("services_page.packages.broadcast.features.1"),
+        t("services_page.packages.broadcast.features.2"),
+        t("services_page.packages.broadcast.features.3"),
+      ],
+      popular: 0,
+    },
+    {
       id: 3,
       name: t("services_page.packages.cinema.name"),
       description: t("services_page.packages.cinema.desc"),

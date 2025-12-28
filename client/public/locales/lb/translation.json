@@ -32,7 +32,7 @@
         "subtitle": "Ëmfangräich Foto- a Videoléisungen ugepasst un Är Besoinen",
         "wedding": {
             "title": "Event an Hochzäitsfotografie",
-            "desc": "Komplett fotografesch Begleedung am dokumentaleschen an redaktionellen Stil. Mir fänken richteg Emotiounen ouni gezwonge Posen an."
+            "desc": "Komplett fotografesch Begleitung am dokumentaleschen an redaktionellen Stil. Mir fänken richteg Emotiounen ouni gezwonge Posen an."
         },
         "video": {
             "title": "Cinematesch Videoen",
@@ -57,7 +57,7 @@
         },
         "dance_schools": {
             "title": "Danz & Schoulen",
-            "desc": "Professionell Begleedung fir Schoulen, Opféierungen a Workshops."
+            "desc": "Professionelle Begleitung fir Schoulen, Opféierungen a Workshops."
         },
         "private_events": {
             "title": "Privat Feieren",
@@ -237,6 +237,53 @@
             "title": "Bereet fir Äert Event ze buchen?",
             "subtitle": "Kontaktéiert eis haut fir e perséinlecht Devis a Berodung",
             "button": "Devis Ufroen"
+        },
+        "packages": {
+            "essential": {
+                "name": "Essential Collection",
+                "desc": "Perfekt fir intime Hochzeiten und Elopements",
+                "price_label": "Ab",
+                "features": {
+                    "0": "6 Stunden Begleitung",
+                    "1": "300+ Bearbeitete Fotos",
+                    "2": "Online-Galerie",
+                    "3": "USB-Stick"
+                }
+            },
+            "premium": {
+                "name": "Premium Collection",
+                "desc": "Eise beléiftste Package fir Ganztagesbegleedung",
+                "price_label": "Ganzen Dag",
+                "features": {
+                    "0": "10 Stonnen Begleedung",
+                    "1": "500+ Beaarbecht Fotoen",
+                    "2": "Verlobungsshooting",
+                    "3": "Fine Art Album",
+                    "4": "Zweeten Fotograf"
+                }
+            },
+            "broadcast": {
+                "name": "Live Iwwerdroung",
+                "desc": "Deelt Äre Moment mat der Welt an Echtzäit",
+                "price_label": "Ab",
+                "features": {
+                    "0": "Professionellen HD Streaming",
+                    "1": "Multi-Plattform Support",
+                    "2": "Onbegrenzte Zuschauer",
+                    "3": "Opnam abegraff"
+                }
+            },
+            "cinema": {
+                "name": "Cinema Package",
+                "desc": "Filmische Erzählung Ihres besonderen Tages",
+                "price_label": "Nur Video",
+                "features": {
+                    "0": "8 Stunden Begleitung",
+                    "1": "4-5 Minuten Highlight-Film",
+                    "2": "Drohnenaufnahmen",
+                    "3": "Vollständiger Zeremonie-Schnitt"
+                }
+            }
         }
     },
     "about": {
@@ -252,7 +299,7 @@
             },
             "excellence": {
                 "title": "Handwierklech Meeschterschaft",
-                "desc": "Mir poléieren all Bild an all Sekonn Video, bis et an engem eegene Liicht erstraalt."
+                "desc": "Mir poléieren all Bild an all Sekonn Video, bis esou an engem eegene Liicht erstraalt."
             },
             "creativity": {
                 "title": "Den Auteursbléck",

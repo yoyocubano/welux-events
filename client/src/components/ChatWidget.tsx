@@ -353,7 +353,7 @@ export default function ChatWidget() {
                                     </div>
                                     <div>
                                         <h3 className="font-sans font-bold text-white text-base tracking-tight">Rebeca AI</h3>
-                                        <p className="text-[11px] text-[#D4AF37] uppercase tracking-wider font-medium">Concierge</p>
+                                        <p className="text-[11px] text-[#D4AF37] uppercase tracking-wider font-medium">Virtual Assistant</p>
                                     </div>
                                 </div>
                                 <Button

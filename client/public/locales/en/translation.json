@@ -300,6 +300,17 @@
                     "4": "Second Photographer"
                 }
             },
+            "broadcast": {
+                "name": "Live Broadcast",
+                "desc": "Share your moment with the world in real-time",
+                "price_label": "Starting from",
+                "features": {
+                    "0": "Professional HD Streaming",
+                    "1": "Multi-Platform Support",
+                    "2": "Unlimited Viewers",
+                    "3": "Recording Included"
+                }
+            },
             "cinema": {
                 "name": "Cinema Package",
                 "desc": "Cinematic storytelling of your special day",

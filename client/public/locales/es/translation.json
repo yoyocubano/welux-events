@@ -253,6 +253,17 @@
                     "4": "Segundo Fotógrafo"
                 }
             },
+            "broadcast": {
+                "name": "Transmisión en Vivo",
+                "desc": "Comparte tu momento con el mundo en tiempo real",
+                "price_label": "Desde",
+                "features": {
+                    "0": "Streaming HD Profesional",
+                    "1": "Soporte Multi-Plataforma",
+                    "2": "Espectadores Ilimitados",
+                    "3": "Grabación Incluida"
+                }
+            },
             "cinema": {
                 "name": "Paquete Cinema",
                 "desc": "Narrativa cinematográfica de su día especial",

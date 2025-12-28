@@ -6,9 +6,23 @@ interface Env {
 export const onRequestPost: PagesFunction<Env> = async (context) => {
     const { request, env } = context;
 
+    // If no key is configured, fallback to simulation mode immediately
     if (!env.DEEPSEEK_API_KEY) {
-        return new Response(JSON.stringify({ error: 'API Key not configured' }), {
-            status: 500,
+        console.warn("DEEPSEEK_API_KEY missing, using simulation mode.");
+        const simulatedReply = "This is a simulated response since the AI brain is not fully connected (API Key missing). Please configure the backend to talk to me for real!";
+        const { messages } = await request.json() as { messages: any[] };
+        const lastMsg = messages[messages.length - 1];
+
+        // Basic echo/simulation logic
+        let reply = simulatedReply;
+        if (lastMsg && lastMsg.content.toLowerCase().includes("hola")) {
+            reply = "¡Hola! Soy Rebeca, tu Asistente Virtual. Actualmente estoy en modo de demostración. ¿En qué puedo ayudarte?";
+        }
+
+        return new Response(JSON.stringify({
+            id: "sim-123",
+            choices: [{ message: { role: "assistant", content: reply } }]
+        }), {
             headers: { 'Content-Type': 'application/json' }
         });
     }

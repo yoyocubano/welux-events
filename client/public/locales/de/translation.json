@@ -237,6 +237,53 @@
             "title": "Bereit, Ihr Event zu buchen?",
             "subtitle": "Kontaktieren Sie uns heute für ein persönliches Angebot und Beratung",
             "button": "Angebot anfordern"
+        },
+        "packages": {
+            "essential": {
+                "name": "Essential Collection",
+                "desc": "Perfekt für intime Hochzeiten und Elopements",
+                "price_label": "Ab",
+                "features": {
+                    "0": "6 Stunden Begleitung",
+                    "1": "300+ Bearbeitete Fotos",
+                    "2": "Online-Galerie",
+                    "3": "USB-Stick"
+                }
+            },
+            "premium": {
+                "name": "Premium Collection",
+                "desc": "Unser beliebtestes Paket für Ganztagesbegleitung",
+                "price_label": "Ganztägig",
+                "features": {
+                    "0": "10 Stunden Begleitung",
+                    "1": "500+ Bearbeitete Fotos",
+                    "2": "Verlobungsshooting",
+                    "3": "Fine Art Album",
+                    "4": "Zweiter Fotograf"
+                }
+            },
+            "broadcast": {
+                "name": "Live-Übertragung",
+                "desc": "Teilen Sie Ihren Moment in Echtzeit mit der Welt",
+                "price_label": "Ab",
+                "features": {
+                    "0": "Professionelles HD-Streaming",
+                    "1": "Multi-Plattform-Unterstützung",
+                    "2": "Unbegrenzte Zuschauer",
+                    "3": "Aufnahme inklusive"
+                }
+            },
+            "cinema": {
+                "name": "Cinema Package",
+                "desc": "Filmische Erzählung Ihres besonderen Tages",
+                "price_label": "Nur Video",
+                "features": {
+                    "0": "8 Stunden Begleitung",
+                    "1": "4-5 Minuten Highlight-Film",
+                    "2": "Drohnenaufnahmen",
+                    "3": "Vollständiger Zeremonie-Schnitt"
+                }
+            }
         }
     },
     "about": {

@@ -290,6 +290,17 @@
                     "4": "Deuxième Photographe"
                 }
             },
+            "broadcast": {
+                "name": "Diffusion en Direct",
+                "desc": "Partagez votre moment avec le monde en temps réel",
+                "price_label": "À partir de",
+                "features": {
+                    "0": "Streaming HD Professionnel",
+                    "1": "Support Multi-Plateforme",
+                    "2": "Spectateurs Illimités",
+                    "3": "Enregistrement Inclus"
+                }
+            },
             "cinema": {
                 "name": "Paquet Cinéma",
                 "desc": "Récit cinématographique de votre journée spéciale",

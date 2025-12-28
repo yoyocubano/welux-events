@@ -36,7 +36,7 @@ export default function About() {
       name: t("about.team_members.rebeca.name"),
       role: t("about.team_members.rebeca.role"),
       bio: t("about.team_members.rebeca.bio"),
-      imageUrl: "/rebeca-team.webp"
+      imageUrl: "/rebeca-team.jpg"
     }
   ];
 
