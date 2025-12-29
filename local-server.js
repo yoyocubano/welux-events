@@ -148,25 +148,25 @@ const inquiryHandler = async (req, res) => {
         const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
         const resend = new Resend(RESEND_API_KEY);
 
-        // 2. Map to DB Schema (snake_case)
+        // 2. Map to DB Schema (camelCase based on drizzle/schema.ts)
         const dbPayload = {
             name,
             email,
             phone,
-            event_type,
-            event_date: event_date ? new Date(event_date) : null,
+            eventType: event_type,
+            eventDate: event_date ? new Date(event_date) : null,
             location,
             budget,
-            guest_count: guest_count ? Number(guest_count) : null,
-            service_interest,
+            guestCount: guest_count ? Number(guest_count) : null,
+            serviceInterest: service_interest,
             message,
-            created_at: new Date().toISOString(),
+            createdAt: new Date().toISOString(),
             status: 'new'
         };
 
-        // 3. Insert into Supabase (inquiries)
+        // 3. Insert into Supabase (client_inquiries)
         const { error: dbError } = await supabase
-            .from("inquiries")
+            .from("client_inquiries")
             .insert([dbPayload]);
 
         if (dbError) {

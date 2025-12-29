@@ -47,25 +47,25 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         const supabase = createClient(env.SUPABASE_URL, env.SUPABASE_ANON_KEY);
         const resend = new Resend(env.RESEND_API_KEY);
 
-        // Map to DB Schema (snake_case for Supabase/Postgres)
+        // Map to DB Schema (camelCase based on drizzle/schema.ts)
         const dbPayload = {
             name: data.name,
             email: data.email,
             phone: data.phone,
-            event_type: data.event_type,
-            event_date: data.event_date ? new Date(data.event_date) : null,
+            eventType: data.event_type,
+            eventDate: data.event_date ? new Date(data.event_date) : null,
             location: data.location,
             budget: data.budget,
-            guest_count: data.guest_count ? Number(data.guest_count) : null,
-            service_interest: data.service_interest,
+            guestCount: data.guest_count ? Number(data.guest_count) : null,
+            serviceInterest: data.service_interest,
             message: data.message,
-            created_at: new Date().toISOString(),
+            createdAt: new Date().toISOString(),
             status: 'new'
         };
 
-        // Insert into Supabase (table: inquiries)
+        // Insert into Supabase (table: client_inquiries)
         const { error: dbError } = await supabase
-            .from('inquiries')
+            .from('client_inquiries')
             .insert([dbPayload]);
 
         if (dbError) {
