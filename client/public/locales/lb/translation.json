@@ -669,6 +669,93 @@
         "send": "Bestätegen & Schécken",
         "success": "Ufro erfollegräich geschéckt!"
     },
+    "associated_services": {
+        "title": "Digital Servicer",
+        "subtitle": "Äre Partner deen ni schléift. Multiplizéiert Är Verkaafskraaft x3.",
+        "intro": "Et ass net nëmmen eng Websäit, et ass Ären eegenen digitalen Raum. Stellt Iech vir, Dir hätt e System deen 24/7 fir Iech schafft.",
+        "presentation_lp": {
+            "hero_title": "Welux Digital Services",
+            "hero_subtitle": "\"Äre Partner deen ni schléift\"",
+            "section_family": {
+                "title": "🤝 De perséinlechen Touch",
+                "p1": "Loosst eis iwwer d'Geschäft schwätzen, vu Famill zu Famill.",
+                "p2": "Mir wëssen, wat et heescht, e Betrib opzebauen. Oft end de een als Sklave vu sengem Telefon a beäntwert Norichten spéit an der Nuecht, anstatt sech auszerouen.",
+                "p3": "Verpasst keng wichteg Momenter méi, well Dir honnertmol am Dag \"Wéi vill kascht dat?\" beäntwerte musst. Mir hunn eng Léisung."
+            },
+            "section_space": {
+                "title": "🌐 Ären eegenen digitalen Raum",
+                "p1": "Stellt Iech vir, Dir hätt en digitale Premium-Showroom, deen IECH gehéiert. Keng Säit an de sozialen Medien, mee eng High-End-Plattform.",
+                "p2": "Et ass net nëmme fir ze weisen; et ass e Verkaaffsmotor. Maacht Är Dieren op fir d'Welt, net nëmme fir Är Noperschaft.",
+                "highlight": "Mir schwätzen dovun, Är Verkaaffskraaft mat 3 ze multiplizéieren!"
+            },
+            "section_auto": {
+                "title": "🤖 Intelligent Automatiséierung",
+                "intro": "Dat Bescht drun? Während Dir Iech op Är Aarbecht konzentréiert oder e Kaffi genéisst, schafft d'Technologie fir Iech.",
+                "list": {
+                    "1": "Vergiesst den Telefon: De Bot äntwert, nennt Präisser a schéisst Geschäfter of.",
+                    "2": "Automatesche Verkaaf: Clienten kucken, wielen aus an - bum! -, de Verkaaf ass registréiert.",
+                    "3": "Perfekt Organisatioun: Alles gëtt automatesch erfaasst an organiséiert."
+                }
+            },
+            "section_why": {
+                "title": "👔 Firwat Welux?",
+                "text": "Well mir keng \"kal\" Websäiten maachen. Mir bauen Systemer mat Eleganz, mee mat der Effizienz déi Dir braucht fir ze wuessen. Gitt vum Mataarbechter vun Ärem Betrib zum Besëtzer."
+            },
+            "cta_box": {
+                "title": "Bereet fir d'Verännerung?",
+                "text": "Loosst d'Technologie fir Iech schaffen.",
+                "button": "Mat engem Agent schwätzen"
+            },
+            "agents_section": {
+                "title": "Welux Agent ginn?",
+                "subtitle": "Hëlleft anere Betriber ze wuessen a verdéngt Kommissiounen.",
+                "desc": "Mir sichen Visionären. Wann Dir Betriber kennt déi dëst brauchen, da schléisst Iech eis un.",
+                "contact_btn": "Agenten kontaktéieren",
+                "email_text": "Schreift eis op agentes@weluxevents.com"
+            }
+        },
+        "web_design": {
+            "title": "Web Design & Entwécklung",
+            "desc": "Moossgeschneidert Websäiten déi d'Essenz vun Ärer Mark mat modernen Design an optimaler Leeschtung zeréckginn."
+        },
+        "shopify": {
+            "title": "E-commerce (Shopify)",
+            "desc": "Komplett Online-Shops prett fir ze verkafen. Vum Setup bis zur Optiméierung, mir këmmeren eis ëm alles."
+        },
+        "social_media": {
+            "title": "Social Media Management",
+            "desc": "Strategesch Inhalter déi mat Ärem Publikum verbannen an authentesch Communautéiten opbauen."
+        },
+        "seo": {
+            "title": "SEO & Digital Marketing",
+            "desc": "Gitt vun deene fonnt, déi wichteg sinn. Strategien déi Är Sichtbarkeet an Konversiounen erhéijen."
+        },
+        "chatbot": {
+            "badge": "STAR PRODUKT",
+            "title": "KI-Chatbot fir WhatsApp",
+            "desc": "Automatiséiert Äre Clientsservice mat engem intelligente Consultant dee vun Ärem Betrib léiert an 24/7 äntwert.",
+            "whatsapp_integration": {
+                "title": "WhatsApp Integratioun",
+                "desc": "Direkt Verbindung mat der Liiblings-App vun Äre Clienten."
+            },
+            "smart_ai": {
+                "title": "Intelligent KI-Gehir",
+                "desc": "Léiert vun Ärer Datebank fir wéi en Expert ze äntweren."
+            },
+            "simulation": {
+                "msg_1": "Wéi vill kascht eng Hochzäit?",
+                "msg_2": "Moien! Eis Hochzäitspakete fänken bei 2.000 € un. Bevorzugt Dir Foto, Video oder béides? 📸🎥",
+                "msg_3": "Béides wgl!",
+                "msg_4": "Exzellent Wiel! De komplette Pack ass eisen Best-Seller. Géift Dir gären iwwerpréiwen ob Ären Datum nach fräi ass? 📅"
+            }
+        },
+        "cta": {
+            "contact_us": "Informatiounen ufroen",
+            "limit_offer": "LIMITÉIERT OFFER",
+            "lower_prices": "Niddregst Präisser vum Joer",
+            "button": "Kritt elo mäin Devis"
+        }
+    },
     "cookies": {
         "message": "Mir benotze Cookien fir Är Experienz ze verbesseren. Andeems Dir akzeptéiert, hëlleft Dir eis Traffic ze analyséieren an Inhalter ze personaliséieren.",
         "reject": "Ofleenen",

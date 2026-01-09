@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Moon, Music, Wine } from "lucide-react";
+import { Moon, Music, Wine, ArrowLeft } from "lucide-react";
 import { SEO } from "@/components/SEO";
 
 import { ContentGate } from "@/components/ContentGate";
@@ -56,6 +57,12 @@ export default function Nightlife() {
     return (
         <div className="min-h-screen bg-black text-white">
             <ContentGate pageName="Nightlife" />
+            <Link href="/">
+                <button className="absolute top-6 left-6 z-50 bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/10 rounded-full p-3 md:px-6 md:py-2 flex items-center gap-2 transition-all group">
+                    <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                    <span className="hidden md:inline font-medium text-sm tracking-wide">MENU</span>
+                </button>
+            </Link>
             <SEO
                 title={t("seo_pages.nightlife.title")}
                 description={t("seo_pages.nightlife.desc")}

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
+import { Play, ArrowLeft, ArrowRight } from "lucide-react"; // Added ArrowRight, kept Play as it's used later
 import ChatWidget from "@/components/ChatWidget";
 import { SEO } from "@/components/SEO";
 
@@ -30,8 +31,14 @@ export default function StreamingWindow() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-[#FAF8F3] relative">
       <ContentGate pageName="Streaming Page" mode="absolute" />
+      <Link href="/">
+        <button className="absolute top-6 left-6 z-50 bg-black/30 hover:bg-black/50 text-white backdrop-blur-md border border-white/10 rounded-full p-3 md:px-6 md:py-2 flex items-center gap-2 transition-all group">
+            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+            <span className="hidden md:inline font-medium text-sm tracking-wide">MENU</span>
+        </button>
+      </Link>
       <SEO
         title={t("seo_pages.streaming.title")}
         description={t("seo_pages.streaming.desc")}

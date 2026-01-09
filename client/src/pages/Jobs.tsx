@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { useTranslation } from "react-i18next";
-import { Briefcase, MapPin, Search } from "lucide-react";
+import { Briefcase, MapPin, Search, ArrowLeft } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -70,6 +70,12 @@ export default function Jobs() {
                 keywords={["jobs luxembourg", "trabajo luxemburgo", "adem jobs", "ofertas empleo"]}
             />
             <div className="min-h-screen bg-[#FAF8F3] relative">
+                <Link href="/">
+                    <button className="absolute top-6 left-6 z-50 bg-white/80 hover:bg-white text-black backdrop-blur-md border border-black/5 rounded-full p-3 md:px-6 md:py-2 flex items-center gap-2 transition-all shadow-sm group">
+                        <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                        <span className="hidden md:inline font-medium text-sm tracking-wide">MENU</span>
+                    </button>
+                </Link>
                 {/* ContentGate for 'Jobs' removed as per public tool requirement */}
 
                 <div className="container mx-auto px-4 py-20">
