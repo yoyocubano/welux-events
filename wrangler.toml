@@ -1,0 +1,13 @@
+name = "welux-events"
+pages_build_output_dir = "client/dist"
+compatibility_date = "2024-12-28"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "welux-events-db"
+database_id = "4aa6a855-8370-40cf-843e-325fbb625283"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "ca74d97a9c2b49c1a3850e72039f5039"

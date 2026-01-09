@@ -1,0 +1,781 @@
+{
+    "language_code": "lb",
+    "hero": {
+        "title": "Är Geschicht, mat Séil erzielt",
+        "subtitle": "Kino, Fotografie a Live-Sendungen, déi Momenter éiweg maachen",
+        "description": "Mir dokumentéieren net nëmmen en Event. Mir schafen de visuellen Ierfschaft vun Ärem glécklechsten Dag, fir datt Dir en haut an an zwanzeg Joer mat därselwechter Tréin vu Freed erëm erliewe kënnt.",
+        "team_credits": "Är Alliéiert | Joan: Fotografie | Abel: Kino | Yusmel: Design | Rebeca: Äre Séilenfridden",
+        "cta_primary": "Loosst eis iwwer Ären Dag schwätzen",
+        "cta_secondary": "D'Team begéinen",
+        "get_quote": "Erzielt eis Är Visioun",
+        "trust_badge": "Vu Lëtzebuerg an d'Welt • +10 Joer Erënnerunge schafen",
+        "award_winning": "Gewielt vun iwwer",
+        "studio": "500 Gléckleche Koppelen"
+    },
+    "why_choose": {
+        "title": "Äre Séilenfridden ass eis Prioritéit",
+        "subtitle": "Mir wëssen, datt dësen Dag sech net widderhëlt. Dofir këmmere mir eis ëm d'Technik, fir datt Dir Iech op d'Gefiller konzentréiere kënnt.",
+        "team": {
+            "title": "Onsiichtbar Presenz",
+            "desc": "Mir sinn do, fir déi spontan Ëmarmung an dee wëssenden Bléck anzefänken, ouni d'Magie vum Moment ze ënnerbriechen."
+        },
+        "service": {
+            "title": "Reng & Echt Emotioun",
+            "desc": "Vergiesst steif Pose. Mir sichen dat onkontrolléierbar Laachen, déi verstoppten Tréin an d'Schéinheet vun der Authentizitéit."
+        },
+        "local": {
+            "title": "Lokal Experten",
+            "desc": "Mir kennen d'Liicht vu Lëtzebuerg a seng geheim Ecker. Loosst eis Iech op déi perfekt Kulisse fir Är Geschicht féieren."
+        }
+    },
+    "services": {
+        "title": "Eis Servicer",
+        "subtitle": "Ëmfangräich Foto- a Videoléisungen ugepasst un Är Besoinen",
+        "wedding": {
+            "title": "Event an Hochzäitsfotografie",
+            "desc": "Komplett fotografesch Begleitung am dokumentaleschen an redaktionellen Stil. Mir fänken richteg Emotiounen ouni gezwonge Posen an."
+        },
+        "video": {
+            "title": "Cinematesch Videoen",
+            "desc": "Cinematesch 4K Produktioun mat méi Kameraen a professionellem Audio."
+        },
+        "broadcasting": {
+            "title": "Live Broadcasting",
+            "desc": "Multi-Kamera Live-Streaming fir Konferenzen an Hochzäiten. Bréngt Äert Event an Echtzäit un e weltwäite Publikum."
+        },
+        "full": {
+            "title": "Komplett Ofdeckung",
+            "desc": "Déi ganz Geschicht. Foto a Video schaffen vun Ufank bis Enn an perfekter Harmonie zesummen."
+        },
+        "view_all": "All Servicer kucken",
+        "pets": {
+            "title": "Déierefotografie",
+            "desc": "D'Perséinlechkeet vun Äre Hausdéieren ofbilden."
+        },
+        "corporate": {
+            "title": "Inhaltskreatioun",
+            "desc": "Visuellt Storytelling fir Betriber vun all Gréisst."
+        },
+        "dance_schools": {
+            "title": "Danz & Schoulen",
+            "desc": "Professionelle Begleitung fir Schoulen, Opféierungen a Workshops."
+        },
+        "private_events": {
+            "title": "Privat Feieren",
+            "desc": "Gender Reveal, Gebuertsdeeg an all Zort vun Evenementer."
+        }
+    },
+    "featured": {
+        "title": "Ausgewielt Aarbechten",
+        "subtitle": "En Abléck an eise Portfolio vu schéine Hochzäiten an Eventer",
+        "view_full": "De ganze Portfolio kucken"
+    },
+    "cta": {
+        "title": "Bereet Är Geschicht festzehalen?",
+        "subtitle": "Loosst eis iwwer Äert rezent Event schwätzen an eppes Schéines zesumme kreéieren",
+        "button": "Kontaktéiert eis"
+    },
+    "home": {
+        "digital_teaser": {
+            "title": "Digital Exzellenz",
+            "subtitle": "Méi wéi nëmmen Eventer: Web Design, Social Media an KI Chatbots fir Är Mark.",
+            "button": "Entdeckt Digital Servicer",
+            "badge": "Nei Divisioun"
+        }
+    },
+    "nav": {
+        "home": "Heem",
+        "portfolio": "Portfolio",
+        "services": "Servicer",
+        "live": "Live",
+        "about": "Iwwer eis",
+        "protocol": "De Protokoll",
+        "contact": "Kontakt",
+        "associated_services": "Digital Services"
+    },
+    "protocol_page": {
+        "hero": {
+            "eyebrow": "De WE Standard",
+            "title": "Den Lëtzebuerger Wedding & Event Protokoll",
+            "subtitle": "\"E Guide fir Stress-fräi Planung\""
+        },
+        "intro": {
+            "p1": "Dir start op eng Rees, déi vu Freed definéiert soll sinn, net vun Angscht. An der dynamescher Eventlandschaft vu Lëtzebuerg läit den Ënnerscheed tëscht enger chaotescher Versammlung an enger aussergewéinlecher Erfarung net am Budget, mee an der <strong>Präzisioun vun der Planung</strong>.",
+            "p2": "Bei WE gleewe mir, datt <em>Séilenfridden</em> dee gréisste Luxus ass. Dëse Protokoll gouf aus iwwer engem Joerzéngt Erfarung entwéckelt, fir Iech d'Viraussiicht vun engem Profi ze ginn. Liest e, benotzt e a fannt Är Rou erëm."
+        },
+        "timeline": {
+            "title": "1. Zäitplang & Etikett",
+            "subtitle": "De Rot vum Weisen",
+            "foundation": {
+                "title": "12-18 Méint am Viraus: D'Basis",
+                "desc": "Zu Lëtzebuerg si Premium Locationen (Schlässer, Musel-Wéngerten) laang am Viraus gebucht. Reservéiert keen Datum, ier Dir d'Plaz net sécher hutt."
+            },
+            "guests": {
+                "title": "D'Gäschtrelëscht",
+                "desc": "Definéiert Är Zuelen elo. E \"Weisen\" weess, datt 150 Gäscht eng aner logistesch Erausfuerderung sinn wéi 80."
+            },
+            "triad": {
+                "1": "Catering",
+                "2": "Fotografie",
+                "3": "Atmosphär (Musek/Luucht)",
+                "title": "D'Verkeefer Prioritéits-Triad",
+                "insight": "\"Wien\" ass méi wichteg wéi \"Wéi vill\". En Ubidder, deen d'Restriktioune vun der Location kennt, ass Gold wäert."
+            }
+        },
+        "caregiver": {
+            "title": "2. D'Checklëschte vum Fleeger",
+            "subtitle": "Wat Anerer Vergiessen",
+            "rain": {
+                "title": "De Reen-Plang",
+                "desc": "Lëtzebuerger Realitéit: Gitt ni vu Sonn aus. Mir plangen fir Reen, sou datt wann e kënnt, et gewollt wierkt (z.B. kloer Zelter, gemittlech Banneluuchten)."
+            },
+            "gap": {
+                "title": "Kirchberg-Musel Distanz",
+                "desc": "Wann Är Zeremonie an der Stad ass an d'Receptioun um Land, suergt fir Navetten. Et erlaabt de Gäscht ze genéissen a garantéiert, datt jiddereen no Ärem Zäitplang ukënnt."
+            },
+            "diet": {
+                "title": "Diät Dignitéit",
+                "desc": "Vegetaresch/Vegan Optioune sollen esou visuell beandrockend sinn wéi den Haaptmenü. E Gaascht, dee mat Suergfalt behandelt gëtt, ass e Gaascht, deen iwwer Äert Event schwëermt."
+            }
+        },
+        "budget": {
+            "title": "3. Budgetéierung fir Séilenfridden",
+            "headers": {
+                "investment": "Investitioun",
+                "impact": "Impakt",
+                "insight": "WE Abléck"
+            },
+            "rows": {
+                "coord": {
+                    "item": "Koordinatioun",
+                    "impact": "Héich",
+                    "desc": "E Koordinator ze kafen heescht, Är eege Presenz ze kafen. Sidd Gaascht op Ärem eegenen Event."
+                },
+                "light": {
+                    "item": "Beliichtung",
+                    "impact": "Héich",
+                    "desc": "Beliichtung transforméiert e Raum méi effektiv wéi Blummen, fir d'Halschent vum Präis."
+                },
+                "favors": {
+                    "item": "Kaddoen",
+                    "impact": "Niddereg",
+                    "desc": "Gäscht vergiessen \"Saachen\". Si erënnere sech dorun, wéi si sech gefillt hunn (Musek, Iessen, Oflaf)."
+                }
+            }
+        },
+        "cta": {
+            "title": "Fänkt Är Rees Gutt Un",
+            "text": "Dëse Protokoll ass d'Kaart. Awer eng Kaart ass kee Guide. Fir eng Visioun vun dëser Gréisst ëmzesetzen, braucht Dir e Partner, deen den Horizont am Aen hält, wärend Dir d'Vue genéisst.",
+            "button": "Bucht Är Gratis Berodung"
+        }
+    },
+    "portfolio": {
+        "title": "Eise Portfolio",
+        "subtitle": "Entdeckt eis Sammlung vu schéine Hochzäiten an Eventer, déi zu Lëtzebuerg festgehale goufen",
+        "all_projects": "All Projeten",
+        "view_photos": "Kuckt {{count}} Fotoen",
+        "no_projects": "Nach keng Projeten an dëser Kategorie fonnt.",
+        "categories": {
+            "weddings": "Hochzäiten & Events",
+            "engagements": "Verlobungen",
+            "events": "Evenementer",
+            "pets": "Hausdéieren",
+            "corporate": "Inhaltskreatioun",
+            "dance": "Danz & Schoulen",
+            "private": "Privat Feieren"
+        },
+        "projects": {
+            "chateau": {
+                "title": "Schlasshochzäit",
+                "desc": "Eng wonnerschéin Summerhochzäit am Grand Château.",
+                "location": "Veianen, Lëtzebuerg"
+            },
+            "city": {
+                "title": "Verlobung an der Stad",
+                "desc": "Romantesch Fotosessioun an der Stad Lëtzebuerg.",
+                "location": "Lëtzebuerg Stad"
+            },
+            "pets_park": {
+                "title": "Golden Hour Park Sessioun",
+                "desc": "Fänkt d'Freed vun Ärem Déier an der Natur an.",
+                "location": "Merl Park, Lëtzebuerg"
+            },
+            "corporate_summit": {
+                "title": "Tech Innovatiouns Sommet",
+                "desc": "Professionell Coverage vun engem dynamesche Firmenevent.",
+                "location": "Kirchberg, Lëtzebuerg"
+            },
+            "dance_studio": {
+                "title": "Urban Dance Kollektiv",
+                "desc": "Dynamesch Studio- an Bausse-Sessiounen fir eng modern Danzgrupp.",
+                "location": "Esch-Uelzecht"
+            },
+            "private_celebration": {
+                "title": "Rooftop Gebuertsdag & Reveal",
+                "desc": "Intim Feieren mat Famill a Frënn.",
+                "location": "Clausen, Lëtzebuerg"
+            },
+            "sbk": {
+                "title": "SBK International Night",
+                "desc": "A vibrant night of Salsa, Bachata, and Kizomba capturing the passion of the dance community.",
+                "location": "Luxembourg City"
+            },
+            "winter": {
+                "title": "Winter Wonderland Wedding",
+                "desc": "A magical snowy celebration with cozy details and romantic atmosphere.",
+                "location": "Mullerthal, Luxembourg"
+            }
+        }
+    },
+    "services_page": {
+        "title": "Eis Servicer",
+        "subtitle": "Professionell Foto- a Videografie Packagen fir Äert Event onvergiesslech ze maachen",
+        "most_popular": "Beléiftst",
+        "custom_quote": "Moossgeschneidert Devis",
+        "get_started": "Lassleeën",
+        "coming_soon": "Service Packagen kommen geschwënn.",
+        "included": {
+            "title": "Wat ass abegraff",
+            "subtitle": "All Package enthält eis Premium Service Standarden",
+            "equipment": {
+                "title": "Professionellt Equipement",
+                "desc": "Modernst Kameraen a Beliichtungstechnik"
+            },
+            "editing": {
+                "title": "Experten Editing",
+                "desc": "Professionell Postproduktioun a Faarfkorrektur"
+            },
+            "delivery": {
+                "title": "Digital Liwwerung",
+                "desc": "Héichopléisend Dateien iwwer geséchert Online Galerie"
+            },
+            "support": {
+                "title": "Engagéierten Support",
+                "desc": "Perséinlech Berodung a Planungshëllef"
+            }
+        },
+        "cta": {
+            "title": "Bereet fir Äert Event ze buchen?",
+            "subtitle": "Kontaktéiert eis haut fir e perséinlecht Devis a Berodung",
+            "button": "Devis Ufroen"
+        },
+        "packages": {
+            "essential": {
+                "name": "Essential Collection",
+                "desc": "Perfekt fir intim Hochzäiten an Elopements",
+                "price_label": "Vun",
+                "features": {
+                    "0": "6 Stonnen Begleedung",
+                    "1": "300+ Beaarbecht Fotoen",
+                    "2": "Online-Galerie",
+                    "3": "USB-Stick"
+                }
+            },
+            "premium": {
+                "name": "Premium Collection",
+                "desc": "Eise beléiftste Package fir Ganztagesbegleedung",
+                "price_label": "Ganzen Dag",
+                "features": {
+                    "0": "10 Stonnen Begleedung",
+                    "1": "500+ Beaarbecht Fotoen",
+                    "2": "Verlobungsshooting",
+                    "3": "Fine Art Album",
+                    "4": "Zweeten Fotograf"
+                }
+            },
+            "broadcast": {
+                "name": "Live Iwwerdroung",
+                "desc": "Deelt Äre Moment mat der Welt an Echtzäit",
+                "price_label": "Vun",
+                "features": {
+                    "0": "Professionellen HD Streaming",
+                    "1": "Multi-Plattform Support",
+                    "2": "Onbegrenzte Zuschauer",
+                    "3": "Opnam abegraff"
+                }
+            },
+            "cinema": {
+                "name": "Cinema Package",
+                "desc": "Filmesch Erzielung vun Ärem besonneschen Dag",
+                "price_label": "Nëmme Video",
+                "features": {
+                    "0": "8 Stonnen Begleedung",
+                    "1": "4-5 Minutten Highlight-Film",
+                    "2": "Dronenopnamen",
+                    "3": "Vollständegen Zeremonie-Schnëtt"
+                }
+            }
+        }
+    },
+    "about": {
+        "title": "Méi wéi nëmmen Fotografen",
+        "p1": "Moien. Mir sinn d'Team vu Welux Events. Mir si kee gesichtslosen Konzern; mir si passionéiert Kënschtler, déi un d'Kraaft vun den Erënnerunge gleewen.",
+        "p2": "Mir verstinn d'Verantwortung, déi Dir an eis Hänn leet. Dir bucht keen Déngschtleeschter; Dir vertraut Är zerbriechlechst a wäertvollst Momenter Aen un, déi wësse wéi een se fir ëmmer mat Respekt a Schéinheet bewahrt.",
+        "values": {
+            "title": "Wat eis undreift",
+            "subtitle": "Well Technik wichteg ass, awer d'Häerz essenziell ass.",
+            "passion": {
+                "title": "Ongebremst Leidenschaft",
+                "desc": "Et ass net nëmmen eng Aarbecht. Et ass de Privileg, Zeie vun Ärem Gléck ze sinn."
+            },
+            "excellence": {
+                "title": "Handwierklech Meeschterschaft",
+                "desc": "Mir poléieren all Bild an all Sekonn Video, bis esou an engem eegene Liicht erstraalt."
+            },
+            "creativity": {
+                "title": "Den Auteursbléck",
+                "desc": "Mir lafe virum Genereschen fort, fir de Wénkel ze fannen, deen Iech eenzegaarteg mécht."
+            },
+            "connection": {
+                "title": "Mënschlech Proximitéit",
+                "desc": "Mir wëllen Är Frënn mat Kamerae sinn, keng Friem op Ärer Party."
+            }
+        },
+        "team": {
+            "title": "Eist Team",
+            "subtitle": "Déi talentéiert Profien hannert all schéinem Moment",
+            "coming_soon": "Team Informatiounen kommen geschwënn."
+        },
+        "team_members": {
+            "joan": {
+                "name": "Joan Valdés",
+                "role": "Fotograf a Produzent",
+                "bio": "Echt Emotiounen mat engem kënschtleresche Bléck afänken."
+            },
+            "abel": {
+                "name": "Abel Rhodes",
+                "role": "Video Kreatioun a Kreativ Direktioun",
+                "bio": "Visuell Erzielungen, déi Är Liebesgeschicht erzielen."
+            },
+            "yusmel": {
+                "name": "Yusmel Colombo",
+                "role": "PR a Web Design",
+                "bio": "Verbënnt eis Leidenschaft mat Ären Dreem."
+            },
+            "rebeca": {
+                "name": "Rebeca Valdés",
+                "role": "Organisatioun a Koordinatioun vun Eventer",
+                "bio": "Mir organiséieren all Detail fir Är Rou."
+            }
+        },
+        "experience": {
+            "title": "Eis Erfarung",
+            "subtitle": "Jorelaang Expertise am Déngscht vu Clienten uechter Lëtzebuerg",
+            "years": {
+                "value": "10+",
+                "label": "Joer Erfarung"
+            },
+            "events": {
+                "value": "500+",
+                "label": "Eventer Ofgedeckt"
+            },
+            "satisfaction": {
+                "value": "100%",
+                "label": "Zefriddenheet"
+            }
+        },
+        "cta": {
+            "title": "Loosst eis eppes Schéines kreéieren",
+            "subtitle": "Mir géifen gären vun Ärem rezenten Event héieren a beschwätzen, wéi mir hëllefe kënnen",
+            "button": "Kontaktéiert eis"
+        }
+    },
+    "contact": {
+        "title": "Kontaktéiert eis",
+        "subtitle": "Loosst eis Äert Event beschwätzen",
+        "info": {
+            "email": "Email",
+            "phone": "Telefon",
+            "whatsapp": "WhatsApp Verfügbar",
+            "location": "Standuert",
+            "hours": "Ouvertureszäiten",
+            "hours_val": "Mé - Fr: 9:00 - 18:00\nSa: 10:00 - 16:00\nSo: Op Rendez-vous",
+            "location_val": "Luxembourg City (Appointment Only)"
+        },
+        "validation": {
+            "name_required": "Vollständegen Numm ass erfuerderlech",
+            "email_required": "Email ass erfuerderlech",
+            "email_invalid": "Gitt w.e.g. eng gëlteg Email-Adress un",
+            "event_type_required": "Wielt w.e.g. en Event-Typ",
+            "phone_invalid": "Ongülteg Telefonsnummer (z.B. +352 123 456 789)",
+            "name_min": "Den Numm muss op d'mannst 2 Zeechen hunn",
+            "message_min": "De Message muss op d'mannst 10 Zeechen hunn",
+            "future_date": "Den Datum muss an der Zukunft leien"
+        },
+        "privacy_note": "Är Donnéeë si sécher. Mir deelen Är Informatiounen ni mat Drëtten.",
+        "submit": "Ufro schécken",
+        "sending": "Gëtt geschéckt...",
+        "form": {
+            "title": "Disponibilitéitsufro",
+            "name": "Ären Numm *",
+            "email": "Är perséinlech E-Mail *",
+            "phone": "Handy (Optional)",
+            "event_type": "Wat feiere mir? *",
+            "select_event": "Wielt d'Geleeënheet",
+            "event_types": {
+                "wedding": "Exklusiv Hochzäit",
+                "corporate": "Gala / Firmenevent",
+                "celebration": "Privat Feier",
+                "engagement": "Engagement Sessioun",
+                "technical": "Technesch Hëllef",
+                "digital": "Digital Servicer / Web",
+                "other": "Moossgeschneidert Projet"
+            },
+            "date": "Wonschdatum",
+            "location": "Draumplaz (Wann Dir eng hutt)",
+            "budget": "Investitiounsberäich",
+            "select_budget": "Wielt e Beräich",
+            "budgets": {
+                "under_2k": "Ënner €2,000 (Basis)",
+                "2k_5k": "€2,000 - €5,000 (Komplett)",
+                "5k_10k": "€5,000 - €10,000 (Premium)",
+                "over_10k": "Keng Limit (Moossgeschneidert)"
+            },
+            "guests": "Unzuel u Gäscht (Ongeféier)",
+            "service_interest": "Wat ass Är Prioritéit?",
+            "select_service": "Prioritéit wielen",
+            "services": {
+                "photo": "Redaktionell Fotografie",
+                "video": "Cinematographie",
+                "both": "Voll Ofdeckung (Foto + Cinema)"
+            },
+            "placeholders": {
+                "name": "z.B. Marie & Jean",
+                "email": "numm@beispill.lu",
+                "phone": "+352 600 000 000"
+            },
+            "message": "Erzielt eis Är Visioun",
+            "placeholder_msg": "Beschreift wéi Dir Iech deen Dag fille wëllt...",
+            "validation": {
+                "name_required": "Sot eis w.e.g. Ären Numm",
+                "email_required": "Mir brauchen eng E-Mail fir Iech ze kontaktéieren",
+                "email_invalid": "E-Mail Format schéngt inkorrekt",
+                "event_type_required": "Event Typ ass néideg",
+                "phone_invalid": "Ongülteg Telefon Format",
+                "name_min": "Numm ze kuerz",
+                "message_min": "Sot eis e bësse méi (min 10 Zeechen)",
+                "future_date": "Datum muss an der Zukunft leien"
+            },
+            "privacy_note": "Vertraulechkeet garantéiert. Är Donnéeën verloossen Welux ni.",
+            "submit": "Disponibilitéit Ufroen",
+            "sending": "Zäitplang kucken..."
+        },
+        "sidebar": {
+            "review_title": "Wéi war Är Erfarung?",
+            "review_desc": "Är Wierder hëllefen anere Koppelen hir Rou ze fannen.",
+            "review_btn": "Erfarung bewäerten"
+        },
+        "areas": {
+            "title": "Service Beräicher zu Lëtzebuerg",
+            "subtitle": "Mir bidden Foto- a Videografie Servicer uechter Lëtzebuerg an Ëmgéigend un",
+            "primary": "Haaptservice Beräicher:",
+            "list": "Lëtzebuerg Stad, Esch-Uelzecht, Déifferdeng, Diddeleng, Ettelbréck, Dikrech, Wolz an Ëmgéigend Gemengen"
+        }
+    },
+    "brand": {
+        "name": "Welux Events",
+        "tagline": "Video / Fotoen / Broadcasting"
+    },
+    "technical_concierge": {
+        "hero": {
+            "new_service": "Neien Service",
+            "title": "Technesche Concierge",
+            "description": "Déi onsiichtbar Hänn, déi Är Welt um Lafe halen. Vun Event-Opbauten bis Noutfall-Reparaturen, mir këmmeren eis ëm d'Technik, fir datt Dir de Moment genéisse kënnt.",
+            "cta": "Techniker Buchen"
+        },
+        "features": {
+            "response": {
+                "title": "Séier Äntwert",
+                "desc": "Noutfall technesch Ënnerstëtzung wann Dir se am meeschte braucht. Mir léisen Problemer ier Är Gäscht se iwwerhaapt bemierken."
+            },
+            "setup": {
+                "title": "Op- an Ofbau",
+                "desc": "Professionell Installatioun vu Beliichtung, Toun an Dekoratiounsstrukturen. Präzis, sécher an onsiichtbar."
+            },
+            "maintenance": {
+                "title": "Ënnerhalt",
+                "desc": "Lafend Betreiung fir Äert Equipement an Är Räimlechkeeten. Perfektioun läit am Detail, deen mir ënnerhalen."
+            }
+        }
+    },
+    "auth": {
+        "sign_in": "Umellen",
+        "sign_in_desc": "Dësen Dashboard erfuerdert eng Authentifizéierung. Fuert weider fir de Login-Prozess ze starten.",
+        "sign_out": "Ofmellen",
+        "sign_in_title": "Mellt Iech un fir weiderzemaachen"
+    },
+    "common": {
+        "whatsapp": "WhatsApp",
+        "navigation": "Navigatioun",
+        "previous": "Zeréck",
+        "next": "Weider"
+    },
+    "chat": {
+        "greeting": "Moien! Ech sinn d'Rebeca AI, är virtuell Assistentin. Wéi kann ech hëllefen?",
+        "title": "Rebeca AI",
+        "subtitle": "Virtuell Assistentin",
+        "placeholder": "Frot eis...",
+        "error": "Pardon, ech sinn offline.",
+        "connecting": "Verbindungsproblemer."
+    },
+    "error": {
+        "unexpected": "En onerwaarte Feeler ass geschitt."
+    },
+    "not_found": {
+        "title": "Säit Net Fonnt",
+        "desc": "Pardon, d'Säit déi Dir sicht existéiert net.",
+        "hint": "Si kéint geréckelt oder geläscht ginn sinn.",
+        "home_button": "Zeréck Heem"
+    },
+    "footer": {
+        "quick_links": "Séier Links",
+        "contact": "Kontakt",
+        "follow_us": "Follegt eis",
+        "rights": "Tous droits réservés.",
+        "desc": "Mir halen Är wäertvollst Momenter mat Eleganz a Konscht zu Lëtzebuerg fest.",
+        "legal": "Impressum & Dateschutz",
+        "discover": "Entdecken",
+        "referrals": "Recommandatiounen & Partner",
+        "image_rights": "Bildrechter & Haftung",
+        "booking_modal": {
+            "title": "Privaten Rendez-vous ofmaachen",
+            "subtitle": "Welux Events Atelier",
+            "attention": "Exklusive Service",
+            "desc": "Fir déi bescht Experienz ze garantéieren, empfänke mir Iech an eisem Lëtzebuerger Atelier nëmmen op Rendez-vous.",
+            "btn_calendar": "Disponibilitéit kucken (Calendly)",
+            "btn_message": "Ech schreiwen léiwer eng Noriicht",
+            "note": "Eng nei Fënster geet op fir Är Zäit op Calendly ze wielen."
+        }
+    },
+    "associated_services": {
+        "title": "Digital Exzellenz",
+        "subtitle": "Méi wéi nëmmen Eventer: Stäerkt Är digital Präsenz",
+        "intro": "Wärend mir Är Momenter festhalen, hëllefe mir Iech och, Är Zukunft ze gestalten. Entdeckt eis Suite vu kompletten digitalen Déngschtleeschtunge fir modern Entreprisen.",
+        "web_design": {
+            "title": "Moossgeschneidert Webdesign",
+            "desc": "Minimalistesch, héichperformant Siten, déi d'Wese vun Ärer Mark reflektéieren. Reaktiounsschnell, séier a visuell beandrockend."
+        },
+        "shopify": {
+            "title": "Shopify Store",
+            "desc": "Start Äert Online-Geschäft mat engem professionelle Shopify Store. Ugedriwwen vun Luminaialux.com."
+        },
+        "social_media": {
+            "title": "Social Media Management",
+            "desc": "Kurateiert Inhaltsstrategien, déi ukommen. Mir këmmeren eis ëm d'Ästhetik, wärend Dir Iech ëm d'Geschäft këmmert."
+        },
+        "seo": {
+            "title": "SEO & Visibilitéit",
+            "desc": "Gitt vun deem richtege Publikum gesinn. Strategesch Optiméierung fir Rankings ze klammen an organesche Wuesstem ze generéieren."
+        },
+        "chatbot": {
+            "badge": "TRENDING TECHNOLOGIE",
+            "title": "KI Agenten & Chatbots",
+            "desc": "Automatiséiert Äre Clientsservice mat intelligenten Agenten, déi wéi Dir schwätzen. Verfügbar 24/7, méisproocheg an onheemlech effizient.",
+            "whatsapp_integration": {
+                "title": "WhatsApp Integratioun",
+                "desc": "Direkt Verbindung mat der Liiblings-App vun Äre Clienten."
+            },
+            "smart_ai": {
+                "title": "Intelligenten KI-Geescht",
+                "desc": "Léiert aus Ärer Datebank fir wéi en Expert ze äntweren."
+            },
+            "simulation": {
+                "msg_1": "Wat kascht eng Hochzäit?",
+                "msg_2": "Moien! Eis Hochzäitspäck fänken bei 2.000 € un. Bevorzugt Dir Foto, Video oder béides? 📸🎥",
+                "msg_3": "Béides wgl.!",
+                "msg_4": "Exzellent Wiel! De komplette Pak ass eise Bestseller. Wëllt Dir kucken, ob Ären Datum nach fräi ass? 📅"
+            }
+        },
+        "cta": {
+            "limit_offer": "Begrenzt Offer",
+            "lower_prices": "Bereet fir Äert Geschäft ze transforméieren?",
+            "button": "Gratis Audit buchen",
+            "contact_us": "Devis Ufroen"
+        },
+        "presentation_lp": {
+            "hero_title": "Welux Digital Services",
+            "hero_subtitle": "\"Äre Partner, deen ni schléift\"",
+            "section_family": {
+                "title": "🤝 De perséinlechen Touch",
+                "p1": "Schwätze mir iwwer Business, vu Famill zu Famill.",
+                "p2": "Mir wëssen, wat et heescht e Betrib opzebauen. Dacks endegt een als Sklave vum Telefon, a beäntwert d'Leit spéit an d'Nuecht amplaz ze raschten.",
+                "p3": "Verléiert keng wichteg Momenter méi, well Dir honnertmol am Dag 'Wéi vill kascht dat?' beäntwere musst. Mir hunn eng Léisung."
+            },
+            "section_space": {
+                "title": "🌐 Ären eegenen digitale Raum",
+                "p1": "Stellt Iech vir, Dir hätt e Premium digitale Showroom, deen IECH gehéiert. Keng geléinte Säit op Social Media, mee eng High-End Plattform.",
+                "p2": "Et ass net nëmmen Ausgesinn; et ass e Verkafsmotor. Maacht Är Dieren op fir d'Welt, net nëmme fir Är Noperschaft.",
+                "highlight": "Mir schwätze vun enger Verdräifachung vun Ärer Verkafskraaft!"
+            },
+            "section_auto": {
+                "title": "🤖 Intelligent Automatisatioun",
+                "intro": "De beschten Deel? Wärend Dir Iech op Äert Handwierk konzentréiert oder e Kaffi genéisst, schafft d'Technologie fir Iech.",
+                "list": {
+                    "1": "Vergiesst den Telefon: De Bot äntwert, gëtt Präisser a mécht den Deal.",
+                    "2": "Automatesche Verkaf: D'Clientë kucken, wielen a kafen direkt.",
+                    "3": "Perfekt Organisatioun: Alles gëtt automatesch erfaasst an organiséiert."
+                }
+            },
+            "section_why": {
+                "title": "👔 Firwat Welux?",
+                "text": "Well mir keng 'kal' Websäite kreéieren. Mir bauen Systemer mat Eleganz, awer mat der Effizienz, déi Dir braucht fir ze wuessen. Gitt vum Mataarbechter vun Ärem Betrib zum Besëtzer."
+            },
+            "cta_box": {
+                "title": "Pret fir eng Verännerung?",
+                "text": "Loosst d'Technologie fir Iech schaffen.",
+                "button": "Gespréich ufänken"
+            },
+            "agents_section": {
+                "title": "Gitt Welux Agent",
+                "subtitle": "Hëlleft anere Betriber ze wuessen a verdéngt Kommissiounen.",
+                "desc": "Mir siche Visionären. Wann Dir Betriber kennt, déi dat brauchen, maacht mat.",
+                "contact_btn": "Agenten Kontaktéieren",
+                "email_text": "Schreift un agents@weluxevents.com"
+            }
+        }
+    },
+    "testimonials": {
+        "1": {
+            "text": "Eng onheemlech Erfahrung! Si hunn all Emotioun vun eisem speziellen Dag festgehalen. D'Fotoe si Konschtwierker, déi mir fir ëmmer schätze wäerten. D'Léift zum Detail war exzellent.",
+            "author": "Sophie & Marc",
+            "role": "Hochzäit am Schlass Urspelt",
+            "location": "Lëtzebuerg Stad"
+        },
+        "2": {
+            "text": "E wierklech professionellt Team. Si hunn eis virun der Kamera ganz wuel fillen loossen an d'Endresultat huet all eis Erwaardungen iwwertraff. Héich recommandéiert.",
+            "author": "Elena & Thomas",
+            "role": "Hochzäit an der Stad Lëtzebuerg",
+            "location": "Esch-Uelzecht"
+        },
+        "3": {
+            "text": "D'Kreativitéit an d'Passioun, déi si an hir Aarbecht stecken, ass offensichtlech. D'Fotoen hu magescht Liicht a Kompositioun. Mir sinn verléift mat eisem Album!",
+            "author": "Isabella & Lucas",
+            "role": "Verlobungsshooting",
+            "location": "Mondorf-les-Bains"
+        },
+        "confirm_details": "Detailer bestätegen",
+        "success": "Ufro erfollegräich geschéckt!",
+        "title": "Wat eis Clienten soen",
+        "subtitle": "Eis gréissten Zefriddenheet ass d'Gléck vun eise Clienten ze gesinn, wa si hir wäertvollst Momenter erëm erliewen.",
+        "badge": "Zeienaussoen",
+        "stats": {
+            "weddings": "Evenementer Ofgedeckt",
+            "clients": "Glécklech Clienten",
+            "rating": "Duerchschnëttlech Bewäertung"
+        }
+    },
+    "inquiry": {
+        "confirm_details": "Detailer bestätegen",
+        "send": "Bestätegen & Schécken",
+        "success": "Ufro erfollegräich geschéckt!"
+    },
+    "cookies": {
+        "message": "Mir benotze Cookien fir Är Experienz ze verbesseren. Andeems Dir akzeptéiert, hëlleft Dir eis Traffic ze analyséieren an Inhalter ze personaliséieren.",
+        "reject": "Ofleenen",
+        "accept": "Akzeptéieren"
+    },
+    "legal": {
+        "title": "Privacy Policy & Legal Notice",
+        "controller_title": "Data Controller",
+        "controller_text": "Welux Events ass de verantwortleche fir Är perséinlech Donnéeën. Mir verpflichte eis Är Privatsphär am Aklang mat der DSGVO ze schützen.",
+        "data_title": "Datesammlung",
+        "data_text": "Mir sammelen Informatiounen, déi Dir eis direkt iwwer eis Kontaktformulairen zur Verfügung stellt (Numm, E-Mail, Telefon, Eventdetailer), ausschliisslech fir Är Ufro ze beäntweren an eis Servicer ze bidden.",
+        "purpose_title": "Zweck vun der Veraarbechtung",
+        "purpose_text": "Är Donnéeë gi benotzt fir Reservatiounen ze geréieren, iwwer Äert Event ze kommunizéieren an Rechnungen auszestellen. Mir verkafen Är Donnéeën net un Drëttubidder.",
+        "rights_title": "Är Rechter",
+        "rights_text": "Dir hutt d'Recht Är Donnéeën zu all Moment ze kréien, ze korrigéieren oder ze läschen andeems Dir eis op bookings@weluxevents.com kontaktéiert.",
+        "image_rights_title": "Bildrechter & Haftung",
+        "image_rights_text": "Welux Events agéiert ausschliisslech als techneschen Déngschtleeschter fir Bildopnamen. De Client ass eleng verantwortlech dofir z'informéieren an d'Zoustëmmung vun hire Gäscht ze kréien fir d'Opnam an d'Verbreedung vun hirem Bild, entspriechend de geltende Gesetzer zu Lëtzebuerg. De Client stellt Welux Events ausdrécklech vun all Haftung oder Ufuerderunge vun Drëtten am Zesummenhang mat Bildrechter fräi.",
+        "disclaimer": "Dës Websäit gëtt fir Informatiounszwecker zur Verfügung gestallt. Och wa mir eis fir Genauegkeet ustriewen, kënne mir net d'Vollständegkeet vun den Informatiounen garantéieren."
+    },
+    "gate": {
+        "title": "Waart eng Sekonn!",
+        "subtitle": "Fir dësen exklusiven Inhalt ze gesinn, musse mir wëssen, datt Dir e coolen Mënsch sidd (an net e langweilegen Bot).",
+        "name": "Ären Numm",
+        "email": "Email",
+        "newsletter_label": "Halt mech mat nëtzlechen Neiegkeeten op dem Lafenden",
+        "newsletter_yes": "Jo, schéisst lass!",
+        "submit": "Inhalt Opsperren",
+        "unlocking": "Opsperren...",
+        "share_label": "Oder deelt fir opzesperren",
+        "read_more": "Méi liesen",
+        "unlock_desc_soft": "Spär dësen exklusiven Inhalt op an deem de deels oder Dech registréiers.",
+        "share_success": "Link kopéiert!"
+    },
+    "seo_pages": {
+        "streaming": {
+            "title": "WELUX Live",
+            "subtitle": "Streaming Fënster op Lëtzebuerg & d'Welt",
+            "desc": "Verbannt Iech mat eisen Live-Sendungen, Evenementer a Spezialtransmissiounen."
+        },
+        "vlog": {
+            "title": "De WELUX Journal",
+            "subtitle": "Dokumentéieren Beléift Interessen & Geschichten",
+            "desc": "Eng kuratéiert Sammlung vu visuellen Geschichten, Abléck an Momenter hannert de Kulissen."
+        },
+        "deals": {
+            "title": "Kuratéiert Offeren",
+            "subtitle": "Exklusiv Deals & Verstoppte Pärelen",
+            "desc": "Eng Auswiel vun héichwäertege Méiglechkeeten a Servicer zu aussergewéinleche Präisser."
+        },
+        "tools": {
+            "title": "Wichteg Tools",
+            "subtitle": "Apps & Ressourcen déi mir gär hunn",
+            "desc": "Den digitalen Toolkit, deen modern Eventer a kreativ Workflows undreift."
+        },
+        "jobs": {
+            "title": "Opportunitéiten",
+            "subtitle": "Karriär & Kreativ Offeren",
+            "desc": "Fannt Är nächst Roll an der Kreativ- an Eventindustrie."
+        },
+        "nightlife": {
+            "title": "No Stonnen",
+            "subtitle": "Wou een déi bescht Vibratiounen fënnt",
+            "desc": "E Guide fir déi sophistiquéiertst an liewegst Nuetsliewen-Spots zu Lëtzebuerg."
+        },
+        "tips": {
+            "title": "Lokal Geheimnisser",
+            "subtitle": "Erlieft Lëtzebuerg wéi en Einheimischen",
+            "desc": "Kuratéiert Erfarungen an verstoppt Ecken, recommandéiert vun deenen, déi hei liewen."
+        },
+        "relocation": {
+            "title": "Relocation Guide",
+            "subtitle": "Plënneren op Lëtzebuerg: De Realen Guide",
+            "desc": "Praktesch Rotschléi, éierlech Abléck an déi ongeschminkt Wourecht iwwer Lëtzebuerg zu Ärem Heem ze maachen."
+        },
+        "links": {
+            "streaming": "Live Streaming",
+            "digital_services": "Digital Servicer",
+            "vlog": "Vlog & Geschichten",
+            "deals": "Bescht Deals",
+            "tools": "Nëtzlech Tools",
+            "jobs": "Jobs Fannen",
+            "nightlife": "Nuetsliewen Guide",
+            "tips": "Lokal Tipps",
+            "relocation": "Relocation Guide"
+        }
+    },
+    "image_rights": {
+        "title": "Bildrechter & Haftung",
+        "seo_title": "Bildrechter & Richtlinnen | Welux Events",
+        "seo_desc": "Richtlinnen iwwer d'Benotzung vu Biller, Fotorechter a Medienhaftung bei Welux Events.",
+        "photo_policy": {
+            "title": "Richtlinnen fir d'Benotzung vu Fotoen",
+            "desc": "Bei Welux Events si mir stolz drop, d'Magie vun Äre speziellen Momenter festzehalen. All Biller op dëser Websäit sinn entweder:",
+            "list": {
+                "1": "Vun eisem offiziellen Fotografenteam während den Eventer opgeholl, déi vu Welux Events geréiert goufen.",
+                "2": "Lizenzéiert Stockfotografie fir illustrativ Zwecker.",
+                "3": "Vun Clienten oder Partner mat ausdrécklecher Erlaabnes zur Verfügung gestallt."
+            }
+        },
+        "privacy": {
+            "title": "Privatsphär & DSGVO Konformitéit",
+            "desc_1": "Mir respektéieren d'Privatsphär vun all Individuum. Am Aklang mat der DSGVO an de lëtzebuerger Dateschutzgesetzer huet all Persoun, déi op enger Foto op eiser Websäit duergestallt ass, d'Recht hir Läschung ze froen, wann se keng Zoustëmmung ginn huet oder mengt datt hir Privatsphär verletzt gëtt.",
+            "removal_text": "Fir d'Läschung vun engem Bild ze froen, kontaktéiert eis wgl. op"
+        },
+        "copyright": {
+            "title": "Urheberrechtshinweis",
+            "desc": "© {{year}} Welux Events. All Rechter reservéiert. Déi onerlaabt Benotzung, Reproduktioun oder Distributioun vun iergendwelleche Biller, Videoen oder Inhalter vun dëser Websäit ouni schrëftlech Erlaabnes vu Welux Events ass strengstens verbueden."
+        }
+    }
+}

@@ -1,0 +1,23 @@
+ESTE ES TU CÓDIGO SECRETO PARA RESTABLECER LA CONTRASEÑA
+=====================================================
+Guarda este archivo en un lugar seguro. No lo compartas.
+
+Si alguna vez pierdes el acceso o la interfaz web no funciona, puedes usar este comando en tu terminal ("Terminal" en Mac) para forzar el cambio de contraseña.
+
+CÓDIGO (Copia y pega en la terminal):
+-----------------------------------------------------
+
+curl -X POST "https://weluxevents.com/api/reset-password" \
+     -H "Content-Type: application/json" \
+     -d '{"master_code": "lux_master_2026", "new_password": "TU_NUEVA_CONTRASEÑA_AQUI"}'
+
+-----------------------------------------------------
+
+INSTRUCCIONES:
+1. Reemplaza "TU_NUEVA_CONTRASEÑA_AQUI" con la contraseña que deseas usar.
+2. Si cambiaste el "master_code" en la base de datos, reemplaza "lux_master_2026" con el tuyo.
+3. Presiona Enter.
+4. Si recibes `{"success":true}`, la contraseña se ha actualizado instantáneamente.
+
+NOTA:
+Este método salta la interfaz gráfica y habla directamente con el "cerebro" (API) del sistema.

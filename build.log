@@ -1,0 +1,43 @@
+
+> welux-events@1.0.0 build
+> vite build
+
+vite v5.4.21 building for production...
+transforming...
+✓ 2419 modules transformed.
+rendering chunks...
+[plugin:vite:reporter] [plugin vite:reporter] 
+(!) /Users/yoyocubano/Desktop/École - trabajo /agentegravity/weddings-events-luxembourg/client/src/lib/api.ts is dynamically imported by /Users/yoyocubano/Desktop/École - trabajo /agentegravity/weddings-events-luxembourg/client/src/components/ChatWidget.tsx, /Users/yoyocubano/Desktop/École - trabajo /agentegravity/weddings-events-luxembourg/client/src/pages/Contact.tsx but also statically imported by /Users/yoyocubano/Desktop/École - trabajo /agentegravity/weddings-events-luxembourg/client/src/components/WhatsAppGateModal.tsx, dynamic import will not move module into another chunk.
+
+computing gzip size...
+dist/index.html                               9.88 kB │ gzip:   3.08 kB
+dist/assets/index-FrWLAEKc.css              131.04 kB │ gzip:  21.56 kB
+dist/assets/clock-588caaDj.js                 0.35 kB │ gzip:   0.27 kB
+dist/assets/star-1TCBhnAp.js                  0.38 kB │ gzip:   0.29 kB
+dist/assets/camera-wZgjzNqu.js                0.81 kB │ gzip:   0.42 kB
+dist/assets/users-CZcT3COv.js                 0.84 kB │ gzip:   0.43 kB
+dist/assets/SEO-Dn_PHYQX.js                   2.17 kB │ gzip:   0.74 kB
+dist/assets/NotFound-BXdKNbl-.js              2.89 kB │ gzip:   1.13 kB
+dist/assets/Privacy-CkuMGdOy.js               2.92 kB │ gzip:   0.74 kB
+dist/assets/ImageInventory-kRcejbZS.js        3.29 kB │ gzip:   1.28 kB
+dist/assets/Live-Be864WXB.js                  3.60 kB │ gzip:   1.27 kB
+dist/assets/About-BwAFaBkz.js                 9.99 kB │ gzip:   1.78 kB
+dist/assets/browser-ponyfill-_O28q5Se.js     10.26 kB │ gzip:   3.50 kB
+dist/assets/AssociatedServices-ClTLyXGF.js   13.17 kB │ gzip:   3.03 kB
+dist/assets/Protocol-xis6Gu3k.js             13.71 kB │ gzip:   2.34 kB
+dist/assets/Portfolio-CqG0Aoil.js            13.96 kB │ gzip:   3.69 kB
+dist/assets/Services-CAaACwFW.js             14.54 kB │ gzip:   2.49 kB
+dist/assets/vendor-CpQYallw.js               17.36 kB │ gzip:   6.48 kB
+dist/assets/Home-DSgjcYjj.js                 27.05 kB │ gzip:   5.18 kB
+dist/assets/ui-DM0sVezG.js                   29.08 kB │ gzip:   9.69 kB
+dist/assets/Footer-C8hP1qoC.js               45.81 kB │ gzip:  12.69 kB
+dist/assets/i18n-BUkAKDqd.js                 48.25 kB │ gzip:  15.70 kB
+dist/assets/Contact-B2B5fpJl.js             107.59 kB │ gzip:  30.68 kB
+dist/assets/animation-Be2Fsal_.js           117.01 kB │ gzip:  38.68 kB
+dist/assets/index-BI_S7-VZ.js               508.93 kB │ gzip: 158.20 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 2.90s

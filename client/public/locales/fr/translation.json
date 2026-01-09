@@ -1,0 +1,778 @@
+{
+    "language_code": "fr",
+    "hero": {
+        "title": "Votre Vision Notre Obsession",
+        "subtitle": "Quiet Luxury Event Planning",
+        "description": "Chez Welux Events, nous ne nous contentons pas de planter le décor ; nous créons l'atmosphère parfaite pour que la connexion humaine opère. Avec la précision d'un artisan et le calme de ceux qui savent exactement ce qu'ils font.",
+        "team_credits": "Vos Alliés | Joan : Photographe | Abel : Cinéaste | Yusmel : Design | Rebeca : Votre Sérénité",
+        "cta_primary": "Consultation Privée",
+        "cta_secondary": "Rencontrer l'Équipe",
+        "get_quote": "Racontez-nous Votre Vision",
+        "trust_badge": "Du Luxembourg au Monde • Précision & Calme",
+        "award_winning": "Choisi par plus de",
+        "studio": "500 Couples Heureux"
+    },
+    "why_choose": {
+        "title": "Votre Sérénité est Notre Priorité",
+        "subtitle": "Nous savons que ce jour ne se répète pas. C'est pourquoi nous gérons la technique pour que vous puissiez vous concentrer sur le ressenti.",
+        "team": {
+            "title": "Présence Invisible",
+            "desc": "Nous serons là pour capturer cette étreinte spontanée et ce regard complice, sans interrompre la magie du moment."
+        },
+        "service": {
+            "title": "Émotion Brute et Réelle",
+            "desc": "Oubliez les poses rigides. Nous recherchons le rire incontrôlable, la larme furtive et la beauté de l'authenticité."
+        },
+        "local": {
+            "title": "Experts Locaux",
+            "desc": "Nous connaissons la lumière du Luxembourg et ses coins secrets. Laissez-nous vous guider vers les décors parfaits pour votre histoire."
+        }
+    },
+    "testimonials": {
+        "1": {
+            "text": "Incredible experience! They captured every emotion of our special day. The photos are works of art we will treasure forever. The attention to detail was exquisite.",
+            "author": "Sophie & Marc",
+            "role": "Wedding at Chateau d'Urspelt",
+            "location": "Luxembourg City"
+        },
+        "2": {
+            "text": "A truly professional team. They made us feel very comfortable in front of the camera and the final result exceeded all our expectations. Highly recommended.",
+            "author": "Elena & Thomas",
+            "role": "Wedding in Luxembourg City",
+            "location": "Esch-sur-Alzette"
+        },
+        "3": {
+            "text": "The creativity and passion they put into their work is evident. The photos have magical light and composition. We are in love with our album!",
+            "author": "Isabella & Lucas",
+            "role": "Engagement Session",
+            "location": "Mondorf-les-Bains"
+        },
+        "title": "What our clients say",
+        "subtitle": "Our greatest satisfaction is seeing the happiness of our clients reliving their most precious moments.",
+        "badge": "Testimonials",
+        "stats": {
+            "weddings": "Events Captured",
+            "clients": "Happy Clients",
+            "rating": "Average Rating"
+        }
+    },
+    "services": {
+        "title": "Événements, Bien Faits",
+        "subtitle": "La Précision du Corporatif. L'Émotion des Mariages.",
+        "wedding": {
+            "title": "Photographie d'Événements et Mariages",
+            "desc": "Couverture photographique complète avec un style documentaire et éditorial. Nous capturons de vraies émotions sans poses forcées."
+        },
+        "video": {
+            "title": "Vidéo Cinématographique",
+            "desc": "Production cinématographique 4K avec plusieurs caméras et audio professionnel."
+        },
+        "broadcasting": {
+            "title": "Diffusion en Direct",
+            "desc": "Diffusion en direct multi-caméras pour conférences et mariages. Partagez votre événement avec un public mondial en temps réel."
+        },
+        "full": {
+            "title": "Couverture Complète",
+            "desc": "L'histoire complète. Photo et vidéo travaillant en parfaite harmonie du début à la fin."
+        },
+        "view_all": "Voir Tous les Services",
+        "pets": {
+            "title": "Photographie d'Animaux",
+            "desc": "Capter la personnalité unique de vos animaux de compagnie."
+        },
+        "corporate": {
+            "title": "Création de Contenu",
+            "desc": "Storytelling visuel pour entreprises de toutes tailles."
+        },
+        "dance_schools": {
+            "title": "Danse et Écoles",
+            "desc": "Couverture professionnelle pour écoles, spectacles et ateliers."
+        },
+        "private_events": {
+            "title": "Fêtes Privées",
+            "desc": "Gender reveal, anniversaires et tous types d'événements."
+        }
+    },
+    "featured": {
+        "title": "Vraies Histoires",
+        "subtitle": "Un aperçu des magnifiques mariages que nous avons eu l'honneur de capturer.",
+        "view_full": "Voir le Portfolio Complet"
+    },
+    "cta": {
+        "title": "Prêt pour une expérience sereine ?",
+        "subtitle": "Votre tranquillité d'esprit est à une conversation près.",
+        "button": "Lancer la Conversation"
+    },
+    "home": {
+        "digital_teaser": {
+            "title": "Excellence Numérique",
+            "subtitle": "Au-delà des événements : Conception Web, Réseaux Sociaux et Chatbots IA pour élever votre marque.",
+            "button": "Découvrir les Services Numériques",
+            "badge": "Nouvelle Division"
+        }
+    },
+    "nav": {
+        "home": "Accueil",
+        "portfolio": "Portfolio",
+        "services": "Services",
+        "live": "Direct",
+        "about": "À Propos",
+        "protocol": "Le Protocole",
+        "contact": "Contact",
+        "associated_services": "Services Numériques"
+    },
+    "protocol_page": {
+        "hero": {
+            "eyebrow": "Le Standard WE",
+            "title": "Le Protocole Mariages & Événements Luxembourg",
+            "subtitle": "\"Un Guide pour une Planification Sans Effort\""
+        },
+        "intro": {
+            "p1": "Vous embarquez pour un voyage qui devrait être défini par la joie, et non l'anxiété. Dans le paysage événementiel dynamique du Luxembourg, la différence entre un rassemblement chaotique et une expérience transcendante ne réside pas dans le budget, mais dans la <strong>précision de la planification</strong>.",
+            "p2": "Chez WE, nous croyons que la <em>tranquillité d'esprit</em> est le luxe ultime. Ce protocole est le fruit de plus d'une décennie d'expérience, conçu pour vous donner la prévoyance d'un professionnel. Lisez-le, utilisez-le et retrouvez votre calme."
+        },
+        "timeline": {
+            "title": "1. Chronologie & Étiquette",
+            "subtitle": "Le Conseil du Sage",
+            "foundation": {
+                "title": "12-18 Mois à l'Avance : La Fondation",
+                "desc": "Au Luxembourg, les lieux premium (châteaux, domaines de la Moselle) sont réservés très longtemps à l'avance. Ne fixez pas de dates avant d'avoir sécurisé le lieu."
+            },
+            "guests": {
+                "title": "La Liste des Invités",
+                "desc": "Définissez vos nombres maintenant. Un \"Sage\" sait que 150 invités nécessitent une logistique bien différente de 80."
+            },
+            "triad": {
+                "1": "Traiteur",
+                "2": "Photographie",
+                "3": "Ambiance (Musique/Lumières)",
+                "title": "La Triade des Priorités",
+                "insight": "\"Qui\" importe plus que \"Combien\". Un prestataire qui connaît les contraintes du lieu vaut son pesant d'or."
+            }
+        },
+        "caregiver": {
+            "title": "2. Les Check-lists du Gardien",
+            "subtitle": "Ce que les Autres Oublient",
+            "rain": {
+                "title": "Le Plan Pluie",
+                "desc": "Réalité luxembourgeoise : Ne présumez jamais du soleil. Nous concevons pour la pluie afin que, si elle arrive, cela semble intentionnel (ex : chapiteaux transparents, éclairage intérieur chaleureux)."
+            },
+            "gap": {
+                "title": "Distance Kirchberg-Moselle",
+                "desc": "Si votre cérémonie est en ville et la réception à la campagne, prévoyez des navettes. Cela permet aux invités de profiter et garantit que tout le monde arrive selon votre emploi du temps."
+            },
+            "diet": {
+                "title": "Dignité Alimentaire",
+                "desc": "Les options végétariennes/végétaliennes doivent être aussi visuellement époustouflantes que le menu principal. Un invité traité avec soin est un invité qui ne tarit pas d'éloges sur votre événement."
+            }
+        },
+        "budget": {
+            "title": "3. Budgétiser pour la Sérénité",
+            "headers": {
+                "investment": "Investissement",
+                "impact": "Impact",
+                "insight": "Conseil WE"
+            },
+            "rows": {
+                "coord": {
+                    "item": "Coordination",
+                    "impact": "Élevé",
+                    "desc": "Acheter un coordinateur, c'est acheter votre propre présence. Soyez invité à votre propre événement."
+                },
+                "light": {
+                    "item": "Éclairage",
+                    "impact": "Élevé",
+                    "desc": "L'éclairage transforme une pièce plus efficacement que les fleurs, pour la moitié du coût."
+                },
+                "favors": {
+                    "item": "Cadeaux Invités",
+                    "impact": "Faible",
+                    "desc": "Les invités oublient les \"choses\". Ils se souviennent de ce qu'ils ont ressenti (Musique, Nourriture, Fluidité)."
+                }
+            }
+        },
+        "cta": {
+            "title": "Commencez Bien Votre Voyage",
+            "text": "Ce protocole est la carte. Mais une carte n'est pas un guide. Exécuter une vision de cette ampleur nécessite un partenaire qui surveille l'horizon pendant que vous profitez de la vue.",
+            "button": "Réservez Votre Consultation Gratuite"
+        }
+    },
+    "portfolio": {
+        "title": "Notre Portfolio",
+        "subtitle": "Explorez notre collection de magnifiques mariages et événements capturés au Luxembourg",
+        "all_projects": "Tous les Projets",
+        "view_photos": "Voir {{count}} photos",
+        "no_projects": "Aucun projet trouvé dans cette catégorie pour le moment.",
+        "categories": {
+            "weddings": "Mariages et Événements",
+            "engagements": "Fiançailles",
+            "events": "Événements",
+            "pets": "Animaux de Compagnie",
+            "corporate": "Contenu Corporatif",
+            "dance": "Danse et Écoles",
+            "private": "Fêtes Privées"
+        },
+        "projects": {
+            "chateau": {
+                "title": "Mariage au Château",
+                "desc": "Un magnifique mariage d'été au Grand Château.",
+                "location": "Vianden, Luxembourg"
+            },
+            "city": {
+                "title": "Fiançailles en Ville",
+                "desc": "Séance photo romantique à Luxembourg Ville.",
+                "location": "Luxembourg Ville"
+            },
+            "pets_park": {
+                "title": "Séance au Parc (Golden Hour)",
+                "desc": "Capturer la joie de votre compagnon à quatre pattes en pleine nature.",
+                "location": "Parc de Merl, Luxembourg"
+            },
+            "corporate_summit": {
+                "title": "Sommet de l'Innovation Tech",
+                "desc": "Couverture professionnelle d'un événement d'entreprise dynamique et collaboratif.",
+                "location": "Kirchberg, Luxembourg"
+            },
+            "dance_studio": {
+                "title": "Collectif de Danse Urbaine",
+                "desc": "Séances dynamiques en studio et en extérieur pour un groupe de danse moderne.",
+                "location": "Esch-sur-Alzette"
+            },
+            "private_celebration": {
+                "title": "Anniversaire & Révélation sur Toit-Terrasse",
+                "desc": "Célébrations intimes avec famille et amis.",
+                "location": "Clausen, Luxembourg"
+            },
+            "sbk": {
+                "title": "Soirée Internationale SBK",
+                "desc": "Une nuit vibrante de Salsa, Bachata et Kizomba capturant la passion de la communauté de danse.",
+                "location": "Luxembourg Ville"
+            },
+            "winter": {
+                "title": "Mariage Hivernal",
+                "desc": "Une célébration enneigée magique avec des détails chaleureux et une atmosphère romantique.",
+                "location": "Mullerthal, Luxembourg"
+            }
+        }
+    },
+    "services_page": {
+        "title": "Nos Services",
+        "subtitle": "Forfaits de photographie et vidéographie professionnels pour rendre votre événement inoubliable",
+        "most_popular": "Le Plus Populaire",
+        "custom_quote": "Devis Personnalisé",
+        "get_started": "Commencer",
+        "coming_soon": "Forfaits de services bientôt disponibles.",
+        "included": {
+            "title": "Ce Qui Est Inclus",
+            "subtitle": "Chaque forfait inclut nos standards de service premium",
+            "equipment": {
+                "title": "Équipement Professionnel",
+                "desc": "Appareils et éclairage de pointe"
+            },
+            "editing": {
+                "title": "Retouche Experte",
+                "desc": "Post-production et étalonnage professionnels"
+            },
+            "delivery": {
+                "title": "Livraison Numérique",
+                "desc": "Fichiers haute résolution via galerie en ligne sécurisée"
+            },
+            "support": {
+                "title": "Support Dédié",
+                "desc": "Consultation personnelle et aide à la planification"
+            }
+        },
+        "cta": {
+            "title": "Prêt à Réserver ?",
+            "subtitle": "Contactez-nous aujourd'hui pour un devis personnalisé",
+            "button": "Demander un Devis"
+        },
+        "packages": {
+            "essential": {
+                "name": "Collection Essentielle",
+                "desc": "Parfait pour les mariages intimes et les fugues amoureuses",
+                "price_label": "À partir de",
+                "features": {
+                    "0": "6 Heures de Couverture",
+                    "1": "300+ Photos Retouchées",
+                    "2": "Galerie en Ligne",
+                    "3": "Clé USB"
+                }
+            },
+            "premium": {
+                "name": "Collection Premium",
+                "desc": "Notre forfait le plus populaire pour une couverture d'une journée complète",
+                "price_label": "Journée Complète",
+                "features": {
+                    "0": "10 Heures de Couverture",
+                    "1": "500+ Photos Retouchées",
+                    "2": "Séance de Fiançailles",
+                    "3": "Album d'Art",
+                    "4": "Deuxième Photographe"
+                }
+            },
+            "broadcast": {
+                "name": "Diffusion en Direct",
+                "desc": "Partagez votre moment avec le monde en temps réel",
+                "price_label": "À partir de",
+                "features": {
+                    "0": "Streaming HD Professionnel",
+                    "1": "Support Multi-Plateforme",
+                    "2": "Spectateurs Illimités",
+                    "3": "Enregistrement Inclus"
+                }
+            },
+            "cinema": {
+                "name": "Paquet Cinéma",
+                "desc": "Récit cinématographique de votre journée spéciale",
+                "price_label": "Vidéo Uniquement",
+                "features": {
+                    "0": "8 Heures de Couverture",
+                    "1": "Film Résumé de 4-5 Minutes",
+                    "2": "Prises de Vue par Drone",
+                    "3": "Montage Complet de la Cérémonie"
+                }
+            }
+        }
+    },
+    "about": {
+        "title": "Le Calme Dans les Coulisses",
+        "p1": "Nous savons qu'organiser un événement de haut niveau n'est pas seulement de la logistique ; c'est gérer des attentes, des rêves et, parfois, beaucoup de pression.",
+        "p2": "Chez Welux Events, notre mission est simple : le jour de votre événement, vous ne devez être qu'un invité de plus. Nous sommes les gardiens de votre tranquillité, les invisibles qui rendent la magie naturelle.",
+        "values": {
+            "title": "Notre Philosophie (Sans Filtre)",
+            "subtitle": "Ce qui compte vraiment pour nous une fois les caméras éteintes.",
+            "passion": {
+                "title": "Ça Nous Tient à Cœur",
+                "desc": "On pleure aux cérémonies (oui, encore, ça nous arrive). On vit votre journée avec vous, on ne fait pas que l'enregistrer."
+            },
+            "excellence": {
+                "title": "Sans Surprises",
+                "desc": "On aime l'improvisation sur la piste de danse, pas dans la logistique. On planifie pour que vous puissiez vous détendre."
+            },
+            "creativity": {
+                "title": "Votre Mariage, Pas Pinterest",
+                "desc": "Nous cherchons à capturer qui VOUS êtes, pas à copier le mariage à la mode d'il y a deux mois."
+            },
+            "connection": {
+                "title": "Des Humains, Pas des Vendeurs",
+                "desc": "Nous voulons que vous vous sentiez aussi à l'aise avec nous qu'avec vos invités."
+            }
+        },
+        "team": {
+            "title": "L'Équipe Derrière les Caméras",
+            "subtitle": "Des professionnels, oui. Mais avant tout, des gens qui aiment célébrer.",
+            "coming_soon": "Information sur l'équipe bientôt disponible."
+        },
+        "team_members": {
+            "joan": {
+                "name": "Joan Valdés",
+                "role": "Photographie & Âme",
+                "bio": "Obsédé par la lumière naturelle et ces 2 secondes de rire incontrôlable que personne ne pose."
+            },
+            "abel": {
+                "name": "Abel Rhodes",
+                "role": "Cinéma & Émotion",
+                "bio": "Cinéaste. Préfère capturer une larme furtive en 4K plutôt qu'un scénario parfait."
+            },
+            "yusmel": {
+                "name": "Yusmel Colombo",
+                "role": "Expérience Numérique",
+                "bio": "Chargé de rendre toute cette expérience numérique aussi chaleureuse qu'une étreinte."
+            },
+            "rebeca": {
+                "name": "Rebeca Valdés",
+                "role": "Votre Paix d'Esprit",
+                "bio": "La cheffe d'orchestre. Résout les problèmes avant que vous ne sachiez qu'ils existent pour que vous ne fassiez que profiter."
+            }
+        },
+        "experience": {
+            "title": "Votre Garantie",
+            "subtitle": "Des décennies combinées pour assurer le succès d'événements exigeants",
+            "years": {
+                "value": "10+",
+                "label": "Années d'Excellence"
+            },
+            "events": {
+                "value": "Limité",
+                "label": "Événements par An (Qualité > Quantité)"
+            },
+            "satisfaction": {
+                "value": "100%",
+                "label": "Engagement de Résultat"
+            }
+        },
+        "cta": {
+            "title": "Parlons de votre héritage ?",
+            "subtitle": "Une conversation de 15 minutes peut vous faire gagner des mois de stress.",
+            "button": "Demander un appel privé"
+        }
+    },
+    "contact": {
+        "title": "Designons Votre Expérience",
+        "subtitle": "Racontez-nous ce que vous avez en tête. Nous fournirons la structure.",
+        "info": {
+            "email": "Consultation Privée",
+            "phone": "Attention Directe",
+            "whatsapp": "Ligne VIP",
+            "location": "Atelier",
+            "location_val": "Luxembourg Ville (Sur Rendez-vous Uniquement)",
+            "hours": "Disponibilité",
+            "hours_val": "Dédicace exclusive selon agenda."
+        },
+        "form": {
+            "title": "Demande de Disponibilité",
+            "name": "Votre Nom *",
+            "email": "Votre Email Personnel *",
+            "phone": "Mobile (Optionnel)",
+            "event_type": "Que célébrons-nous ? *",
+            "select_event": "Sélectionner l'occasion",
+            "event_types": {
+                "wedding": "Mariage Exclusif",
+                "corporate": "Gala / Événement Corporatif",
+                "celebration": "Célébration Privée",
+                "engagement": "Séance de Fiançailles",
+                "technical": "Assistance Technique / Conciergerie",
+                "digital": "Services Numériques / Web",
+                "other": "Projet sur Mesure"
+            },
+            "date": "Date Tentative",
+            "location": "Lieu Rêvé (Si vous en avez un)",
+            "budget": "Plage d'Investissement",
+            "select_budget": "Sélectionner une plage",
+            "budgets": {
+                "under_2k": "Moins de 2 000 € (Essentiel)",
+                "2k_5k": "2 000 € - 5 000 € (Complet)",
+                "5k_10k": "5 000 € - 10 000 € (Premium)",
+                "over_10k": "Pas de Limite (Sur Mesure)"
+            },
+            "guests": "Nombre d'Invités (Approx)",
+            "service_interest": "Quelle est votre priorité ?",
+            "select_service": "Sélectionner priorité",
+            "services": {
+                "photo": "Photographie Éditoriale",
+                "video": "Cinématographie",
+                "both": "Couverture Complète (Photo + Cinéma)"
+            },
+            "placeholders": {
+                "name": "ex: Marie & Jean",
+                "email": "nom@exemple.com",
+                "phone": "+352 600 000 000"
+            },
+            "message": "Racontez-nous votre Vision",
+            "placeholder_msg": "Décrivez comment vous aimeriez vous sentir ce jour-là...",
+            "validation": {
+                "name_required": "S'il vous plaît, dites-nous votre nom",
+                "email_required": "Nous avons besoin d'un email pour vous contacter",
+                "email_invalid": "Le format de l'email semble incorrect",
+                "event_type_required": "Le type d'événement est nécessaire pour nous préparer",
+                "phone_invalid": "Format de téléphone invalide",
+                "name_min": "Nom trop court",
+                "message_min": "Dites-nous en un peu plus (min 10 caractères)",
+                "future_date": "La date doit être dans le futur"
+            },
+            "privacy_note": "Confidentialité garantie. Vos données ne quittent jamais Welux.",
+            "submit": "Demander Disponibilité",
+            "sending": "Vérification de l'Agenda..."
+        },
+        "sidebar": {
+            "review_title": "Votre avis compte",
+            "review_desc": "Vos mots aident d'autres couples à trouver leur sérénité.",
+            "review_btn": "Noter l'Expérience"
+        },
+        "areas": {
+            "title": "Zones de Service au Luxembourg",
+            "subtitle": "Nous fournissons des services de photographie et vidéographie partout au Luxembourg et dans les régions avoisinantes",
+            "primary": "Zones Principales :",
+            "list": "Ville de Luxembourg, Esch-sur-Alzette, Differdange, Dudelange, Ettelbruck, Diekirch, Wiltz et les communes environnantes"
+        }
+    },
+    "brand": {
+        "name": "Welux Events",
+        "tagline": "Vidéo / Photo / Broadcasting"
+    },
+    "technical_concierge": {
+        "hero": {
+            "new_service": "Nouveau Service",
+            "title": "Conciergerie Technique",
+            "description": "Les mains invisibles qui maintiennent votre monde en marche. Des installations d'événements aux réparations d'urgence, nous gérons la technique pour que vous puissiez profiter du moment.",
+            "cta": "Réserver un Technicien"
+        },
+        "features": {
+            "response": {
+                "title": "Réponse Rapide",
+                "desc": "Support technique d'urgence quand vous en avez le plus besoin. Nous résolvons les problèmes avant même que vos invités ne s'en aperçoivent."
+            },
+            "setup": {
+                "title": "Installation & Démontage",
+                "desc": "Installation professionnelle de l'éclairage, du son et des structures décoratives. Précis, sûr et invisible."
+            },
+            "maintenance": {
+                "title": "Maintenance",
+                "desc": "Soins continus pour votre équipement et vos lieux. La perfection réside dans les détails que nous entretenons."
+            }
+        }
+    },
+    "auth": {
+        "sign_in": "Se connecter",
+        "sign_in_desc": "L'accès à ce tableau de bord nécessite une authentification. Continuez pour lancer le flux de connexion.",
+        "sign_out": "Se déconnecter",
+        "sign_in_title": "Connectez-vous pour continuer"
+    },
+    "common": {
+        "whatsapp": "WhatsApp",
+        "navigation": "Navigation",
+        "previous": "Précédent",
+        "next": "Suivant"
+    },
+    "chat": {
+        "greeting": "Bonjour ! Je suis Rebeca IA, votre Assistante Virtuelle. Comment puis-je vous aider à planifier votre événement parfait ?",
+        "title": "Rebeca IA",
+        "subtitle": "N'attendez pas. Planifiez instantanément.",
+        "placeholder": "Posez des questions sur nos services...",
+        "error": "Désolé, je suis hors ligne pour le moment.",
+        "connecting": "Problème de connexion."
+    },
+    "error": {
+        "unexpected": "Une erreur inattendue s'est produite."
+    },
+    "not_found": {
+        "title": "Page Non Trouvée",
+        "desc": "Désolé, la page que vous recherchez n'existe pas.",
+        "hint": "Elle a peut-être été déplacée ou supprimée.",
+        "home_button": "Retour à l'Accueil"
+    },
+    "footer": {
+        "quick_links": "Liens Rapides",
+        "contact": "Contact",
+        "follow_us": "Suivez-nous",
+        "rights": "Tous droits réservés.",
+        "desc": "Capturez vos moments les plus précieux pour les revivre éternellement.",
+        "legal": "Politique de Confidentialité & Mentions Légales",
+        "discover": "Découvrir",
+        "referrals": "Parrainage et Associés",
+        "image_rights": "Droits à l'Image et Responsabilité",
+        "booking_modal": {
+            "title": "Demander un Rendez-vous Privé",
+            "subtitle": "Atelier Welux Events",
+            "attention": "Service Exclusif",
+            "desc": "Pour garantir la meilleure expérience, nous recevons uniquement sur rendez-vous dans notre Atelier à Luxembourg.",
+            "btn_calendar": "Voir Disponibilités (Calendly)",
+            "btn_message": "Je préfère envoyer un message",
+            "note": "Une nouvelle fenêtre s'ouvrira pour choisir votre horaire sur Calendly."
+        },
+        "text": "Capturez vos moments les plus précieux pour les revivre éternellement."
+    },
+    "gate": {
+        "title": "Attendez une seconde !",
+        "subtitle": "Pour voir ce contenu exclusif, nous devons nous assurer que vous êtes un humain cool (et non un robot ennuyeux).",
+        "name": "Votre Nom",
+        "email": "Email",
+        "newsletter_label": "Me tenir informé avec des nouvelles utiles",
+        "newsletter_yes": "Allez, c'est parti !",
+        "submit": "Débloquer le Contenu",
+        "unlocking": "Déverrouillage...",
+        "share_label": "Ou partagez pour débloquer",
+        "read_more": "Lire la suite",
+        "unlock_desc_soft": "Débloquez ce contenu exclusif en partageant ou en vous inscrivant.",
+        "share_success": "Lien copié !"
+    },
+    "legal": {
+        "title": "Mentions Légales & Confidentialité",
+        "controller_title": "Responsable des Données",
+        "controller_text": "Welux Events est le responsable du traitement de vos données personnelles. Nous nous engageons à protéger votre vie privée conformément au RGPD.",
+        "data_title": "Collecte de Données",
+        "data_text": "Nous collectons les informations que vous nous fournissez directement via nos formulaires de contact (Nom, Email, Téléphone, Détails de l'événement) dans le seul but de répondre à votre demande et de fournir nos services.",
+        "purpose_title": "But du Traitement",
+        "purpose_text": "Vos données sont utilisées pour gérer les réservations, communiquer concernant votre événement et émettre des factures. Nous ne vendons pas vos données à des tiers.",
+        "rights_title": "Vos Droits",
+        "rights_text": "Vous avez le droit d'accéder, de rectifier ou de demander la suppression de vos données à tout moment en nous contactant à bookings@weluxevents.com.",
+        "image_rights_title": "Droits à l'Image et Responsabilité",
+        "image_rights_text": "Welux Events agit exclusivement en tant que prestataire technique de capture d'image. Le Client est seul responsable d'informer ses invités et d'obtenir le consentement nécessaire pour la capture et la diffusion de leur image, conformément à la législation en vigueur au Luxembourg. Le Client exonère expressément Welux Events de toute responsabilité ou réclamation de tiers liée au droit à l'image.",
+        "disclaimer": "Ce site web est fourni à titre informatif. Bien que nous nous efforcions d'être précis, nous ne pouvons garantir l'exhaustivité des informations."
+    },
+    "associated_services": {
+        "title": "Services Numériques",
+        "subtitle": "Votre Partenaire Qui Ne Dort Jamais. Multipliez Vos Ventes par 3.",
+        "intro": "Ce n'est pas juste un site web, c'est votre propre empire numérique. Imaginez un système qui travaille 24h/24 pour vous.",
+        "presentation_lp": {
+            "hero_title": "Welux Digital Services",
+            "hero_subtitle": "\"Votre Partenaire qui ne Dort Jamais\"",
+            "section_family": {
+                "title": "🤝 La Touche Personnelle",
+                "p1": "Parlons affaires, de famille à famille.",
+                "p2": "Nous savons ce que c'est de bâtir une entreprise. Souvent, on finit par devenir esclave de son téléphone, à répondre tard le soir au lieu de se reposer.",
+                "p3": "Ne manquez plus les moments importants parce que vous devez répondre \"Combien ça coûte ?\" cent fois par jour. Nous avons une solution."
+            },
+            "section_space": {
+                "title": "🌐 Votre Espace Numérique",
+                "p1": "Imaginez avoir une vitrine numérique premium qui VOUS appartient. Pas une page louée sur les réseaux sociaux, mais une plateforme haut de gamme.",
+                "p2": "Ce n'est pas juste pour faire joli ; c'est un moteur de vente. Ouvrez vos portes au monde entier, pas seulement à votre quartier.",
+                "highlight": "Nous parlons de multiplier votre pouvoir de vente par 3 !"
+            },
+            "section_auto": {
+                "title": "🤖 Automatisation Intelligente",
+                "intro": "Le meilleur ? Pendant que vous vous concentrez sur votre métier ou prenez un café, la technologie travaille pour vous.",
+                "list": {
+                    "1": "Oubliez le téléphone : Le bot répond, donne les prix et conclut les ventes.",
+                    "2": "Ventes automatiques : Le client entre, choisit et boum ! Vente enregistrée.",
+                    "3": "Organisation parfaite : Tout est enregistré et organisé automatiquement."
+                }
+            },
+            "section_why": {
+                "title": "👔 Pourquoi Welux ?",
+                "text": "Parce que nous ne faisons pas de sites \"froids\". Nous construisons des systèmes avec élégance mais avec l'efficacité dont vous avez besoin. Passez du statut d'employé de votre entreprise à celui de Propriétaire."
+            },
+            "cta_box": {
+                "title": "Prêt pour le changement ?",
+                "text": "Laissez la technologie travailler pour vous.",
+                "button": "Parler à un Agent"
+            },
+            "agents_section": {
+                "title": "Devenir Agent Welux ?",
+                "subtitle": "Aidez d'autres entreprises à grandir et gagnez des commissions.",
+                "desc": "Nous cherchons des visionnaires. Si vous connaissez des entreprises qui ont besoin de ça, rejoignez-nous.",
+                "contact_btn": "Contacter les Agents",
+                "email_text": "Écrivez-nous à agents@weluxevents.com"
+            }
+        },
+        "web_design": {
+            "title": "Conception et Développement Web",
+            "desc": "Sites web personnalisés qui reflètent l'essence de votre marque avec un design moderne et des performances optimales."
+        },
+        "shopify": {
+            "title": "E-commerce (Shopify)",
+            "desc": "Boutiques en ligne complètes prêtes à vendre. De la configuration à l'optimisation, nous nous occupons de tout."
+        },
+        "social_media": {
+            "title": "Gestion des Réseaux Sociaux",
+            "desc": "Contenu stratégique qui connecte avec votre audience et construit des communautés authentiques."
+        },
+        "seo": {
+            "title": "SEO et Marketing Digital",
+            "desc": "Soyez trouvé par ceux qui comptent. Stratégies qui augmentent votre visibilité et vos conversions."
+        },
+        "chatbot": {
+            "badge": "PRODUIT VEDETTE",
+            "title": "Chatbot IA pour WhatsApp",
+            "desc": "Automatisez votre service client avec un assistant intelligent qui apprend de votre entreprise et répond 24/7.",
+            "whatsapp_integration": {
+                "title": "Intégration WhatsApp",
+                "desc": "Connexion directe à l'application préférée de vos clients."
+            },
+            "smart_ai": {
+                "title": "Cerveau IA Intelligent",
+                "desc": "Apprend de votre base de données pour répondre comme un expert."
+            },
+            "simulation": {
+                "msg_1": "C'est combien pour un mariage ?",
+                "msg_2": "Bonjour ! Nos forfaits mariage commencent à 2.000€. Vous préférez photo, vidéo ou les deux ? 📸🎥",
+                "msg_3": "Les deux svp !",
+                "msg_4": "Excellent choix ! Le pack complet est notre best-seller. Voulez-vous vérifier si votre date est libre ? 📅"
+            }
+        },
+        "cta": {
+            "contact_us": "Demander des Informations",
+            "limit_offer": "OFFRE LIMITÉE",
+            "lower_prices": "Prix les Plus Bas de l'Année",
+            "button": "Obtenir Mon Devis Maintenant"
+        }
+    },
+    "inquiry": {
+        "confirm_details": "Confirmer les détails",
+        "send": "Confirmer & Envoyer",
+        "success": "Demande envoyée avec succès !"
+    },
+    "cookies": {
+        "message": "Nous utilisons des cookies pour améliorer votre expérience. En acceptant, vous nous aidez à analyser le trafic et à personnaliser le contenu.",
+        "reject": "Refuser",
+        "accept": "Accepter"
+    },
+    "schema": {
+        "faq": {
+            "q1": "Combien coûte un photographe de mariage au Luxembourg ?",
+            "a1": "Les prix varient selon le forfait choisi. Chez Welux Events, nous proposons des forfaits allant de la photographie de base à une couverture complète avec vidéo et streaming. Contactez-nous pour un devis personnalisé.",
+            "q2": "Proposez-vous des services de vidéo en direct (streaming) ?",
+            "a2": "Oui, nous offrons des services de streaming professionnel pour les mariages et les événements d'entreprise, permettant aux amis et à la famille qui ne peuvent pas être présents de participer en temps réel.",
+            "q3": "Dans quelles langues proposez-vous vos services ?",
+            "a3": "Nous sommes une équipe multiculturelle. Nous parlons luxembourgeois, anglais, français, allemand, espagnol et portugais."
+        }
+    },
+    "seo_pages": {
+        "streaming": {
+            "title": "WELUX En Direct",
+            "subtitle": "Fenêtre de Streaming sur le Luxembourg et le Monde",
+            "desc": "Connectez-vous à nos diffusions en direct, événements et couvertures spéciales."
+        },
+        "vlog": {
+            "title": "Le Journal WELUX",
+            "subtitle": "Documenter Intérêts et Histoires",
+            "desc": "Une collection d'histoires visuelles, d'idées et de moments en coulisses."
+        },
+        "deals": {
+            "title": "Offres Sélectionnées",
+            "subtitle": "Offres Exclusives et Joyaux Cachés",
+            "desc": "Une sélection d'opportunités et de services de haute valeur à des prix exceptionnels."
+        },
+        "tools": {
+            "title": "Outils Utiles",
+            "subtitle": "Applications et Ressources que Nous Aimons",
+            "desc": "La boîte à outils numérique qui propulse les événements modernes et les flux créatifs."
+        },
+        "jobs": {
+            "title": "Opportunités",
+            "subtitle": "Liste d'Emplois Créatifs",
+            "desc": "Trouvez votre prochain rôle dans l'industrie créative et événementielle."
+        },
+        "nightlife": {
+            "title": "Vie Nocturne",
+            "subtitle": "Où Trouver la Meilleure Ambiance",
+            "desc": "Un guide des lieux les plus sophistiqués et vibrants de la vie nocturne luxembourgeoise."
+        },
+        "tips": {
+            "title": "Secrets Locaux",
+            "subtitle": "Vivez le Luxembourg comme un Local",
+            "desc": "Expériences sélectionnées et coins cachés recommandés par ceux qui vivent ici."
+        },
+        "relocation": {
+            "title": "Guide de Relocalisation",
+            "subtitle": "Déménager au Luxembourg : Le Guide Réel",
+            "desc": "Conseils pratiques, perspectives honnêtes et la vérité sans filtre sur faire du Luxembourg votre maison."
+        },
+        "links": {
+            "streaming": "Streaming en Direct",
+            "digital_services": "Services Numériques",
+            "vlog": "Vlog et Histoires",
+            "deals": "Meilleures Offres",
+            "tools": "Outils Utiles",
+            "jobs": "Recherche d'Emploi",
+            "nightlife": "Où Sortir",
+            "tips": "Quoi Visiter",
+            "relocation": "Vivre au Luxembourg",
+            "referrals": "Parrainage et Associés"
+        }
+    },
+    "image_rights": {
+        "title": "Droits d'Image et Responsabilité",
+        "seo_title": "Droits d'Image et Politique | Welux Events",
+        "seo_desc": "Politique concernant l'utilisation des images, les droits de photographie et la responsabilité des médias chez Welux Events.",
+        "photo_policy": {
+            "title": "Politique d'utilisation des photographies",
+            "desc": "Chez Welux Events, nous sommes fiers de capturer la magie de vos moments spéciaux. Toutes les images affichées sur ce site sont soit :",
+            "list": {
+                "1": "Capturées par notre équipe officielle de photographes lors d'événements gérés par Welux Events.",
+                "2": "Photographies de stock sous licence utilisées à des fins illustratives.",
+                "3": "Fournies par des clients ou des partenaires avec une autorisation d'utilisation explicite."
+            }
+        },
+        "privacy": {
+            "title": "Confidentialité et Conformité au RGPD",
+            "desc_1": "Nous respectons la vie privée de tous les individus. Conformément au RGPD et aux lois luxembourgeoises sur la protection des données, toute personne représentée sur une photographie sur notre site web a le droit de demander son retrait si elle n'a pas donné son consentement ou si elle estime que sa vie privée est enfreinte.",
+            "removal_text": "Pour demander le retrait d'une image, veuillez nous contacter à"
+        },
+        "copyright": {
+            "title": "Avis de Droit d'Auteur",
+            "desc": "© {{year}} Welux Events. Tous droits réservés. L'utilisation, la reproduction ou la distribution non autorisée de toute image, vidéo ou contenu de ce site web sans l'autorisation écrite de Welux Events est strictement interdite."
+        }
+    }
+}

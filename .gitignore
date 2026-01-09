@@ -1,0 +1,57 @@
+# Dependencies
+/node_modules
+/pnpm-lock.yaml
+/yarn.lock
+# package-lock.json (Keep this tracked for Cloudflare stability!)
+
+# Build Outputs
+/dist
+client/dist
+/build
+/.next
+/.output
+/.vercel
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment Variables
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+/venv/
+/env/
+/pip-selfcheck.json
+
+# Custom - Recursos Externos y Secretos
+/external_resources/n8n_workflows/
+/welux-admin-app/
+MIS_CONTRASENAS*
+service-account.json
+credentials.json
