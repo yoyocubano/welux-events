@@ -68,6 +68,16 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
 
         const supabase = createClient(sbUrl, sbKey);
 
+        // --- AUTO-CLEANUP: Delete leads older than 10 days ---
+        const tenDaysAgo = new Date();
+        tenDaysAgo.setDate(tenDaysAgo.getDate() - 10);
+        
+        await supabase
+            .from('client_inquiries')
+            .delete()
+            .lt('createdAt', tenDaysAgo.toISOString());
+        // -----------------------------------------------------
+
         // Fetch leads sorted by newest first
         const { data, error } = await supabase
             .from('client_inquiries')
