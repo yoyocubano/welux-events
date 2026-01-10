@@ -19,6 +19,70 @@ const CONFIG = {
 const supabase = createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_SERVICE_ROLE_KEY);
 
 /**
+ * Traduce un lote de empleos usando la API de Deepseek
+ */
+async function translateBatch(jobs) {
+    if (!process.env.DEEPSEEK_API_KEY) {
+        console.warn('⚠️ DEEPSEEK_API_KEY no configurada. Saltando traducciones.');
+        return jobs;
+    }
+
+    console.log(`🌐 Traduciendo ${jobs.length} empleos con Deepseek...`);
+
+    for (let job of jobs) {
+        try {
+            const prompt = `Translate the following job info into English (en), Spanish (es), French (fr), German (de), Luxembourgish (lu), and Portuguese (pt).
+            Job Title: "${job.title}"
+            Location: "${job.location}"
+            
+            Return ONLY a JSON object with this structure:
+            {
+              "en": { "title": "...", "location": "..." },
+              "es": { "title": "...", "location": "..." },
+              "fr": { "title": "...", "location": "..." },
+              "de": { "title": "...", "location": "..." },
+              "lu": { "title": "...", "location": "..." },
+              "pt": { "title": "...", "location": "..." }
+            }`;
+
+            const res = await axios.post('https://api.deepseek.com/chat/completions', {
+                model: 'deepseek-chat',
+                messages: [{ role: 'user', content: prompt }],
+                response_format: { type: 'json_object' }
+            }, {
+                headers: { 'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}` }
+            });
+
+            const translations = JSON.parse(res.data.choices[0].message.content);
+            job.translations = translations;
+            
+            // Pausa breve para evitar límites de tasa
+            await new Promise(r => setTimeout(r, 200));
+        } catch (e) {
+            console.error(`❌ Error traduciendo "${job.title}":`, e.message);
+        }
+    }
+    return jobs;
+}
+
+/**
+ * Categoriza una oferta basándose en palabras clave en el título
+ */
+function categorizeJob(title) {
+    const t = (title || '').toLowerCase();
+    
+    if (t.includes('software') || t.includes('developer') || t.includes('it ') || t.includes('tech') || t.includes('data') || t.includes('informatique')) return 'IT & Technology';
+    if (t.includes('infirmier') || t.includes('nurse') || t.includes('santé') || t.includes('médical') || t.includes('soins')) return 'Healthcare';
+    if (t.includes('construction') || t.includes('bâtiment') || t.includes('ouvrier') || t.includes('maçon')) return 'Construction';
+    if (t.includes('vente') || t.includes('sales') || t.includes('comercial')) return 'Sales & Retail';
+    if (t.includes('cuisine') || t.includes('serveur') || t.includes('hotel') || t.includes('restaurante')) return 'Hospitality';
+    if (t.includes('chauffeur') || t.includes('livreur') || t.includes('driver')) return 'Transport & Logistics';
+    if (t.includes('comptable') || t.includes('finance') || t.includes('bank') || t.includes('banque')) return 'Finance & Accounting';
+    
+    return 'Other';
+}
+
+/**
  * Normaliza los datos al esquema de Welux
  */
 const createJobObject = (id, title, company, location, date, url, source, contactInfo) => ({
@@ -29,7 +93,16 @@ const createJobObject = (id, title, company, location, date, url, source, contac
     date: date || new Date().toISOString(),
     url: url || '',
     source: source,
-    contactInfo: contactInfo || 'Ver detalles en el sitio oficial'
+    contactInfo: contactInfo || 'Ver detalles en el sitio oficial',
+    category: categorizeJob(title),
+    translations: {
+        en: { title: '', location: '' },
+        es: { title: '', location: '' },
+        fr: { title: '', location: '' },
+        de: { title: '', location: '' },
+        lu: { title: '', location: '' },
+        pt: { title: '', location: '' }
+    }
 });
 
 /**
@@ -277,7 +350,7 @@ async function runAggregator() {
 
         const urlToIdMap = new Map(existingItems.map(item => [item.link_url, item.id]));
         
-        const toInsert = [];
+        const toInsertRaw = [];
         const toUpdate = [];
 
         finalJobs.forEach(job => {
@@ -287,21 +360,48 @@ async function runAggregator() {
                 subtitle: job.company,
                 description: job.location,
                 link_url: job.url,
-                badge_text: `${job.source} | ${job.contactInfo} | ${new Date(job.date).toLocaleDateString()}`,
+                badge_text: job.category,
+                metadata: {
+                    source: job.source,
+                    contact_info: job.contactInfo,
+                    date: job.date,
+                    translations: job.translations
+                }
             };
 
             if (urlToIdMap.has(job.url)) {
                 toUpdate.push({ id: urlToIdMap.get(job.url), ...item });
             } else {
-                toInsert.push({ ...item, created_at: new Date().toISOString() });
+                toInsertRaw.push(job);
             }
         });
 
-        // 2. Ejecutar inserciones
+        // 2. Solo traducir los NUEVOS para ahorrar API de Deepseek
+        let toInsert = [];
+        if (toInsertRaw.length > 0) {
+            const translatedJobs = await translateBatch(toInsertRaw);
+            toInsert = translatedJobs.map(job => ({
+                section: 'jobs',
+                title: job.title,
+                subtitle: job.company,
+                description: job.location,
+                link_url: job.url,
+                badge_text: job.category,
+                metadata: {
+                    source: job.source,
+                    contact_info: job.contactInfo,
+                    date: job.date,
+                    translations: job.translations
+                },
+                created_at: new Date().toISOString()
+            }));
+        }
+
+        // 3. Ejecutar inserciones
         if (toInsert.length > 0) {
             const { error: insError } = await supabase.from('content_items').insert(toInsert);
             if (insError) console.error('Error insertando:', insError.message);
-            else console.log(`✅ Insertados ${toInsert.length} nuevos empleos.`);
+            else console.log(`✅ Insertados ${toInsert.length} nuevos empleos (Categorizados y Traducidos).`);
         }
 
         // 3. Ejecutar actualizaciones
