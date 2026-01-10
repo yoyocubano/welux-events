@@ -38,11 +38,13 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: path.resolve(__dirname, "client", "dist"),
       emptyOutDir: true,
+      sourcemap: isDev ? true : 'hidden',
       rollupOptions: {
         output: {
           manualChunks: {
             'react-vendor': ['react', 'react-dom'],
-            'ui-vendor': ['lucide-react', 'framer-motion', 'wouter'],
+            'framer-motion': ['framer-motion'],
+            'ui-vendor': ['lucide-react', 'wouter'],
             'form-vendor': ['react-hook-form', '@hookform/resolvers', 'zod'],
             'utils': ['date-fns', 'clsx', 'tailwind-merge'],
           },
@@ -54,7 +56,7 @@ export default defineConfig(({ mode }) => {
       host: true,
       proxy: {
         // Updated to point to Wrangler (Cloudflare)
-        "/.netlify/functions": "http://localhost:8788",
+        // Proxy to Cloudflare Workers local dev
         "/api": "http://localhost:8788",
       },
       allowedHosts: [
