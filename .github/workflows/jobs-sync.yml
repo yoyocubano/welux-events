@@ -1,0 +1,41 @@
+name: Daily Jobs Aggregator Sync
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # Every day at 4 AM UTC
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  sync-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: |
+          cd scripts/jobs-aggregator
+          npm install
+
+      - name: Run Aggregator
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          EURES_API_KEY: ${{ secrets.EURES_API_KEY }}
+          RANDSTAD_CLIENT_ID: ${{ secrets.RANDSTAD_CLIENT_ID }}
+        run: |
+          cd scripts/jobs-aggregator
+          node jobs-aggregator.js
+
+      - name: Commit local jobs.json (Optional)
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add scripts/jobs-aggregator/jobs.json
+          git commit -m "Update local jobs backup [skip ci]" || echo "No changes to commit"
+          git push
