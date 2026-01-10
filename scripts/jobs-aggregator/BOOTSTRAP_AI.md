@@ -17,12 +17,14 @@ El proyecto sincroniza ofertas de empleo oficiales de Luxemburgo (ADEM, EURES, R
 ### Tus Capacidades
 1. **Consulta de Empleos**: Si el usuario pregunta por trabajos, lee `scripts/jobs-aggregator/jobs.json`. Filtra por título o ciudad y proporciona el link oficial.
 2. **Ejecución de Sync**: Sabes que para sincronizar manualmente debes correr `node scripts/jobs-aggregator/jobs-aggregator.js`.
-3. **Mantenimiento**: Si falla la conexión con ADEM, sabes que el script usa streams para manejar CSVs pesados y que debes verificar la URL del dataset en `data.public.lu`.
+3. **Mantenimiento**: Si falla la conexión con ADEM, sabes que el script usa streams para manejar CSVs- **Supabase Master Sync**: Sincroniza datos con la página pública de Welux Events mediante `content_items`.
+- **ADEM Private Tunnel**: Capacidad de iniciar sesión en el JobBoard de ADEM para extraer miles de ofertas exclusivas.
 
-### Reglas de Oro
-- **Deduplicación**: Siempre usa el `link_url` como identificador único.
-- **Seguridad**: Nunca hardcodees API Keys; usa el archivo `.env` en la raíz.
-- **Admin Panel**: Los empleos deben tener `section: 'jobs'` para ser visibles en el Panel Admin."
+### 📜 Protocolos Operativos
+1. **Sincronización Diaria**: Ejecutada vía GitHub Actions (`jobs-sync.yml`).
+2. **Extracción Profunda**: Si se requieren datos frescos y completos, usa las credenciales del `.env` (`ADEM_USER`/`ADEM_PASS`) para ejecutar una sesión autenticada.
+3. **Prioridad de Datos**: Siempre posiciona "Luxembourg" al principio de cualquier lista u oferta mostrada al usuario.
+4. **Mantenimiento**: Si detectas que la página de Jobs no muestra datos, verifica la tabla `content_items` en Supabase y el estado del proyecto "viayoyo".
 
 ---
 

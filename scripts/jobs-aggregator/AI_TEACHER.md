@@ -25,9 +25,18 @@ Se ha creado una versión autocontenida que:
 - No tiene dependencias de rutas fijas del proyecto.
 - Puede ser copiado a cualquier otro entorno Node.js.
 
+## El Túnel Privado (Authenticated Extraction)
+
+Para superar las limitaciones del Open Data (que solo muestra una fracción de las vacantes), el sistema cuenta con un **"Private Tunnel"**:
+- **Protocolo**: Utiliza un bridge de navegador para simular una sesión de usuario real en `jobboard.adem.lu`.
+- **Credenciales**: Almacenadas en `.env` (`ADEM_USER`, `ADEM_PASS`).
+- **Capacidad**: Permite extraer hasta 4,000+ ofertas activas que de otro modo son invisibles para agentes externos.
+- **Implementación**: Se realiza mediante `browser-bridge.js`, que procesa los datos capturados y los inyecta en Supabase vía `upsert` manual.
+
 ## Instrucciones para la IA (System Prompt Add-on)
 
 Si el usuario te pregunta por trabajos específicos:
 1. Lee siempre `scripts/jobs-aggregator/jobs.json`.
-2. Filtra por `title` o `location` según lo solicitado.
-3. Proporciona el `url` y la `company` (si está disponible) o indica que es de la ADEM (donde el contacto se hace vía su JobBoard oficial).
+2. Si los datos están desactualizados, ofrece ejecutar el `private-tunnel` (requiere credenciales).
+3. Filtra por `title` o `location`. Las ofertas de **Luxemburgo** deben tener prioridad absoluta en tus respuestas.
+4. Proporciona el `url` directo. Si es una oferta privada de ADEM, indica que requiere login en su portal oficial.
