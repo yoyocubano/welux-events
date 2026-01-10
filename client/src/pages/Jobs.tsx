@@ -34,18 +34,40 @@ export default function Jobs() {
         async function fetchJobs() {
             setLoading(true);
             try {
-                // Fetch from Supabase 'jobs' table
+                // Fetch from Supabase 'content_items' table where section is 'jobs'
                 const { data, error } = await supabase
-                    .from('jobs')
+                    .from('content_items')
                     .select('*')
-                    .order('created_at', { ascending: false }); // Newest first
+                    .eq('section', 'jobs');
 
                 if (error) {
                     console.error("Error fetching jobs from Supabase:", error);
-                    // Fallback static data if DB is empty/error
                     setJobs([]);
                 } else {
-                    setJobs(data as any[]);
+                    // Map content_items to Job interface
+                    const mappedJobs: Job[] = (data as any[]).map(item => ({
+                        id: item.id,
+                        title: item.title,
+                        company: item.subtitle,
+                        location: item.description,
+                        url: item.link_url,
+                        source: item.badge_text ? item.badge_text.split('|')[0].trim() : "Unknown",
+                        date_posted: item.created_at,
+                        description: "" // content_items doesn't have a specific long description, using title/description
+                    }));
+
+                    // Sort: Luxembourg first, then by date
+                    const sortedJobs = mappedJobs.sort((a, b) => {
+                        const aIsLux = a.location.toLowerCase().includes("luxembourg");
+                        const bIsLux = b.location.toLowerCase().includes("luxembourg");
+
+                        if (aIsLux && !bIsLux) return -1;
+                        if (!aIsLux && bIsLux) return 1;
+
+                        return new Date(b.date_posted).getTime() - new Date(a.date_posted).getTime();
+                    });
+
+                    setJobs(sortedJobs);
                 }
             } catch (err) {
                 console.error("Unexpected error:", err);
@@ -59,7 +81,8 @@ export default function Jobs() {
 
     const filteredJobs = jobs.filter(job =>
         job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        job.company.toLowerCase().includes(searchTerm.toLowerCase())
+        job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.location.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
@@ -76,7 +99,6 @@ export default function Jobs() {
                         <span className="hidden md:inline font-medium text-sm tracking-wide">MENU</span>
                     </button>
                 </Link>
-                {/* ContentGate for 'Jobs' removed as per public tool requirement */}
 
                 <div className="container mx-auto px-4 py-20">
 
@@ -95,7 +117,7 @@ export default function Jobs() {
                         <div className="relative flex-grow">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                             <Input
-                                placeholder="Buscar por cargo o empresa..."
+                                placeholder="Buscar por cargo, empresa o ubicación..."
                                 className="pl-10 h-12 bg-white border-gray-200"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -119,12 +141,17 @@ export default function Jobs() {
                             {filteredJobs.length > 0 ? (
                                 filteredJobs.map((job) => (
                                     <div key={job.id} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow group">
-                                        <div className="flex justify-between items-start">
-                                            <div>
-                                                <h3 className="text-xl font-semibold text-gray-900 group-hover:text-[#D4AF37] transition-colors">
-                                                    {job.title}
-                                                </h3>
-                                                <div className="flex items-center gap-4 mt-2 text-sm text-gray-500">
+                                        <div className="flex flex-col md:flex-row justify-between items-start gap-4">
+                                            <div className="flex-grow">
+                                                <div className="flex items-center gap-2 mb-2">
+                                                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-[#D4AF37] transition-colors">
+                                                        {job.title}
+                                                    </h3>
+                                                    {job.location.toLowerCase().includes("luxembourg") && (
+                                                        <span className="text-[10px] font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full uppercase tracking-tight">Luxembourg</span>
+                                                    )}
+                                                </div>
+                                                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 mb-4">
                                                     <span className="flex items-center gap-1">
                                                         <Briefcase className="w-4 h-4" />
                                                         {job.company}
@@ -137,27 +164,17 @@ export default function Jobs() {
                                                         {job.source}
                                                     </span>
                                                 </div>
-                                                <p className="mt-3 text-gray-600 line-clamp-2">
-                                                    {job.description || "Haz clic para ver más detalles sobre esta posición en el sitio oficial."}
+                                                <p className="text-gray-600 line-clamp-2">
+                                                    {job.description || `Oportunidad publicada vía ${job.source}. Haz clic en aplicar para ver los requisitos completos y datos de contacto.`}
                                                 </p>
                                             </div>
                                             <a
                                                 href={job.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="hidden md:inline-flex items-center justify-center h-10 px-6 rounded-md bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors"
+                                                className="w-full md:w-auto inline-flex items-center justify-center h-10 px-6 rounded-md bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors shrink-0"
                                             >
                                                 Aplicar
-                                            </a>
-                                        </div>
-                                        <div className="mt-4 md:hidden">
-                                            <a
-                                                href={job.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="w-full inline-flex items-center justify-center h-10 rounded-md bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors"
-                                            >
-                                                Aplicar Ahora
                                             </a>
                                         </div>
                                     </div>
@@ -166,7 +183,7 @@ export default function Jobs() {
                                 <div className="text-center py-12 bg-white rounded-lg border border-gray-200">
                                     <p className="text-gray-500">
                                         No se encontraron ofertas activas en este momento. <br />
-                                        <span className="text-sm">Prueba ejecutando el "Job Aggregator" desde el Admin para actualizar.</span>
+                                        <span className="text-sm">Prueba ejecutando el "Job Aggregator" desde el Admin para actualizar los datos.</span>
                                     </p>
                                 </div>
                             )}
@@ -175,7 +192,7 @@ export default function Jobs() {
 
                     {/* Attribution */}
                     <div className="text-center mt-12 text-xs text-gray-400">
-                        Powered by ADEM & Jooble Integrations
+                        Powered by ADEM, EURES & Private Collaborations
                     </div>
                 </div>
             </div>
