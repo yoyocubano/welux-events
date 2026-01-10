@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { toast } from "sonner";
 import { ContentManager } from "@/components/admin/ContentManager";
+import { SlidesManager } from "@/components/admin/SlidesManager";
 
 const AICreditBalance = () => {
     const [balance, setBalance] = useState<number | null>(null);
@@ -602,6 +603,22 @@ export default function Admin() {
                         </CardHeader>
                     </Card>
 
+                    {/* SLIDES MANAGER - New Module */}
+                     <Card
+                        className="cursor-pointer hover:shadow-lg transition-all border-l-4 border-amber-500 group"
+                        onClick={() => setActiveSection('slides')}
+                    >
+                        <CardHeader className="flex flex-row items-center gap-4">
+                            <div className="p-3 bg-amber-100 text-amber-600 rounded-full group-hover:scale-110 transition-transform">
+                                <MonitorPlay className="w-6 h-6" />
+                            </div>
+                            <div>
+                                <CardTitle>Presentation Slides</CardTitle>
+                                <CardDescription>Manage Intro Carousel</CardDescription>
+                            </div>
+                        </CardHeader>
+                    </Card>
+
                     {/* Vlog Module */}
                     <Card
                         className="cursor-pointer hover:shadow-lg transition-all border-l-4 border-green-500 group"
@@ -711,6 +728,18 @@ export default function Admin() {
                 >
                     <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard
                 </Button>
+
+                {activeSection === 'slides' && (
+                    <Card className="animate-in slide-in-from-right-8 duration-500 border-t-4 border-amber-500">
+                        <CardHeader>
+                            <CardTitle>Presentation Slides</CardTitle>
+                            <CardDescription>Manage images for the main slideshow.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <SlidesManager />
+                        </CardContent>
+                    </Card>
+                )}
 
                 {activeSection === 'leads' && (
                     <Card className="animate-in slide-in-from-right-8 duration-500">
@@ -951,7 +980,7 @@ export default function Admin() {
                     <ContentManager
                         section="jobs"
                         title="Jobs"
-                        labels={{ title: "Job Title", subtitle: "Type (Contract/Freelance)", description: "Location / Details", badge: "Posted Date" }}
+                        labels={{ title: "Job Title", subtitle: "Company", description: "Location", badge: "Source / Contact Info" }}
                     />
                 )}
 
