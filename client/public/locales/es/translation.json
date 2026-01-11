@@ -528,7 +528,8 @@
         "whatsapp": "WhatsApp",
         "navigation": "Navegación",
         "previous": "Anterior",
-        "next": "Siguiente"
+        "next": "Siguiente",
+        "apply": "Aplicar"
     },
     "chat": {
         "greeting": "¡Hola! Soy Rebeca IA, tu Asistente Virtual. ¿Cómo puedo ayudarte a planificar tu evento perfecto?",
@@ -619,8 +620,26 @@
         },
         "jobs": {
             "title": "Oportunidades",
-            "subtitle": "Listado de Empleos Creativos",
-            "desc": "Encuentra tu próximo rol en la industria creativa y de eventos."
+            "subtitle": "Listado de Empleos y Creatividad",
+            "desc": "Encuentra tu próximo rol en la industria creativa y de eventos.",
+            "description": "Explora vacantes por sector. Todas las ofertas son traducidas automáticamente para facilitar tu búsqueda.",
+            "search_placeholder": "Puesto, empresa o ciudad...",
+            "hide_driver": "Ocultar empleos que requieren carnet de conducir",
+            "driver_required": "Carnet Requerido",
+            "no_results": "No se encontraron ofertas en esta categoría.",
+            "no_results_hint": "Prueba a cambiar el sector o buscar otros términos.",
+            "categories": {
+                "all": "Todas",
+                "it": "IT & Tech",
+                "healthcare": "Salud",
+                "construction": "Construcción",
+                "sales": "Ventas y Retail",
+                "hospitality": "Hostelería",
+                "transport": "Logística",
+                "finance": "Finanzas"
+            },
+            "menu": "MENÚ",
+            "powered_by": "Con la tecnología de ADEM, EURES y Colaboraciones Privadas"
         },
         "nightlife": {
             "title": "Vida Nocturna",

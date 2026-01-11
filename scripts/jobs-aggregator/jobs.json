@@ -4,79 +4,303 @@
     "title": "Assistance médico-technique",
     "company": "ADEM / Empresa Privada",
     "location": "Luxembourg",
-    "date": "2026-01-10T16:12:18.453Z",
+    "date": "2026-01-10T18:48:38.434Z",
     "url": "https://adem.public.lu/fr/jobboard.html?ref=1454027696",
     "source": "ADEM",
-    "contactInfo": "Ref: 1454027696 | Postular en JobBoard ADEM"
+    "contactInfo": "Ref: 1454027696 | Postular en JobBoard ADEM",
+    "category": "IT & Technology",
+    "requiresDriver": false,
+    "translations": {
+      "en": {
+        "title": "Medical-Technical Assistant",
+        "location": "Luxembourg"
+      },
+      "es": {
+        "title": "",
+        "location": ""
+      },
+      "fr": {
+        "title": "",
+        "location": ""
+      },
+      "de": {
+        "title": "",
+        "location": ""
+      },
+      "lu": {
+        "title": "",
+        "location": ""
+      },
+      "pt": {
+        "title": "",
+        "location": ""
+      }
+    }
   },
   {
     "id": "1470804912",
     "title": "Conduite d'enquêtes",
     "company": "ADEM / Empresa Privada",
     "location": "Luxembourg",
-    "date": "2026-01-10T16:12:18.460Z",
+    "date": "2026-01-10T18:48:38.451Z",
     "url": "https://adem.public.lu/fr/jobboard.html?ref=1470804912",
     "source": "ADEM",
-    "contactInfo": "Ref: 1470804912 | Postular en JobBoard ADEM"
+    "contactInfo": "Ref: 1470804912 | Postular en JobBoard ADEM",
+    "category": "Other",
+    "requiresDriver": false,
+    "translations": {
+      "en": {
+        "title": "",
+        "location": ""
+      },
+      "es": {
+        "title": "",
+        "location": ""
+      },
+      "fr": {
+        "title": "",
+        "location": ""
+      },
+      "de": {
+        "title": "",
+        "location": ""
+      },
+      "lu": {
+        "title": "",
+        "location": ""
+      },
+      "pt": {
+        "title": "",
+        "location": ""
+      }
+    }
   },
   {
     "id": "1420473264",
     "title": "Management de structure de santé, sociale ou pénitentiaire",
     "company": "ADEM / Empresa Privada",
     "location": "Luxembourg",
-    "date": "2026-01-10T16:12:18.460Z",
+    "date": "2026-01-10T18:48:38.451Z",
     "url": "https://adem.public.lu/fr/jobboard.html?ref=1420473264",
     "source": "ADEM",
-    "contactInfo": "Ref: 1420473264 | Postular en JobBoard ADEM"
+    "contactInfo": "Ref: 1420473264 | Postular en JobBoard ADEM",
+    "category": "Healthcare",
+    "requiresDriver": false,
+    "translations": {
+      "en": {
+        "title": "",
+        "location": ""
+      },
+      "es": {
+        "title": "",
+        "location": ""
+      },
+      "fr": {
+        "title": "",
+        "location": ""
+      },
+      "de": {
+        "title": "",
+        "location": ""
+      },
+      "lu": {
+        "title": "",
+        "location": ""
+      },
+      "pt": {
+        "title": "",
+        "location": ""
+      }
+    }
   },
   {
     "id": "1437250480",
     "title": "Blanchisserie industrielle",
     "company": "ADEM / Empresa Privada",
     "location": "Luxembourg",
-    "date": "2026-01-10T16:12:18.460Z",
+    "date": "2026-01-10T18:48:38.451Z",
     "url": "https://adem.public.lu/fr/jobboard.html?ref=1437250480",
     "source": "ADEM",
-    "contactInfo": "Ref: 1437250480 | Postular en JobBoard ADEM"
+    "contactInfo": "Ref: 1437250480 | Postular en JobBoard ADEM",
+    "category": "Other",
+    "requiresDriver": false,
+    "translations": {
+      "en": {
+        "title": "",
+        "location": ""
+      },
+      "es": {
+        "title": "",
+        "location": ""
+      },
+      "fr": {
+        "title": "",
+        "location": ""
+      },
+      "de": {
+        "title": "",
+        "location": ""
+      },
+      "lu": {
+        "title": "",
+        "location": ""
+      },
+      "pt": {
+        "title": "",
+        "location": ""
+      }
+    }
   },
   {
     "id": "-1163222095",
     "title": "Relation technico-commerciale",
     "company": "ADEM / Empresa Privada",
     "location": "Luxembourg",
-    "date": "2026-01-10T16:12:18.461Z",
+    "date": "2026-01-10T18:48:38.451Z",
     "url": "https://adem.public.lu/fr/jobboard.html?ref=-1163222095",
     "source": "ADEM",
-    "contactInfo": "Ref: -1163222095 | Postular en JobBoard ADEM"
+    "contactInfo": "Ref: -1163222095 | Postular en JobBoard ADEM",
+    "category": "IT & Technology",
+    "requiresDriver": false,
+    "translations": {
+      "en": {
+        "title": "",
+        "location": ""
+      },
+      "es": {
+        "title": "",
+        "location": ""
+      },
+      "fr": {
+        "title": "",
+        "location": ""
+      },
+      "de": {
+        "title": "",
+        "location": ""
+      },
+      "lu": {
+        "title": "",
+        "location": ""
+      },
+      "pt": {
+        "title": "",
+        "location": ""
+      }
+    }
   },
   {
     "id": "-1146444879",
     "title": "Analyse et ingénierie financière",
     "company": "ADEM / Empresa Privada",
     "location": "Luxembourg",
-    "date": "2026-01-10T16:12:18.461Z",
+    "date": "2026-01-10T18:48:38.452Z",
     "url": "https://adem.public.lu/fr/jobboard.html?ref=-1146444879",
     "source": "ADEM",
-    "contactInfo": "Ref: -1146444879 | Postular en JobBoard ADEM"
+    "contactInfo": "Ref: -1146444879 | Postular en JobBoard ADEM",
+    "category": "Other",
+    "requiresDriver": false,
+    "translations": {
+      "en": {
+        "title": "",
+        "location": ""
+      },
+      "es": {
+        "title": "",
+        "location": ""
+      },
+      "fr": {
+        "title": "",
+        "location": ""
+      },
+      "de": {
+        "title": "",
+        "location": ""
+      },
+      "lu": {
+        "title": "",
+        "location": ""
+      },
+      "pt": {
+        "title": "",
+        "location": ""
+      }
+    }
   },
   {
     "id": "eures-2",
     "title": "Translator (DE/FR)",
     "company": "Publications Office of the EU",
     "location": "Luxembourg",
-    "date": "2026-01-10T16:12:17.860Z",
+    "date": "2026-01-10T18:48:37.780Z",
     "url": "https://ec.europa.eu/eures/",
     "source": "EURES",
-    "contactInfo": "Ver detalles en el sitio oficial"
+    "contactInfo": "Ver detalles en el sitio oficial",
+    "category": "Other",
+    "requiresDriver": false,
+    "translations": {
+      "en": {
+        "title": "",
+        "location": ""
+      },
+      "es": {
+        "title": "",
+        "location": ""
+      },
+      "fr": {
+        "title": "",
+        "location": ""
+      },
+      "de": {
+        "title": "",
+        "location": ""
+      },
+      "lu": {
+        "title": "",
+        "location": ""
+      },
+      "pt": {
+        "title": "",
+        "location": ""
+      }
+    }
   },
   {
     "id": "rs-1",
     "title": "Event Manager",
     "company": "Lux Event SA",
     "location": "Esch-sur-Alzette",
-    "date": "2026-01-10T16:12:17.860Z",
+    "date": "2026-01-10T18:48:37.780Z",
     "url": "https://www.randstad.lu",
     "source": "Randstad",
-    "contactInfo": "Ver detalles en el sitio oficial"
+    "contactInfo": "Ver detalles en el sitio oficial",
+    "category": "Other",
+    "requiresDriver": false,
+    "translations": {
+      "en": {
+        "title": "",
+        "location": ""
+      },
+      "es": {
+        "title": "",
+        "location": ""
+      },
+      "fr": {
+        "title": "",
+        "location": ""
+      },
+      "de": {
+        "title": "",
+        "location": ""
+      },
+      "lu": {
+        "title": "",
+        "location": ""
+      },
+      "pt": {
+        "title": "",
+        "location": ""
+      }
+    }
   }
 ]

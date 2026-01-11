@@ -525,7 +525,8 @@
         "whatsapp": "WhatsApp",
         "navigation": "Navigation",
         "previous": "Previous",
-        "next": "Next"
+        "next": "Next",
+        "apply": "Apply"
     },
     "chat": {
         "greeting": "Hello! I am Rebeca AI, your Virtual Assistant. How can I help you plan your perfect event?",
@@ -602,7 +603,25 @@
         "jobs": {
             "title": "Opportunities",
             "subtitle": "Career & Creative Listings",
-            "desc": "Find your next role in the creative and event industry."
+            "desc": "Find your next role in the creative and event industry.",
+            "description": "Explore vacancies by sector. All offers are automatically translated to facilitate your search.",
+            "search_placeholder": "Position, company or city...",
+            "hide_driver": "Hide jobs requiring a driver's license",
+            "driver_required": "License Required",
+            "no_results": "No offers found in this category.",
+            "no_results_hint": "Try changing the sector or searching for other terms.",
+            "categories": {
+                "all": "All",
+                "it": "IT & Tech",
+                "healthcare": "Healthcare",
+                "construction": "Construction",
+                "sales": "Sales & Retail",
+                "hospitality": "Hospitality",
+                "transport": "Logistics",
+                "finance": "Finance"
+            },
+            "menu": "MENU",
+            "powered_by": "Powered by ADEM, EURES & Private Collaborations"
         },
         "nightlife": {
             "title": "After Hours",

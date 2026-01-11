@@ -523,7 +523,8 @@
         "whatsapp": "WhatsApp",
         "navigation": "Navigation",
         "previous": "Zurück",
-        "next": "Weiter"
+        "next": "Weiter",
+        "apply": "Bewerben"
     },
     "chat": {
         "greeting": "Hallo! Ich bin Rebeca AI, Ihre virtuelle Assistentin. Wie kann ich Ihnen helfen, Ihr perfektes Event zu planen?",
@@ -625,7 +626,25 @@
         "jobs": {
             "title": "Chancen",
             "subtitle": "Karriere & Kreative Angebote",
-            "desc": "Finden Sie Ihre nächste Rolle in der Kreativ- und Eventbranche."
+            "desc": "Finden Sie Ihre nächste Rolle in der Kreativ- und Eventbranche.",
+            "description": "Entdecken Sie Stellenangebote nach Sektoren. Alle Angebote werden automatisch übersetzt, um Ihre Suche zu erleichtern.",
+            "search_placeholder": "Position, Firma oder Stadt...",
+            "hide_driver": "Jobs mit Führerscheinpflicht ausblenden",
+            "driver_required": "Führerschein erforderlich",
+            "no_results": "Keine Angebote in dieser Kategorie gefunden.",
+            "no_results_hint": "Versuchen Sie, den Sektor zu ändern oder nach anderen Begriffen zu suchen.",
+            "categories": {
+                "all": "Alle",
+                "it": "IT & Tech",
+                "healthcare": "Gesundheitswesen",
+                "construction": "Baugewerbe",
+                "sales": "Verkauf & Einzelhandel",
+                "hospitality": "Gastgewerbe",
+                "transport": "Logistik",
+                "finance": "Finanzen"
+            },
+            "menu": "MENÜ",
+            "powered_by": "Powered by ADEM, EURES & Private Collaborations"
         },
         "nightlife": {
             "title": "After Hours",

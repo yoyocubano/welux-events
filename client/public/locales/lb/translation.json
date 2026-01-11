@@ -508,7 +508,8 @@
         "whatsapp": "WhatsApp",
         "navigation": "Navigatioun",
         "previous": "Zeréck",
-        "next": "Weider"
+        "next": "Weider",
+        "apply": "Ufroen"
     },
     "chat": {
         "greeting": "Moien! Ech sinn d'Rebeca AI, är virtuell Assistentin. Wéi kann ech hëllefen?",
@@ -813,7 +814,25 @@
         "jobs": {
             "title": "Opportunitéiten",
             "subtitle": "Karriär & Kreativ Offeren",
-            "desc": "Fannt Är nächst Roll an der Kreativ- an Eventindustrie."
+            "desc": "Fannt Är nächst Roll an der Kreativ- an Eventbranche.",
+            "description": "Entdeckt Vakanzen no Secteur. All Offere ginn automatesch iwwersat fir Är Sich ze erliichteren.",
+            "search_placeholder": "Positioun, Firma oder Stad...",
+            "hide_driver": "Jobs mat Führerschäinpflicht ausblenden",
+            "driver_required": "Führerschäin erfuerderlech",
+            "no_results": "Keng Offeren an dëser Kategorie fonnt.",
+            "no_results_hint": "Probéiert de Secteur ze änneren oder no anere Begrëffer ze sichen.",
+            "categories": {
+                "all": "All",
+                "it": "IT & Tech",
+                "healthcare": "Gesondheetswiesen",
+                "construction": "Baugewerbe",
+                "sales": "Verkaf & Retail",
+                "hospitality": "Gastronomie",
+                "transport": "Logistik",
+                "finance": "Finanzen"
+            },
+            "menu": "MENU",
+            "powered_by": "Ugedriwwen vun ADEM, EURES & Private Kollaboratiounen"
         },
         "nightlife": {
             "title": "No Stonnen",

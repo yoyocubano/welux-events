@@ -523,7 +523,8 @@
         "whatsapp": "WhatsApp",
         "navigation": "Navigation",
         "previous": "Précédent",
-        "next": "Suivant"
+        "next": "Suivant",
+        "apply": "Postuler"
     },
     "chat": {
         "greeting": "Bonjour ! Je suis Rebeca IA, votre Assistante Virtuelle. Comment puis-je vous aider à planifier votre événement parfait ?",
@@ -721,8 +722,26 @@
         },
         "jobs": {
             "title": "Opportunités",
-            "subtitle": "Liste d'Emplois Créatifs",
-            "desc": "Trouvez votre prochain rôle dans l'industrie créative et événementielle."
+            "subtitle": "Offres d'Emploi & Créativité",
+            "desc": "Trouvez votre prochain rôle dans l'industrie créative et de l'événementiel.",
+            "description": "Explorez les postes vacants par secteur. Toutes les offres sont traduites automatiquement pour faciliter votre recherche.",
+            "search_placeholder": "Poste, entreprise ou ville...",
+            "hide_driver": "Masquer les emplois nécessitant un permis de conduire",
+            "driver_required": "Permis Requis",
+            "no_results": "Aucune offre trouvée dans cette catégorie.",
+            "no_results_hint": "Essayez de changer de secteur ou de rechercher d'autres termes.",
+            "categories": {
+                "all": "Toutes",
+                "it": "IT & Tech",
+                "healthcare": "Santé",
+                "construction": "Construction",
+                "sales": "Vente & Retail",
+                "hospitality": "Hôtellerie",
+                "transport": "Logistique",
+                "finance": "Finance"
+            },
+            "menu": "MENU",
+            "powered_by": "Propulsé par ADEM, EURES & Collaborations Privées"
         },
         "nightlife": {
             "title": "Vie Nocturne",

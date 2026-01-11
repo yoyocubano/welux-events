@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { SEO } from "@/components/SEO";
+import { FeatureSection } from "@/components/ui/FeatureSection";
 
 export default function Services() {
   const { t } = useTranslation();
@@ -121,6 +122,8 @@ export default function Services() {
         </div>
       </section>
 
+
+
       {/* Service Packages */}
       <section className="py-16 bg-background">
         <div className="container">
@@ -187,6 +190,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* Process Feature Section */}
+      <FeatureSection />
 
       {/* Specialized Services */}
       <section className="py-16 bg-gradient-to-br from-background via-secondary/20 to-background">

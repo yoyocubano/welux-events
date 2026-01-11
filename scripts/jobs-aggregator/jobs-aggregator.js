@@ -31,7 +31,7 @@ async function translateBatch(jobs) {
 
     for (let job of jobs) {
         try {
-            const prompt = `Translate the following job info into English (en), Spanish (es), French (fr), German (de), Luxembourgish (lu), and Portuguese (pt).
+            const prompt = `Translate the following job info into English (en), Spanish (es), French (fr), German (de), Luxembourgish (lb), and Portuguese (pt).
             Job Title: "${job.title}"
             Location: "${job.location}"
             
@@ -41,7 +41,7 @@ async function translateBatch(jobs) {
               "es": { "title": "...", "location": "..." },
               "fr": { "title": "...", "location": "..." },
               "de": { "title": "...", "location": "..." },
-              "lu": { "title": "...", "location": "..." },
+              "lb": { "title": "...", "location": "..." },
               "pt": { "title": "...", "location": "..." }
             }`;
 
@@ -83,6 +83,15 @@ function categorizeJob(title) {
 }
 
 /**
+ * Detecta si el empleo requiere carnet de conducir
+ */
+function needsDriverLicense(title) {
+    const t = (title || '').toLowerCase();
+    const keywords = ['chauffeur', 'driver', 'permis b', 'permis c', 'permis d', 'permis e', 'licencia', 'conductor', 'camion', 'spl'];
+    return keywords.some(k => t.includes(k));
+}
+
+/**
  * Normaliza los datos al esquema de Welux
  */
 const createJobObject = (id, title, company, location, date, url, source, contactInfo) => ({
@@ -95,12 +104,13 @@ const createJobObject = (id, title, company, location, date, url, source, contac
     source: source,
     contactInfo: contactInfo || 'Ver detalles en el sitio oficial',
     category: categorizeJob(title),
+    requiresDriver: needsDriverLicense(title),
     translations: {
         en: { title: '', location: '' },
         es: { title: '', location: '' },
         fr: { title: '', location: '' },
         de: { title: '', location: '' },
-        lu: { title: '', location: '' },
+        lb: { title: '', location: '' },
         pt: { title: '', location: '' }
     }
 });
@@ -365,7 +375,8 @@ async function runAggregator() {
                     source: job.source,
                     contact_info: job.contactInfo,
                     date: job.date,
-                    translations: job.translations
+                    translations: job.translations,
+                    requires_driver: job.requiresDriver
                 }
             };
 
@@ -391,7 +402,8 @@ async function runAggregator() {
                     source: job.source,
                     contact_info: job.contactInfo,
                     date: job.date,
-                    translations: job.translations
+                    translations: job.translations,
+                    requires_driver: job.requiresDriver
                 },
                 created_at: new Date().toISOString()
             }));

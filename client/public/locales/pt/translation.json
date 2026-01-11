@@ -523,7 +523,8 @@
         "whatsapp": "WhatsApp",
         "navigation": "Navegação",
         "previous": "Anterior",
-        "next": "Próximo"
+        "next": "Próximo",
+        "apply": "Candidatar-se"
     },
     "chat": {
         "greeting": "Olá! Sou a Rebeca IA, sua Assistente Virtual. Como posso ajudá-lo a planear o seu evento perfeito?",
@@ -750,8 +751,26 @@
         },
         "jobs": {
             "title": "Oportunidades",
-            "subtitle": "Listagens de Carreira e Criativas",
-            "desc": "Encontre o seu próximo papel na indústria criativa e de eventos."
+            "subtitle": "Listagens de Carreira e Criatividade",
+            "desc": "Encontre o seu próximo papel na indústria criativa e de eventos.",
+            "description": "Explore vagas por setor. Todas as ofertas são traduzidas automaticamente para facilitar a sua pesquisa.",
+            "search_placeholder": "Cargo, empresa ou cidade...",
+            "hide_driver": "Ocultar empregos que exigem carta de condução",
+            "driver_required": "Carta Requerida",
+            "no_results": "Nenhuma oferta encontrada nesta categoria.",
+            "no_results_hint": "Tente alterar o setor ou pesquisar outros termos.",
+            "categories": {
+                "all": "Todas",
+                "it": "IT & Tech",
+                "healthcare": "Saúde",
+                "construction": "Construção",
+                "sales": "Vendas e Retalho",
+                "hospitality": "Hotelaria",
+                "transport": "Logística",
+                "finance": "Finanças"
+            },
+            "menu": "MENU",
+            "powered_by": "Desenvolvido por ADEM, EURES & Colaborações Privadas"
         },
         "nightlife": {
             "title": "After Hours",
