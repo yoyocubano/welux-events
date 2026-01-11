@@ -6,22 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
+import { VERIFIED_JOBS, Job } from "@/lib/verified_jobs";
 
-interface Job {
-    id: string;
-    title: string;
-    company: string;
-    location: string;
-    url: string;
-    source: string;
-    date_posted: string;
-    description: string;
-    category: string;
-    metadata?: {
-        translations?: Record<string, { title: string; location: string }>;
-        requires_driver?: boolean;
-    };
-}
+
 
 const getCategories = (t: any) => [
     { id: "all", label: t("jobs.categories.all", "Todas"), icon: "📋" },
@@ -53,7 +40,7 @@ export default function Jobs() {
 
                 if (error) {
                     console.error("Error fetching jobs:", error);
-                    setJobs([]);
+                    setJobs(VERIFIED_JOBS); // Fallback to at least verified jobs
                 } else {
                     const mappedJobs: Job[] = (data as any[]).map(item => ({
                         id: item.id,
@@ -65,14 +52,25 @@ export default function Jobs() {
                         date_posted: item.created_at,
                         description: "",
                         category: item.badge_text || "Other",
+                        is_verified: false,
                         metadata: item.metadata
                     }));
 
-                    const sortedJobs = mappedJobs.sort((a, b) => {
+                    // Combine with verified jobs
+                    const combinedJobs = [...VERIFIED_JOBS, ...mappedJobs];
+
+                    const sortedJobs = combinedJobs.sort((a, b) => {
+                        // 1. Priority to Verified Jobs
+                        if (a.is_verified && !b.is_verified) return -1;
+                        if (!a.is_verified && b.is_verified) return 1;
+
+                        // 2. Then by Location (Luxembourg first)
                         const aIsLux = a.location.toLowerCase().includes("luxembourg");
                         const bIsLux = b.location.toLowerCase().includes("luxembourg");
                         if (aIsLux && !bIsLux) return -1;
                         if (!aIsLux && bIsLux) return 1;
+                        
+                        // 3. Then by Date
                         return new Date(b.date_posted).getTime() - new Date(a.date_posted).getTime();
                     });
 
@@ -199,33 +197,43 @@ export default function Jobs() {
                                 filteredJobs.map((job) => {
                                     const { title, location } = getTranslatedContent(job);
                                     return (
-                                        <div key={job.id} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition-all group relative overflow-hidden">
-                                            <div className="absolute top-0 left-0 w-1 h-full bg-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <div key={job.id} className={`bg-white p-6 rounded-xl shadow-sm border transition-all group relative overflow-hidden ${job.is_verified ? 'border-amber-200 shadow-md ring-1 ring-amber-100/50' : 'border-gray-100 hover:shadow-lg'}`}>
+                                            <div className={`absolute top-0 left-0 w-1 h-full transition-opacity ${job.is_verified ? 'bg-amber-400 opacity-100' : 'bg-[#D4AF37] opacity-0 group-hover:opacity-100'}`} />
                                             <div className="flex flex-col md:flex-row justify-between items-start gap-4">
                                                 <div className="flex-grow">
                                                     <div className="flex items-center gap-2 mb-2">
-                                                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#D4AF37] transition-colors leading-tight">
+                                                        <h3 className={`text-xl font-bold transition-colors leading-tight ${job.is_verified ? 'text-gray-900 group-hover:text-amber-600' : 'text-gray-900 group-hover:text-[#D4AF37]'}`}>
                                                             {title}
                                                         </h3>
+                                                        {job.is_verified && (
+                                                            <span className="text-[10px] font-black bg-amber-400 text-amber-950 px-2 py-0.5 rounded-sm uppercase tracking-tighter flex items-center gap-1 shadow-sm">
+                                                                ⭐ VERIFICADO
+                                                            </span>
+                                                        )}
                                                         {location.toLowerCase().includes("luxembourg") && (
                                                             <span className="text-[10px] font-black bg-blue-600 text-white px-2 py-0.5 rounded-sm uppercase tracking-tighter">LUX</span>
                                                         )}
                                                     </div>
                                                     <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 mb-4">
                                                         <span className="flex items-center gap-1 font-medium text-gray-700">
-                                                            <Briefcase className="w-4 h-4 text-[#D4AF37]" />
+                                                            <Briefcase className={`w-4 h-4 ${job.is_verified ? 'text-amber-500' : 'text-[#D4AF37]'}`} />
                                                             {job.company}
                                                         </span>
                                                         <span className="flex items-center gap-1">
                                                             <MapPin className="w-4 h-4" />
                                                             {location}
                                                         </span>
-                                                        <span className="px-2 py-0.5 bg-gray-100 rounded text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                                                        <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest ${job.is_verified ? 'bg-amber-100 text-amber-700' : 'bg-gray-100 text-gray-400'}`}>
                                                             {job.source}
                                                         </span>
                                                     </div>
+                                                    {job.description && (
+                                                        <p className="text-sm text-gray-600 mb-4 line-clamp-2 italic">
+                                                            "{job.description}"
+                                                        </p>
+                                                    )}
                                                     <div className="flex items-center gap-2">
-                                                        <span className="text-xs font-semibold px-3 py-1 bg-amber-50 text-amber-700 rounded-full border border-amber-100">
+                                                        <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${job.is_verified ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-amber-50 text-amber-700 border-amber-100'}`}>
                                                             {getCategories(t).find(c => c.id === job.category)?.label || job.category}
                                                         </span>
                                                         {job.metadata?.requires_driver && (
@@ -240,7 +248,7 @@ export default function Jobs() {
                                                         href={job.url}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="w-full md:w-auto inline-flex items-center justify-center h-10 px-8 rounded-lg bg-gray-900 text-white text-sm font-bold hover:bg-gray-800 transition-all shadow-sm active:scale-95"
+                                                        className={`w-full md:w-auto inline-flex items-center justify-center h-10 px-8 rounded-lg text-sm font-bold transition-all shadow-sm active:scale-95 ${job.is_verified ? 'bg-amber-500 text-white hover:bg-amber-600' : 'bg-gray-900 text-white hover:bg-gray-800'}`}
                                                     >
                                                         {t("common.apply", "Apply")}
                                                     </a>

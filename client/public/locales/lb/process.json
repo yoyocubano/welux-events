@@ -1,0 +1,22 @@
+{
+  "process": {
+    "title": "Eise Prozess",
+    "subtitle": "Vum Konzept bis zur Realitéit behandele mir all Detail.",
+    "step1": {
+      "title": "Berodung",
+      "desc": "Mir treffen eis fir Är Visioun a spezifesch Ufuerderungen ze verstoen."
+    },
+    "step2": {
+      "title": "Planung",
+      "desc": "Eist Team erstellt eng detailléiert Roadmap an e kreativt Konzept."
+    },
+    "step3": {
+      "title": "Ausféierung",
+      "desc": "Mir bréngen d'Evenement mat Präzisioun a Leidenschaft zum Liewen."
+    },
+    "step4": {
+      "title": "Liwwerung",
+      "desc": "Dir kritt déi definitiv beaarbecht Medien an Erënnerungen."
+    }
+  }
+}

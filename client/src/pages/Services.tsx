@@ -132,9 +132,9 @@ export default function Services() {
               const isPopular = pkg.popular === 1;
 
               return (
-                <Card
+                  <Card
                   key={pkg.id}
-                  className={`relative border-border hover:shadow-xl transition-shadow ${isPopular ? "ring-2 ring-primary" : ""
+                  className={`relative border-border hover:shadow-xl transition-shadow h-full flex flex-col ${isPopular ? "ring-2 ring-primary" : ""
                     }`}
                 >
                   {isPopular && (
@@ -163,24 +163,28 @@ export default function Services() {
                       )}
                     </div>
                   </CardHeader>
-                  <CardContent className="space-y-6">
-                    <p className="text-muted-foreground text-center">
-                      {pkg.description}
-                    </p>
-                    <ul className="space-y-3">
-                      {pkg.features.map((feature: string, idx: number) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-sm text-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/contact">
+                  <CardContent className="space-y-6 flex-grow flex flex-col justify-between">
+                    <div>
+                      <p className="text-muted-foreground text-center mb-6">
+                        {pkg.description}
+                      </p>
+                      <ul className="space-y-3">
+                        {pkg.features.map((feature: string, idx: number) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm text-foreground">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <Link href="/contact" className="w-full mt-6">
                       <Button
                         variant={isPopular ? "default" : "outline"}
-                        className={`w-full ${!isPopular ? "bg-transparent" : ""}`}
+                        className={`w-full group relative overflow-hidden ${!isPopular ? "bg-transparent" : "bg-primary text-primary-foreground"}`}
                       >
-                        {t("services_page.get_started")}
+                        <span className="relative z-10">{t("services_page.get_started")}</span>
+                        {/* Shine Effect */}
+                        <div className="absolute inset-0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-12" />
                       </Button>
                     </Link>
                   </CardContent>
@@ -226,6 +230,8 @@ export default function Services() {
                     </Button>
                   </Link>
                 </div>
+                {/* Shine Effect */}
+                <div className="absolute inset-0 -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 z-30 pointer-events-none" />
               </div>
             </Card>
 

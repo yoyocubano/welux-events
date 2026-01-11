@@ -64,12 +64,18 @@ export function FeatureSection() {
                   onClick={() => setActiveStep(index)}
                 >
                   {/* Progress Line */}
-                  <div 
-                    className={cn(
-                      "absolute left-0 top-0 bottom-0 w-[2px] transition-colors duration-300",
-                      activeStep === index ? "bg-primary" : "bg-border"
+                  {/* Progress Line with Sparkle */}
+                  <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-border overflow-hidden">
+                    {activeStep === index && (
+                       <motion.div
+                         layoutId="active-glow"
+                         className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary via-white to-primary opacity-80 blur-[2px]"
+                         initial={{ height: "0%" }}
+                         animate={{ height: "100%" }}
+                         transition={{ duration: 5, ease: "linear" }}
+                       />
                     )}
-                  />
+                  </div>
                   
                   <h3 className="text-xl font-bold font-serif mb-2">
                     {step.title}

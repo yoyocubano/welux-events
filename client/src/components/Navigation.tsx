@@ -28,13 +28,15 @@ export default function Navigation() {
       <div className="container">
         <div className="flex items-center justify-between h-20 md:h-28">
           <Link href="/" className="flex flex-col items-center group cursor-pointer lg:pb-0">
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center overflow-hidden">
               {/* Logo actualizado con ajuste móvil/escritorio */}
               <img
                 src="/logo-gold-new.png"
                 alt="Welux Events"
-                className="h-16 md:h-24 w-auto transition-all duration-300 group-hover:scale-105 object-contain drop-shadow-lg"
+                className="h-16 md:h-24 w-auto transition-all duration-300 group-hover:scale-105 object-contain drop-shadow-lg relative z-10"
               />
+              {/* Logo Shine Effect */}
+              <div className="absolute inset-0 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 z-20 pointer-events-none" />
             </div>
           </Link>
 

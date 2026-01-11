@@ -1,0 +1,22 @@
+{
+  "process": {
+    "title": "Nous Traitons",
+    "subtitle": "Du concept à la réalité, nous nous occupons de chaque détail.",
+    "step1": {
+      "title": "La Consultation",
+      "desc": "Nous nous rencontrons pour comprendre votre vision et vos exigences spécifiques."
+    },
+    "step2": {
+      "title": "La Planification",
+      "desc": "Notre équipe crée une feuille de route détaillée et un concept créatif."
+    },
+    "step3": {
+      "title": "L'Exécution",
+      "desc": "Nous donnons vie à l'événement avec précision et passion."
+    },
+    "step4": {
+      "title": "Livraison",
+      "desc": "Vous recevez les médias édités finaux et les souvenirs."
+    }
+  }
+}

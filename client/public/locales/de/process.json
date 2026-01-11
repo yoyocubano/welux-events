@@ -1,0 +1,22 @@
+{
+  "process": {
+    "title": "Unser Prozess",
+    "subtitle": "Von der Konzeption bis zur Realität kümmern wir uns um jedes Detail.",
+    "step1": {
+      "title": "Beratung",
+      "desc": "Wir treffen uns, um Ihre Vision und spezifischen Anforderungen zu verstehen."
+    },
+    "step2": {
+      "title": "Planung",
+      "desc": "Unser Team erstellt einen detaillierten Fahrplan und ein kreatives Konzept."
+    },
+    "step3": {
+      "title": "Ausführung",
+      "desc": "Wir erwecken die Veranstaltung mit Präzision und Leidenschaft zum Leben."
+    },
+    "step4": {
+      "title": "Lieferung",
+      "desc": "Sie erhalten die endgültigen bearbeiteten Medien und Erinnerungen."
+    }
+  }
+}
